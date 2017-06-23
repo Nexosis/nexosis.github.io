@@ -1,0 +1,140 @@
+<style>
+  h5.nav-listing {text-transform: capitalize;}
+  h5.category-listing {font-size: 1em;}
+  p.post-listing {font-size: .9em;}
+  p.post-listing i.fa {margin-right: 5px; color: #d0d0d0;}
+  .panel-group .panel-heading+.panel-collapse>.panel-body, .panel-group .panel-heading+.panel-collapse>.list-group {border: none;}
+  .nav-group {margin-top: 30px;}
+  .nav-group .panel {
+      background-color: #f9f9f9;
+      border-radius: 0px;
+      border-left: 2px solid #f0f0f0;
+  }
+  .nav-group .panel.active {
+      border-left: 2px solid #afb0b4;
+  }
+</style>
+
+{% assign list-icon = "fa-file-text-o" %}
+
+{% assign rawcats = "" %}
+
+{% if page.collection == "guides" %}
+  {% for post in site.guides %}
+    {% assign tcats = post.category | join:'|' | append:'|' %}
+    {% assign rawcats = rawcats | append:tcats %}
+  {% endfor %}
+{% endif %}
+
+{% if page.collection == "tutorials" %}
+  {% for post in site.tutorials %}
+    {% assign tcats = post.category | join:'|' | append:'|' %}
+    {% assign rawcats = rawcats | append:tcats %}
+  {% endfor %}
+{% endif %}
+
+{% if page.collection == "clients" %}
+  {% for post in site.clients %}
+    {% assign tcats = post.category | join:'|' | append:'|' %}
+    {% assign rawcats = rawcats | append:tcats %}
+  {% endfor %}
+{% endif %}
+
+{% assign rawcats = rawcats | split:'|' | sort %}
+
+{% assign cats = "" %}
+
+{% for cat in rawcats %}
+  {% if cat != "" %}
+
+    {% if cats == "" %}
+      {% assign cats = cat | split:'|' %}
+    {% endif %}
+
+    {% unless cats contains cat %}
+      {% assign cats = cats | join:'|' | append:'|' | append:cat | split:'|' %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+
+<!-- Post List by Category Accordion -->
+<div class="panel-group nav-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <!-- <h5 class="nav-listing">{{ page.collection }}</h5> -->
+  {% if page.collection == "guides" %}
+    {% assign cats = site.guides-category-order %}
+  {% endif %}
+  <!-- Start Category Loop -->
+  {% for ct in cats %}
+  <div class="panel {% if page.category == ct %} active {% endif %}">
+    <div id="{{ ct | slugify }}-heading" role="tab">
+      <h5 class="category-listing" role="button" data-toggle="collapse" data-parent="#accordion" href="#{{ ct | slugify }}" aria-expanded="{% if page.category == ct %} true {% else %} false {% endif %}" aria-controls="{{ ct | slugify }}">
+          {{ ct }} <i class="fa fa-angle-down pull-right"></i>
+      </h5>
+    </div>
+    <div id="{{ ct | slugify }}" class="panel-collapse collapse {% if page.category == ct %} in {% endif %}" role="tabpanel" aria-labelledby="{{ ct | slugify }}-heading">
+      <div class="panel-body">
+        <!-- Start Post Loop -->
+        {% if page.collection == "guides" %}
+          {% assign ordered = site.guides | sort: "order" %}
+          {% for post in ordered where post.category == ct %}
+            {% if post.category contains ct %}
+              <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% if page.collection == "tutorials" %}
+          {% assign ordered = site.tutorials | sort: "order" %}
+          {% for post in ordered where post.category == ct %}
+            {% if post.category contains ct %}
+              <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% if page.collection == "clients" %}
+          {% assign ordered = site.clients | sort: "order" %}
+          {% for post in ordered where post.category == ct %}
+            {% if post.category contains ct %}
+              <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        <!-- End Post Loop -->
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <!-- End Category Loop -->
+  <!-- Start Quick Links -->
+  <div class="panel">
+    <div id="quickLinks-heading" role="tab">
+      <h5 class="category-listing" role="button" data-toggle="collapse" data-parent="#accordion" href="#quickLinks" aria-expanded="false" aria-controls="quickLinks">
+          Quick Links <i class="fa fa-angle-down pull-right"></i>
+      </h5>
+    </div>
+    <div id="quickLinks" class="panel-collapse collapse" role="tabpanel" aria-labelledby="quickLinks-heading">
+      <div class="panel-body">
+        <!-- Start Post Loop -->
+        {% assign ordered = site.guides | sort: "order" %}
+        {% for post in ordered %}
+          {% if post.tags contains "Quick Links" %}
+          <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
+          {% endif %}
+        {% endfor %}
+        {% assign ordered = site.tutorials | sort: "order" %}
+        {% for post in ordered %}
+          {% if post.tags contains "Quick Links" %}
+          <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
+          {% endif %}
+        {% endfor %}
+        {% assign ordered = site.clients | sort: "order" %}
+        {% for post in ordered %}
+          {% if post.tags contains "Quick Links" %}
+          <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
+          {% endif %}
+        {% endfor %}
+        <!-- End Post Loop -->
+      </div>
+    </div>
+  </div>
+  <!-- End Quick Links -->
+</div>

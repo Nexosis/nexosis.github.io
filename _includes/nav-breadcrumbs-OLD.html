@@ -1,0 +1,30 @@
+{% if page.exclude_navbreadcrumb != true %}
+<style>
+  .breadcrumb {margin-bottom: 10px;}
+  .breadcrumb > .active a{color: #afb0b4;}
+</style>
+
+{% capture url %} {{ page.url | remove: "/" }} {% endcapture %}
+
+<ol class="breadcrumb">    
+  <li><a href="/"><i class="fa fa-home"></i></a></li>
+  
+  {% if page.collection == "guides" %}
+    <li><a href="/guides">Guides</i></a></li>
+  {% endif %}
+  
+  {% if page.collection == "tutorials" %}
+      <li><a href="/tutorials">Tutorials</i></a></li>
+  {% endif %}
+  
+  {% if page.collection == "clients" %}
+      <li><a href="/clients">API Clients</i></a></li>
+  {% endif %}
+
+  {% if page.title != "API Clients" and page.title != "Guides" and page.title != "Tutorials" %}
+  <li class="active">
+    <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>
+  </li>
+  {% endif %}
+</ol>
+{% endif %}

@@ -1,0 +1,105 @@
+title: Nexosis API
+description: Nexosis API Documentation
+
+google_analytics: [UA-64794927-6]
+
+# Where things are
+source:       .
+destination:  ./_site
+plugins_dir:  _plugins
+layouts_dir:  _layouts
+data_dir:     _data
+includes_dir: _includes
+repository: nexosis/nexosis.github.io
+collections:
+  guides:
+    output: true
+    permalink: /:collection/:name
+    layout: page
+  tutorials:
+    output: true
+    permalink: /:collection/:name
+    layout: page
+  clients:
+    output: true
+    permalink: /:collection/:name
+    layout: page
+guides-category-order:
+  - Getting Started
+  - Forecasting
+  - Impact Analysis
+  - Security
+
+# Handling Reading
+safe:                 false
+include:              [".htaccess"]
+exclude:              ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/", "README.md"]
+keep_files:           [".git", ".svn"]
+encoding:             "utf-8"
+markdown_ext:         "markdown,mkdown,mkdn,mkd,md"
+strict_front_matter: false
+
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      false
+unpublished: false
+
+# Plugins
+whitelist: []
+plugins_dir:   []
+
+# Conversion
+markdown:    kramdown
+highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Serving
+detach:  false
+port:    4000
+host:    127.0.0.1
+baseurl: "" # does not include hostname
+show_dir_listing: false
+
+# Outputting
+permalink:     date
+paginate_path: /page:num
+timezone:      null
+
+quiet:    false
+verbose:  false
+defaults: []
+
+liquid:
+  error_mode: warn
+
+# Markdown Processors
+rdiscount:
+  extensions: []
+
+redcarpet:
+  extensions: []
+
+author:
+  twitter: nexosis
+
+kramdown:
+  auto_ids:       true
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  input:          GFM
+  hard_wrap:      false
+  footnote_nr:    1
+
+tipue_search:
+  include:
+    pages: true
+    collections: [guides, tutorials, clients]
+  exclue:
+    files: [category.html, tag.html, index.html, search.html]
+    tags: [Quick Links]
+
+api_reference_baseurl: https://developers.nexosis.com/docs/services/98847a3fbbe64f73aa959d3cededb3af

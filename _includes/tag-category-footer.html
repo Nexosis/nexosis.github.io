@@ -1,0 +1,21 @@
+{% if page.exclude_navfooter != true %}
+          {% if page.title != "Overview" and page.title != "Content by Category" and page.title != "Content by Tag" and page.title != "Search Results" and page.title != "API Clients" %}
+          <div class="panel bg-color-lightGray" style="margin-top:20px;">
+            <div class="panel-body">
+              <p style="padding:0; margin:0; font-size: .85em;">
+                <!--
+                <span class="color-mediumGray">CATEGORY: </span>
+                <a class="label label-success" href="/category#{{ page.category }}">{{ page.category }}</a>
+                <span class="color-mediumGray" style="margin: 0 10px;">|</span>
+                -->
+                <span class="color-mediumGray"><i class="fa fa-tags"></i>&nbsp;&nbsp;</span> 
+                {% for tag in page.tags %}
+                  {% if tag != "Quick Links" and tag != "Favorite" %}
+                      <a class="label label-info" href="/tags#{{ tag | slugify }}">{{ tag }}</a>
+                  {% endif %}
+                {% endfor %}
+              </p>
+            </div>
+          </div>
+          {% endif %}
+{% endif %}

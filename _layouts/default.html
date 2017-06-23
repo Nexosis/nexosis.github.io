@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="{{ site.lang | default: "en-US" }}">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <meta name="description" content="{{ site.title | default: site.github.repository_name }} : {{ site.description | default: site.github.project_tagline }}">
+    <title>{{ site.title | default: site.github.repository_name }} - {{ page.title }}</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,500,600,200,100,700,800,900">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://developers.uat.nexosisdev.com/Modules/Portals.Web.Customization/Styles/customization">
+    <link rel="stylesheet" type="text/css" href="https://developers.uat.nexosisdev.com/themes/portals.themes.bootstrap/styles/bootstrap.published.less">
+    <!-- <link rel="styleshhet" type="text/css" href="https://apimgmtstknjvqlupeuywl8a.blob.core.windows.net/content/MediaLibrary/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://apimgmtstknjvqlupeuywl8a.blob.core.windows.net/content/MediaLibrary/css/nexosis-API-styles.css">
+    <link rel="stylesheet" type="text/css" href="https://apimgmtstknjvqlupeuywl8a.blob.core.windows.net/content/MediaLibrary/css/hubspot-forms.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/docs-styles.css">
+    <script src="/assets/js/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="//js.hs-analytics.net/analytics/1497015600000/2307117.js" type="text/javascript" id="hs-analytics" data-loader="hs-scriptloader"></script>
+    {% if page.use_codestyles %}<link rel="stylesheet" type="text/css" href="/assets/css/prism.css">{% endif %}
+    {% if page.tipue_search_active or layout.tipue_search_active %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{{ "/assets/tipuesearch/tipuesearch_content.js" | relative_url }}"></script>
+    <link rel="stylesheet" href="{{ "/assets/tipuesearch/css/tipuesearch.css" | relative_url }}">
+    <script src="{{ "/assets/tipuesearch/tipuesearch_set.js" | relative_url }}"></script>
+    <script src="{{ "/assets/tipuesearch/tipuesearch.min.js" | relative_url }}"></script>{% endif %}
+    <!-- Start of nexosis Zendesk Widget script -->
+    <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="nexosis.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
+    /*]]>*/</script>
+    <!-- End of nexosis Zendesk Widget script -->
+  </head>
+  <body>
+
+  <div id="docs-container" class="layout">
+    <!-- HEADER -->
+    {% include header.html %}
+    <!-- MAIN CONTENT -->
+    <div class="layout-row layout-row-content">
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+          {% include nav.html %}
+        </div>
+        <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
+          {% include page-title.html %}
+          <div id="docs-content">
+            {{ content }}
+            {% include tag-category-footer.html %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER  -->
+    {% include footer.html %}
+  </div>
+  {% include analytics.html %}
+  {% if page.use_codestyles %}<script src="/assets/js/prism/prism.js" data-default-language="markup"></script>{% endif %}
+  </body>
+</html>

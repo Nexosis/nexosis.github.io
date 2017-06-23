@@ -1,0 +1,174 @@
+/* ----- General Rules ----- */
+
+#ap-container, #docs-container {
+    width: 100%;
+    max-width: inherit;
+    margin: inherit;
+}
+.layout-row {
+    width: inherit;
+}
+.layout .layout-row {
+    display: block;
+}
+
+.small, small {
+    font-size: 85%;
+}
+
+footer ul.footer-nav {
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+/* ----- Content Rules ----- */
+#docs-content p {
+    line-height: 1.5;
+}
+
+#docs-content h2 {
+    padding-top: 15px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+#docs-content pre {
+    margin: 15px 15px 30px 10px;
+}
+
+#docs-content h3 {
+    padding: 20px 10px 10px 10px;
+    margin: 0;
+}
+
+#docs-content ul#profileTabs.nav-tabs {
+    border-bottom: 1px solid #afb0b4;
+    margin: 0;
+    padding: 0;
+}
+
+#docs-content ul.nav-tabs li {
+    border-color: #afb0b4;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+#docs-content ul.nav-tabs li a {
+    padding: 5px 15px;
+    margin-left: 10px;
+}
+
+#docs-content ul.nav-tabs li.active a {
+    font-weight: 600;
+    color: #2bb7ec;
+}
+
+#docs-content .tab-pane.active {
+    padding: 10px 0;
+}
+
+#docs-content ul {
+    list-style: outside circle;
+    padding: 10px 10px 10px 30px;
+}
+
+#docs-content li {
+    margin-bottom: 15px;
+}
+
+#docs-content p img, #docs-content div img {
+    margin: 20px 15px;
+    text-align: center;
+}
+
+#docs-content blockquote {
+    margin: 20px 30px 20px 10px;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-left-width: 10px;
+}
+
+#docs-content blockquote p {
+    color: #2bb7ec;
+}
+
+/* ----- Zone Rules ----- */
+
+.zone-header {padding: 0;}
+
+/* -- Navigation -- */ 
+
+.zone-navigation {
+    padding-top: 77px;
+    position: fixed;
+    z-index: 500;
+    background-color: #f5f5f5 !important;
+}
+.navbar.navbar-default {text-transform: capitalize; min-height: inherit; background-color: transparent;}
+.navbar-header {
+    /* padding: 10px 0 10px; */
+    font-weight: 700;
+}
+
+.navbar-header a:hover {text-decoration: none;}
+.collapse.navbar-collapse {
+    border-bottom: none;
+    margin-bottom: inherit;
+}
+header#header .collapse.navbar-collapse ul.navbar-nav {padding: 10px 0;}
+.collapse.navbar-collapse ul.navbar-nav {padding: 5px 0;}
+
+nav {
+    font-size: 12px;
+}
+
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 0;
+}
+
+#docs-home {
+    padding: 5px 0;
+}
+
+.navbar-default .navbar-nav>li>a {color: #e20467;}
+.navbar-default .navbar-nav>li>a:hover {color: #2bb7ec;}
+
+
+.breadcrumb > .active a{color: #afb0b4;}
+.breadcrumb.docs>li+li:before {content: none; padding: 0 5px; color: #afb0b4;}
+.breadcrumb.docs li, .nav>li {margin: 0 20px;}
+.breadcrumb.docs li.home {margin-left: 0;}
+
+
+
+.zone-navigation.layout-row nav, .container.layout, .layout .layout-row.layout-row-content {
+    width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+
+/* -- Content -- */ 
+
+#docs-container .layout-row-content {
+    padding-top: 110px;
+    height: initial;
+}
+
+
+#docs-container .layout .layout-row.layout-row-content {height: auto; padding-top: 110px;}
+
+
+
+
+
