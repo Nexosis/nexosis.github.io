@@ -40,7 +40,7 @@ Putting this all together, we will have a request that looks like the one below.
 ### Upload a file
 
 ``` bash
-curl -v -X POST "https://ml.nexosis.com/api/sessions/forecast?TargetColumn=sales&StartDate=2017-01-01&EndDate=2017-03-31" \
+curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?TargetColumn=sales&StartDate=2017-01-01&EndDate=2017-03-31" \
 -H "Content-Type: text/csv" \
 -H "api-key: {subscription key}" \
 --data-binary "@/path/to/file/Location A.csv"
@@ -72,7 +72,7 @@ Here we can see that we have a `sessionId`, which we will need later on.  Also, 
 ### Check status of session
 
 ``` bash
-curl -v -X GET "https://ml.nexosis.com/api/sessions/{sessionId}" \
+curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}" \
 -H "api-key: {subscription key}"
 ```
 
@@ -87,7 +87,7 @@ Results can be downloaded by issuing a GET to the results endpoint.
 ### Download session results
 
 ``` bash
-curl -v -X GET "https://ml.nexosis.com/api/sessions/{sessionId}/results" \
+curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}/results" \
 -H "api-key: {subscription key}"
 ```
 
@@ -124,7 +124,7 @@ Another common way of using the API is to upload new data as observations are ma
 ### Start session on a previously uploaded dataset
 
 ``` bash
-curl -v -X POST "https://ml.nexosis.com/api/sessions/forecast?DataSetName=LocationSales&TargetColumn=sales&StartDate=2017-01-01&EndDate=2017-03-31" \
+curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?DataSetName=LocationSales&TargetColumn=sales&StartDate=2017-01-01&EndDate=2017-03-31" \
 -H "Content-Type: application/json" \
 -H "api-key: {subscription key}" \
 -d ""

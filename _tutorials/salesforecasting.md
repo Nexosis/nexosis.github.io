@@ -150,7 +150,7 @@ First off, when we requested a forecast session we immediately received a sessio
    "links":[
       {
          "rel":"results",
-         "href":"https://ml.nexosis.com.com/api/sessions/015c7e7e-3ddf-4f13-9f03-4b3d2877ef1c/results"
+         "href":"https://ml.nexosis.com.com/v1/sessions/015c7e7e-3ddf-4f13-9f03-4b3d2877ef1c/results"
       },
       "elided for brevity" : "..."
    ]

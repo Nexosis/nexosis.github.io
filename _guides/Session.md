@@ -73,9 +73,9 @@ The session response will look like the following:
   "resultInterval": "day",
   "links":
    [ { "rel": "results",
-       "href": "https://ml.nexosis.com/api/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results" },
+       "href": "https://ml.nexosis.com/v1/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results" },
      { "rel": "data",
-       "href": "https://ml.nexosis.com/api/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1" } ]
+       "href": "https://ml.nexosis.com/v1/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1" } ]
 }
 ```
 
@@ -144,9 +144,9 @@ The response from this request will be an object with a Results property, contai
         "resultInterval": "day",
         "links":
         [ { "rel": "results",
-            "href": "https://ml.nexosis.com/api/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results" },
+            "href": "https://ml.nexosis.com/v1/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results" },
             { "rel": "data",
-            "href": "https://ml.nexosis.com/api/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1" } ]
+            "href": "https://ml.nexosis.com/v1/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1" } ]
         }
     ]
   }

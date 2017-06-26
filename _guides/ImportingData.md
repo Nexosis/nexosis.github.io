@@ -50,7 +50,7 @@ Data can be sent to the Nexosis API as either `JSON` or `CSV`.
       <p>`timestamp` is the date and time being observed and `values` are a dictionary of values observed at that time.</p>
       <pre class="language-bash">
         <code class="language-bash code-toolbar">
-          curl -v -X PUT "https://ml.nexosis.com/api/data/sales" \
+          curl -v -X PUT "https://ml.nexosis.com/v1/data/sales" \
           -H "Content-Type: application/json" \
           -H "api-key: {subscription key}" \
           --data-binary "@/path/to/file/data.json"
@@ -103,7 +103,7 @@ Data can be sent to the Nexosis API as either `JSON` or `CSV`.
       </div>
       <pre class="language-bash">
         <code class="language-bash code-toolbar">
-          curl -v -X PUT "https://ml.nexosis.com/api/data/sales?timestampColumn=date" \
+          curl -v -X PUT "https://ml.nexosis.com/v1/data/sales?timestampColumn=date" \
           -H "Content-Type: text/csv" \
           -H "api-key: {subscription key}" \
           --data-binary "@/path/to/file/data.csv"
@@ -141,7 +141,7 @@ With a Named DataSet you are able to modify the DataSet with additional and/or u
 So, issuing a `PUT` to the same *sales* DataSet above like so
 
 ``` bash
-curl -v -X PUT "https://ml.nexosis.com/api/data/sales?timestampColumn=date" \
+curl -v -X PUT "https://ml.nexosis.com/v1/data/sales?timestampColumn=date" \
 -H "Content-Type: text/csv" \
 -H "api-key: {subscription key}" \
 --data-binary "@/path/to/file/data.csv"

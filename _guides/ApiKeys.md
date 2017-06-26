@@ -11,7 +11,7 @@ use_codestyles: true
 An API key is a unique security ID that is used to identify who is accessing the API as well as a set of access rights associated with it. You can find your API key under your account Profile. These keys are generated and provided to every subscription and is how billing is accounted for and applied to an account. This means that an API key must be kept a closely guarded secret and care must be taken to protect where they are stored. 
 
 ``` bash
-PUT https://ml.nexosis.com/api/data/salesdata HTTP/1.1
+PUT https://ml.nexosis.com/v1/data/salesdata HTTP/1.1
 Content-Type: application/json
 accept: application/json
 api-key: {your nexosis apikey here}
