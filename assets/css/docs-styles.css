@@ -168,7 +168,10 @@ nav {
 
 #docs-container .layout .layout-row.layout-row-content {height: auto; padding-top: 110px;}
 
-
-
-
-
+.jumptarget:before { 
+  display: block;  
+  content: " "; 
+  margin-top: -110px; 
+  height: 110px; 
+  visibility: hidden; 
+}

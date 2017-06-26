@@ -22,7 +22,7 @@ Then optionally:
 1. Update _DataSet_ with additional new data
 2. Start a new session. Repeat.
 
-### <a name="dataset">Submit A _DataSet_</a>
+### <a name="dataset" class="jumptarget">Submit A _DataSet_</a>
 
 All Machine Learning processes must start with data and a question you are trying to gain insight into. This question could range from "How many robots will I sell next month?" to "What was the impact of our new marketing strategy on our Facebook likes?" 
 
@@ -32,7 +32,7 @@ The data submitted is very important as it is used to discover predictive relati
 
 Read [Sending Data](ImportingData) for the technical details. 
 
-### <a name="session">Initiate a _Session_</a>  
+### <a name="session" class="jumptarget">Initiate a _Session_</a>  
 
 A _Session_ is simply the a discovery process using the supplied DataSet.  
 
@@ -44,7 +44,7 @@ This is where the data science happens at scale. Behind the scenes a host of alg
 
 Read [Sessions](session) for the technical details.
 
-### <a name="results">Retrieve the Results</a>
+### <a name="results" class="jumptarget">Retrieve the Results</a>
 
 Once the Session has Complete successfully, the results can be retrieved. Depending on the type of Session, the results will contain predicion or impact analysis results.
 
