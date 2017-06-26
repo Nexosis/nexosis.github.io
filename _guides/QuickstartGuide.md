@@ -33,7 +33,7 @@ Since we are working with time series data, each row must have a timestamp of wh
 
 Now that we have some data, lets upload it and get a forecast of how these values will change over time.  To do this, we need to start a `Session`, which is the data we want to use, and the parameters needed to determine how the Nexosis machine learning algorithms should work.  Once the data and parameters are uploaded, our algorithms will start crunching the numbers to produce a set of results.
 
-For this dataset, we want to forecast the sales for the first quarter of 2017.  All we need to do is specify the `StartDate` and `EndDate` as `2017-01-01` and `2017-04-01`.  The `TargetColumn` parameter also needs to be specified, which is the value which will be Forecasted for this date range.  We will set this value to `sales`.
+For this dataset, we want to forecast the sales for the first quarter of 2017.  All we need to do is specify the `StartDate` and `EndDate` as `2017-01-01` and `2017-04-01`.  The `TargetColumn` parameter also needs to be specified, which is the value which will be forecasted for this date range.  We will set this value to `sales`.
 
 Putting this all together, we will have a request that looks like the one below.  Make sure to replace the `{subscription key}` section with your [actual subscription key](https://developers.nexosis.com/developer), and replace the file path with the path to one of the sample files that was downloaded earlier.
 
@@ -57,7 +57,13 @@ Once the data has uploaded, you should see a response similar to this:
   "dataSetName": "forecast.{sessionId}",
   "targetColumn": "sales",
   "startDate": "2017-01-01T00:00:00+00:00",
-  "endDate": "2017-04-01T00:00:00+00:00"
+  "endDate": "2017-04-01T00:00:00+00:00",
+  "columns": 
+  {
+    "timeStamp": { dataType: "date", role: "timestamp" },
+    "sales": { dataType: "numeric", role: "target" },
+    "transactions": { dataType: "numeric" }
+  }
 }
 ```
 
