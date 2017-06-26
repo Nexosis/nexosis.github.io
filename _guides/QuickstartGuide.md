@@ -93,25 +93,25 @@ The body of this response is the forecasted values over the requested date range
     {
       "timestamp": "2017-01-01T00:00:00+00:00",
       "values": {
-        "0.5": 1911.46871429984
+        "sales": 1911.46871429984
       }
     },
     {
       "timestamp": "2017-01-02T00:00:00+00:00",
       "values": {
-        "0.5": 4330.20981465731
+        "sales": 4330.20981465731
       }
     },
     {
       "timestamp": "2017-01-03T00:00:00+00:00",
       "values": {
-        "0.5": 4573.98547777211
+        "sales": 4573.98547777211
       }
     },
 ...
 ```
 
-The values object contains a key value pair of the confidence interval, and the prediction value.  You can see what these results look like by plotting both datasets in your favorite charting library.
+The values object contains a key value pair of the column name, and the prediction value.  You can see what these results look like by plotting both datasets in your favorite charting library.
 
 ------
 
