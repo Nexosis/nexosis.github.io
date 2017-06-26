@@ -14,30 +14,34 @@ A Session is a request for the Nexosis API to perform some calculations on data.
 ------
 
 ## Types of Sessions
+
 A Session can be either a [Forecast](forecast) session or an [Impact Analysis](impactanalysis) session.
 
 ------
 
 ## Starting a Session
+
 To start a session, you issue a `POST` to [/sessions/forecast]({{site.api_reference_baseurl}}/operations/591364310a0a0e0e30f80abd) or [/sessions/impact]({site.api_reference_baseurl}}/operations/591364310a0a0e0e30f80abc), depending on the type of session you're trying to start.
 
 ### Session Requests
-A request to start a session takes the following query string parmaeters:
 
-* `dataSetName` *(optional)* - The name of the DataSet on whose data the session performs its calculations.  This parameter is optional.  If a dataSetName is omitted from the request, you **must** provide data for the session in the body of this `POST` request.  When the dataSetName is omitted, the Nexosis API will generate a unique DataSet name.  
+A request to start a session takes the following query string parameters:
+
+* `dataSetName` *(optional)* - The name of the DataSet on whose data the session performs its calculations.  This parameter is optional.  If a dataSetName is omitted from the request, you **must** provide data for the session in the body of this `POST` request.  When the dataSetName is omitted, the Nexosis API will generate a unique DataSet name.
 * `targetColumn` - The column in the DataSet that is the target of the calculation being performed.  In the case of [Forecasting](forecast), this is column for which we want to generate predictions.  In the case of [Impact Analysis](impactanalysis), this is the column in the DataSet against which we want to calculate the impact of an event.
 * `startDate` - The start date of the session.  In Forecast sessions, this is the start of the forecast period.  In Impact Analysis sessions, this is the start of the even whose impact is being calculated.
 * `endDate` - The end date of the session.
-* `resultInterval` *(optional)* - The date/time interval (e.g. Day, Hour) at which predictions should be generated.  So, if `Hour` is specified for this parameter you will get a Result record for each hour between `startDate` and `endDate`.  If unspecified, we'll generate predictions at a `Day` interval.  
+* `resultInterval` *(optional)* - The date/time interval (e.g. Day, Hour) at which predictions should be generated.  So, if `Hour` is specified for this parameter you will get a Result record for each hour between `startDate` and `endDate`.  If unspecified, we'll generate predictions at a `Day` interval.
 * `callbackUrl` *(optional)* - The Webhook url that will receive updates when the Session status changes
 If you provide a callback url, your response will contain a header named Nexosis-Webhook-Token. You will receive this same header in the request message to your Webhook, which you can use to validate that the message came from Nexosis.
-* `isEstimate` *(optional)* - If specified, the submitted data will not be saved, and the session will not be processed. The returned `nexosis-request-cost` header will be populated with the estimated cost that the request would have incurred.
+* `isEstimate` *(optional)* - If specified, the submitted data will not be saved, and the session will not be processed. The returned `Nexosis-Request-Cost` header will be populated with the estimated cost that the request would have incurred.
 
 In addition, an Impact session requires the following parameters:
 
 * `eventName` - A label to put on the the thing whose impact we are trying to calculate.
 
 ### Session-Scoped Data
+
 Optionally, you can send data for the Session along with the request to start the session.  In this case, the API will create a DataSet that's uniquely scoped to this individual session.  We call this a **Session-Scoped** DataSet.
 
 If a `dataSetName` is provided in the Session request along with data in the body of the request, the Nexosis API will use that `dataSetName` in the unique name that it generates for the Session-Scoped DataSet.
@@ -45,46 +49,44 @@ If a `dataSetName` is provided in the Session request along with data in the bod
 ------
 
 ## Retrieving a Session
+
 You can retrieve an individual session by issuing a `GET` request to [/sessions/\{SessionId\}]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a8/)
 
 The session response will look like the following:
 
-``` json 
-{ sessionId: '015c5f15-cbc6-43ee-a7a9-f7af8a456bd1',
-  type: 'forecast',
-  status: 'completed',
-  statusHistory:
-   [ { date: '2017-05-31T15:18:02.950271+00:00',
-       status: 'requested' },
-     { date: '2017-05-31T15:18:03.0877088+00:00', status: 'started' },
-     { date: '2017-05-31T15:23:01.2470011+00:00',
-       status: 'completed' } ],
-  extraParameters: {},
-  dataSetName: 'forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1',
-  targetColumn: 'foo',
-  startDate: '2017-05-12T00:00:00+00:00',
-  endDate: '2017-07-01T00:00:00+00:00',
-  callbackUrl: 'https://d8fe87ba.ngrok.io/payload',
-  isEstimate: false,
-  resultInterval: 'day',
-  links:
-   [ { rel: 'results',
-       href: 'https://ml.nexosis.com/api/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results' },
-     { rel: 'model',
-       href: 'https://ml.nexosis.com/api/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/forecast/model/foo' },
-     { rel: 'data',
-       href: 'https://ml.nexosis.com/api/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1' } ] 
+``` json
+{ "sessionId": "015c5f15-cbc6-43ee-a7a9-f7af8a456bd1",
+  "type": "forecast",
+  "status": "completed",
+  "statusHistory":
+   [ { "date": "2017-05-31T15:18:02.950271+00:00",
+       "status": "requested" },
+     { "date": "2017-05-31T15:18:03.0877088+00:00", "status": "started" },
+     { "date": "2017-05-31T15:23:01.2470011+00:00", "status": "completed" } ],
+  "extraParameters": {},
+  "dataSetName": "forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1",
+  "targetColumn": "foo",
+  "startDate": "2017-05-12T00:00:00+00:00",
+  "endDate": "2017-07-01T00:00:00+00:00",
+  "callbackUrl": "https://d8fe87ba.ngrok.io/payload",
+  "isEstimate": false,
+  "resultInterval": "day",
+  "links":
+   [ { "rel": "results",
+       "href": "https://ml.nexosis.com/api/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results" },
+     { "rel": "data",
+       "href": "https://ml.nexosis.com/api/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1" } ]
 }
 ```
 
 * `sessionId` - The unique Id of the session
 * `type` - The type of the session.  Either ["forecast"](forecast) or ["impact"](impactanalysis).
 * `status` - The status of the session.  Can be one of the following
-    - `requested` - The session has been submitted but not picked up yet.
-    - `started` - Calculations have started on the session.
-    - `completed` - Calculations have completed and the results are ready
-    <!--`cancelled` (leaving this out because we don't have cancel capability yet)-->
-    - `failed` - There was a failure when trying to run the session
+  * `requested` - The session has been submitted but not picked up yet.
+  * `started` - Calculations have started on the session.
+  * `completed` - Calculations have completed and the results are ready
+  <!--`cancelled` (leaving this out because we don't have cancel capability yet)-->
+  * `failed` - There was a failure when trying to run the session
 * `statusHistory` - The history of status changes on this session.
 * `extraParameters` - In the case of Impact sessions, this property will contain the event name, e.g. `{eventName: "MyEvent"}`
 * `dataSetName` - The `dataSetName` provided in the request to start the session.  In the case where no dataSetName was provided in the request to start the session and you submitted data along with the session request, we'll generate a name for you.
@@ -95,21 +97,24 @@ The session response will look like the following:
 * `callbackUrl` - The `callbackUrl` from the request to start the session.
 
 ### Status Header
+
 An individual session request will also respond with an HTTP Response header named `Nexosis-Session-Status`, containing the same status as in the body.  So, you can use the HTTP `HEAD` verb to only get this status without returning the session body.
 
 ### Session Links
+
 The Session object returned also contains some links with urls pointing to resources related to that session:
 
 * `results` - The results of the session.  Either the forecasted values or the Impact Analysis results
-* `model` - Information about how the Nexosis Api generated the results for this session
 * `data` - DataSet used for the session.
 
 ------
 
 ## Querying Sessions
+
 You can list your sessions by issuing a `GET` request to [/sessions]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a6/)
 
 A sessions query takes the following optional parameters in the query string
+
 * `dataSetName` - Limits sessions to those for a particular dataset
 * `eventName` - Limits impact sessions to those for a particular event
 * `startDate` - Limits sessions to those created on or after the specified date
@@ -117,40 +122,39 @@ A sessions query takes the following optional parameters in the query string
 
 The response from this request will be an object with a Results property, containing an array of Session objects.
 
-```json
+``` json
 {
-    results: [
-        { sessionId: '015c5f15-cbc6-43ee-a7a9-f7af8a456bd1',
-        type: 'forecast',
-        status: 'completed',
-        statusHistory:
-        [ { date: '2017-05-31T15:18:02.950271+00:00',
-            status: 'requested' },
-            { date: '2017-05-31T15:18:03.0877088+00:00', status: 'started' },
-            { date: '2017-05-31T15:23:01.2470011+00:00',
-            status: 'completed' } ],
-        extraParameters: {},
-        dataSetName: 'forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1',
-        targetColumn: 'foo',
-        startDate: '2017-05-12T00:00:00+00:00',
-        endDate: '2017-07-01T00:00:00+00:00',
-        callbackUrl: 'https://d8fe87ba.ngrok.io/payload',
-        isEstimate: false,
-        resultInterval: `day`,
-        links:
-        [ { rel: 'results',
-            href: 'https://ml.nexosis.com/api/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results' },
-            { rel: 'model',
-            href: 'https://ml.nexosis.com/api/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/forecast/model/foo' },
-            { rel: 'data',
-            href: 'https://ml.nexosis.com/api/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1' } ] 
+    "results": [
+        { "sessionId": "015c5f15-cbc6-43ee-a7a9-f7af8a456bd1",
+        "type": "forecast",
+        "status": "completed",
+        "statusHistory":
+        [ { "date": "2017-05-31T15:18:02.950271+00:00",
+            "status": "requested" },
+            { "date": "2017-05-31T15:18:03.0877088+00:00", "status": "started" },
+            { "date": "2017-05-31T15:23:01.2470011+00:00", "status": "completed" } ],
+        "extraParameters": {},
+        "dataSetName": "forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1",
+        "targetColumn": "foo",
+        "startDate": "2017-05-12T00:00:00+00:00",
+        "endDate": "2017-07-01T00:00:00+00:00",
+        "callbackUrl": "https://d8fe87ba.ngrok.io/payload",
+        "isEstimate": false,
+        "resultInterval": "day",
+        "links":
+        [ { "rel": "results",
+            "href": "https://ml.nexosis.com/api/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results" },
+            { "rel": "data",
+            "href": "https://ml.nexosis.com/api/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1" } ]
         }
     ]
-}
+  }
 ```
+
 ------
 
 ## Retrieving Session Results
+
 You can retrieve the results from an individual session by issuing a `GET` request to [/sessions/\{sessionId\}]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a7), where the `sessionId` is the unique Id for a session.
 
 Session Results, in general, come back in the following form:
@@ -195,5 +199,3 @@ Session Results, in general, come back in the following form:
 * `data` - The predicted values that the Nexosis Api generated.
 
 Interpretation of the values in `metrics` and `data` is different between [Forecast](forecast) and [Impact Analysis](impactanalysis) sessions, so you'll want to go to those pages to learn more about what to do with them.
-
-
