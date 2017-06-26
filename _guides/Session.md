@@ -48,7 +48,7 @@ If a `dataSetName` is provided in the Session request along with data in the bod
 
 ------
 
-## <a name="retrievingSession">Retrieving a Session</a>
+## <a name="retrievingSession" class="jumptarget">Retrieving a Session</a>
 
 You can retrieve an individual session by issuing a `GET` request to [/sessions/\{SessionId\}]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a8/)
 
