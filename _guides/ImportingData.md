@@ -138,7 +138,7 @@ The response to the `PUT` will be an `HTTP 200` with a response body that is a s
 
 ``` json
 {
-  dataSetName: "sales"
+  "dataSetName": "sales"
 }
 ```
 
