@@ -13,7 +13,7 @@ When you first visit [the Nexosis API website](https://developers.nexosis.com) y
 
 ![anonymous user warning](../assets/img/interactive_anonymous.png)
 
-To remedy this situation you can get started by clicking the *Sign In* link in the upper right corner of the page. This will take you to the [login page](https://account.nexosis.com/account/login) where you will see the following panel. 
+To remedy this situation you can get started by clicking the *Sign In* link in the upper right corner of the page. This will take you to the [login page](https://account.nexosis.com/account/login) where you will see the following panel.
 
 <img alt="account login" src="../assets/img/account_login.png" height="425"/>
 
@@ -29,7 +29,7 @@ To create your account by associating it with one of the 3rd party providers cli
 <img alt="account login" src="../assets/img/facebook_oauth_small.png" height="225"/>
 </div>
 
-When you are done signing in with your provider you will be directed back to Nexosis in order to finish adding your account details. A few details are filled in for you based on your provider's supplied account information. You can modify these 
+When you are done signing in with your provider you will be directed back to Nexosis in order to finish adding your account details. A few details are filled in for you based on your provider's supplied account information. You can modify these.
 >Notice the checkbox at the bottom which allows you to add sample data to your account. Select this option if you plan to follow along with some of our tutorials, or if you want to play with the API but don't have your own data yet.
 
 <img alt="finish oauth signup" src="../assets/img/oauth_complete_signup.png" height="320"/>
@@ -43,10 +43,10 @@ If you don't have an account with one of our integrated providers, or simply don
 
 ### Obtaining Your API Keys
 
-Now that you're a registered user you can start using the API with your own code. In order to call the API you must send your API key in the header of all your requests. You can find this key under [your profile page](https://developers.nexosis.com/developer). To get to your profile either navigate to https://developers.nexosis.com/developer directly or choose profile from the upper right navigation when you are logged into the site.
+Now that you're a registered user you can start using the API with your own code. In order to call the API you must send your API key in the header of all your requests. You can find this key under [your profile page](https://developers.nexosis.com/developer). To get to your profile either navigate to [https://developers.nexosis.com/developer](https://developers.nexosis.com/developer) directly or choose profile from the upper right navigation when you are logged into the site.
 
 <p>
-You have two API keys - a primary and secondary - which are masked. To show your key and copy it, just click *show* to the right of it.
+You have two API keys - a primary and secondary - which are masked. To show your key and copy it, just click *Show* to the right of it.
 </p>
 
 <img src="../assets/img/api_keys.png" alt="obtain api keys"/>
