@@ -23,7 +23,7 @@ api-key: {your nexosis apikey here}
 
 ## Protect Your Key
 
-Each account will always have two concurrent active API keys, designated as "Primary" and "Secondary." In certain situations, it may be necessary to discard one of these keys and create a new one -- for example, if a developer accidently commits their Nexosis API key to a public source code repo for all the world to see. For situations like these, one or both of the API keys can be regenerated, activating a new key immediately supplanting the old key rendering it useless. Any program using the old revoked key will then fail with 401 Unauthorized errors from the API endpoint. 
+Each account will always have two concurrent active API keys, designated as "Primary" and "Secondary." In certain situations, it may be necessary to discard one of these keys and create a new one -- for example, if a developer accidently commits their Nexosis API key to a public source code repo for all the world to see. For situations like these, one or both of the API keys can be regenerated.  Activating a new key will immediately supplant the old key, rendering it useless. Any program using the old revoked key will then fail with 401 Unauthorized errors from the API endpoint.
 
 <p align="center">  <img alt="API Keys" src="/assets/img/api_keys.png"/><br/>
 <strong><em>Click "Regenerate" to revoke the old key and generate a new one.</em></strong></p>
@@ -44,7 +44,7 @@ There are important thinks to keep a watch out for that should require a key to 
 * API key is exposed publicly, such as a source code repo or in HTML or JavaScript source code.
 * A computer with the key stored on it was stolen or comprised.
 * You suspect unauthorized key use.
-* A developer with access to the key has left your company Primary Key.
+* A developer with access to the Primary Key has left your company.
 * Someone gained unauthorized access to your Nexosis Account.
 * When a key is old. The older a key is, the higher the probability it could have been compromised.
 
