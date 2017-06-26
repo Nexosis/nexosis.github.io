@@ -199,19 +199,15 @@ When the session has completed we can make a call to get the results. The call t
    },
    "data":[
       {
-         "timestamp":"2017-01-23T00:00:00+00:00",
-         "values":{
-            "sales":3942.12925494088
-         }
+        "timestamp":"2017-01-23T00:00:00+00:00",
+        "sales":3942.12925494088
       },
       {
         "lots of other values elided" : "..."
       }
       {
          "timestamp":"2017-03-22T00:00:00+00:00",
-         "values":{
-            "sales":4974.02521814307
-         }
+         "sales":4974.02521814307
       }
    ]
 }

@@ -63,38 +63,28 @@ Data can be sent to the Nexosis API as either `JSON` or `CSV`.
             "data": [
               {
                 "timestamp": "2017-05-25T00:00:00+00:00",
-                "values": {
-                  "sales": 1000.0,
-                  "orders": 100
-                }
+                "sales": 1000.0,
+                "orders": 100
               },
               {
                 "timestamp": "2017-05-26T00:00:00+00:00",
-                "values": {
-                  "sales": 980.0,
-                  "orders": 98
-                }
+                "sales": 980.0,
+                "orders": 98
               },
               {
                 "timestamp": "2017-05-27T00:00:00+00:00",
-                "values": {
-                  "sales": 1100.0,
-                  "orders": 110
-                }
+                "sales": 1100.0,
+                "orders": 110
               },
               {
                 "timestamp": "2017-05-28T00:00:00+00:00",
-                "values": {
-                  "sales": 1080.0,
-                  "orders": 108
-                }
+                "sales": 1080.0,
+                "orders": 108
               },
               {
                 "timestamp": "2017-05-29T00:00:00+00:00",
-                "values": {
-                  "sales": 1110.0,
-                  "orders": 111
-                }
+                "sales": 1110.0,
+                "orders": 111
               }
             ]
           }

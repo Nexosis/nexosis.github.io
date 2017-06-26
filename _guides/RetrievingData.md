@@ -53,17 +53,13 @@ The response from this request will look like the following:
   "data": [
     {
       "timestamp": "2013-01-01T00:00:00+00:00",
-      "values": {
-        "sales": 1500.56,
-        "orders": 150
-      }
+      "sales": 1500.56,
+      "orders": 150
     },
     {
       "timestamp": "2013-01-02T00:00:00+00:00",
-      "values": {
-        "sales": 4078.52,
-        "orders": 407
-      }
+      "sales": 4078.52,
+      "orders": 407
     },
     ...
   ]

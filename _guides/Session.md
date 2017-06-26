@@ -179,15 +179,11 @@ Session Results, in general, come back in the following form:
   "data": [
     {
       "timestamp": "2017-01-01T00:00:00+00:00",
-      "values": {
-        "sales": 2948.74805590679
-      }
+      "sales": 2948.74805590679
     },
     {
       "timestamp": "2017-01-02T00:00:00+00:00",
-      "values": {
-        "sales": 1906.35816791768
-      }
+      "sales": 1906.35816791768
     },
     ...
   ]
