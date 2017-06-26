@@ -14,11 +14,13 @@ use_codestyles: true
 Before coding up your first application, take a moment to familiarize yourself with the process and concepts of generating predictions and measuring impact.
 
 We've worked hard to keep the high-level process simple. Here's the basic process:
+
 1. [Submit a _DataSet_](#dataset)
 2. [Initiate a _Forecast Session_ or an _Impact Analysis Session_](#session)
 3. [Retrieve the Results](#results)
 
 Then optionally:
+
 1. Update _DataSet_ with additional new data
 2. Start a new session. Repeat.
 
@@ -30,22 +32,23 @@ To use the Nexosis API, you must provide us with a _DataSet_. This DataSet is si
 
 The data submitted is very important as it is used to discover predictive relationships within the data using a host of algorithms. This discovery process happens during  what we call a _Session_.
 
-Read [Sending Data](ImportingData) for the technical details. 
+Read [Sending Data](ImportingData) for the technical details.
 
-### <a name="session" class="jumptarget">Initiate a _Session_</a>  
+### <a name="session" class="jumptarget">Initiate a _Session_</a>
 
-A _Session_ is simply the a discovery process using the supplied DataSet.  
+A _Session_ is simply the a discovery process using the supplied DataSet.
 
 There are two types of Sessions today:
+
 * [Forecasting](Forecast)
 * [Impact Analysis](ImpactAnalysis)
 
-This is where the data science happens at scale. Behind the scenes a host of algorithms will work to discover what makes your DataSet tick, attempting to find what factors are influential to others, where the correlations are and ultimately provide predictions or impact.  
+This is where the data science happens at scale. Behind the scenes a host of algorithms will work to discover what makes your DataSet tick, attempting to find what factors are influential to others, where the correlations are and ultimately provide predictions or impact.
 
 Read [Sessions](session) for the technical details.
 
 ### <a name="results" class="jumptarget">Retrieve the Results</a>
 
-Once the Session has Complete successfully, the results can be retrieved. Depending on the type of Session, the results will contain predicion or impact analysis results.
+Once the Session has Complete successfully, the results can be retrieved. Depending on the type of Session, the results will contain prediction or impact analysis results.
 
 Read [Retrieving a Session](session#retrievingSession) for more technical details.
