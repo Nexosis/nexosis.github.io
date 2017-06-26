@@ -27,8 +27,8 @@ Named DataSets are created and updated through the [Data]({{ site.api_reference_
 
 For example, you'll want to use this type of DataSet if you're forecasting sales data for the next month for a product.  For that case you'd want to create a named DataSet called 'sales', initially populate it with your historical sales data for that product, and then periodically send updated sales data to that same DataSet and generate a new set of forecasts.
 
-
 ### Session-scoped DataSets
+
 Session-scoped DataSets are more for single-use scenarios.  For example, if you have a static DataSet for which you want to perform [Impact Analysis](ImpactAnalysis) a single time, then you'll want to send that data as session-scoped.
 
 Session-scoped DataSets are created by sending the data in the body of a [Session](session) request.
@@ -135,6 +135,7 @@ Data can be sent to the Nexosis API as either `JSON` or `CSV`.
 ### Response
 
 The response to the `PUT` will be an `HTTP 200` with a response body that is a summary of the DataSet.
+
 ``` json
 {
   dataSetName: "sales"
@@ -155,6 +156,7 @@ curl -v -X PUT "https://ml.nexosis.com/api/data/sales?timestampColumn=date" \
 -H "api-key: {subscription key}" \
 --data-binary "@/path/to/file/data.csv"
 ```
+
 ``` csv
 date,sales,orders
 2017-05-29,1120,112
@@ -163,6 +165,7 @@ date,sales,orders
 ```
 
 Will result in the sales DataSet containing the following records:
+
 ``` csv
 2017-05-25,1000,100
 2017-05-26,980,98
