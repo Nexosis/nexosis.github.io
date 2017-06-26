@@ -21,7 +21,7 @@ A Session can be either a [Forecast](forecast) session or an [Impact Analysis](i
 
 ## Starting a Session
 
-To start a session, you issue a `POST` to [/sessions/forecast]({{site.api_reference_baseurl}}/operations/591364310a0a0e0e30f80abd) or [/sessions/impact]({site.api_reference_baseurl}}/operations/591364310a0a0e0e30f80abc), depending on the type of session you're trying to start.
+To start a session, you issue a `POST` to [/sessions/forecast]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41ab) or [/sessions/impact]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41aa), depending on the type of session you're trying to start.
 
 ### Session Requests
 
