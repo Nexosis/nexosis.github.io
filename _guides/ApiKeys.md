@@ -18,6 +18,7 @@ api-key: {your nexosis apikey here}
 
 {redacted}
 ```
+
 <p align="center"><em><strong>The API key is submitted as an HTTP Header named 'api-key' in every request.</strong></em></p>
 
 ## Protect Your Key
@@ -32,12 +33,13 @@ Each account will always have two concurrent active API keys, designated as "Pri
 In this example, assume the application is using the key named "Primary Key" and you suspect it has been compromised and it needs regenerated.
 
 1. Regenerate "Secondary Key" as this ensures it's new and secure.
-2. Change all applications using Nexosis API to use "Secondary Key." 
-3. Validate all applications using "Secondary Key" are functioning correctly. Once tested throughly, release to production.
+2. Change all applications using Nexosis API to use "Secondary Key."
+3. Validate all applications using "Secondary Key" are functioning correctly. Once tested thoroughly, release to production.
 4. Finally, regenerate "Primary Key" to make sure any unauthorized users cannot use this key to access the application.
 
 ### When To Regenerate a Key
-There are important thinks to keep a watch out for that should require a key to be regenerated: 
+
+There are important thinks to keep a watch out for that should require a key to be regenerated:
 
 * API key is exposed publicly, such as a source code repo or in HTML or JavaScript source code.
 * A computer with the key stored on it was stolen or comprised.

@@ -130,4 +130,4 @@ curl -v -X POST "https://ml.nexosis.com/api/sessions/forecast?DataSetName=Locati
 -d ""
 ```
 
-Now that you are familiar with the basics, try running forecasts against new datasets, or, take a look at the [code samples](https://github.com/Nexosis/samples) and [C# client](https://www.nuget.org/packages/Nexosis.Api.Client), and write an application which integrates with the API.  Show us what you were able to build!
+Now that you are familiar with the basics, try running forecasts against new datasets, or, take a look at the [code samples](https://github.com/Nexosis/samples) and [client libraries](/clients), and write an application which integrates with the API.  Show us what you were able to build!
