@@ -87,6 +87,7 @@ The session response will look like the following:
   * `completed` - Calculations have completed and the results are ready
   <!--`cancelled` (leaving this out because we don't have cancel capability yet)-->
   * `failed` - There was a failure when trying to run the session
+  * `estimated` - The session was requested with parameter `isEstimate` set to `true`.  It will not actually be executed.
 * `statusHistory` - The history of status changes on this session.
 * `extraParameters` - In the case of Impact sessions, this property will contain the event name, e.g. `{eventName: "MyEvent"}`
 * `dataSetName` - The `dataSetName` provided in the request to start the session.  In the case where no dataSetName was provided in the request to start the session and you submitted data along with the session request, we'll generate a name for you.
