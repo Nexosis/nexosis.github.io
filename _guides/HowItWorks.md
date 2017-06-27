@@ -43,7 +43,7 @@ A _Session_ is simply the a discovery process using the supplied DataSet.
 
 There are two types of Sessions today:
 
-* [Forecasting](Forecast)
+* [Forecasting](forecast)
 * [Impact Analysis](ImpactAnalysis)
 
 This is where the data science happens at scale. Behind the scenes a host of algorithms will work to discover what makes your DataSet tick, attempting to find what factors are influential to others, where the correlations are and ultimately provide predictions or impact.
