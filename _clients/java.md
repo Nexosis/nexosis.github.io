@@ -171,9 +171,14 @@ To analyze the impact of a past event, the platform needs to know the DataSet na
 ### Check On Session Status
 
 ``` java
+// After starting a Session...
+
 while (results.getStatus() != SessionStatus.COMPLETED) {
-        SessionResult results = nexosisClient.getSessions().getResults(savedSessionId);    
+        SessionResult results = nexosisClient.getSessions().getResults(savedSessionId);
+         Thread.sleep(4000);
 }
+
+// Retrieve the Results.
 ```
 
 ### Issues
