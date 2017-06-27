@@ -8,6 +8,7 @@ tags: [Ruby, Gem]
 use_codestyles: true
 ---
 
-## Coming soon
+## Gem: https://rubygems.org/gems/nexosis_api
+### Source: https://github.com/Nexosis/nexosisclient-rb 
 
 
