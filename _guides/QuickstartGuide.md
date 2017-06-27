@@ -31,7 +31,7 @@ Since we are working with time series data, each row must have a timestamp of wh
 
 ## Step 2: Start a Session
 
-Now that we have some data, lets upload it and get a forecast of how these values will change over time.  To do this, we need to start a `Session`, which is the data we want to use, and the parameters needed to determine how the Nexosis machine learning algorithms should work.  Once the data and parameters are uploaded, our algorithms will start crunching the numbers to produce a set of results.
+Now that we have some data, lets upload it and get a forecast of how these values will change over time.  To do this, we need to start a `Session`, which is the data we want to use and the parameters needed to determine how the Nexosis machine learning algorithms should work.  Once the data and parameters are uploaded, our algorithms will start crunching the numbers to produce a set of forecast results.
 
 For this dataset, we want to forecast the sales for the first quarter of 2017.  All we need to do is specify the `StartDate` and `EndDate` as `2017-01-01` and `2017-04-01`.  The `TargetColumn` parameter also needs to be specified, which is the value which will be forecasted for this date range.  We will set this value to `sales`.
 
