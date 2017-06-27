@@ -8,6 +8,11 @@ tags: [API Keys, keys, security, Favorite]
 use_codestyles: true
 ---
 
+Handling API key's securely is an important part of any application design. This article discusses what API keys are and some good Key handling practices.
+
+[You can see and manage your API key's in your profile here.](https://developers.nexosis.com/developer)
+
+------
 An API key is a unique security ID that is used to identify who is accessing the API as well as a set of access rights associated with it. You can find your API key under your account Profile. These keys are generated and provided to every subscription and is how billing is accounted for and applied to an account. This means that an API key must be kept a closely guarded secret and care must be taken to protect where they are stored. 
 
 ``` bash
@@ -19,28 +24,29 @@ api-key: {your nexosis apikey here}
 {redacted}
 ```
 
-<p align="center"><em><strong>The API key is submitted as an HTTP Header named 'api-key' in every request.</strong></em></p>
+<p align="center"><em><strong>The API key must be submitted as an HTTP Header named <code>api-key</code> in every request.</strong></em></p>
 
 ## Protect Your Key
 
-Each account will always have two concurrent active API keys, designated as "Primary" and "Secondary." In certain situations, it may be necessary to discard one of these keys and create a new one -- for example, if a developer accidently commits their Nexosis API key to a public source code repo for all the world to see. For situations like these, one or both of the API keys can be regenerated.  Activating a new key will immediately supplant the old key, rendering it useless. Any program using the old revoked key will then fail with 401 Unauthorized errors from the API endpoint.
+Each account will always have two concurrent active API keys, designated as <code>Primary</code> and <code>Secondary</code>. In certain situations, it may be necessary to discard one of these keys and create a new one -- for example, if a developer accidently commits their Nexosis API key to a public source code repo for all the world to see. For situations like these, one or both of the API keys can be regenerated.  Activating a new key will immediately supplant the old key, rendering it useless. Any program using the old revoked key will then fail with 401 Unauthorized errors from the API endpoint.
 
 <p align="center">  <img alt="API Keys" src="/assets/img/api_keys.png"/><br/>
-<strong><em>Click "Regenerate" to revoke the old key and generate a new one.</em></strong></p>
+<strong><em>Click <code>Regenerate</code> to revoke the old key and generate a new one.</em></strong></p>
 
 ### Process for API Key Rotation
 
-In this example, assume the application is using the key named "Primary Key" and you suspect it has been compromised and it needs regenerated.
+In this example, assume the application is using the key named <code>Primary Key</code> and you suspect it has been compromised and it needs regenerated.
 
-1. Regenerate "Secondary Key" as this ensures it's new and secure.
-2. Change all applications using Nexosis API to use "Secondary Key."
-3. Validate all applications using "Secondary Key" are functioning correctly. Once tested thoroughly, release to production.
-4. Finally, regenerate "Primary Key" to make sure any unauthorized users cannot use this key to access the application.
+1. Regenerate <code>Secondary Key</code> as this ensures it's new and secure.
+2. Change all applications using Nexosis API to use newly regenerated <code>Secondary Key</code>.
+3. Validate all applications using <code>Secondary Key</code> are functioning correctly. Once tested thoroughly, release to production.
+4. Finally, regenerate <code>Primary Key</code> to make sure any unauthorized users cannot use this key to access the application.
 
 ### When To Regenerate a Key
 
-There are important thinks to keep a watch out for that should require a key to be regenerated:
+There are important thinks to keep a watch out for that should require a key to be regenerated.
 
+<b>REGENERATE YOUR KEY IF:</b>
 * API key is exposed publicly, such as a source code repo or in HTML or JavaScript source code.
 * A computer with the key stored on it was stolen or comprised.
 * You suspect unauthorized key use.
