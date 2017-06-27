@@ -8,7 +8,7 @@ tags: [Ruby, Gem]
 use_codestyles: true
 ---
 
-## Gem: https://rubygems.org/gems/nexosis_api
-### Source: https://github.com/Nexosis/nexosisclient-rb 
+#### [View gem details and download](https://rubygems.org/gems/nexosis_api)
+*[view the source code](https://github.com/Nexosis/nexosisclient-rb)* 
 
 
