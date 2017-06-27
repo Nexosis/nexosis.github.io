@@ -16,10 +16,10 @@ When it comes to forecasting, getting the dates correct is critical. When dealin
 
 ### Use a robust DateTime library
 
-All DateTimes, when converted to strings should be converted to ISO 8601 format.
+All DateTimes, when converted to strings should be converted to ISO 8601 format and include the TimeZone / Offset
 
 * .NET - [Noda Time](http://nodatime.org/)
-* Java [Joda Time](http://www.joda.org/joda-time/)
+* Java - [Joda Time](http://www.joda.org/joda-time/)
     * <code>DateTime.now().toDateTimeISO().toString()</code>
 * Ruby - [Time.rb](https://ruby-doc.org/stdlib-2.1.1/libdoc/time/rdoc/Time.html)
     * <code>Time.now.iso8601</code>
