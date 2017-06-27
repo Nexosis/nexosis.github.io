@@ -24,6 +24,9 @@ Then optionally:
 1. Update _DataSet_ with additional new data
 2. Start a new session. Repeat.
 
+<img src="../assets/img/how-it-works-developer.png" alt="[How It Works]" width="75%"/>
+
+
 ### <a name="dataset" class="jumptarget">Submit A _DataSet_</a>
 
 All Machine Learning processes must start with data and a question you are trying to gain insight into. This question could range from "How many robots will I sell next month?" to "What was the impact of our new marketing strategy on our Facebook likes?" 
