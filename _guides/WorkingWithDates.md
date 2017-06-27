@@ -16,7 +16,9 @@ When it comes to forecasting, getting the dates correct is critical. When dealin
 
 ### Use a robust DateTime library
 
-All DateTimes, when converted to strings should be converted to ISO 8601 format and include the TimeZone / Offset
+All DateTimes, when represented as strings should be converted to the ISO 8601 format and include the TimeZone / Offset.
+
+Here are some examples of libraries in different languages that can help you with this.
 
 * .NET - [Noda Time](http://nodatime.org/)
 * Java - [Joda Time](http://www.joda.org/joda-time/)
