@@ -156,16 +156,18 @@ To generate forecasts, the platform needs to know the DataSet name to build the 
 To analyze the impact of a past event, the platform needs to know the DataSet name to build the forecasting models off of, a target column indicating what columns the model will analyze, a prediction interval, and the start and end date of the event.
 
 ``` java
-        SessionResponse response = nexosisClient.getSessions().analyzeImpact(
-                "websiteTraffic",
-                "new-big-announcement",
-                "hits",
-                DateTime.parse("2016-11-26T00:00:00Z"),
-                DateTime.parse("2016-12-25T00:00:00Z"),
-                ResultInterval.DAY
-        );
+SessionResponse response = nexosisClient.getSessions().analyzeImpact(
+        "websiteTraffic",
+        "new-big-announcement",
+        "hits",
+        DateTime.parse("2016-11-26T00:00:00Z"),
+        DateTime.parse("2016-12-25T00:00:00Z"),
+        ResultInterval.DAY
+);
 
-        response.
+// Save the SessionID
+UUID sessionId = response.getSessionId();
+// Use SessionID to check on the status and retrieve results when they are ready
 ```
 
 ### Check On Session Status
