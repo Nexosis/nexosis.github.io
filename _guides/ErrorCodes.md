@@ -50,9 +50,9 @@ Any requests that use two date parameters for the `startDate` and `endDate` of a
 
 ### NoData
 
-When issuing a PUT to the `/data/{dataSetName}` endpoint, ensure that the intended dataset is being included in the request.  If no data was received, than this error will be returned. 
+When issuing a PUT to the `/data/{dataSetName}` endpoint, ensure that the intended dataset is being included in the request.  If no data was received, than this error will be returned.
 
-This error could also be returned when issing a POST to the `/ssessions/forecast` or `/sessions/impact` endpoints that includes neither a dataset name nor a session-scoped dataset.
+This error could also be returned when issuing a POST to the `/ssessions/forecast` or `/sessions/impact` endpoints that includes neither a dataset name nor a session-scoped dataset.
 
 ``` json
 {
@@ -67,7 +67,7 @@ This error could also be returned when issing a POST to the `/ssessions/forecast
 
 ### RequestValidation
 
-This is a general error indicating that we were unable to parse the request that was sent.  Ensure that the request body conforms to the schema provided for that request in the [API documentation]({{site.api_reference_baseurl}}).
+This is a general error indicating that we were unable to parse the request that was sent.  Ensure that the request body conforms to the schema provided for that request in the [API documentation]({{site.api_reference_baseurl}}). Also, double check that the correct `Content-Type` header is being set correctly.
 
 ``` json
 {
@@ -81,7 +81,6 @@ This is a general error indicating that we were unable to parse the request that
   }
 }
 ```
-
 
 ### SomeParametersRequired
 
@@ -122,7 +121,6 @@ Returned whenever the specified resource was not found.  This error can also be 
   }
 }
 ```
-
 
 ## 500
 
