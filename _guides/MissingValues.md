@@ -3,7 +3,7 @@ title: Missing Values
 description: What to do with missing values
 copyright: 2017 Nexosis 
 layout: default
-category: Data
+category: Forecasting
 tags: [Imputation, Quick Links,]
 use_codestyles: true
 ---
