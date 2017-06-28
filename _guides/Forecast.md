@@ -13,14 +13,15 @@ A Forecast is when we take your historical time series data and predict what wil
 -----
 
 ### Creating a Forecast Session
-Forecast sessions is the mechanism in the API to generate these predictions. To create a forecast session, specify the dataset to forecast or provide one directly in the session creation as well as the start and end dates of the forecast period. If the submitted DataSet includes `feature` columns, it must have values for those features over the prediction period. A DataSet can be included in the session request body or a forecast session can be started on an already existing named DataSet.
+Forecast sessions is the mechanism in the API to generate these predictions. To create a forecast session, specify the name of an existing DataSet, or provide one directly in the session creation request. You'll also provide the start and end dates of the forecast period. If the submitted DataSet includes `feature` columns, it must have values for those features over the prediction period.
 
 To understand how to submit data, you can read more in the [Sending Data](/guides/importingdata) article.
 
 *Here are some important points to consider:*
-> The forecast start date should be on the same day as (or before) the last date in the dataset. If there is a gap between your forecast start date and the date of the last record in your data set, the Nexosis API will behave as if there is no gap. 
+> The forecast start date should be on the same day as (or before) the last date in the dataset. If there is a gap between your forecast start date and the date of the last record in your data set, the Nexosis API will behave as if there is no gap. Read our [Missing Values](/guides/missingvalues) article for more information about how we handle gaps.
 
-> If you want the forecasts to behave as if that gap is filled with zeroes, please provide at least one zero-value record in the dataset with a timestamp that matches your forecast start date.
+To understand how to submit data, you can read more in the [Sending Data](/guides/importingdata) article.
+
 
 Here are the optional Query String Parameters you can pass along when creating a Forecast Session:
 * `dataSetName` - Name of the dataset to forecast. If data is sent in the body of this request, the dataSetName will be used as part of the unique name given to the dataSet for this session.
