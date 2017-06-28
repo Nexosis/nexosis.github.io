@@ -11,7 +11,7 @@ order: 6
 
 The following are the different kinds of error messages you could receive when using the Nexosis API.
 
-## 400
+## 400 - Looks like you need some help
 
 These are generally validation errors on the request being performed.  If you are receiving a 400 error, the specific type of error can be found in the `errorType` property, and the properties or values which are failing validation will be specified in the `errorDetails` property of the response.  In particular, the following are different types of validation errors you could see.
 
@@ -97,7 +97,7 @@ Some requests have all of their parameters marked as optional, but, at least one
 }
 ```
 
-## 401
+## 401 - Access Denied
 
 This status code indicates that the `api-key` header, which much be present on all requests, was not valid.  Either the header was not included at all, or the provided key was not valid.  Refer to the [API key documentation](apikeys) for further information.
 
@@ -108,7 +108,7 @@ This status code indicates that the `api-key` header, which much be present on a
 }
 ```
 
-## 404
+## 404 - Not Found
 
 Returned whenever the specified resource was not found.  This error can also be returned if the endpoint that the request was issued to does not exist.  If a specific resource was requested, the `itemId` and `itemType` will be included in the response.  Ensure that this Id is the one you intended.  Also, check the listing endpoints, such as `/data` or `/sessions` if you are unsure of the id.
 
@@ -124,9 +124,12 @@ Returned whenever the specified resource was not found.  This error can also be 
 }
 ```
 
-## 500
+## 429 - Quota Exceeded
+In this case it looks like you've exceeded our limits on the API.  You can read about our usage policies on our support site here: [https://support.nexosis.com](https://support.nexosis.com/hc/en-us/articles/115009512147)
 
-Well, a 500-level error means that something when wrong in the internals of the Nexosis API. You can help us diagnose and fix the problem by sending the details of the request that you tried to us via our Support system (on the bottom-right of this page). Please include as many of the following details that you have available:
+## 500 - We Screwed Up
+
+Well, a 500-level error means that something when wrong in the internals of the Nexosis API. You can help us diagnose and fix the problem by sending the details of the request that you were trying when you encountered the problem.  Please send details to us via our Support system (on the bottom-right of this page). Please include as many of the following details that you have available:
 
 * Session ID
 * Dataset Name
