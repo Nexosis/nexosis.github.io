@@ -125,11 +125,12 @@ Returned whenever the specified resource was not found.  This error can also be 
 ```
 
 ## 429 - Quota Exceeded
+
 In this case it looks like you've exceeded our limits on the API.  You can read about our usage policies on our support site here: [https://support.nexosis.com](https://support.nexosis.com/hc/en-us/articles/115009512147)
 
 ## 500 - We Screwed Up
 
-Well, a 500-level error means that something when wrong in the internals of the Nexosis API. You can help us diagnose and fix the problem by sending the details of the request that you were trying when you encountered the problem.  Please send details to us via our Support system (on the bottom-right of this page). Please include as many of the following details that you have available:
+Well, a 500-level error means that something went wrong in the internals of the Nexosis API. You can help us diagnose and fix the problem by sending the details of the request that you were trying when you encountered the problem.  Please send details to us via our Support system (on the bottom-right of this page). Please include as many of the following details that you have available:
 
 * Session ID
 * Dataset Name
