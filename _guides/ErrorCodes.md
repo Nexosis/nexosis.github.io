@@ -36,7 +36,7 @@ When uploading data, the accompanying column metadata is validated to ensure tha
 
 Any requests that use two date parameters for the `startDate` and `endDate` of a range must both have valid dates, and the `startDate` must be before the `endDate`.  These include any of the endpoints which filter returned results in a GET request, or POSTs which use the dates as parameters to start sessions.  Ensure that the dates are sent in ISO-8601 format (e.g. YYYY-MM-DD), and that the `startDate` is before the `endDate`.
 
-> For more information on ISO-8601 formats, see [Working With Dates](workingwithdates).
+> For more information on ISO-8601 Date/Time formats, see [Working With Dates](workingwithdates).
 
 ``` json
 {
