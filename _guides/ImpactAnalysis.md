@@ -19,7 +19,7 @@ Impact sessions are used to determine the impact of a particular event on a data
 
 To understand how to submit data, you can read more in the [Sending Data](/guides/importingdata) article.
 
-Here are the optional Query String Parameters you can pass along when creating a Forecast Session:  
+Here are the optional Query String Parameters you can pass along when creating an Impact Session:  
 * `dataSetName` - Name of the dataset for which to determine impact. If data is sent in the body of this request, the dataSetName will be used as part of the unique name given to the dataSet for this session.
 * `targetColumn`- Column in the specified dataset for which to determine impact
 * `eventName` - Name of the event for which to determine impact
