@@ -3,11 +3,6 @@
           <div class="panel bg-color-lightGray" style="margin-top:20px;">
             <div class="panel-body">
               <p style="padding:0; margin:0; font-size: .85em;">
-                <!--
-                <span class="color-mediumGray">CATEGORY: </span>
-                <a class="label label-success" href="/category#{{ page.category }}">{{ page.category }}</a>
-                <span class="color-mediumGray" style="margin: 0 10px;">|</span>
-                -->
                 <span class="color-mediumGray"><i class="fa fa-tags"></i>&nbsp;&nbsp;</span> 
                 {% for tag in page.tags %}
                   {% if tag != "Quick Links" and tag != "Favorite" %}
