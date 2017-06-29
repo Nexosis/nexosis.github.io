@@ -12,7 +12,7 @@ Impact analysis is when we analyze your historical time series data and determin
 
 -----
 
-### Creating a Forecast Session
+### Creating an Impact Session
 Impact sessions are used to determine the impact of a particular event on a dataset. To create an impact session, specify the dataset for which to determine impact, as well as the start and end dates of the impactful event. The Nexosis API will execute a series of machine learning algorithms to determine the impact of the event on the dataset.
 
 > Both the start and end dates for the impact session must always be on or before the timeStamp of the last record in your dataSet.
