@@ -28,11 +28,11 @@ Here are the optional Query String Parameters you can pass along when creating a
 * `targetColumn` - Column in the specified dataset to forecast
 * `startDate` - Format - date-time (as date-time in ISO8601). First date to forecast
 * `endDate` - Format - date-time (as date-time in ISO8601). Last date to forecast
-* `resultInterval` - The interval at which predictions should be generated. Possible values are Hour, Day, Week, Month, and Year. Defaults to Day
+* `resultInterval` - The interval at which predictions should be generated. Possible values are `Hour`, `Day`, `Week`, `Month`, and `Year`. Defaults to `Day`
 * `callbackUrl` - The Webhook url that will receive updates when the Session status changes. If you provide a callback url, your response will contain a header named Nexosis-Webhook-Token. You will receive this same header in the request message to your Webhook, which you can use to validate that the message came from Nexosis.
-* `isEstimate` - If specified, the submitted data will not be saved, and the session will not be processed. The returned `Nexosis-Request-Cost` header will be populated with the estimated cost that the request would have incurred.
+* `isEstimate` - If specified, the submitted data will not be saved, and the session will not be processed. 
 
-> To get a Cost Estimate, include and set the `isEstimate` query string parameter to `true`.
+> To get a Cost Estimate, include and set the `isEstimate` query string parameter to `true`. The returned `Nexosis-Request-Cost` header will be populated with the estimated cost that the request would have incurred.
 
 ### Starting a Forecast Session using an Existing DataSet
 
