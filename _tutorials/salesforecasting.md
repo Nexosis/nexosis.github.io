@@ -53,7 +53,7 @@ end
 <a name="Datasets"></a>
 
 This application helps you load a CSV file you have locally as a dataset (*the API also accepts json input*).
-> If you don't have a dataset of your own, trying using one of our publicly available samples at [https://github.com/Nexosis/sampledata](https://github.com/Nexosis/sampledata). For this application we'll be using ["Location C.csv"](https://raw.githubusercontent.com/Nexosis/sampledata/master/Location%20C.csv)
+> If you don't have a dataset of your own, trying using one of our publicly available samples at [https://github.com/Nexosis/sampledata](https://github.com/Nexosis/sampledata). For this application we'll be using ["LocationC.csv"](https://raw.githubusercontent.com/Nexosis/sampledata/master/LocationC.csv)
 
 In order to have a named dataset you must also provide that name. Once you have provided the name, and selected a file you can click the submit button. Again, this is a distinct operation from submitting a session request which would do work - we'll get to that soon. The api client for this application has been written to upload only 5000 lines at a time because we're sending the data as the request body and need to mind limits. We recommend using the S3 option with production datasets.
 
