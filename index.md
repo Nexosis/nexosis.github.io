@@ -1,6 +1,6 @@
 ---
 title: Documentation
-description: Welcome to doom!
+description: Learn how to use the Nexosis API
 copyright: 2017 Nexosis 
 layout: fullwidth
 exclude_navbreadcrumb: true
@@ -8,12 +8,6 @@ exclude_navsidebar: true
 exclude_navfooter: true
 exclude_from_search: true
 ---
-<style>
-p.post-listing {font-size: .9em; margin: 7px 0;}
-p.post-listing i.fa {color: #d0d0d0; margin-right: 5px;}
-.panel.guides {height: 180px;}
-#api-clients .panel-body {padding-top: 20px;}
-</style>
 
 {% assign list-icon = "fa-file-text-o" %}
 

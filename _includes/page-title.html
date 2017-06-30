@@ -1,29 +1,4 @@
 {% if page.exclude_navbreadcrumb != true %}
-<style>
-  #api-client {border-right: 10px solid #afb0b4;}
-  #api-client.curl {border-color: #00727A;}
-  #api-client.dotnet {border-color: #2E76BB;}
-  #api-client.java {border-color: #5382A1;}
-  #api-client.javascript {border-color: #F5DE19;}
-  #api-client.objc {border-color: #999999;}
-  #api-client.php {border-color: #6280B6;}
-  #api-client.python {border-color: #ffc634;}
-  #api-client.ruby {border-color: #a63733;}
-  #api-client.nodejs {border-color: #41873F;}
-  
-  p.breadcrumb {
-    margin: 30px 0 0;
-    padding: 0 10px;
-    background-color: transparent;
-  }
-  h1 {margin: 0 0 20px;}
-
-  #api-client img {
-    float: right;
-    height: 70px;
-    margin-right: 20px;
-  }
-</style>
 
 {% if page.collection == "clients" %}
   {% case page.category %}
@@ -72,7 +47,7 @@
     </span>
     {% endif %}
   </p>
-  {% endif %}
+{% endif %}
 
   <h1>{{ page.title }}</h1>
 </div>

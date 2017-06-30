@@ -41,14 +41,14 @@
     <!-- HEADER -->
     {% include header.html %}
     <!-- MAIN CONTENT -->
-    <div class="layout-row layout-row-content">
+    <div id="docs-content" class="layout-row layout-row-content">
       <div class="row" style="margin-bottom: 20px;">
         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
           {% include nav.html %}
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
           {% include page-title.html %}
-          <div id="docs-content">
+          <div>
             {{ content }}
             {% include tag-category-footer.html %}
           </div>
