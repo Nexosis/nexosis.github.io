@@ -14,7 +14,7 @@ The Nexosis Client for Java supports Java versions 1.7 and 1.8.
 
 ## Installing the Client
 
-#### [View package details](https://search.maven.org/#search%7Cga%7C1%7Cnexosis)
+#### [View package details](https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java)
 *[view the source code](https://github.com/Nexosis/nexosisclient-java)* 
 
 ### Maven
