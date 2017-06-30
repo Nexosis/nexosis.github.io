@@ -54,7 +54,7 @@ Any requests that use two date parameters for the `startDate` and `endDate` of a
 
 When issuing a PUT to the `/data/{dataSetName}` endpoint, ensure that the intended dataset is being included in the request.  If no data was received, than this error will be returned.
 
-This error could also be returned when issuing a POST to the `/ssessions/forecast` or `/sessions/impact` endpoints that includes neither a dataset name nor a session-scoped dataset.
+This error could also be returned when issuing a POST to the `/sessions/forecast` or `/sessions/impact` endpoints that includes neither a dataset name nor a session-scoped dataset.
 
 ``` json
 {
