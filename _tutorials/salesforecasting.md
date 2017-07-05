@@ -1,6 +1,6 @@
 ---
 title: Forecasting Sales
-description: This tutorial will demonstraite how to forecast daily level sales based on historical sales.
+description: This tutorial will demonstrate how to forecast daily level sales based on historical sales.
 copyright: 2017 Nexosis 
 layout: default
 category: Sales & Marketing

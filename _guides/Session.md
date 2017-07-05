@@ -6,7 +6,7 @@ layout: default
 category: Getting Started
 tags: [Causal Impact, Predict, Quick Links]
 use_codestyles: true
-order: 3
+order: 6
 ---
 
 A Session is a request for the Nexosis API to perform some calculations on data.

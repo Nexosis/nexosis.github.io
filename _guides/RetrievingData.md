@@ -6,7 +6,7 @@ layout: default
 category: Getting Started
 tags: [Data, CSV, JSON, Quick Links]
 use_codestyles: true
-order: 4
+order: 5
 ---
 
 Once you've [sent data](importingdata) to the Nexosis API and perhaps run a [Forecast](forecast) session to generate some forecasts, how do you get those results back out?

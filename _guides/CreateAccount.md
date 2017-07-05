@@ -6,7 +6,7 @@ layout: default
 category: Getting Started
 tags: [Quick Links, Account, Favorite]
 use_codestyles: true
-order: 5
+order: 3
 ---
 
 When you first visit [the Nexosis API website](https://developers.nexosis.com) you will be browsing as a guest. Guests are welcome to review all of the interactive API documentation, but in order to really get to work you're going to want to create an account and get your API keys. In fact, the "Try It" links in the interactive documentation won't work for you until you do and you'll see this warning:

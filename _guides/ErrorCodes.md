@@ -6,7 +6,7 @@ layout: default
 category: Getting Started
 tags: [Quick Links, Favorite, Reference, Errors, Debugging, HTTP]
 use_codestyles: true
-order: 6
+order: 10
 ---
 
 The following are the different kinds of error messages you could receive when using the Nexosis API.

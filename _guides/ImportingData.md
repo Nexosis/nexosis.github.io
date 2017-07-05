@@ -6,7 +6,7 @@ layout: default
 category: Getting Started
 tags: [Data, CSV, JSON, Quick Links]
 use_codestyles: true
-order: 2
+order: 4
 ---
 
 Before the Nexosis API can do anything really useful, you're going to need to send it some data that it can use for [Forecasts](forecast) or [Impact Analysis](impactanalysis).
