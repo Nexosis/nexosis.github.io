@@ -15,12 +15,12 @@ A Forecast is when we take your historical time series data and predict what wil
 ### Creating a Forecast Session
 Forecast sessions is the mechanism in the API to generate these predictions. To create a forecast session, specify the name of an existing DataSet, or provide one directly in the session creation request. You'll also provide the start and end dates of the forecast period. If the submitted DataSet includes `feature` columns, it must have values for those features over the prediction period.
 
-To understand how to submit data, you can read more in the [Sending Data](/guides/importingdata) article.
+To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
 
 *Here are some important points to consider:*
 > The forecast start date should be on the same day as (or before) the last date in the dataset. If there is a gap between your forecast start date and the date of the last record in your data set, the Nexosis API will behave as if there is no gap. Read our [Missing Values](/guides/missingvalues) article for more information about how we handle gaps.
 
-To understand how to submit data, you can read more in the [Sending Data](/guides/importingdata) article.
+To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
 
 
 Here are the optional Query String Parameters you can pass along when creating a Forecast Session:

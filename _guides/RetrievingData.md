@@ -9,7 +9,7 @@ use_codestyles: true
 order: 5
 ---
 
-Once you've [sent data](importingdata) to the Nexosis API and perhaps run a [Forecast](forecast) session to generate some forecasts, how do you get those results back out?
+Once you've [sent data](sendingdata) to the Nexosis API and perhaps run a [Forecast](forecast) session to generate some forecasts, how do you get those results back out?
 
 ------
 
@@ -30,7 +30,7 @@ The response is a summary listing of your DataSets
 }
 ```
 
-**Note** this listing only includes [Named DataSets.](importingdata)  It does not include Session-Scoped DataSets.
+**Note** this listing only includes [Named DataSets.](sendingdata)  It does not include Session-Scoped DataSets.
 
 ------
 

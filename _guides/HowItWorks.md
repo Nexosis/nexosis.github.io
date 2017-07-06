@@ -34,7 +34,7 @@ To use the Nexosis API, you must provide us with a _Dataset_. This Dataset is si
 
 The data submitted is very important as it is used to discover predictive relationships within the data using a host of algorithms. This discovery process happens during  what we call a _Session_.
 
-Read [Sending Data](ImportingData) for the technical details.
+Read [Sending Data](sendingdata) for the technical details.
 
 ### <a name="session" class="jumptarget">Initiate A _Session_</a>
 

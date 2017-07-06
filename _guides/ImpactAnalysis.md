@@ -18,7 +18,7 @@ Impact sessions determine the impact of a particular event on a dataset. To crea
 
 > Both the start and end dates for the impact session must always be on or before the timeStamp of the last record in your dataset.
 
-To understand how to submit data, you can read more in the [Sending Data](/guides/importingdata) article.
+To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
 
 Here are the optional Query String Parameters you can pass along when creating an Impact Session:
 
