@@ -29,7 +29,7 @@ For example, you'll want to use this type of DataSet if you're forecasting sales
 
 ### Session-scoped DataSets
 
-Session-scoped DataSets are more for single-use scenarios.  For example, if you have a static DataSet for which you want to perform [Impact Analysis](ImpactAnalysis) a single time, then you'll want to send that data as session-scoped.
+Session-scoped DataSets are more for single-use scenarios.  For example, if you have a static DataSet for which you want to perform [Impact Analysis](impactanalysis) a single time, then you'll want to send that data as session-scoped.
 
 Session-scoped DataSets are created by sending the data in the body of a [Session](session) request.
 
