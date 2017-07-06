@@ -193,6 +193,6 @@ Session Results, in general, come back in the following form:
 
 * `metrics` - Metrics about the results.
 * `session` - The session that generated these results
-* `data` - The predicted values that the Nexosis Api generated.
+* `data` - The predicted values that the Nexosis API generated.
 
 Interpretation of the values in `metrics` and `data` is different between [Forecast](forecast) and [Impact Analysis](impactanalysis) sessions, so you'll want to go to those pages to learn more about what to do with them.
