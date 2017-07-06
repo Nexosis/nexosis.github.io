@@ -9,13 +9,13 @@ use_codestyles: true
 order: 8
 ---
 
-While the Nexosis Api is able to forecast and analyze event impact on datasets with little additional guidance, it may be helpful to provide some metadata about your dataset to improve the quality of results.  In this tutorial, we will look at how to specify this metadata and use the Nexosis Api to generate even better forecast and impact results.
+While the Nexosis API is able to forecast and analyze event impact on datasets with little additional guidance, it may be helpful to provide some metadata about your dataset to improve the quality of results.  In this tutorial, we will look at how to specify this metadata and use the Nexosis API to generate even better forecast and impact results.
 
 ----
 
 ## Uploading a dataset with metadata
 
-Generally, [specifying column metadata](columnmetadata) on a dataset is optional.  The Nexosis Api infers what kind of data is contained in a dataset column, and is able to use this information when a session is started.  But, these values can be overridden when a dataset is uploaded.  It is also possible to change the metadata of a dataset after it has been uploaded.  This is the data we will be working with:
+Generally, [specifying column metadata](columnmetadata) on a dataset is optional.  The Nexosis API infers what kind of data is contained in a dataset column, and is able to use this information when a session is started.  But, these values can be overridden when a dataset is uploaded.  It is also possible to change the metadata of a dataset after it has been uploaded.  This is the data we will be working with:
 
 ``` csv
 timeStamp,sales,promotion
@@ -97,7 +97,7 @@ Content-Type: application/json
 }
 ```
 
-If we run a prediction over this date range, we can see that the Nexosis Api is able to use this flag in the forecast, and has taken into account that the future promotion will have a positive impact on sales.  This technique is useful for running "What if" scenarios, such as, trying the promotion on different future dates, to see which would generate highest increase in sales.
+If we run a prediction over this date range, we can see that the Nexosis API is able to use this flag in the forecast, and has taken into account that the future promotion will have a positive impact on sales.  This technique is useful for running "What if" scenarios, such as, trying the promotion on different future dates, to see which would generate highest increase in sales.
 
 ``` http
 POST /v1/sessions/forecast?dataSetName=storePromotion&startDate=01/26/2017&endDate=02/05/2017 HTTP/1.1
