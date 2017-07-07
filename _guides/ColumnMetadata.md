@@ -9,7 +9,7 @@ use_codestyles: true
 order: 7
 ---
 
-When [uploading data](sendingdata) or [starting a session](session), you can specify metadata about the columns in your dataset.  This allows the Nexosis API to better understand how your data should be used and interpreted when running machine learning algorithms.
+When [uploading data](sendingdata), [importing data](importingdata), or [starting a session](session), you can specify metadata about the columns in your dataset.  This allows the Nexosis API to better understand how your data should be used and interpreted when running machine learning algorithms.
 
 > Note: Setting column metadata is totally optional.  For simple datasets with a couple of columns, the contents of the columns are inferred, and providing metadata may not make a difference in how the algorithms execute.
 
