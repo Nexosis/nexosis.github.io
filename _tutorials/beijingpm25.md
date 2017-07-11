@@ -18,15 +18,15 @@ of the historical PM<sub>2.5</sub> levels in Beijing<sup>[1](#data-quality)</sup
 ## Getting Started
 
 In order to run the code associated with this sample, you must first [create an account](/guides/createaccount). The sample code is 
-hosted [on github](https://github.com/nexosis/sample-csharp-air-quality) and can be cloned and run locally. 
+hosted [on GitHub](https://github.com/nexosis/sample-csharp-air-quality) and can be cloned and run locally. 
 
 -----
 
 ## Setup
 
-The first two steps to run this analysis do not use the Nexosis API, but are used to setup the data to be used by the API.
+The first two steps to run this analysis do not use the Nexosis API, but are used to set up the data to be used by the API.
 The historical air quality data is provided by the State Department in downloadable [CSV files](http://www.stateair.net/web/historical/1/1.html). 
-These have been copied into the git repository for your convenience. To import the data, you can use the following command: 
+These have been copied into the Git repository for your convenience. To import the data, you can use the following command: 
 
 ```bash
 > dotnet run AirQuality --import --database=aqi.sqlite3 --files=*.csv
@@ -72,11 +72,11 @@ for (int i = 0; i < ((measurements.Count / batchSize) + 1); i++)
         dataSetName,
         new DataSetDetail { Columns = columns, Data = measurements.Skip(i * batchSize).Take(batchSize).ToList() }
     );
-    Console.Out.WriteLine($"Added to data set named {ds.DataSetName}. Cost: ${ds.Cost.Amount}.");
+    Console.Out.WriteLine($"Added to data set named {ds.DataSetName}.");
 }
 ```
-In this case, the API has inferred which column is the timestamp and which contains the value. If necessary, you can specify
-[that information](/guides/columnmetadata) when you [send the data](/guides/sendingdata). It is also how you would include columns 
+In this case, the API has inferred which column is the timestamp and which contains the target value to analyze. If necessary, you can specify
+[that information](/guides/columnmetadata) when you [send the data](/guides/sendingdata). This is also how you would include columns 
 to be used as [features](/guides/specifyingfeatures) when performing an analysis.
 
 The sample application allows you to upload the data giving it a name, and optionally filtering the data to only include certain dates. For 
@@ -95,7 +95,7 @@ the data on an hourly interval level.
 When you want to look at the effect of an outside influence on your data, you can do [causal impact analysis](/guides/impactanalysis). 
 In this example, you can look at how the PM<sub>2.5</sub> changed during the 2008 Summer Olympic Games hosted in Beijing. At the time,
 it was widely reported that athletes were concerned about the air quality and how it might hurt their performance or have long term
-negative effects. [China responded](http://www.nytimes.com/2008/08/01/sports/olympics/01china.html) by curbing pollution causing activities.
+negative effects. [China responded](http://www.nytimes.com/2008/08/01/sports/olympics/01china.html) by curbing pollution-causing activites.
 Using the Nexosis API, you can show what the PM<sub>2.5</sub> values would have been, and how much impact the changes enacted helped to
 control the harmful pollution in the air.
 
@@ -173,7 +173,7 @@ To run this code and save the results to the local database, you can run the fol
 dotnet run AirQuality --results --database=aqi.sqlite3 -id="015d31bb-b5f7-490d-8c72-e3e4bf29c9ab"
 ```
 
-Note that the session id given in the command line is also the the id reported in the output of creating the session.
+Note that the session ID given in the command line is also the the ID reported in the output of creating the session.
 
 -----
 
@@ -192,7 +192,7 @@ absoluteEffect: -55610.481
 relativeEffect: -0.7151
 ```
 
-You can get the results from the database to graph them with the following SQL, substituting for the source and session id columns as appropriate.
+You can get the results from the database to graph them with the following SQL, subsituting for the source and session ID columns as appropriate.
 
 ```sql
 SELECT 
