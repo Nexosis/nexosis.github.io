@@ -44,7 +44,7 @@ date, page_views, amount_spent, total_page_likes, daily_paid_likes, daily_organi
 6/27/2017, 10, $108.16, 1459, 20, 1, 6605, 65
 6/28/2017, 4, $32.04, 1466, 6, 0, 2900, 32
 ```
-The graph shows the data starts on `1/1/2016` and ends on `6/28/2016`. By visually inspecting the data, Page Likes are pretty stagnant for just over a year, then there is a very clear and small noticeable acceleration of Page Likes starting around `3/15/2017` a considerable change in the slope around `4/6/2017`. The initial boost correlates with when the new marketing campaign kick-off occurred. 
+The graph below shows the data starts on `1/1/2016` and ends on `6/28/2017`. By visually inspecting the data it's clear that Page Likes are pretty stagnant for just over a year. Starting around `3/15/2017` there is a small but very clear acceleration of Page Likes and then a considerable change in the slope around `4/6/2017`. The initial boost correlates with when the new marketing campaign kick-off occurred. 
 
 We'll measure the impact of the new Facebook marketing push over that time period starting on `3/15/2017` through the end of the data stream, `6/28/2017`.
 
@@ -60,7 +60,7 @@ By giving the dataset a name, it can be referenced later allowing you to add or 
 
 In this sample, instead of submitting the raw CSV file stream to the API, it gets parsed into a `DataSetData` object and that gets submitted by the Java Client serialized as `JSON`. 
 
-After the CSV is loaded into the `DataSetData` object, the `create()` method is called passing in the dataset name as well as the object containing the data as well.
+After the CSV is loaded into the `DataSetData` object, the `create()` method is called passing in the dataset name as well as the object containing the data.
 
 ```{:.line-numbers}{:.language-java}
  private static void loadDataSet(NexosisClient client, String dataSetName, String fileName) 
@@ -87,13 +87,13 @@ Once the data has been submitted we can use the dates of interest to see how the
 
 Once the dataset has been created, a session can be created that operates on that dataset. To create a session, it is helpful to change, or tune the metadata that is used to inform the algorithms what the data means.
 
-The `Columns` object is used to create a data dictionary to specify things like data types (numeric, dates, categorical), notate the impact or forecast target column, and specify a `Feature` column. A `Feature` column is a column that has a relationship with the Target column. That relationship may be very important in helping the algorithms build a model that has a higher predictive power.
+The `Columns` object is used to create a data dictionary to specify things like data types (numeric, dates, categorical), notate the impact or forecast target column, and specify one or more `Feature` columns. A `Feature` column is a column that has a relationship with the Target column. That relationship may be very important in helping the algorithms build a model that has a higher predictive power.
 
-> Setting `Columns` metadata is optional and Nexosis API will make it's best guess if it isn't provided. If you need more control over what are features or not, you should send in the `Columns` metadata. 
+> Setting `Columns` metadata is optional and Nexosis API will make its best guess if it isn't provided. If you need more control over which columns are features or not, you should send in the `Columns` metadata. 
 
 We indicate that the `"date"` column is of type `DataType.DATE` and that it has a role of `DataRole.TIMESTAMP`. When using Time Series forecasting algorithms you must have one timestamp column in the dataset for it to work.
 
-If you have data to submit that may be important later, or your just not sure if it is a good candidate to be a `DateRole.FEATURE`, set it to `DataRole.NONE` - you can always change it later if you want to use it as a feature then.
+If you have data to submit that may be important later, or you're just not sure if it is a good candidate to be a `DateRole.FEATURE`, set it to `DataRole.NONE` - you can always change it later if you want to use it as a feature.
 
 ```{:.line-numbers}{:.language-java}
  private static UUID runImpactAnalysis(NexosisClient client, String dataSetName, String eventName) 
@@ -121,7 +121,7 @@ If you have data to submit that may be important later, or your just not sure if
 }
 ```
 
-Create a session by calling `getSession().analyzeImpact()` - specify the dataset name to use, an event name so you know what impact you were attempting to measure, the `Columns` metadata, and start and ends dates of the intervention (impact) period, and finally the `ResultInterval.DAY` to indicate that this is a daily forecast.
+Create a session by calling `getSession().analyzeImpact()` - specify the dataset name to use, an event name so you know what impact you were attempting to measure, the `Columns` metadata, and start and end dates of the intervention (impact) period, and finally the `ResultInterval.DAY` to indicate that this is a daily forecast.
 
 All Nexosis API Sessions return a GUID. This is the unique ID of the Session so it can be referenced later. Now the session has been created.
 
@@ -222,7 +222,7 @@ To retrieve results, you must wait until the session is completed. Check session
 
 ### Impact Results
 
-Finally, once the results are ready you can retrieve the results the `sessionID`. In this sample, it will write the results as a CSV to a file stream. To retrieve results, shown in `Line 13` using `getResults()` method on the session, using the `sessionID`.
+Finally, once the results are ready you can retrieve the results via the `sessionID`. In this sample, it will write the results as a CSV to a file stream. To retrieve results, shown in `Line 13` using `getResults()` method on the session, using the `sessionID`.
 
 ```{:.line-numbers}{:.language-java}
  private static SessionResult getImpactResults(NexosisClient client, UUID sessionID, String resultsFile) throws IOException, NexosisClientException {
