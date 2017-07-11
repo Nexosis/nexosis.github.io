@@ -4,7 +4,7 @@ description: What to do with missing values
 copyright: 2017 Nexosis 
 layout: default
 category: Forecasting
-tags: [Imputation, Quick Links,]
+tags: [Imputation]
 use_codestyles: true
 ---
 

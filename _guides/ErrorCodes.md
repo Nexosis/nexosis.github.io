@@ -4,7 +4,7 @@ description: Detailed information about error codes
 copyright: 2017 Nexosis 
 layout: default
 category: Getting Started
-tags: [Quick Links, Favorite, Reference, Errors, Debugging, HTTP]
+tags: [Favorite, Reference, Errors, Debugging, HTTP]
 use_codestyles: true
 order: 10
 ---
