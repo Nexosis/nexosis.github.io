@@ -44,7 +44,7 @@ date, page_views, amount_spent, total_page_likes, daily_paid_likes, daily_organi
 6/27/2017, 10, $108.16, 1459, 20, 1, 6605, 65
 6/28/2017, 4, $32.04, 1466, 6, 0, 2900, 32
 ```
-The graph shows the data starts on `1/1/2016` and ends on `6/28/2016`. By visually inspecting the data, Page Likes are pretty stagnant for just over a year, then there is a very clear and small noticeable acceleration of Page Likes starting around `3/15/2017` a considerable change in the slope around `4/6/2017`. The initial boost correlates with when the new marketing campaign kick-off occurred. 
+The graph shows the data starts on `1/1/2016` and ends on `6/28/2017`. By visually inspecting the data, Page Likes are pretty stagnant for just over a year, then there is a very clear and small noticeable acceleration of Page Likes starting around `3/15/2017` a considerable change in the slope around `4/6/2017`. The initial boost correlates with when the new marketing campaign kick-off occurred. 
 
 We'll measure the impact of the new Facebook marketing push over that time period starting on `3/15/2017` through the end of the data stream, `6/28/2017`.
 
@@ -93,7 +93,7 @@ The `Columns` object is used to create a data dictionary to specify things like 
 
 We indicate that the `"date"` column is of type `DataType.DATE` and that it has a role of `DataRole.TIMESTAMP`. When using Time Series forecasting algorithms you must have one timestamp column in the dataset for it to work.
 
-If you have data to submit that may be important later, or your just not sure if it is a good candidate to be a `DateRole.FEATURE`, set it to `DataRole.NONE` - you can always change it later if you want to use it as a feature then.
+If you have data to submit that may be important later, or you're just not sure if it is a good candidate to be a `DateRole.FEATURE`, set it to `DataRole.NONE` - you can always change it later if you want to use it as a feature then.
 
 ```{:.line-numbers}{:.language-java}
  private static UUID runImpactAnalysis(NexosisClient client, String dataSetName, String eventName) 
@@ -222,7 +222,7 @@ To retrieve results, you must wait until the session is completed. Check session
 
 ### Impact Results
 
-Finally, once the results are ready you can retrieve the results the `sessionID`. In this sample, it will write the results as a CSV to a file stream. To retrieve results, shown in `Line 13` using `getResults()` method on the session, using the `sessionID`.
+Finally, once the results are ready you can retrieve the results the `sessionID`. In this sample, it will write the results as a CSV to a file stream. To retrieve results, call the `getResults()` method, as shown on `Line 13`, using the `sessionID`.
 
 ```{:.line-numbers}{:.language-java}
  private static SessionResult getImpactResults(NexosisClient client, UUID sessionID, String resultsFile) throws IOException, NexosisClientException {
