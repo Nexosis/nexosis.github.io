@@ -72,7 +72,7 @@ for (int i = 0; i < ((measurements.Count / batchSize) + 1); i++)
         dataSetName,
         new DataSetDetail { Columns = columns, Data = measurements.Skip(i * batchSize).Take(batchSize).ToList() }
     );
-    Console.Out.WriteLine($"Added to data set named {ds.DataSetName}.");
+    Console.Out.WriteLine($"Added to data set named {ds.DataSetName}. Cost: ${ds.Cost.Amount}.");
 }
 ```
 In this case, the API has inferred which column is the timestamp and which contains the target value to analyze. If necessary, you can specify
