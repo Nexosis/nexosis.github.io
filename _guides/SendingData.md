@@ -13,25 +13,11 @@ Before the Nexosis API can do anything really useful, you're going to need to se
 
 ------
 
-## Named vs Session-scoped Data
+## Datasets
 
-There are two ways that you can send data for the Nexosis API to use: as a Named DataSet or as a DataSet attached to a specific [Session](session).
+You can send data to the Nexosis API through the [Data]({{ site.api_reference_baseurl }}/operations/5919ef80a730020dd851f233) endpoint.
 
-When you'll use each of these depends on how you intend to use the Nexosis API.
-
-### Named DataSets
-
-If you have a set of data that will need updated over time, or on which you'll want run many different kinds of analyses, then you'll want to send that data as a 'Named' DataSet.
-
-Named DataSets are created and updated through the [Data]({{ site.api_reference_baseurl }}/operations/5919ef80a730020dd851f233) endpoint.
-
-For example, you'll want to use this type of DataSet if you're forecasting sales data for the next month for a product.  For that case you'd want to create a named DataSet called 'sales', initially populate it with your historical sales data for that product, and then periodically send updated sales data to that same DataSet and generate a new set of forecasts.
-
-### Session-scoped DataSets
-
-Session-scoped DataSets are more for single-use scenarios.  For example, if you have a static DataSet for which you want to perform [Impact Analysis](impactanalysis) a single time, then you'll want to send that data as session-scoped.
-
-Session-scoped DataSets are created by sending the data in the body of a [Session](session) request.
+Data can be sent to the Nexosis API as either `JSON` or `CSV`, with optional [metadata](columnmetadata)
 
 ------
 
@@ -39,7 +25,6 @@ Session-scoped DataSets are created by sending the data in the body of a [Sessio
 
 In this example we'll create a Named DataSet called *sales* by sending some data to it.
 
-Data can be sent to the Nexosis API as either `JSON` or `CSV`.
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#json" data-toggle="tab">JSON</a></li>
@@ -136,7 +121,7 @@ The response to the `PUT` will be an `HTTP 200` with a response body that is a s
 
 ## Updating Data
 
-With a Named DataSet you are able to modify the DataSet with additional and/or updated data by issuing a `PUT` to the same DataSet name.
+You can modify the DataSet with additional and/or updated data by issuing a `PUT` to the same DataSet name.
 
 So, issuing a `PUT` to the same *sales* DataSet above like so
 

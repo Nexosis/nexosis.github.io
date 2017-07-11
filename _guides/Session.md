@@ -40,12 +40,6 @@ In addition, an Impact session requires the following parameters:
 
 * `eventName` - A label to put on the the thing whose impact we are trying to calculate.
 
-### Session-Scoped Data
-
-Optionally, you can send data for the Session along with the request to start the session.  In this case, the API will create a DataSet that's uniquely scoped to this individual session.  We call this a **Session-Scoped** DataSet.
-
-If a `dataSetName` is provided in the Session request along with data in the body of the request, the Nexosis API will use that `dataSetName` in the unique name that it generates for the Session-Scoped DataSet.
-
 ------
 
 ## <a name="retrievingSession" class="jumptarget">Retrieving a Session</a>
@@ -64,7 +58,7 @@ The session response will look like the following:
      { "date": "2017-05-31T15:18:03.0877088+00:00", "status": "started" },
      { "date": "2017-05-31T15:23:01.2470011+00:00", "status": "completed" } ],
   "extraParameters": {},
-  "dataSetName": "forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1",
+  "dataSetName": "my-data-set",
   "targetColumn": "foo",
   "startDate": "2017-05-12T00:00:00+00:00",
   "endDate": "2017-07-01T00:00:00+00:00",
@@ -75,7 +69,7 @@ The session response will look like the following:
    [ { "rel": "results",
        "href": "https://ml.nexosis.com/v1/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results" },
      { "rel": "data",
-       "href": "https://ml.nexosis.com/v1/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1" } ]
+       "href": "https://ml.nexosis.com/v1/data/my-data-set" } ]
 }
 ```
 
@@ -90,7 +84,7 @@ The session response will look like the following:
   * `estimated` - The session was requested with parameter `isEstimate` set to `true`.  It will not actually be executed.
 * `statusHistory` - The history of status changes on this session.
 * `extraParameters` - In the case of Impact sessions, this property will contain the event name, e.g. `{eventName: "MyEvent"}`
-* `dataSetName` - The `dataSetName` provided in the request to start the session.  In the case where no dataSetName was provided in the request to start the session and you submitted data along with the session request, we'll generate a name for you.
+* `dataSetName` - The `dataSetName` provided in the request to start the session. 
 * `targetColumn` - The `targetColumn` from the request to start the session.
 * `startDate` - The `startDate` from the request to start the session.
 * `endDate` - The `endDate` from the request to start the session.
@@ -135,7 +129,7 @@ The response from this request will be an object with a Results property, contai
             { "date": "2017-05-31T15:18:03.0877088+00:00", "status": "started" },
             { "date": "2017-05-31T15:23:01.2470011+00:00", "status": "completed" } ],
         "extraParameters": {},
-        "dataSetName": "forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1",
+        "dataSetName": "my-data-set",
         "targetColumn": "foo",
         "startDate": "2017-05-12T00:00:00+00:00",
         "endDate": "2017-07-01T00:00:00+00:00",
@@ -146,7 +140,7 @@ The response from this request will be an object with a Results property, contai
         [ { "rel": "results",
             "href": "https://ml.nexosis.com/v1/sessions/015c5f15-cbc6-43ee-a7a9-f7af8a456bd1/results" },
             { "rel": "data",
-            "href": "https://ml.nexosis.com/v1/data/forecast.015c5f15-cbc6-43ee-a7a9-f7af8a456bd1" } ]
+            "href": "https://ml.nexosis.com/v1/data/my-data-set" } ]
         }
     ]
   }

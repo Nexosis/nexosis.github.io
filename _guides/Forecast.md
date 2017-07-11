@@ -20,11 +20,9 @@ To understand how to submit data, you can read more in the [Sending Data](/guide
 *Here are some important points to consider:*
 > The forecast start date should be on the same day as (or before) the last date in the dataset. If there is a gap between your forecast start date and the date of the last record in your data set, the Nexosis API will behave as if there is no gap. Read our [Missing Values](/guides/missingvalues) article for more information about how we handle gaps.
 
-To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
 
-
-Here are the optional Query String Parameters you can pass along when creating a Forecast Session:
-* `dataSetName` - Name of the dataset to forecast. If data is sent in the body of this request, the dataSetName will be used as part of the unique name given to the dataSet for this session.
+Here are the Query String Parameters you can pass along when creating a Forecast Session:
+* `dataSetName` (required) - Name of the dataset to forecast. 
 * `targetColumn` - Column in the specified dataset to forecast
 * `startDate` - Format - date-time (as date-time in ISO8601). First date to forecast
 * `endDate` - Format - date-time (as date-time in ISO8601). Last date to forecast
@@ -34,9 +32,7 @@ Here are the optional Query String Parameters you can pass along when creating a
 
 > To get a Cost Estimate, include and set the `isEstimate` query string parameter to `true`. The returned `Nexosis-Request-Cost` header will be populated with the estimated cost that the request would have incurred.
 
-### Starting a Forecast Session using an Existing DataSet
-
-If you already created a named DataSet, you can start a forecast session by simply passing the name of that DataSet in the query string parameters and leaving the request body empty. 
+### Column Metadata
 
 Columns Metadata is optional, but can be included to fix or change the DataSet metadata. If the Columns Metadata is not compatible with the DataSet, it will throw a 400 Error code. 
 
@@ -137,108 +133,6 @@ curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=Locatio
     </div>
 </div>
 
-### Starting a Forecast Session and Including a New DataSet
-
-If you don't have a named DataSet yet and want to immediately create it and start a forecast session, you can include the dataset in the request body as `JSON` or `CSV`.
-
-<ul id="profileTabs" class="nav nav-tabs">
-    <li class="active"><a href="#json2" data-toggle="tab">JSON</a></li>
-    <li><a href="#csv2" data-toggle="tab">CSV</a></li>
-</ul>
-<div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="json2">
-      <p>`timestamp` is the date and time being observed and `values` are a dictionary of values observed at that time.</p>
-      <pre class="language-bash">
-        <code class="language-bash code-toolbar">
-curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=Location-A&targetColumn=sales&startDate=01/01/2017T00:00:00Z&endDate=01/05/2017T00:00:00Z&resultInterval=day"
--H "Content-Type: application/json"
--H "api-key: {subscription key}"
-
---data-ascii "{body}"
-        </code>
-      </pre>
-       <pre class="language-javascript">
-          <code class="language-json code-toolbar">
-          {
-  "columns": {
-    "timestamp": {
-      "dataType": "date",
-      "role": "timestamp"
-    },
-    "sales": {
-      "dataType": "numeric",
-      "role": "target"
-    },
-    "orders": {
-      "dataType": "numeric",
-      "role": "feature"
-    }    
-  },
-  "data": [
-    {
-      "timestamp": "2017-01-01T00:00:00+00:00",
-      "sales": "2948.74",
-      "orders": "100"
-
-    },
-    {
-      "timestamp": "2017-01-02T00:00:00+00:00",
-      "sales": "1906.35",
-      "orders": "75"
-    },
-    {
-      "timestamp": "2017-01-03T00:00:00+00:00",
-      "sales": "4523.42",
-      "orders": "187"
-    },
-    {
-      "timestamp": "2017-01-04T00:00:00+00:00",
-      "sales": "4586.85",
-      "orders": "202"
-    },
-    {
-      "timestamp": "2017-01-05T00:00:00+00:00",
-      "sales": "4538.04",
-      "orders": "193"
-    }
-  ]
-}
- </code>
-      </pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="csv2">
-      <div>
-      <h3>TimeStamps</h3>
-      <p>
-      By default, the API will assume that the timestamp in your CSV DataSet is in a column named *timestamp*.
-      </p>
-      <p>
-      If your csv data has a timestamp with a different column name, you can provide that name with a parameter in the query string named *timestampColumn*
-      </p>
-      </div>
-      <pre class="language-bash">
-        <code class="language-bash code-toolbar">
-curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=Location-A&targetColumn=sales&startDate=01/01/2017T00:00:00Z&endDate=01/05/2017T00:00:00Z&resultInterval=day"
--H "Content-Type: test/csv"
--H "api-key: {subscription key}"
-
---data-binary "@/path/to/file/data.csv"
-        </code>
-      </pre>
-      /path/to/file/data.csv:
-      <pre class="language-csv">
-          <code class="language-csv code-toolbar">
-          date,sales,orders
-          2017-01-01,2948.74,100
-          2017-01-02,1906.35,75
-          2017-01-03,4523.42,187
-          2017-01-04,4586.85,202
-          2017-01-05,4538.04,193
-          </code>
-      </pre>
-    </div>
-</div>
-
 ### Request Response
 
 An `200 OK` response will include the following JSON output, confirming the Columns metadata, target column, and the parameters of the forecast.
@@ -266,7 +160,7 @@ An `200 OK` response will include the following JSON output, confirming the Colu
       "role": "target"
     }
   },
-  "dataSetName": "Location-A.bb55b431-cfce-4dc7-bec4-24ee3b1d0d56",
+  "dataSetName": "Location-A",
   "targetColumn": "sales",
   "startDate": "2017-01-01T00:00:00+00:00",
   "endDate": "2017-01-05T00:00:00+00:00",

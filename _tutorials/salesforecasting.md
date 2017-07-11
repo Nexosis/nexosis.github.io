@@ -33,7 +33,7 @@ rails server
 
 ## Datasets & Sessions
 
-A *dataset* in the Nexosis API is a collection of observations on which a forecast or impact analysis will be run. The API allows you to upload a dataset independent of any request to perform work on it, or to submit data at the same time as a request to perform the work. We call a request to perform the forecast or impact analysis work a *session*. With your api key placed in `config/secrets.yml` you're ready to interact with the API. The landing page is at http://localhost:3000/account and should look like this:
+A *dataset* in the Nexosis API is a collection of observations on which a forecast or impact analysis will be run. We call a request to perform the forecast or impact analysis work a *session*. With your api key placed in `config/secrets.yml` you're ready to interact with the API. The landing page is at http://localhost:3000/account and should look like this:
 
 ![Landing Page](../assets/img/landing_page.png)
 
@@ -55,7 +55,7 @@ end
 This application helps you load a CSV file you have locally as a dataset (*the API also accepts json input*).
 > If you don't have a dataset of your own, trying using one of our publicly available samples at [https://github.com/Nexosis/sampledata](https://github.com/Nexosis/sampledata). For this application we'll be using ["LocationC.csv"](https://raw.githubusercontent.com/Nexosis/sampledata/master/LocationC.csv)
 
-In order to have a named dataset you must also provide that name. Once you have provided the name, and selected a file you can click the submit button. Again, this is a distinct operation from submitting a session request which would do work - we'll get to that soon. The api client for this application has been written to upload only 5000 lines at a time because we're sending the data as the request body and need to mind limits. We recommend using the S3 option with production datasets.
+You need to give any dataset you upload a name. Once you have provided the name, and selected a file you can click the submit button. Again, this is a distinct operation from submitting a session request which would do work - we'll get to that soon. The api client for this application has been written to upload only 5000 lines at a time because we're sending the data as the request body and need to mind limits. We recommend using the S3 option with production datasets.
 
 ``` ruby
 csv.each do |row|
@@ -83,8 +83,6 @@ Now that a dataset has been loaded you should see a new line on the */account* p
 
 Notice that next to the dataset name *RubySample* there are two links - one to create a forecast and another to create an impact analysis. These activities will create sessions based on the named dataset.
 
-> As mentioned previously - it is possible to send data in a session request instead. It will be given a generated name and will only be used in that one session. Everything else will be the same as demonstrated in this application.
-
 If you click on *Begin Forecast* you'll be asked for some additional data to specify the parameters of the forecast job to be run.
 
 ![submit forecast](../assets/img/submitforecast.png)
@@ -104,8 +102,6 @@ You might have noticed the checkbox to "estimate" the forecast session in the sc
 Your values have been pre-filled, so if you're ready to go ahead just hit the submit button again.
 <hr/>
 Sessions will take longer to run the first time you request them on a dataset because we run our algorithm selection process to determine how best to forecast your result. While we will run this again in the future to make sure we keep giving the best results, we will keep the selection around for a while, making subsequent sessions on the same dataset run much more quickly.
-
-> If you submit data and run a session we will run the algorithm selection process every time.
 
 ![session status](../assets/img/session_status.png)
 
