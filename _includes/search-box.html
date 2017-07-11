@@ -1,10 +1,13 @@
-<div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <form action="/search/">
-            <div class="input-group" style="margin: 5px 0px 0px;">
-                <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                <input class="form-control" name="q" type="text" placeholder="Search" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
-            </div>
-        </form>
+<style>
+form.search span.input-group-addon {border:none; background:transparent; color: #e20467; font-size: 11px; padding:0 5px 0 0;}
+form.search .form-control {box-shadow: none;}
+form.search input {border:none !important; background:transparent; color: #afb0b4; font-size: 11px; padding:1px 7px; border-radius: 3px !important; height: auto; font-weight: 500;}
+form.search input:focus {background:#fff; color: #332c33;}
+</style>
+
+<form action="/search/" class="form-inline search">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+        <input class="form-control input-sm" name="q" type="text" placeholder="Search" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
     </div>
-</div>
+</form>
