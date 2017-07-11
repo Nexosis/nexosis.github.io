@@ -13,7 +13,7 @@ A Forecast is when we take your historical time series data and predict what wil
 -----
 
 ### Creating a Forecast Session
-Forecast sessions is the mechanism in the API to generate these predictions. To create a forecast session, specify the name of an existing DataSet, or provide one directly in the session creation request. You'll also provide the start and end dates of the forecast period. If the submitted DataSet includes `feature` columns, it must have values for those features over the prediction period.
+Forecast sessions is the mechanism in the API to generate these predictions. To create a forecast session, sspecify the dataset for which to forecast from, as well as the start and end dates of the forecast period. If the saved dataset includes `feature` columns, it must have values for those features over the prediction period.
 
 To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
 
