@@ -10,6 +10,8 @@ use_codestyles: true
 
 This simple tutorial will illustrate how to use Impact Analysis in the Nexosis API to measure the impact of marketing changes on Facebook likes over a period of time using data from Facebook. This tutorial uses the [Nexosis Java client library](https://github.com/Nexosis/nexosisclient-java).
 
+>You can follow along using the [full source code in github](https://github.com/Nexosis/sample-java-fbimpact).
+
 ------
 
 ### Source Data
