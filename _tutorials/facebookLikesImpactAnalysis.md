@@ -230,11 +230,7 @@ To retrieve results, you must wait until the session is completed. Check session
 
 ### Impact Results
 
-<<<<<<< HEAD
-Finally, once the results are ready you can retrieve the results the `sessionID`. In this sample, it will write the results as a CSV to a file stream. To retrieve results, call the `getResults()` method, as shown on `Line 13`, using the `sessionID`.
-=======
 Finally, once the results are ready you can retrieve the results via the `sessionID`. In this sample, it will write the results as a CSV to a file stream. To retrieve results, shown in `Line 13` using `getResults()` method on the session, using the `sessionID`.
->>>>>>> 12184c41250ac71f79fc373657c872bc971d2349
 
 ```{:.line-numbers}{:.language-java}
  private static SessionResult getImpactResults(NexosisClient client, UUID sessionID, String resultsFile) throws IOException, NexosisClientException {
