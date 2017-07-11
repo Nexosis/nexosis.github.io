@@ -17,7 +17,7 @@ of the historical PM<sub>2.5</sub> levels in Beijing<sup>[1](#data-quality)</sup
 
 ## Getting Started
 
-In order to run the code associated with this sample, you must first [create an account](/guides/createaccount). The sample code is hosted [on github](https://github.com/nexosis/air-quality-tutorial-csharp) and can be cloned and run locally. 
+In order to run the code associated with this sample, you must first [create an account](/guides/createaccount). The sample code is hosted [on github](https://github.com/nexosis/sample-csharp-air-quality) and can be cloned and run locally. 
 
 -----
 
@@ -249,4 +249,4 @@ temperature and precipition during that period as those both have an effect on t
 
 <a name="data-quality">1</a>: In accordance with the [data use policy](http://www.stateair.net/web/assets/USDOS_AQDataUseStatement.pdf) given 
 by the U.S. Department of State, the data used in this analysis is not fully verified or validated; these data are subject to change, error,
-and correction.  The data and information are in no way official.
+AND CORRECTION.  the data and information are in no way official.
