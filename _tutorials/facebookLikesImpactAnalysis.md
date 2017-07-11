@@ -97,11 +97,7 @@ The `Columns` object is used to create a data dictionary to specify things like 
 
 We indicate that the `"date"` column is of type `DataType.DATE` and that it has a role of `DataRole.TIMESTAMP`. When using Time Series forecasting algorithms you must have one timestamp column in the dataset for it to work.
 
-<<<<<<< HEAD
-If you have data to submit that may be important later, or you're just not sure if it is a good candidate to be a `DateRole.FEATURE`, set it to `DataRole.NONE` - you can always change it later if you want to use it as a feature then.
-=======
 If you have data to submit that may be important later, or you're just not sure if it is a good candidate to be a `DateRole.FEATURE`, set it to `DataRole.NONE` - you can always change it later if you want to use it as a feature.
->>>>>>> 12184c41250ac71f79fc373657c872bc971d2349
 
 ```{:.line-numbers}{:.language-java}
  private static UUID runImpactAnalysis(NexosisClient client, String dataSetName, String eventName) 
