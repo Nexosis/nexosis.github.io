@@ -17,7 +17,8 @@ of the historical PM<sub>2.5</sub> levels in Beijing<sup>[1](#data-quality)</sup
 
 ## Getting Started
 
-In order to run the code associated with this sample, you must first [create an account](/guides/createaccount). The sample code is hosted [on github](https://github.com/nexosis/sample-csharp-air-quality) and can be cloned and run locally. 
+In order to run the code associated with this sample, you must first [create an account](/guides/createaccount). The sample code is 
+hosted [on github](https://github.com/nexosis/sample-csharp-air-quality) and can be cloned and run locally. 
 
 -----
 
@@ -33,7 +34,8 @@ These have been copied into the git repository for your convenience. To import t
 
 This will save the values from the CSV files into the database specified by the command. Once this has completed, the data will be staged
 in an `import` table in the database. The next step is to process the imported values into the data that will be submitted to the Nexosis API.
-At this point, [imputation](/guides/missingvalues) is not performed as part of the analysis in the API. In this example, 
+At this point, [imputation](/guides/missingvalues) is not performed as part of the analysis in the API, and missing values will cause problems when
+doing predictions. Since this data has missing values,
 the average of the data set (93) was used as a constant value for each hour missing in the original data set. You will need to determine the best 
 strategy given your data. In the sample, this step can be run with the following command:
 
