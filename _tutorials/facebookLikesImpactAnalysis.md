@@ -44,11 +44,7 @@ date, page_views, amount_spent, total_page_likes, daily_paid_likes, daily_organi
 6/27/2017, 10, $108.16, 1459, 20, 1, 6605, 65
 6/28/2017, 4, $32.04, 1466, 6, 0, 2900, 32
 ```
-<<<<<<< HEAD
-The graph shows the data starts on `1/1/2016` and ends on `6/28/2017`. By visually inspecting the data, Page Likes are pretty stagnant for just over a year, then there is a very clear and small noticeable acceleration of Page Likes starting around `3/15/2017` a considerable change in the slope around `4/6/2017`. The initial boost correlates with when the new marketing campaign kick-off occurred. 
-=======
 The graph below shows the data starts on `1/1/2016` and ends on `6/28/2017`. By visually inspecting the data it's clear that Page Likes are pretty stagnant for just over a year. Starting around `3/15/2017` there is a small but very clear acceleration of Page Likes and then a considerable change in the slope around `4/6/2017`. The initial boost correlates with when the new marketing campaign kick-off occurred. 
->>>>>>> 12184c41250ac71f79fc373657c872bc971d2349
 
 We'll measure the impact of the new Facebook marketing push over that time period starting on `3/15/2017` through the end of the data stream, `6/28/2017`.
 
