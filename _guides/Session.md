@@ -27,7 +27,7 @@ To start a session, you issue a `POST` to [/sessions/forecast]({{site.api_refere
 
 A request to start a session takes the following query string parameters:
 
-* `dataSetName` *(optional)* - The name of the DataSet on whose data the session performs its calculations.  This parameter is optional.  If a dataSetName is omitted from the request, you **must** provide data for the session in the body of this `POST` request.  When the dataSetName is omitted, the Nexosis API will generate a unique DataSet name.
+* `dataSetName` - The name of the DataSet on whose data the session performs its calculations.
 * `targetColumn` - The column in the DataSet that is the target of the calculation being performed.  In the case of [Forecasting](forecast), this is column for which we want to generate predictions.  In the case of [Impact Analysis](impactanalysis), this is the column in the DataSet against which we want to calculate the impact of an event.
 * `startDate` - The start date of the session.  In Forecast sessions, this is the start of the forecast period.  In Impact Analysis sessions, this is the start of the even whose impact is being calculated.
 * `endDate` - The end date of the session.
