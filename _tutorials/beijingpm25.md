@@ -73,7 +73,7 @@ for (int i = 0; i < ((measurements.Count / batchSize) + 1); i++)
     Console.Out.WriteLine($"Added to data set named {ds.DataSetName}. Cost: ${ds.Cost.Amount}.");
 }
 ```
-In this case, the API has inferred that which column is the timestamp and which contains the value. If necessary, you can specify
+In this case, the API has inferred which column is the timestamp and which contains the value. If necessary, you can specify
 [that information](/guides/columnmetadata) when you [send the data](/guides/sendingdata). It is also how you would include columns 
 to be used as [features](/guides/specifyingfeatures) when performing an analysis.
 
@@ -92,8 +92,8 @@ the data on an hourly interval level.
 
 When you want to look at the effect of an outside influence on your data, you can do [causal impact analysis](/guides/impactanalysis). 
 In this example, you can look at how the PM<sub>2.5</sub> changed during the 2008 Summer Olympic Games hosted in Beijing. At the time,
-it was widely reported that athletes were concerned about the air quailty and how it might hurt their performance or have long term
-negative effects. [China responded](http://www.nytimes.com/2008/08/01/sports/olympics/01china.html) by curbing pollution causing activites.
+it was widely reported that athletes were concerned about the air quality and how it might hurt their performance or have long term
+negative effects. [China responded](http://www.nytimes.com/2008/08/01/sports/olympics/01china.html) by curbing pollution causing activities.
 Using the Nexosis API, you can show what the PM<sub>2.5</sub> values would have been, and how much impact the changes enacted helped to
 control the harmful pollution in the air.
 
@@ -190,7 +190,7 @@ absoluteEffect: -55610.481
 relativeEffect: -0.7151
 ```
 
-You can get the results from the datbase to graph them with the following SQL, subsituting for the source and session id columns as appropriate.
+You can get the results from the database to graph them with the following SQL, substituting for the source and session id columns as appropriate.
 
 ```sql
 SELECT 
@@ -242,8 +242,8 @@ relativeEffect: -0.5182
 ```
 
 Looking at the graph and the metrics coming out the analysis, you can be confident that during the 2008 Summer Olympic Games the air quality 
-in Beijing was roughly 50% better than in the preceeding months. To take this analysis further, you could start to include features such as 
-temperature and precipition during that period as those both have an effect on the PM<sub>2.5</sub> value.
+in Beijing was roughly 50% better than in the preceding months. To take this analysis further, you could start to include features such as 
+temperature and precipitation during that period as those both have an effect on the PM<sub>2.5</sub> value.
 
 -----
 
