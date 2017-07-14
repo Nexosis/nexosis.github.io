@@ -8,12 +8,48 @@ breadcrumb: API Clients
 tags: [node, nodejs, npm]
 use_codestyles: true
 ---
+## Supported platforms
+NodeJs.  This package will not yet work in a web browser.
 
-### More Coming Soon
+## Installing the Client
+#### [View package details](https://www.npmjs.com/package/nexosis-api-client)
+either install directly into your application at the command line
+``` bash
+npm install nexosis-api-client
+```
+or add to your package dependencies and then run npm install
+``` javascript
+"nexosis-api-client": ">=1.0.0"
+```
+
+## Node Quick Start
+
+### Initialize the Client
+You'll need your api key to pass to the constructor. If you follow the sample below, it has been added as an environment variable on the host first.
+
+``` javascript
+var client = require('nexosis-api-client').default;
+var nexosisClient = new client({ key: process.env.NEXOSIS_API_KEY });
+```
+Once you have the client, you can interact with Sessions, DataSets, and Imports by accessing a property on the client...
+``` javascript
+nexosisClient.DataSets.get("mydataset");
+nexosisClient.Sessions.get("b19d17da-ec5c-4de8-81af-53b4bf486bae");
+nexosisClient.Imports.list();
+```
+
+In practice, each of the operations returns a Promise. To access the session data returned from a get for example you would write:
+``` javascript
+nexosisClient.Sessions
+.get("b19d17da-ec5c-4de8-81af-53b4bf486bae")
+.then(
+    (data) => { console.log(data); }
+);
+```
 
 #### To get started with NodeJS and the Nexosis API, [view the source code](https://github.com/Nexosis/samples/tree/master/node-sample)
 
 Pull requests are welcome.
 
 ### Issues
-If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/samples/issues/new) in github. Please include code to reproduce the error if possible.
+If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-js/issues/new) in github. Please include code to reproduce the error if possible.
