@@ -47,7 +47,7 @@ nexosisClient.Sessions
 );
 ```
 
-#### To get started with NodeJS and the Nexosis API, [view the source code](https://github.com/Nexosis/samples/tree/master/node-sample)
+#### To get started with NodeJS and the Nexosis API, [view the source code](https://github.com/Nexosis/samples-js/tree/master/node-sample)
 
 Pull requests are welcome.
 

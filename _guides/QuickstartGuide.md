@@ -128,4 +128,4 @@ The values object contains a key value pair of the column name, and the predicti
 The Nexosis API can also do impact analysis of events.  This can be used to gauge, for example, how impactful promotions or special events are on sales numbers.  These types of sessions can be posted in the same way as forecasts, but to the `sessions/impact` endpoint.
 
 
-Now that you are familiar with the basics, try running forecasts against new datasets, or, take a look at the [code samples](https://github.com/Nexosis/samples) and [client libraries](/clients), and write an application which integrates with the API.  Show us what you were able to build!
+Now that you are familiar with the basics, try running forecasts against new datasets, or, take a look at the [code samples](https://github.com/Nexosis?utf8=✓&q=samples) and [client libraries](/clients), and write an application which integrates with the API.  Show us what you were able to build!
