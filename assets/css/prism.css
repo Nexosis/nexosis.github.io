@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+aspnet+bash+basic+c+csharp+cpp+ruby+fsharp+git+go+http+java+json+julia+latex+lua+perl+php+powershell+protobuf+python+r+rest+rust+sql+swift+vbnet+yaml&plugins=line-highlight+line-numbers+autolinker+custom-class+toolbar+command-line+normalize-whitespace+show-language+copy-to-clipboard */
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+clike+javascript+aspnet+csharp+ruby+java+json+powershell+python+scala&plugins=line-highlight+line-numbers+toolbar+remove-initial-line-feed+autoloader+command-line+show-language+copy-to-clipboard */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
@@ -206,9 +206,6 @@ pre.line-numbers > code {
 			padding-right: 0.8em;
 			text-align: right;
 		}
-.token a {
-	color: inherit;
-}
 pre.code-toolbar {
 	position: relative;
 }
