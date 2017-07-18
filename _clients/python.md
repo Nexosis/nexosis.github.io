@@ -17,9 +17,9 @@ The client has been tested against Python 2.7, and 3.3-3.6. Install with `pip`.
 $ pip install nexosisapi
 ```
 
-[PyPI Package Details](https://pypi.python.org/pypi/nexosisapi)
+[PyPI Package Details](https://pypi.python.org/pypi/nexosisapi){:target="_blank"}
 
-[View Source in our git repo](https://github.com/Nexosis/nexosisclient-py)
+[View Source in our git repo](https://github.com/Nexosis/nexosisclient-py){:target="_blank"}
 
 ## Basic Usage
 
@@ -59,7 +59,7 @@ send a `list` of `dict` containing the data, or read from a CSV file.
 
 ```python
 # `data` should be a list of dict with the values to store
-client.datasets.create('coffe-consupmption', data)
+client.datasets.create('coffee-consupmption', data)
 
 # alternatively, a CSV file can be used
 with open('cups_of_coffee.csv') as f:
@@ -129,6 +129,6 @@ bucket) into the 'test-python-import' dataset in the Nexosis API.
 
 
 ### Issues
-If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-py/issues/new) in GitHub. Please include code to reproduce the error if possible.
+If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-py/issues/new){:target="_blank"} in GitHub. Please include code to reproduce the error if possible.
 
 Pull requests are welcome.

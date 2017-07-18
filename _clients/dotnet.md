@@ -16,9 +16,9 @@ You need to be using a project referencing .NET Standard (any version of .NET Co
 PM> Install-Package Nexosis.Api.Client 
 ```
 
-[View Nuget Package details](https://www.nuget.org/packages/Nexosis.Api.Client/)
+[View Nuget Package details](https://www.nuget.org/packages/Nexosis.Api.Client/){:target="_blank"}
 
-[View Source in our git repo](https://github.com/Nexosis/nexosisclient-net)
+[View Source in our git repo](https://github.com/Nexosis/nexosisclient-net){:target="_blank"}
 
 ### Usage
 
@@ -56,6 +56,6 @@ using (var output = new StreamWriter(File.OpenWrite("results-file.csv")))
 ```
 
 ### Issues
-If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-net/issues/new) in github. Please include code to reproduce the error if possible.
+If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-net/issues/new){:target="_blank"} in github. Please include code to reproduce the error if possible.
 
 Pull requests are welcome.
