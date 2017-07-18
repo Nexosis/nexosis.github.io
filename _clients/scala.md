@@ -1,6 +1,6 @@
 ---
-title: Scala
-description: Using the Nexosis Java Package to communicate with Nexosis API in Scala
+title: Scala 
+description: Use the Nexosis Java Package to communicate with Nexosis API in Scala
 copyright: 2017 Nexosis 
 layout: default
 category: Scala
