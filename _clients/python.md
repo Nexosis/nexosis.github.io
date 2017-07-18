@@ -60,7 +60,7 @@ send a `list` of `dict` containing the data, or read from a CSV file.
 
 ```python
 # `data` should be a list of dict with the values to store
-client.datasets.create('coffe-consupmption', data)
+client.datasets.create('coffee-consupmption', data)
 
 # alternatively, a CSV file can be used
 with open('cups_of_coffee.csv') as f:
