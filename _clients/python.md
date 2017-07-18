@@ -18,9 +18,9 @@ tested. Install with pip.
 $ pip install nexosisapi
 ```
 
-[PyPI Package Details](https://pypi.python.org/pypi/nexosisapi)
+[PyPI Package Details](https://pypi.python.org/pypi/nexosisapi){:target="_blank"}
 
-[View Source in our git repo](https://github.com/Nexosis/nexosisclient-py)
+[View Source in our git repo](https://github.com/Nexosis/nexosisclient-py){:target="_blank"}
 
 ## Basic Usage
 
@@ -130,6 +130,6 @@ bucket) into the 'test-python-import' dataset in the Nexosis API.
 
 
 ### Issues
-If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-py/issues/new) in GitHub. Please include code to reproduce the error if possible.
+If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-py/issues/new){:target="_blank"} in GitHub. Please include code to reproduce the error if possible.
 
 Pull requests are welcome.

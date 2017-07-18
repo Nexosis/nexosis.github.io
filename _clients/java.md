@@ -14,8 +14,8 @@ The Nexosis Client for Java supports Java versions 1.7 and 1.8.
 
 ## Installing the Client
 
-#### [View package details](https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java)
-*[view the source code](https://github.com/Nexosis/nexosisclient-java)* 
+#### [View package details](https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java){:target="_blank"}
+*[view the source code](https://github.com/Nexosis/nexosisclient-java){:target="_blank"}* 
 
 ### Maven
 Add this dependency to <code>pom.xml</code>:
@@ -181,4 +181,4 @@ while (results.getStatus() != SessionStatus.COMPLETED) {
 ```
 
 ### Issues
-If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-java/issues/new) in github. Please include code to reproduce the error if possible.
+If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-java/issues/new){:target="_blank"} in github. Please include code to reproduce the error if possible.

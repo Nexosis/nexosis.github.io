@@ -12,12 +12,17 @@ use_codestyles: true
 NodeJs.  This package will not yet work in a web browser.
 
 ## Installing the Client
-#### [View package details](https://www.npmjs.com/package/nexosis-api-client)
-either install directly into your application at the command line
+#### [View package details](https://www.npmjs.com/package/nexosis-api-client){:target="_blank"}
+*[view the source code](https://github.com/Nexosis/nexosisclient-js){:target="_blank"}* 
+
+Either install directly into your application at the command line:
+
 ``` bash
 npm install nexosis-api-client
 ```
-or add to your package dependencies and then run npm install
+
+or add to your package dependencies and then run npm install:
+
 ``` javascript
 "nexosis-api-client": ">=1.0.0"
 ```
@@ -47,9 +52,9 @@ nexosisClient.Sessions
 );
 ```
 
-#### To get started with NodeJS and the Nexosis API, [view the source code](https://github.com/Nexosis/nexosisclient-js)
+#### To get started with NodeJS and the Nexosis API, [view the source code](https://github.com/Nexosis/nexosisclient-js){:target="_blank"}
 
 Pull requests are welcome.
 
 ### Issues
-If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-js/issues/new) in github. Please include code to reproduce the error if possible.
+If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-js/issues/new){:target="_blank"} in github. Please include code to reproduce the error if possible.

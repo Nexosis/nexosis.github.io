@@ -15,8 +15,8 @@ The Scala client uses the Nexosis API Java package - tested with Scala 2.12.x.
 
 ## Installing the Client
 
-#### [View package details](https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java)
-*[view the Java Client source code](https://github.com/Nexosis/nexosisclient-java)* 
+#### [View package details](https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java){:target="_blank"}
+*[view the Java Client source code](https://github.com/Nexosis/nexosisclient-java){:target="_blank"}* 
 
 ### SBT
 Add this dependency to `build.sbt`:
@@ -202,4 +202,4 @@ while (status.getStatus == SessionStatus.STARTED ) {
 ```
 
 ### Issues
-If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-java/issues/new) in github. Please include code to reproduce the error if possible.
+If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-java/issues/new){:target="_blank"} in github. Please include code to reproduce the error if possible.
