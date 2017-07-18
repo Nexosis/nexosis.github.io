@@ -11,8 +11,7 @@ use_codestyles: true
 
 ## Installation
 
-The client has been tested against Python 2.7 and 3.6. Other versions may work, but have not been
-tested. Install with pip.
+The client has been tested against Python 2.7, and 3.3-3.6. Install with `pip`.
 
 ```bash
 $ pip install nexosisapi
