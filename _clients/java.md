@@ -91,8 +91,8 @@ InputStream inputStream = new FileInputStream(initialFile);
 nexosisClient.getDataSets().create(dataSetName, inputStream);
 ```
 
-Here's an example of creating a DataSet using the <code>DataSetData</code> Model object:
-``` java
+Here's an example of creating a DataSet using the <code>DataSetData</code> Model object, using generated random data:
+```{:.line-numbers}{:.language-java}
 // Generate a dataset
 Random rand = new Random();
 DateTime startDate = DateTime.parse("2016-08-01T00:00:00Z");
@@ -108,14 +108,14 @@ for (DateTime timeStamp = startDate; timeStamp.isBefore(endDate); timeStamp = ti
     rows.add(row);
 }
 // Create and add all the rows to the DataSet.
-DataSetData data = new DataSetData();
+DataSetData dataSet = new DataSetData();
 data.setData(rows);
 
 // Setup metadata that describes the dataset columns.
 // For time-series, we want to indicate a TIMESTAMP column
 // Indicate the sales column is the TARGET to forcast over
 // The promotion column is a boolean indicating if the date is a promotional period
-Columns columnMetadata = new Columns();
+Columns cols = new Columns();
 cols.setColumnMetadata("timestamp", DataType.DATE, DataRole.TIMESTAMP);
 cols.setColumnMetadata("sales", DataType.NUMERIC, DataRole.TARGET); 
 cols.setColumnMetadata("promotion", DataType.LOGICAL, DataRole.FEATURE);
@@ -139,7 +139,6 @@ nexosisClient.getDataSets().create(dataSetName, dataSet);
 To generate forecasts, the platform needs to know the DataSet name to build the forecasting models off of, a target column indicating what columns the model should be predicting, a prediction interval, and the start and end date of the desired prediction dates.
 
 ``` java
-
  nexosisClient.getSessions().createForecast(
                 "OtherDataSet",
                 "sales",
@@ -147,8 +146,6 @@ To generate forecasts, the platform needs to know the DataSet name to build the 
                 DateTime.parse("2017-04-24T0:00:00Z"),
                 ResultInterval.DAY
         );
-
-
 ```
 
 ### Create an Impact Session

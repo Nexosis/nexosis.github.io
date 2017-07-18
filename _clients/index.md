@@ -64,6 +64,8 @@ exclude_from_search: true
           {% assign category = "ruby" %}
         {% when "Java" %}
           {% assign category = "java" %}
+        {% when "Scala" %}
+          {% assign category = "scala" %}
         {% when "Javascript" %}
           {% assign category = "javascript" %}
         {% when "curl" %}

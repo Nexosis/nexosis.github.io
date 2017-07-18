@@ -200,6 +200,14 @@ exclude_from_search: true
                 </a>
               </p>
             </div>
+             <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
+              <p class="center">
+                <a href="/clients/scala">
+                  <img src="/assets/img/scala.png" class="responsive"> <br />
+                  <span class="small">Scala</span>
+                </a>
+              </p>
+            </div>
           </div>
       </div>
     </div>
