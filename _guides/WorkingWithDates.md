@@ -23,6 +23,8 @@ Here are some examples of libraries in different languages that can help you wit
 * .NET - [Noda Time](http://nodatime.org/)
 * Java - [Joda Time](http://www.joda.org/joda-time/)
     * <code>DateTime.now().toDateTimeISO().toString()</code>
+* Scala - [Joda Time](http://www.joda.org/joda-time/)
+    * <code>DateTime.now().toDateTimeISO().toString()</code>
 * Ruby - [Time.rb](https://ruby-doc.org/stdlib-2.1.1/libdoc/time/rdoc/Time.html)
     * <code>Time.now.iso8601</code>
 * NodeJS - [Moment.js](https://momentjs.com/)
