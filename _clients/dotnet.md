@@ -22,24 +22,37 @@ PM> Install-Package Nexosis.Api.Client
 
 ### Usage
 
-The most basic thing you can do with the API is submit some data and ask for predictions all at once. This can be done if you have a CSV file with the following code:
+The most basic thing you can do with the API is submit some data and then ask for predictions. This can be done if you have a CSV file with the following code:
 
 ``` csharp
-var client = new NexosisClient("YOUR API KEY HERE");
-using (var file = File.OpenText("C:\\path\\to\\file.csv"))
+var client = new NexosisClient();
+using (var file = File.OpenText("C:\\path\\to\\sales-file.csv"))
 {
-    var session = await client.Sessions.CreateForecast(file, "sales", DateTimeOffset.Parse("2017-03-25 -0:00"), DateTimeOffset.Parse("2017-04-25 -0:00"));
-    Console.WriteLine($"{session.Id}");
+    client.DataSets.Create("widget-sales", file);
 }
+    
+// Creating a forecast session
+
+var sessionResponse = client.Sessions.CreateForecast(
+    "widget-sales",
+    "daily_transaction",
+    DateTimeOffset.Parse("2017-12-12 10:11:12 -0:00"), 
+    DateTimeOffset.Parse("2017-12-22 22:23:24 -0:00"), 
+    ResultInterval.Day
+);
 ```
 
-For this to work, the CSV file must have a header with the names of the columns in the file. One of those must be named "timeStamp", and in this example, there is a second column named "sales".
+For this to work, the CSV file must have a header with the names of the columns in the file.
 
-Once the forecasting is complete, you will receive an email notification. Using the `sessionId` from above, you will want to get results with the following call:
+Once the forecasting is complete, you will receive an email notification. Using the `sessionId` from
+above, you will want to get results with the following call:
 
 ```csharp
-    var results = await client.Sessions.GetResults(sessionId);
-    // results has a .Data property with the forecast values
+// Retrieve forecast results
+using (var output = new StreamWriter(File.OpenWrite("results-file.csv")))
+{
+    client.Sessions.GetResults(sessionResponse.SavedSessionId, output);
+}
 ```
 
 ### Issues
