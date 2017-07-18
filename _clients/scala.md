@@ -196,6 +196,7 @@ var results: SessionResult
 // Loop until the STARTED status changes
 while (status.getStatus == SessionStatus.STARTED ) {
   results = client.getSessions.getResults(sessionId)
+  Thread.sleep(5000)
 }
 // Retrieve the Results.
 ```
