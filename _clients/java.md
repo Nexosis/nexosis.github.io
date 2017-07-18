@@ -181,4 +181,4 @@ while (results.getStatus() != SessionStatus.COMPLETED) {
 ```
 
 ### Issues
-If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-net/issues/new) in github. Please include code to reproduce the error if possible.
+If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-java/issues/new) in github. Please include code to reproduce the error if possible.
