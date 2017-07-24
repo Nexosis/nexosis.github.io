@@ -112,7 +112,7 @@ exclude_from_search: true
         <div class="panel bg-color-lightGray">
           <div class="panel-body">
             <div class="row">
-              <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                 {% case ct %}
                   {% when "Customer Service" %}
                     <img src="http://nexosis.com/assets/img/use-case/customer-service.png" style="width:100px;">
@@ -134,7 +134,7 @@ exclude_from_search: true
                     <img src="http://docs.nexosis.com/assets/img/sports-games.png" style="width:100px;">
                 {% endcase %}
               </div>
-              <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+              <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
                 <h5 id="{{ ct | slugify }}" style="margin-top: 20px;">{{ ct }}</h5>
                 {% for post in site.tutorials %}
                   {% if post.category contains ct %}
