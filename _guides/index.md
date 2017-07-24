@@ -48,7 +48,7 @@ exclude_from_search: true
 
 <div class="row">
   {% for ct in site.guides-category-order %}
-  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+  <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
     <div class="panel bg-color-lightGray">
       <div class="panel-body">
       <h5 id="{{ ct | slugify }}">{{ ct }}</h5>

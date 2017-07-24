@@ -75,7 +75,7 @@ exclude_from_search: true
         {% when "ObjC" %}
           {% assign category = "objc" %}
       {% endcase %}
-      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
         <div class="panel bg-color-lightGray">
           <div class="panel-body">
             <h5 id="{{ ct | slugify }}">

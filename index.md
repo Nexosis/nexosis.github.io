@@ -43,7 +43,7 @@ exclude_from_search: true
 
 <div class="row">
   {% for ct in site.guides-category-order %}
-    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
         <div class="panel guides bg-color-lightGray">
           <div class="panel-body">
             <div class="row">
@@ -108,7 +108,7 @@ exclude_from_search: true
 
 <div class="row">
   {% for ct in cats %}
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
         <div class="panel bg-color-lightGray">
           <div class="panel-body">
             <div class="row">
