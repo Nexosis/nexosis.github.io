@@ -47,7 +47,7 @@ exclude_from_search: true
         <div class="panel guides bg-color-lightGray">
           <div class="panel-body">
             <div class="row">
-              <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+              <div class="col-xs-5 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                 {% case ct%}
                 {% when "Forecasting" %}
                   <img src="/assets/img/forecasting.png">
@@ -59,7 +59,7 @@ exclude_from_search: true
                   <img src="/assets/img/security.png">
                 {% endcase %}
               </div>
-              <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+              <div class="col-xs-7 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                 <h5 id="{{ ct | slugify }}" style="margin-top:20px;">{{ ct }}</h5>
                 {% assign guides = site.guides | sort: "order" %}
                 {% for post in guides %}
@@ -112,7 +112,7 @@ exclude_from_search: true
         <div class="panel bg-color-lightGray">
           <div class="panel-body">
             <div class="row">
-              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                 {% case ct %}
                   {% when "Customer Service" %}
                     <img src="http://nexosis.com/assets/img/use-case/customer-service.png" style="width:100px;">
@@ -134,7 +134,7 @@ exclude_from_search: true
                     <img src="http://docs.nexosis.com/assets/img/sports-games.png" style="width:100px;">
                 {% endcase %}
               </div>
-              <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                 <h5 id="{{ ct | slugify }}" style="margin-top: 20px;">{{ ct }}</h5>
                 {% for post in site.tutorials %}
                   {% if post.category contains ct %}
@@ -163,7 +163,7 @@ exclude_from_search: true
             <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/dotnet">
-                  <img src="/assets/img/dotnet.png" class="responsive"> <br />
+                  <img src="/assets/img/dotnet.png" style="50px;"> <br />
                   <span class="small">.NET</span>
                 </a>
               </p>
@@ -171,7 +171,7 @@ exclude_from_search: true
             <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/nodejs">
-                  <img src="/assets/img/nodejs.png" class="responsive"> <br />
+                  <img src="/assets/img/nodejs.png" style="50px;"> <br />
                   <span class="small">node.js</span>
                 </a>
               </p>
@@ -179,7 +179,7 @@ exclude_from_search: true
             <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/python">
-                  <img src="/assets/img/python.png" class="responsive"> <br />
+                  <img src="/assets/img/python.png" style="50px;"> <br />
                   <span class="small">Python</span>
                 </a>
               </p>
@@ -187,7 +187,7 @@ exclude_from_search: true
             <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/ruby">
-                  <img src="/assets/img/ruby.png" class="responsive"> <br />
+                  <img src="/assets/img/ruby.png" style="50px;"> <br />
                   <span class="small">Ruby</span>
                 </a>
               </p>
@@ -195,7 +195,7 @@ exclude_from_search: true
              <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/java">
-                  <img src="/assets/img/java.png" class="responsive"> <br />
+                  <img src="/assets/img/java.png" style="50px;"> <br />
                   <span class="small">Java</span>
                 </a>
               </p>
@@ -203,7 +203,7 @@ exclude_from_search: true
              <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/scala">
-                  <img src="/assets/img/scala.png" class="responsive"> <br />
+                  <img src="/assets/img/scala.png" style="50px;"> <br />
                   <span class="small">Scala</span>
                 </a>
               </p>
