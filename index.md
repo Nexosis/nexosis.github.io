@@ -160,7 +160,7 @@ exclude_from_search: true
     <div class="panel bg-color-lightGray">
       <div class="panel-body">
           <div class="row">
-            <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
+            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/dotnet">
                   <img src="/assets/img/dotnet.png" style="width: 50px;"> <br />
@@ -168,7 +168,7 @@ exclude_from_search: true
                 </a>
               </p>
             </div>
-            <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
+            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/nodejs">
                   <img src="/assets/img/nodejs.png" style="width: 50px;"> <br />
@@ -176,7 +176,7 @@ exclude_from_search: true
                 </a>
               </p>
             </div>
-            <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
+            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/python">
                   <img src="/assets/img/python.png" style="width: 50px;"> <br />
@@ -184,7 +184,7 @@ exclude_from_search: true
                 </a>
               </p>
             </div>
-            <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
+            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/ruby">
                   <img src="/assets/img/ruby.png" style="width: 50px;"> <br />
@@ -192,7 +192,7 @@ exclude_from_search: true
                 </a>
               </p>
             </div>
-             <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
+             <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/java">
                   <img src="/assets/img/java.png" style="width: 50px;"> <br />
@@ -200,7 +200,7 @@ exclude_from_search: true
                 </a>
               </p>
             </div>
-             <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
+             <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
               <p class="center">
                 <a href="/clients/scala">
                   <img src="/assets/img/scala.png" style="width: 50px;"> <br />
