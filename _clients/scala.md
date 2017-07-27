@@ -25,7 +25,7 @@ resolvers +=
   Resolver.sonatypeRepo("public")
 
 // https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java
-libraryDependencies += "com.nexosis" % "nexosisclient-java" % "1.1.0"
+libraryDependencies += "com.nexosis" % "nexosisclient-java" % "1.1.2"
 ```
 
 ## Scala Quick Start

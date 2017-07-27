@@ -173,8 +173,8 @@ UUID sessionId = response.getSessionId();
 // After starting a Session...
 
 while (results.getStatus() != SessionStatus.COMPLETED) {
+        Thread.sleep(4000);
         SessionResult results = nexosisClient.getSessions().getResults(savedSessionId);
-         Thread.sleep(4000);
 }
 
 // Retrieve the Results.
