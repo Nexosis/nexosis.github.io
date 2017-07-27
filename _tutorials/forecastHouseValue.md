@@ -45,7 +45,7 @@ To create a dataset Axon can work with, we'll extract each row and populate a Da
 
 ## Parsing and Uploading Data
 
-Always start by creating an instance of the `NexosisClient`. 
+Always start by creating an instance of the `NexosisClient`.
 
 ``` scala
   val client = new NexosisClient(
@@ -53,7 +53,7 @@ Always start by creating an instance of the `NexosisClient`.
   )
 ```
 
-Most of the code in this tutorial is transforming the CSV data into a series of DataSets as this CSV is not currently formatted in a way that the Nexosis API can easily transform in to a series of datasets. Since there are 50 rows - one for each State region - we will need to create a dataset for each row.
+Most of the code in this tutorial is transforming the CSV data into a series of DataSets that can be individually submitted. Since there are 50 rows - one for each State region - we will need to create a dataset for each row.
 
 ### Step 1 -Load Csv file and pass it to `buildDatasets` method:
 
@@ -67,12 +67,12 @@ Most of the code in this tutorial is transforming the CSV data into a series of 
 The `buildDataSets` method will transform 50 rows of State data into 50 `DataSetData` objects and submit each one individually to the Nexosis API.
 
 ### Step 2 - Populate `DataSetData`  Object
-* Extract the header info and dates calling `ExtractHeadersAndDates` which returns a `DataSetData` object that contains a series of all the dates for that region (Since the dates are in the Header).
+* Extract the header info and dates by calling `ExtractHeadersAndDates`, which returns a `DataSetData` object that contains a series of all the dates for that region (since the dates are in the Header).
 * Iterate over each State's House Value data (row) and assign each value to the appropriate Date using `getRegionalData()` method.
 
 ### Step 3 - Submit DataSet to the Nexosis API
 
-Finally the last bit of code submits the `DataSetData` object to the Nexosis API by calling `client.getDataSets.create(name, dataset)`
+Finally, the last bit of code submits the `DataSetData` object to the Nexosis API by calling `client.getDataSets.create(name, dataset)`
 
 Here are steps 2 and 3 in Scala:
 
@@ -100,7 +100,7 @@ Now that all 50 datasets from one of the CSV files are uploaded, we can create f
 
 Earlier in the code, I created a naming scheme for the datasets so I could keep track of them. 
 
-The dataset nameing scheme is as follows `"${RegionName}-housedata-${timestamp}`
+The dataset naming scheme is as follows `"${RegionName}-housedata-${timestamp}`
 
 ```scala
     val timestamp: Long = System.currentTimeMillis / 1000
@@ -119,7 +119,7 @@ val dataSetList = client.getDataSets.list(dataSetNameSuffix)
 ```
 ### Create 50 forecast Sessions
 
-Now by looping over this list, we can create 50 forecast Sessions that will forcast the next 6 months of House Values by passing in the DataSet name to use, the target column to forecast, which is `cost`, and a start and end date. Finally since we want monthly forecast, we set the `ResultInterval` to `MONTH`.
+Now by looping over this list, we can create 50 forecast Sessions that will forecast the next 6 months of House Values by passing in the DataSet name to use, the target column to forecast, which is `cost`, and a start and end date. Finally, since we want a monthly forecast, we set the `ResultInterval` to `MONTH`.
 
 ```scala
 dataSetList.getItems.forEach { item =>
@@ -133,11 +133,11 @@ dataSetList.getItems.forEach { item =>
 }
 ```
 
-Now that we've created 50 sessions, we sit back and wait for all the models to be built and evaulated and the best ones chosen to provide a forecast.
+Now that we've created 50 sessions, we sit back and wait for all the models to be built, evaluated, and the best ones chosen to provide a forecast.
 
 ### Waiting for Results
 
-This can be achieved simply by polling the Nexosis API `status.getStatus` enum and waiting for it to no longer be `SessionStatus.REQUESTED` or `SessionStatus.STARTED` - `REQUESTED` means the Session has been created but the work has not started yet. 
+This can be achieved simply by polling the Nexosis API `status.getStatus` enum and waiting for it to no longer be `SessionStatus.REQUESTED` or `SessionStatus.STARTED` - `REQUESTED` means the Session has been created but the work has not started yet.
 
 ```scala
 var status = client.getSessions.getStatus(session.getSessionId)
@@ -153,7 +153,7 @@ while ((status.getStatus == SessionStatus.STARTED)
 
 After all 50 sessions have completed, we retrieve session results using `client.getSessions.getResults()` and retrieve the historical data, using `client.getDataSets.get()`.
 
-Finally the `results` data and historical `dataset` data are passed into a `plotTimeSeries()` method that uses `jfreechart` to generate jpg files.
+Finally, the `results` data and historical `dataset` data are passed into a `plotTimeSeries()` method that uses `jfreechart` to generate jpg files.
 
 ``` scala
 // Retrieve session data
@@ -168,11 +168,11 @@ plotTimeSeries(dataset, results)
 
 ## Reviewing Results & Conclusions
 
-This is a very simple sample, using 10+ years of purly historical house values to predict 6 months of future house values for each state. 
+This is a very simple sample, using 10+ years of purely historical house values to predict 6 months of future house values for each state. 
 
 The obvious glaring missing piece to this is incorporating features that influence the housing values and incorporating those, such as economic factors. Even without that that, the results are reasonable but will probably lack the forecasting power needed when things may change rapidly.
 
-Here are a selection of forecasts - the Red line is historical and the blue line is the predictions.
+Here are a selection of forecasts - the red line is historical and the blue line is the predictions.
 
 ![California](/assets/img/tutorials/california-housedata-1501180476.jpeg){:class="img-responsive"}
 
