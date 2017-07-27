@@ -9,23 +9,22 @@ use_codestyles: true
 ---
 
 This sample application is intended to show usage of the Nexosis API using the .NET client library. If you are following along, you will be able to 
-to analyze data provided by the [U.S. Department of State](http://www.stateair.net/web/post/1/1.html) 
+to analyze data provided by the [U.S. Department of State](http://www.stateair.net/web/post/1/1.html){:target="_blank"} 
 of the historical PM<sub>2.5</sub> levels in Beijing<sup>[1](#data-quality)</sup>. You can learn more about PM<sub>2.5</sub> 
-[from the EPA](https://www.epa.gov/pm-pollution).
+[from the EPA](https://www.epa.gov/pm-pollution){:target="_blank"}.
 
 ------
 
 ## Getting Started
 
-In order to run the code associated with this sample, you must first [create an account](/guides/createaccount). The sample code is 
-hosted [on GitHub](https://github.com/nexosis/sample-csharp-air-quality) and can be cloned and run locally. 
+In order to run the code associated with this sample, you must first [create an account](/guides/createaccount){:target="_blank"}. The sample code is hosted [on GitHub](https://github.com/nexosis/sample-csharp-air-quality){:target="_blank"} and can be cloned and run locally. 
 
 -----
 
 ## Setup
 
 The first two steps to run this analysis do not use the Nexosis API, but are used to set up the data to be used by the API.
-The historical air quality data is provided by the State Department in downloadable [CSV files](http://www.stateair.net/web/historical/1/1.html). 
+The historical air quality data is provided by the State Department in downloadable [CSV files](http://www.stateair.net/web/historical/1/1.html){:target="_blank"}. 
 These have been copied into the Git repository for your convenience. To import the data, you can use the following command: 
 
 ```bash
@@ -34,7 +33,7 @@ These have been copied into the Git repository for your convenience. To import t
 
 This will save the values from the CSV files into the database specified by the command. Once this has completed, the data will be staged
 in an `import` table in the database. The next step is to process the imported values into the data that will be submitted to the Nexosis API.
-At this point, [imputation](/guides/missingvalues) is not performed as part of the analysis in the API, and missing values will cause problems when
+At this point, [imputation](/guides/missingvalues){:target="_blank"} is not performed as part of the analysis in the API, and missing values will cause problems when
 doing predictions. Since this data has missing values,
 the average of the data set (93) was used as a constant value for each hour missing in the original data set. You will need to determine the best 
 strategy given your data. In the sample, this step can be run with the following command:
@@ -51,7 +50,7 @@ The source data is now cleaned-up and saved to the `measurements` table and is r
 
 ### Uploading Data
 
-To start using the [API with .NET](/clients/dotnet) you need to add the NuGet package. Once installed, you can create an instance of the 
+To start using the [API with .NET](/clients/dotnet){:target="_blank"} you need to add the NuGet package. Once installed, you can create an instance of the 
 client and start to explore the API. If you have already set an environment variable named `NEXOSIS_API_CLIENT` to one of your API 
 keys from your account, then it is as simple as instantiating a new instance of the client as you can see in the following examples. 
 
@@ -76,8 +75,8 @@ for (int i = 0; i < ((measurements.Count / batchSize) + 1); i++)
 }
 ```
 In this case, the API has inferred which column is the timestamp and which contains the target value to analyze. If necessary, you can specify
-[that information](/guides/columnmetadata) when you [send the data](/guides/sendingdata). This is also how you would include columns 
-to be used as [features](/guides/specifyingfeatures) when performing an analysis.
+[that information](/guides/columnmetadata){:target="_blank"} when you [send the data](/guides/sendingdata){:target="_blank"}. This is also how you would include columns 
+to be used as [features](/guides/specifyingfeatures){:target="_blank"} when performing an analysis.
 
 The sample application allows you to upload the data giving it a name, and optionally filtering the data to only include certain dates. For 
 this example you should use June, July and August of 2008.
@@ -92,10 +91,10 @@ the data on an hourly interval level.
 
 ### Impact Analysis
 
-When you want to look at the effect of an outside influence on your data, you can do [causal impact analysis](/guides/impactanalysis). 
+When you want to look at the effect of an outside influence on your data, you can do [causal impact analysis](/guides/impactanalysis){:target="_blank"}. 
 In this example, you can look at how the PM<sub>2.5</sub> changed during the 2008 Summer Olympic Games hosted in Beijing. At the time,
 it was widely reported that athletes were concerned about the air quality and how it might hurt their performance or have long term
-negative effects. [China responded](http://www.nytimes.com/2008/08/01/sports/olympics/01china.html) by curbing pollution-causing activites.
+negative effects. [China responded](http://www.nytimes.com/2008/08/01/sports/olympics/01china.html){:target="_blank"} by curbing pollution-causing activites.
 Using the Nexosis API, you can show what the PM<sub>2.5</sub> values would have been, and how much impact the changes enacted helped to
 control the harmful pollution in the air.
 
@@ -192,7 +191,7 @@ absoluteEffect: -55610.481
 relativeEffect: -0.7151
 ```
 
-You can get the results from the database to graph them with the following SQL, subsituting for the source and session ID columns as appropriate.
+You can get the results from the database to graph them with the following SQL, substituting for the source and session ID columns as appropriate.
 
 ```sql
 SELECT 
@@ -249,6 +248,6 @@ temperature and precipitation during that period as those both have an effect on
 
 -----
 
-<a name="data-quality">1</a>: In accordance with the [data use policy](http://www.stateair.net/web/assets/USDOS_AQDataUseStatement.pdf) given 
+<a name="data-quality">1</a>: In accordance with the [data use policy](http://www.stateair.net/web/assets/USDOS_AQDataUseStatement.pdf){:target="_blank"} given 
 by the U.S. Department of State, the data used in this analysis is not fully verified or validated; these data are subject to change, error,
 AND CORRECTION.  the data and information are in no way official.

@@ -8,11 +8,11 @@ tags: [Impact Analysis, F#]
 use_codestyles: true
 ---
 
-[Dungeon Crawl Stone Soup](https://crawl.develz.org/) is a [roguelike](https://en.wikipedia.org/wiki/Roguelike) game which has been in active open source development since 2006. The game can be downloaded and played locally, or it can be played online in a web browser. In this example, we are going to take a look at online games from one of the servers, [http://crawl.akrasiac.org](http://crawl.akrasiac.org). This server has records of games going all the way back to 2006, but, we are only going to look at the last few years of data. Specifically, we will be looking at what happens to the number of Games, Players, and Wins during tournaments. 
+[Dungeon Crawl Stone Soup](https://crawl.develz.org/){:target="_blank"} is a [roguelike](https://en.wikipedia.org/wiki/Roguelike){:target="_blank"} game which has been in active open source development since 2006. The game can be downloaded and played locally, or it can be played online in a web browser. In this example, we are going to take a look at online games from one of the servers, [http://crawl.akrasiac.org](http://crawl.akrasiac.org){:target="_blank"}. This server has records of games going all the way back to 2006, but, we are only going to look at the last few years of data. Specifically, we will be looking at what happens to the number of Games, Players, and Wins during tournaments. 
 
 -----
 
->We will be using the [Nexosis API](https://developers.nexosis.com/) to measure impact analysis using machine learning algorithms. And, we will be calling the API from F#. You can find the full source-code for this tutorial on GitHub: [https://github.com/Nexosis/sample-fsharp-dcss](https://github.com/Nexosis/sample-fsharp-dcss)
+>We will be using the [Nexosis API](https://developers.nexosis.com/){:target="_blank"} to measure impact analysis using machine learning algorithms. And, we will be calling the API from F#. You can find the full source-code for this tutorial on GitHub: [https://github.com/Nexosis/sample-fsharp-dcss](https://github.com/Nexosis/sample-fsharp-dcss){:target="_blank"}
 
 ### Tournament Games
 
@@ -30,7 +30,7 @@ let totalGames = dataSet?Games |> Stats.sum
 
 ### The Data
 
-The data we are looking at is provided by one of the DCSS servers on [per day basis](http://crawl.akrasiac.org/scoring/per-day.html). After downloading all of these records, we can truncate the dataset to 2012, since we are only going to be looking at tournaments from the 0.10 version onwards.
+The data we are looking at is provided by one of the DCSS servers on [per day basis](http://crawl.akrasiac.org/scoring/per-day.html){:target="_blank"}. After downloading all of these records, we can truncate the dataset to 2012, since we are only going to be looking at tournaments from the 0.10 version onwards.
 
 -----
 ![Daily DCSS server game data](/assets/img/tutorials/data-table-1.jpg){:class="img-responsive"}
@@ -54,7 +54,7 @@ Using this dataset, we can run an impact analysis on any of the given columns th
 
 ### Uploading the data to a Nexosis dataset
 
-Throughout this process, we will be using the [SwaggerProvider](https://github.com/fsprojects/SwaggerProvider) library to communicate with the Nexosis API. This is all of the code needed to setup a connection to the API. If you would like to run this code, be sure to insert [your API key](https://developers.nexosis.com/developer) in the source.
+Throughout this process, we will be using the [SwaggerProvider](https://github.com/fsprojects/SwaggerProvider){:target="_blank"} library to communicate with the Nexosis API. This is all of the code needed to setup a connection to the API. If you would like to run this code, be sure to insert [your API key](https://developers.nexosis.com/developer){:target="_blank"} in the source.
 
 ```fsharp
 let addAPIKeyHeader (request:Net.HttpWebRequest) =
@@ -215,7 +215,7 @@ We can also take a look at a few of the more interesting numbers.
 
 -----
 
-If we look at the relative impact percentage of all the tournaments, we can see a big spike in the 0.16 tournament. So, if you are rating tournaments on how many games and players a tournament attracts over normal game traffic, the 0.16 tournament is the clear winner. But, this may be explained by the fact that there was a bug in the 0.16 version of the game which [doubled player melee damage](http://crawl.develz.org/wordpress/crawl-0-16-1-bugfix-release). This did cause an increase in the rate of wins, both during the tournament, and for a short period beforehand.
+If we look at the relative impact percentage of all the tournaments, we can see a big spike in the 0.16 tournament. So, if you are rating tournaments on how many games and players a tournament attracts over normal game traffic, the 0.16 tournament is the clear winner. But, this may be explained by the fact that there was a bug in the 0.16 version of the game which [doubled player melee damage](http://crawl.develz.org/wordpress/crawl-0-16-1-bugfix-release){:target="_blank"}. This did cause an increase in the rate of wins, both during the tournament, and for a short period beforehand.
 
 Another thing to notice is that the relative effect of wins are much higher than the players or games that are played during a tournament. So, clearly, all of the players participating in the tournament are really playing to win. Possibly using safer strategies, and trying to create winning streaks.
 
@@ -276,4 +276,4 @@ The absolute effect on the number of wins is increasing each tournament. Since t
 
 -----
 
-There are certainly more ways to look at this data and discover interesting patterns. If you would like to keep investigating, [take a look at the source code](https://github.com/Nexosis/sample-fsharp-dcss) used in creating this write-up and let us know what you find.
+There are certainly more ways to look at this data and discover interesting patterns. If you would like to keep investigating, [take a look at the source code](https://github.com/Nexosis/sample-fsharp-dcss){:target="_blank"} used in creating this write-up and let us know what you find.
