@@ -138,6 +138,43 @@ public async Task <IActionResult> Predict(string id)
 }
 ```
 
+This code will upload a DataSet to the Nexosis API that looks something like this:
+
+``` json
+{
+    "Data": [
+        {
+            "timeStamp": "2014-08-06T00:00:00.0000000",
+            "steps": "11869",
+            "floors": "0",
+            "caloriesIn": "0",
+            "caloriesOut": "3028",
+            "minutesAsleep": "0",
+            "minutesFairlyActive": "73",
+            "minutesLightlyActive": "143",
+            "minutesVeryActive": "45",
+            "water": "0.0",
+            "weight": "87.997"
+        },
+        {
+            "timeStamp": "2014-08-07T00:00:00.0000000",
+            "steps": "10945",
+            "floors": "0",
+            "caloriesIn": "0",
+            "caloriesOut": "2860",
+            "minutesAsleep": "0",
+            "minutesFairlyActive": "110",
+            "minutesLightlyActive": "121",
+            "minutesVeryActive": "34",
+            "water": "0.0",
+            "weight": "87.997"
+        }
+    ]
+    **SNIP**
+}
+        
+```
+
 ## Getting Forecast Results
 
 Now that we've submitted a [Forecast](/guides/forecast) session, we can go back to our first controller action and update it to fetch the most recent forecast session and return it to the view for graphing.
@@ -182,6 +219,125 @@ public async Task<IActionResult> Index(string id)
     actualPoints = actualPoints.AlignWith(predictedPoints).ToList();
     
     return View(new ActivityViewModel(actualPoints, lastSession, predictedPoints, id));
+}
+```
+
+
+For reference, the JSON coming back from the Nexosis API will look something like this.
+``` json
+{
+    "Data": [
+        {
+            "timeStamp": "2017-08-06T00:00:00.0000000Z",
+            "steps": "11368.5953994845"
+        },
+        {
+            "timeStamp": "2017-08-07T00:00:00.0000000Z",
+            "steps": "7340.19958686538"
+        },
+        {
+            "timeStamp": "2017-08-08T00:00:00.0000000Z",
+            "steps": "6881.10072583808"
+        },
+        *SNIP*
+    ],
+    "Metrics": {},
+    "SessionId": "015dae4d-d393-41de-abfb-fabb6d4d5d13",
+    "Type": "forecast",
+    "Status": "completed",
+    "StatusHistory": [
+        {
+            "Date": "2017-08-04T17:32:02.323711+00:00",
+            "Status": "requested"
+        },
+        {
+            "Date": "2017-08-04T17:32:02.3337913+00:00",
+            "Status": "started"
+        },
+        {
+            "Date": "2017-08-04T18:00:42.9391863+00:00",
+            "Status": "completed"
+        }
+    ],
+    "ExtraParameters": {},
+    "DataSetName": "fitbit.22HCSQ",
+    "TargetColumn": "steps",
+    "EventName": null,
+    "RequestedDate": "2017-08-04T17:32:02.323711+00:00",
+    "StartDate": "2017-08-05T00:00:00-04:00",
+    "EndDate": "2017-09-04T00:00:00-04:00",
+    "Columns": {
+        "sleep": {
+            "DataType": 1,
+            "Role": null
+        },
+        "steps": {
+            "DataType": 1,
+            "Role": 2
+        },
+        "water": {
+            "DataType": 1,
+            "Role": null
+        },
+        "floors": {
+            "DataType": 1,
+            "Role": null
+        },
+        "weight": {
+            "DataType": 1,
+            "Role": null
+        },
+        "timeStamp": {
+            "DataType": 3,
+            "Role": 1
+        },
+        "caloriesIn": {
+            "DataType": 1,
+            "Role": null
+        },
+        "veryActive": {
+            "DataType": 1,
+            "Role": null
+        },
+        "caloriesOut": {
+            "DataType": 1,
+            "Role": null
+        },
+        "fairlyActive": {
+            "DataType": 1,
+            "Role": null
+        },
+        "lightlyActive": {
+            "DataType": 1,
+            "Role": null
+        },
+        "minutesAsleep": {
+            "DataType": 1,
+            "Role": null
+        },
+        "minutesVeryActive": {
+            "DataType": 1,
+            "Role": null
+        },
+        "minutesFairlyActive": {
+            "DataType": 1,
+            "Role": null
+        },
+        "minutesLightlyActive": {
+            "DataType": 1,
+            "Role": null
+        }
+    },
+    "Links": [
+        {
+            "Href": "https://ml.nexosis.com.com/v1/sessions/015dae4d-d393-41de-abfb-fabb6d4d5d13/results",
+            "Rel": "results"
+        },
+        {
+            "Href": "https://ml.nexosis.com.com/v1/data/fitbit.22HCSQ",
+            "Rel": "data"
+        }
+    ]
 }
 ```
 
