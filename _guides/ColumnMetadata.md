@@ -68,6 +68,7 @@ The Nexosis API offers the following options when aggregating to a given `result
 * `median` -- The resulting value is the **median** of all column values that fall within the `resultInterval`
 * `mode` -- The resulting value is the **mode** of all column values that fall within the `resultInterval`
 
+
 ### Defaults per dataType
 Nexosis tries to assign sensible defaults for each `dataType` available.  Those defaults are below.
 
@@ -101,6 +102,40 @@ Column roles can be specified on both a dataset, and on a session that uses the 
 Refer to the [Specifying Features](specifyingfeatures) tutorial for a more in-depth look at overriding column roles.
 
 ----
+
+
+## Example
+An example showing how you can specify some of the options available in Column Metadata
+
+``` json
+{
+    "columns" : {
+        "timeStamp" : {
+            "dataType" : "date",
+            "role" : "timestamp"
+        },
+        "sales" : {
+            "dataType" : "numeric",
+            "role" : "target"
+        },
+        "temperature" : {
+            "dataType" : "numericMeasure",
+            "role" : "feature"
+        },
+        "promotion" : {
+            "dataType" : "logical",
+            "role" : "feature"
+        },
+        "peakCustomersPerHour" : {
+            "dataType" : "numeric",
+            "role" : "feature",
+            "imputation" : "zeroes",
+            "aggregation" : "mean"
+        }
+    }
+}
+```
+ 
 
 ## Validations and restrictions
 
