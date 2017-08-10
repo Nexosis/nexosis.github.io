@@ -15,7 +15,7 @@ When [uploading data](sendingdata), [importing data](importingdata), or [startin
 
 ----
 
-## Column DataTypes
+## <a name="dataTypes">Column DataTypes</a>
 
 Setting the column `dataType` property is defining the kind of data that the column contains.  The supported data types are:
 
@@ -26,7 +26,7 @@ Setting the column `dataType` property is defining the kind of data that the col
     - `On` - `Off`
     - `Yes` - `No`
 - Date - Dates or dates and times which should be in [ISO-8601 format](workingwithdates).
-- <a name="stringDataType">String</a> - Any other data which does not fit into the above categories.  These values can the thought of as labels on a row of data. The data science technique we use is called [One Hot Encoding](https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science).
+- String - Any other data which does not fit into the above categories.  These values can the thought of as labels on a row of data. The data science technique we use is called [One Hot Encoding](https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science).
 - NumericMeasure - Exactly like a Numeric column, except that Imputation and Aggregation are handled differently. 
 
 Our handling of Imputation and Aggregation are discussed in more detail in the sections below.
@@ -76,7 +76,7 @@ Nexosis tries to assign sensible defaults for each `dataType` available.  Those 
 | Date | Timestamp values.  You can't explicitly set an imputation or aggregation strategy for these | | |
 | Numeric | Number of sales, etc. | `zeroes` | `sum` |
 | Logical | Values that are a simple yes/no | `mode` | `mode` |
-| String | Categorical data as described [above](#stringDataType) | `mode` | `mode` |
+| String | Categorical data as described [in DataTypes](#dataTypes) | `mode` | `mode` |
 | NumericMeasure | Temperature reading, or a value that's an interval itself (transactions/sec, etc) | `mean` | `mean` |
 
 ----
