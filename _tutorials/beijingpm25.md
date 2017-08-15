@@ -183,7 +183,7 @@ gives you some extra data that is important for qualifying the accuracy of the a
 The resulting _p_-value of the hourly impact analysis was 0.24. This is a middling _p_-value at best. The following graph shows the results of 
 this run, where you can see the line looks a bit too high on the y-axis.
 
-<img src="/assets/img/tutorials/beijing-aq-hourly.png" />
+<img src="/assets/img/tutorials/beijing-aq-hourly.png" class="responsive"/>
 
 ```
 pValue:         0.2422
@@ -234,7 +234,7 @@ Once you have averaged values you can repeat the steps above, substituting some 
 end up with a new result that has calculated the impact based on the daily average. Looking at the _p_-value for this analysis, 
 you can see that it is a much more reliable.
 
-<img src="/assets/img/tutorials/beijing-aq-daily.png" />
+<img src="/assets/img/tutorials/beijing-aq-daily.png" class="responsive" />
 
 ```
 pValue:         0.0515
