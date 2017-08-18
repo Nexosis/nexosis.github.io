@@ -11,7 +11,7 @@ order: 3
 
 When you first visit [the Nexosis API website](https://developers.nexosis.com) you will be browsing as a guest. Guests are welcome to review all of the interactive API documentation, but in order to really get to work you're going to want to create an account and get your API keys. In fact, the "Try It" links in the interactive documentation won't work for you until you do and you'll see this warning:
 
-![anonymous user warning](../assets/img/interactive_anonymous.png)
+<img alt="anonymous user warning" src="../assets/img/interactive_anonymous.png" class="responsive"/>
 
 To remedy this situation you can get started by clicking the *Sign In* link in the upper right corner of the page. This will take you to the [login page](https://account.nexosis.com/account/login) where you will see the following panel.
 
@@ -49,7 +49,7 @@ Now that you're a registered user you can start using the API with your own code
 You have two API keys - a primary and secondary - which are masked. To show your key and copy it, just click *Show* to the right of it.
 </p>
 
-<img src="../assets/img/api_keys.png" alt="obtain api keys"/>
+<img src="../assets/img/api_keys.png" alt="obtain api keys" class="responsive"/>
 
 You'll notice that this is also where you can manage your keys by regenerating as well for those times when you accidentally commit them to your git repo.
 

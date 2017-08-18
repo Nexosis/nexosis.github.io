@@ -30,7 +30,7 @@ api-key: {your nexosis apikey here}
 
 Each account will always have two concurrent active API keys, designated as <code>Primary</code> and <code>Secondary</code>. In certain situations, it may be necessary to discard one of these keys and create a new one -- for example, if a developer accidently commits their Nexosis API key to a public source code repo for all the world to see. For situations like these, one or both of the API keys can be regenerated.  Activating a new key will immediately supplant the old key, rendering it useless. Any program using the old revoked key will then fail with 401 Unauthorized errors from the API endpoint.
 
-<p align="center">  <img alt="API Keys" src="/assets/img/api_keys.png"/><br/>
+<p align="center">  <img alt="API Keys" src="/assets/img/api_keys.png" class="responsive"/><br/>
 <strong><em>Click <code>Regenerate</code> to revoke the old key and generate a new one.</em></strong></p>
 
 ### Process for API Key Rotation

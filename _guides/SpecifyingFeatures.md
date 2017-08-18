@@ -105,7 +105,7 @@ Host: https://ml.nexosis.com
 Content-Type: application/json
 ```
 
-![Line chart of forecast results](../assets/img/ColumnMetadataForecast.png)
+<img src="../assets/img/ColumnMetadataForecast.png" alt="Line chart of forecast results" class="responsive">
 
 ----
 
