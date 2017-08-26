@@ -213,7 +213,7 @@ Having created the join above we should expect the following output (remember th
 </table>
 
 ## Using Joins
-Once you have a View defined it can be used in a Session as the data source. If you have used previous versions of the API you'll notice that we have changed the parameter 'dataSetName' in the request for a Session to 'dataSourceName'. This change indicates that you can use [any data source name](/guides/datasources) - most importantly Views. If we had named our view above "SalesWithCalendar" then we could create a Session by POSTing to 
+Once you have a View defined it can be used in a Session as the data source. If you have used previous versions of the API you'll notice that we have changed the parameter 'dataSetName' in the request for a Session to 'dataSourceName'. This change indicates that you can use datasources - either a view or a dataset. If we had named our view above "SalesWithCalendar" then we could create a Session by POSTing to 
 
 ```
 https://ml.nexosis.com/v1/sessions/forecast?dataSourceName=SalesWithCalendar&startDate=2010-02-16&endDate=2010-02-20
