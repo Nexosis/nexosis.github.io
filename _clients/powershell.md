@@ -1,10 +1,11 @@
 ---
-title: Powershell Module
-description: Powershell module for using the Nexosis API
+title: PowerShell Module
+description: PowerShell module for using the Nexosis API
 copyright: 2017 Nexosis 
 layout: default
-category: Powershell
-tags: [Powershell]
+category: PowerShell
+breadcrumb: API Clients
+tags: [PowerShell, module]
 use_codestyles: true
 ---
 
@@ -23,7 +24,6 @@ Or to choose a path to save the module to:
 ```powershell
 PS> Save-Module -Name PSNexosisClient -Path <path>
 ```
-
 
 [Powershell Package Details](https://www.powershellgallery.com/packages/PSNexosisClient/
 ){:target="_blank"}
