@@ -142,7 +142,7 @@ To get started, first read [How It Works](http://docs.nexosis.com/guides/howitwo
 ### DataSets
 A DataSet in the Nexosis API contains data that is fed into the machine learning algorithms to create predictions. 
 
-Creating a dataset is easy. Simply create the proper object in Powershell, shown below, containing at LEAST two columns - a `timestamp` and in this example, two other data points - daily sales totals and daily number of transactions.
+Creating a dataset is easy. Simply create the proper object in Powershell, shown below, containing at LEAST two columns - a `timestamp` and a target to be predicted. In this example I have two data points - daily sales totals and daily number of transactions.
 
 ```powershell
  $data = @(
@@ -186,7 +186,7 @@ myNewDataSetv1 @{sales=; timestamp=; transactions=}
 
 This will return an object with the DataSetName as well as the Columns Metadata, created automatically.
 
-Columns MetaData can be used to help the platform make smart decisions about your data. You can indicate data types, and imputation strategies.
+Columns MetaData can be used to help the platform make smart decisions about your data. You can indicate data types, imputation, and aggregation strategies.
 
 [You can read more about Columns MetaData in the Nexosis API Documentation here.](http://docs.nexosis.com/guides/columnmetadata)
 
