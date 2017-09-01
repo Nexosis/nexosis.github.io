@@ -74,6 +74,8 @@ exclude_from_search: true
           {% assign category = "php" %}
         {% when "ObjC" %}
           {% assign category = "objc" %}
+        {% when "PowerShell" %}
+          {% assign category = "powershell" %}
       {% endcase %}
       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
         <div class="panel bg-color-lightGray">

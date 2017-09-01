@@ -27,49 +27,53 @@ Setting the column `dataType` property is defining the kind of data that the col
     - `Yes` - `No`
 - Date - Dates or dates and times which should be in [ISO-8601 format](workingwithdates).
 - String - Any other data which does not fit into the above categories.  These values can the thought of as labels on a row of data. The data science technique we use is called [One Hot Encoding](https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science).
-- NumericMeasure - Exactly like a Numeric column, except that Imputation and Aggregation are handled differently. 
+- NumericMeasure - Exactly like a Numeric column, except that Imputation and Aggregation are handled differently.
 
 Our handling of Imputation and Aggregation are discussed in more detail in the sections below.
 
 ----
 
 ## Imputation and Aggregation
+
 Whenever you request a [Forecast session](forecast) or an [Impact Analysis session](impactanalysis) from the Nexosis API, you ask for that forecast to come back in a certain `resultInterval`.  That interval is something like `hour`, `day`, `week`, etc.
 
-Once a session is requested, the Nexosis API goes through the following process against your data to prepare it for the Session:
-* Loads your data from its source DataSet
-* Aggregates that data by the `resultInterval` requested in the session. 
+When you request a session, the Nexosis API goes through the following process against your data to prepare it for the Session:
+
+- Loads your data from its source DataSet
+- Aggregates that data by the `resultInterval` requested in the session.
 
 > Nexosis itself doesn't care one bit whether your data is a daily/hourly/weekly rollup, or whether it's a raw feed of sensor data.
 
-* Once the data is aggregated by `resultInterval`, it looks for gaps in the aggregated data and Imputes missing values.
+- Once the data is aggregated by `resultInterval`, it looks for gaps in the aggregated data and Imputes missing values.
 
 Depending on the nature of the data you're working with, you may need the Nexosis API to act differently with regard to the handling of missing values [(Imputation)](https://en.wikipedia.org/wiki/Imputation_%28statistics%29) and the aggregation (e.g. if your data is hourly data but you're forecasting by day) of that data.
 
-For example, if a column of data is a record of number of sales then the our defaults (Imputing with a zero and summing up data when aggregating) make sense.  However, if a column is a temperature reading then those defaults don't make sense.  In that case you'd probably want a missing value to be filled in with the average of the adjacent values, and to use the mean temperature when aggregating.
+For example, if a column of data is a record of the number of sales, then the defaults (Imputing with a zero and summing up data when aggregating) make sense.  However, if a column is a temperature reading then those defaults don't make sense.  In that case you'd probably want a missing value to be filled in with the average of the adjacent values, and to use the mean temperature when aggregating.
 
-Each `dataType` available for a column of data in the Nexosis API comes with a set of default Imputation and Aggregation strategies that we feel are sensible choices for those data types.  
+Each `dataType` available for a column of data in the Nexosis API comes with a set of default Imputation and Aggregation strategies that we feel are sensible choices for those data types.
 
 If you wish to manually override the strategy used by the API for a column of data, you can do so through the `imputation` and `aggregation` fields.
 
 ### Imputation
+
 The Nexosis API offers the following options for Imputation.
 
-* `zeroes` -- A missing value is filled in the 0
-* `mean` -- A missing value is filled in with the **Average** of the nearest values we can find on either side of that gap.
-* `median` -- A missing value is filled in with the **Median** value of the rest of the values in that column
-* `mode` -- A missing vlaue is filled in with the **Mode** of the rest of the values in that column
+- `zeroes` -- A missing value is filled in with 0
+- `mean` -- A missing value is filled in with the **average** of the nearest values we can find on either side of that gap.
+- `median` -- A missing value is filled in with the **median** value of the rest of the values in that column
+- `mode` -- A missing value is filled in with the **mode** of the rest of the values in that column
 
 ### Aggregation Options
+
 The Nexosis API offers the following options when aggregating to a given `resultInterval`
 
-* `sum` -- The resulting value is the **sum** of all column values that fall within the `resultInterval`
-* `mean` -- The resulting value is the **average** of all column values that fall within the `resultInterval`
-* `median` -- The resulting value is the **median** of all column values that fall within the `resultInterval`
-* `mode` -- The resulting value is the **mode** of all column values that fall within the `resultInterval`
-
+- `sum` -- The resulting value is the **sum** of all column values that fall within the `resultInterval`
+- `mean` -- The resulting value is the **average** of all column values that fall within the `resultInterval`
+- `median` -- The resulting value is the **median** of all column values that fall within the `resultInterval`
+- `mode` -- The resulting value is the **mode** of all column values that fall within the `resultInterval`
 
 ### Defaults per dataType
+
 Nexosis tries to assign sensible defaults for each `dataType` available.  Those defaults are below.
 
 | DataType | Typical Usage | Imputation Default | Aggregation Default |
@@ -84,7 +88,7 @@ Nexosis tries to assign sensible defaults for each `dataType` available.  Those 
 
 ## Column Roles
 
-While the data type of a column defines what kind of data is in a column, the role of a column defines how that column should be used by the Nexosis API.  These roles can actually be changed depending on what you are trying to learn from your dataset.  The available roles are:
+While the data type of a column defines what kind of data is in a column, the role of a column defines how that column is used by the Nexosis API.  These roles can actually be changed depending on what you are trying to learn from your dataset.  The available roles are:
 
 - None - Setting a column role to None means that this column will not be used when generating results.
 - Timestamp - Defines the column used for time series algorithms.
@@ -103,8 +107,8 @@ Refer to the [Specifying Features](specifyingfeatures) tutorial for a more in-de
 
 ----
 
-
 ## Example
+
 An example showing how you can specify some of the options available in Column Metadata
 
 ``` json
@@ -135,7 +139,6 @@ An example showing how you can specify some of the options available in Column M
     }
 }
 ```
- 
 
 ## Validations and restrictions
 

@@ -208,6 +208,14 @@ exclude_from_search: true
                 </a>
               </p>
             </div>
+            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
+              <p class="center">
+                <a href="/clients/powershell">
+                  <img src="/assets/img/powershell.png" style="width: 50px;"> <br />
+                  <span class="small">PowerShell</span>
+                </a>
+              </p>
+            </div>            
           </div>
       </div>
     </div>
