@@ -57,7 +57,7 @@ eventName
 <th>
 calendarName
 </th>
-<tr>
+<tr class="bg-faded">
 <td>
 2014-02-14T00:00:00.0000000Z
 </td>
@@ -79,7 +79,7 @@ Start of Spring Break
 Promotions
 </td>
 </tr>
-<tr>
+<tr class="bg-faded">
 <td>
 2014-05-26T00:00:00.0000000Z
 </td>
@@ -110,7 +110,7 @@ Promotions.StartofSpringBreak
 <th>
 Promotions.MemorialDaySale
 </th>
-<tr>
+<tr class="bg-faded">
 <td>
 2014-02-14T00:00:00.0000000Z
 </td>
@@ -154,7 +154,7 @@ several other days elided...
 several other days elided...
 </td>
 </tr>
-<tr>
+<tr class="bg-faded">
 <td>
 2014-05-26T00:00:00.0000000Z
 </td>
@@ -191,7 +191,7 @@ Promotions.StartofSpringBreak
 <th>
 Promotions.MemorialDaySale
 </th>
-<tr>
+<tr class="bg-faded">
 <td>
 2014-02-14T13:00:00.0000000Z
 </td>
@@ -225,7 +225,7 @@ Promotions.MemorialDaySale
 0
 </td>
 </tr>
-<tr>
+<tr class="bg-faded">
 <td>
 2014-02-14T15:00:00.0000000Z
 </td>
