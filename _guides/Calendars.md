@@ -47,7 +47,7 @@ The time stamp of each event is then overlapped with the timestamp column in the
 
 For example consider the following imported calendar data:
 
-<table class="table table-bordered mb20">
+<table>
 <th>
 eventTimestamp
 </th>
@@ -94,7 +94,7 @@ Promotions
 
 Consider that while the Spring Break sale doesn't kick off until after 2PM - if we are mapping it to a daily sales DataSet then we're simply going to join to the entire day of the 20th. In the following example the events have been "one hot encoded" such that each event is a feature column which is either "happening" denoted by a *1* value or "not happening" denoted by a *0* value.
 
-<table class="table table-bordered mb20">
+<table>
 <th>
 timestamp
 </th>
@@ -175,7 +175,7 @@ several other days elided...
 
 If instead you had hourly sales data, then the valentine's related sale could be properly mapped to the 2PM hour in that dataset...
 
-<table class="table table-bordered mb20">
+<table>
 <th>
 timestamp
 </th>
@@ -265,19 +265,5 @@ In order to map a join at the hourly level, include a columnOption for the calen
 
 ### Timezones
 Finally, if you have a specific time zone for the calendar then you can specify this within the calendar object definition. Use the [TZ string value](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the timezone value:
-
 ``` json
-{
-  "dataSetName": "MyDataset",
-  "joins": [
-    {
-      "calendar": {
-        "url": "https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics",
-        "timezone": "America/Aruba"
-      }
-    }
-  ]
-}
-```
- 
-When a timezone is provided then the event start time in the source calendar will first be mapped to that timezone before being overlayed with the target dataset timestamps. If the target dataset timestamp is in a different timezone then you may expect certain events to overlap more than one day when at a daily level of granularity.
+``` 

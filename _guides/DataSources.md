@@ -26,7 +26,8 @@ The Nexosis API currently support holiday calendars as global data sets. In orde
 
 In order to define a named calendar as a data source in a join you would include the following join syntax in your view definition:
 
-``` {
+``` 
+{
   "dataSetName": "MyDataset",
   "joins": [
     {
