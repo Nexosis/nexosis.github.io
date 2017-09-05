@@ -265,5 +265,18 @@ In order to map a join at the hourly level, include a columnOption for the calen
 
 ### Timezones
 Finally, if you have a specific time zone for the calendar then you can specify this within the calendar object definition. Use the [TZ string value](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the timezone value:
+
 ``` json
+{
+  "dataSetName": "MyDataset",
+  "joins": [
+    {
+      "calendar": {
+        "url": "https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics"
+        "timezone": "America/Barbados"
+      }
+    }
+  ]
+}
 ``` 
+When a timezone is provided then the event start time in the source calendar will first be mapped to that timezone before being overlayed with the target dataset timestamps. If the target dataset timestamp is in a different timezone then you may expect certain events to overlap more than one day when at a daily level of granularity.
