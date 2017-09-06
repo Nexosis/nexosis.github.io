@@ -47,7 +47,7 @@ The time stamp of each event is then overlapped with the timestamp column in the
 
 For example consider the following imported calendar data:
 
-<table class="table table-bordered mb20">
+<table class="table table-striped mb20">
 <th>
 eventTimestamp
 </th>
@@ -94,7 +94,7 @@ Promotions
 
 Consider that while the Spring Break sale doesn't kick off until after 2PM - if we are mapping it to a daily sales DataSet then we're simply going to join to the entire day of the 20th. In the following example the events have been "one hot encoded" such that each event is a feature column which is either "happening" denoted by a *1* value or "not happening" denoted by a *0* value.
 
-<table class="table table-bordered mb20">
+<table class="table table-striped mb20">
 <th>
 timestamp
 </th>
@@ -175,7 +175,7 @@ several other days elided...
 
 If instead you had hourly sales data, then the valentine's related sale could be properly mapped to the 2PM hour in that dataset...
 
-<table class="table table-bordered mb20">
+<table class="table table-striped mb20">
 <th>
 timestamp
 </th>
