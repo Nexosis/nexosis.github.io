@@ -4,7 +4,7 @@ description: How to define column metadata on a dataset
 copyright: 2017 Nexosis 
 layout: default
 category: Concepts
-tags: [Reference, Data]
+tags: [Reference, Data, Favorite]
 use_codestyles: true
 order: 7
 ---
