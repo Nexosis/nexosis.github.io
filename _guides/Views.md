@@ -4,7 +4,7 @@ description: Learn about Views and how they help with forecasting
 copyright: 2017 Nexosis 
 layout: default
 category: Forecasting
-tags: [DataSet, View, Quick Links]
+tags: [DataSet, View, Quick Links, Favorite]
 use_codestyles: true
 ---
 

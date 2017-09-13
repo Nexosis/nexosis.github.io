@@ -55,6 +55,8 @@ exclude_from_search: true
                   <img src="/assets/img/impact-analysis.png">
                 {% when "Getting Started" %}
                   <img src="/assets/img/getting-started.png">
+                {% when "Concepts" %}
+                  <img src="/assets/img/concepts.png">
                 {% when "Security" %}
                   <img src="/assets/img/security.png">
                 {% endcase %}

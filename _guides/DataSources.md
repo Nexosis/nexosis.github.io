@@ -4,7 +4,7 @@ description: Learn about data sources used in forecasts
 copyright: 2017 Nexosis 
 layout: default
 category: Forecasting
-tags: [DataSet, Quick Links]
+tags: [DataSet, Quick Links, Favorite]
 use_codestyles: true
 ---
 
