@@ -3,7 +3,7 @@ title: Column Metadata
 description: How to define column metadata on a dataset
 copyright: 2017 Nexosis 
 layout: default
-category: Getting Started
+category: Concepts
 tags: [Reference, Data]
 use_codestyles: true
 order: 7

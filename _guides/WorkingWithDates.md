@@ -3,7 +3,7 @@ title: Working With Dates
 description: Formatting dates properly can be tricky.
 copyright: 2017 Nexosis 
 layout: default
-category: Getting Started
+category: Concepts
 tags: [Dates, Formatting, Data]
 use_codestyles: true
 order: 9
