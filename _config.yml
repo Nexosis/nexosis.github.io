@@ -26,6 +26,7 @@ collections:
     layout: page
 guides-category-order:
   - Getting Started
+  - Concepts
   - Forecasting
   - Impact Analysis
   - Security
