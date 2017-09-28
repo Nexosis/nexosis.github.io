@@ -47,12 +47,12 @@ Once the data range is selected, click the Export button above the Date Chooser 
 Here's an example of how Google Analytics stores their CSV, there's an Hour Index starting from the first date indicated in the header comment. This Hour Index then increments each hour by adding one through to the end of the file:
 
 ```csv
-# ----------------------------------------	
-# All Web Site Data	
-# Audience Overview	
-# 20150701-20170831	
-# ----------------------------------------	
-	
+# ----------------------------------------
+# All Web Site Data
+# Audience Overview
+# 20150701-20170831
+# ----------------------------------------
+
 Hour Index, Sessions
 0, 0
 1, 0
@@ -111,12 +111,13 @@ Hour Index, Sessions
 
 Once the CSV is saved, it can be uploaded to the API Nexosis API using a script created called `Invoke-NexosisUploadAnalyticsCsv`.
 
-To submit to the Nexosis API, this Hour Index needs converted to an ISO 8601 formated time date stamp. See [Working With Dates](http://docs.nexosis.com/guides/workingwithdates){:target="_blank"} for a broader explaination. This script takes care of the 
+To submit to the Nexosis API, this Hour Index needs converted to an ISO 8601 formatted time date stamp. See [Working With Dates](http://docs.nexosis.com/guides/workingwithdates){:target="_blank"} for a broader explanation. This script takes care of the 
 date / time conversion and reformates it into a CSV the Nexosis API can handle.
 
 ```powershell
 PS> Invoke-NexosisUploadAnalyticsCsv -dataSetName 'sampleWebSiteData' `
                                      -sourceAnalyticsFile 'path\to\AnalyticsFile.csv'
+
 Dataset sampleWebData already exists. Updating existing dataset.
 Reading Google Analytics date range from header...
 CSV Starts on date 2015-07-01 and ends on 2017-08-31.
@@ -129,6 +130,7 @@ dataSetName   columns
 -----------   -------
 sampleWebData @{Sessions=; timestamp=}
 ```
+
 [Click here for the complete source of this PowerShell script:](https://github.com/Nexosis/sample-ps-websiteforecasts/blob/master/PSNexosisWebAnalytics/Public/Invoke-NexosisUploadAnalyticsCsv.ps1){:target="_blank"}
 
 Let's take a quick look at the logic needed to import this CSV by reviewing excerpts of the code in `Invoke-NexosisUploadAnalyticsCsv.ps1` script.
