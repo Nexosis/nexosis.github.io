@@ -170,7 +170,7 @@ plotTimeSeries(dataset, results)
 
 This is a very simple sample, using 10+ years of purely historical house values to predict 6 months of future house values for each state. 
 
-The obvious glaring missing piece to this is incorporating features that influence the housing values and incorporating those, such as economic factors. Even without that that, the results are reasonable but will probably lack the forecasting power needed when things may change rapidly.
+The obvious glaring missing piece to this is incorporating features that influence the housing values and incorporating those, such as economic factors. Even without that, the results are reasonable but will probably lack the forecasting power needed when things may change rapidly.
 
 Here are a selection of forecasts - the red line is historical and the blue line is the predictions.
 
