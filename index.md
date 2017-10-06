@@ -51,6 +51,8 @@ exclude_from_search: true
                 {% case ct%}
                 {% when "Forecasting" %}
                   <img src="/assets/img/forecasting.png">
+                {% when "Regression" %}
+                  <img src="/assets/img/regression.png">
                 {% when "Impact Analysis" %}
                   <img src="/assets/img/impact-analysis.png">
                 {% when "Getting Started" %}
