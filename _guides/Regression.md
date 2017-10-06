@@ -14,7 +14,7 @@ Regression models can be created for all types of DataSets. The Nexosis API help
 ### Creating Regression Models
 Creating a regression model starts with the data just like any other prediction capability of our API. To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
 
-Once you have a DataSet you are ready to get going. If you have used the API to do timeseries forecasting, some of this will be familiar but there is at least one new step. When building a regression model you don't get your prediction results right away. In this case we're going to build a model with your dataset, but you'll submit more feature data to get predictions only after the model is built.
+Once you have a DataSet you are ready to get going. If you have used the API to do timeseries forecasting, some of this will be familiar but there is at least one new step. When building a regression model you don't get your prediction results right away. In this case we're going to build a model with your DataSet, but you'll submit more feature data to get predictions only after the model is built.
 
 Let's back up and go through the steps in detail.
 #### Starting A Model Building Session
@@ -49,7 +49,7 @@ When your model has been built the status will be 'completed' and the modelId pr
 ```
 https://ml.nexosis.com/v1/sessions/{your session id}/results
 ```
-The session results will include a *data* property which is populated with the observations taken from your dataset as the 'test' data. When we train a model we use a large portion of the data to train - but hold back a part to test the results in order to make sure we created the best possible model. This test data is now returned along with the original values you sent marked with a *:actual* suffix.
+The session results will include a *data* property which is populated with the observations taken from your DataSet as the 'test' data. When we train a model we use a large portion of the data to train - but hold back a part to test the results in order to make sure we created the best possible model. This test data is now returned along with the original values you sent marked with a *:actual* suffix.
 
 ``` json
 {
@@ -58,12 +58,12 @@ The session results will include a *data* property which is populated with the o
     {
       "MyFeatureColumn": 2.9,
       "MyTargetColumn": 3.234,
-      "MyTargetColumn:actual: 3.175
+      "MyTargetColumn:actual:" 3.175
     },
     {
       "MyFeatureColumn": 1.7,
       "MyTargetColumn": 2.925,
-      "MyTargetColumn:actual: 2.842
+      "MyTargetColumn:actual:" 2.842
     }
    	 ... additional test data
   ] 
