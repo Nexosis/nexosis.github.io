@@ -88,7 +88,7 @@ https://ml.nexosis.com/v1/models/{the model id returned}/predict
 
 In order to call this new endpoint you will need to have a set of values on which to predict. This set of values must match the features you submitted with the DataSet that trained the model.  For example if you trained on
 
-```
+``` json
 {
   "data": [
     "feature1": 8489.22,
@@ -101,7 +101,7 @@ Then you need to submit a set of values for both 'feature1' and 'feature2' in or
 
 The prediction endpoint will take an array of feature value hashes and return a prediction for each one. So, if we want just one prediction we will post the following to the endpoint:
 
-```
+``` json
 {
   "data": [
     "feature1": 8158.86,
@@ -112,7 +112,7 @@ The prediction endpoint will take an array of feature value hashes and return a 
 
 You will get a response back which also has a *data* array - this time including your target with a predicted value.
 
-```
+``` json
 {
   "data": [
     "feature1": 8158.86,
