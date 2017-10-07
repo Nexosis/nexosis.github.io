@@ -70,8 +70,24 @@ The response will also contain a `Nexosis-Import-Status` header with the status 
 ### Supported File Extensions
 At this time we can support the following file extensions and formats.
 * `CSV`
-* `JSON` : If you're importing a JSON file, the contents of the JSON should be a simple array of JSON objects.  See [Sending Data](sendingdata) for an example.
+* `JSON` : If you're importing a JSON file, the contents of the JSON should be a simple array of JSON objects without any additional metadata:
+
+``` json
+[
+  {
+    "col1": "value11",
+    "col2": "value21"
+  },
+  {
+    "col1": "value12",
+    "col2": "value22"
+  }
+]
+```
+
 * `gz` : You can optionally gzip a file in one of the above formats.
+
+See the guide on [Sending Data](/guides/sendingdata) for more examples.
 
 ## Checking the status of an import
 Once you've submitted an import, you may want to check back to see when it completes.  To see the status of an import you make a `GET` request to [/imports/{importId}]({{site.api_reference_baseurl}}/operations/595ce629e0ef6e0c98d37f30).  
