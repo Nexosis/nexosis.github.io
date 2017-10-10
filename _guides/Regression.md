@@ -8,8 +8,8 @@ tags: [Predict, Quick Links, Favorite]
 use_codestyles: true
 ---
 
-Regression models can be created for all types of DataSets. The Nexosis API helps you build the best model to fit your DataSet and then you can repeatedly use that model in real time. 
- 
+Regression models can be created for all types of DataSets. The Nexosis API helps you build the best model to fit your DataSet and then you can repeatedly use that model in real time.
+
 -----
 ### Creating Regression Models
 Creating a regression model starts with the data just like any other prediction capability of our API. To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
@@ -18,7 +18,7 @@ Once you have a DataSet you are ready to get going. If you have used the API to 
 
 Let's back up and go through the steps in detail.
 #### Starting A Model Building Session
-Building a model means training an algorithm so that we can use it over and over again with data that it hasn't seen before to get your predictions. Whereas in a timeseries scenario the most recent data in time can be the most important, a regression model can continue to be useful without taking new observations into account. Like any model you will want to refresh it occassionally but in general you'll keep using one regression model for a longer period than for timeseries. That said, model building is our first step and we do that by running a model building session by posting to the following API endpoint...
+Building a model means training an algorithm so that we can use it over and over again with data that it hasn't seen before to get your predictions. Whereas in a timeseries scenario the most recent data in time can be the most important, a regression model can continue to be useful without taking new observations into account. Like any model you will want to refresh it occasionally but in general you'll keep using one regression model for a longer period than for timeseries. That said, model building is our first step and we do that by running a model building session by posting to the following API endpoint...
 
 ```
 https://ml.nexosis.com/v1/sessions/model
@@ -41,7 +41,7 @@ Let's say you have a data source called HousingData and the target column is *Sa
 ```
 The Nexosis API will then go and figure out the best model to build for the data source and target you have identified. We'll build several different models with different algorithms and compare the results for you in order to pick the best one.
 #### Model Session Results
-A model training session can last for a while so we don't return results right away. The initial call does however return a SessionId which you can use to check the status of your session by occassionally making a call to the 'get session' endpoint
+A model training session can last for a while so we don't return results right away. The initial call does however return a SessionId which you can use to check the status of your session by occasionally making a call to the 'get session' endpoint
 ```
 https://ml.nexosis.com/v1/sessions/{your session id}
 ```
@@ -80,7 +80,7 @@ On the session results for your model you will also find metrics we calculated o
 ```
 While multiple metrics are used to test the accuracy of our models, the *meanAbsolutePercentError* metric is good one to look at as it is straightforward to understand. Taken as a percent this simply shows the average error of each tested prediction against the actual values. A lower percentage is better.
 #### Using Your Trained Model
-Once a trained model exists we expose it as an endpoint on our API using the unique modelId value which was returned by the completed session. 
+Once a trained model exists we expose it as an endpoint on our API using the unique modelId value which was returned by the completed session.
 
 ```
 https://ml.nexosis.com/v1/models/{the model id returned}/predict
@@ -97,7 +97,7 @@ In order to call this new endpoint you will need to have a set of values on whic
   ]
 }
 ``` 
-Then you need to submit a set of values for both 'feature1' and 'feature2' in order to predict on 'target'.  
+Then you need to submit a set of values for both 'feature1' and 'feature2' in order to predict on 'target'.
 
 The prediction endpoint will take an array of feature value hashes and return a prediction for each one. So, if we want just one prediction we will post the following to the endpoint:
 
