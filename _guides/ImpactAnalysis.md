@@ -3,7 +3,7 @@ title: Impact Analysis
 description: Using the Nexosis API to determine the Impact of an event on your data
 copyright: 2017 Nexosis 
 layout: default
-category: Impact Analysis
+category: Forecasting
 tags: [Causal Impact, Impact, Quick Links, Favorite]
 use_codestyles: true
 ---
