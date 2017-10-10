@@ -208,4 +208,4 @@ Notice that we are not sending the name field either because it wasn't a feature
 And we're done! Data uploaded, model built, prediction made. Hopefully you're now ready to go and make something smart of your own with the Nexosis API. 
 
 -----
-[1]: Lichman, M. (2013). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
+<sup>1</sup>: Lichman, M. (2013). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
