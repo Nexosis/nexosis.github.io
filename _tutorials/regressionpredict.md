@@ -8,7 +8,7 @@ tags: [Predict, Quick Links, Favorite]
 use_codestyles: true
 ---
 
-In the following tutorial we will take a step by step tour through the creation and use of a regression model built by the Nexosis API. See [our guide](/guides/regression) for a quick overview of the process. We'll be using the [Auto MPG Data Set from UC Irvine][1](http://archive.ics.uci.edu/ml/datasets/Auto+MPG) for this tutorial. You can download a prepared JSON version from our public repository at [https://s3.us-east-2.amazonaws.com/nexosis-api-sample-data/auto-mpg.data.json](https://s3.us-east-2.amazonaws.com/nexosis-api-sample-data/auto-mpg.data.json).
+In the following tutorial we will take a step by step tour through the creation and use of a regression model built by the Nexosis API. See [our guide](/guides/regression) for a quick overview of the process. We'll be using the [Auto MPG Data Set from UC Irvine](http://archive.ics.uci.edu/ml/datasets/Auto+MPG)<sup>1</sup> for this tutorial. You can download a prepared JSON version from our public repository at [https://s3.us-east-2.amazonaws.com/nexosis-api-sample-data/auto-mpg.data.json](https://s3.us-east-2.amazonaws.com/nexosis-api-sample-data/auto-mpg.data.json).
 
 ------
 ### Getting Started
@@ -160,7 +160,7 @@ The session results will contain two interesting bits of data. The most importan
 
 For illustration purposes I've pulled back the MPG results in the [Ruby Sample App](https://github.com/Nexosis/samples-rb) 
 
-<img src="/assets/img/tutorials/model_results.png" height="746" width="574"></img>
+<img src="/assets/img/tutorials/model_results.png" height="574" width="746" />
 
 You can see that the plot of predicted vs. actual values lie pretty nicely around the baseline (actual plotted against actual) and we see that the MAPE (an accuracy metric) is about 11% - which is quite good.
 
