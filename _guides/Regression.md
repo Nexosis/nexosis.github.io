@@ -1,5 +1,5 @@
 ---
-title: Non-Timeseries Regression
+title: Regression
 description: Lean how to generate regression models using the Nexosis API
 copyright: 2017 Nexosis 
 layout: default
