@@ -183,7 +183,7 @@ Now that the file is uploaded, Forecast and Impact sessions can be created.
 
 ## Forecasting Web Sessions
 
-Now that the data is in the API, we can build a forecast model. This is easily accomplished by calling `Start-NexosisForecastSession` with a forecast start and end date. I could look at the data to choose the start and end dates, but for fun, I wrote a method that will calculate a forecast range based on the data set called `Get-NexosisForecastDateRange`.
+Now that the data is in the API, we can build a forecast model. This is easily accomplished by calling `Start-NexosisForecastSession` with a forecast start and end date. I could look at the data to choose the start and end dates, but for fun, I wrote a method that will calculate a forecast range based on the dataset called `Get-NexosisForecastDateRange`.
 
 In this example, we retrieve the `sampleWebData`, pass it into our script to calculate start and end forecast dates for hourly intervals for 2 weeks (14 days * 24 hours) and then use that as the start and end dates for the forecast session:
 
@@ -348,7 +348,7 @@ timestamp                    sessions
 2017-08-31T23:00:00.0000000Z 185    
 ```
 
-I've written a few commands that allow a user to list and select DataSets and Sessions to view graphically and save an image of the output. Once you have data sets and sessions, you can run `Invoke-NexosisGraphDataSetAndSession` to browse and graph results from those datasets.
+I've written a few commands that allow a user to list and select DataSets and Sessions to view graphically and save an image of the output. Once you have datasets and sessions, you can run `Invoke-NexosisGraphDataSetAndSession` to browse and graph results from those datasets.
 
 ```powershell
 PS>  Invoke-NexosisGraphDataSetAndSession

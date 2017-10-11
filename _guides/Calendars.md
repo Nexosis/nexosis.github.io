@@ -15,7 +15,7 @@ You can specify the url of any iCal formatted calendar source as a join target i
 
 > Note the calendar data will be imported as needed. If you specify a calendar url and then remove the calendar, the view will fail to build. 
 
-In addition to iCal, the Nexosis API will import any documented named global data set. [See *Data Sources* for more information](/guides/datasources).  
+In addition to iCal, the Nexosis API will import any documented named global dataset. [See *Data Sources* for more information](/guides/datasources).  
 
 ### Specifying a Calendar by URL
 In order to target an iCal calendar by url you will modify the join target to use the calendar object as in the example below:
@@ -32,7 +32,7 @@ In order to target an iCal calendar by url you will modify the join target to us
   ]
 }
 ```
-In this very simple example we have sourced an existing DataSet with the name *MyDataset* as the primary data source and then inside the join we used the keyword *calendar* to specify a calendar as the join source. In this case we have an iCal url, so we use the *url* property to provide the location of the iCal. The Nexosis API will take care of importing all of the events from the target calendar for the date range within the source data set's column with the role of 'timestamp'.
+In this very simple example we have sourced an existing DataSet with the name *MyDataset* as the primary data source and then inside the join we used the keyword *calendar* to specify a calendar as the join source. In this case we have an iCal URL, so we use the *url* property to provide the location of the iCal. The Nexosis API will take care of importing all of the events from the target calendar for the date range within the source dataset's column with the role of 'timestamp'.
 
 > In order to use a well-known global data source as a calendar simply replace *url* with *name*. 
 
@@ -43,7 +43,7 @@ When the Nexosis API imports a calendar it will create the following additional 
 - eventName: the title of the event given in the calendar. Matching event names will be treated as a single column when determining date overlap (see below for more information).
 - calendarName: the name of the calendar joined to - useful if more than one calendar has been joined in the same View.
 
-The time stamp of each event is then overlapped with the timestamp column in the primary dataset dependent on the granularity of the join specified in the columnOptions object. The default granularity for all forecasts is 'day' and this is retained in calendar joins. If you specify nothing then each event which occurs on a day will be treated as having happened with the day of the source data set's daily observations.  
+The time stamp of each event is then overlapped with the timestamp column in the primary dataset dependent on the granularity of the join specified in the columnOptions object. The default granularity for all forecasts is 'day' and this is retained in calendar joins. If you specify nothing then each event which occurs on a day will be treated as having happened with the day of the source dataset's daily observations.  
 
 For example consider the following imported calendar data:
 

@@ -3,7 +3,7 @@ title: Importing Data
 description: Import data into the Nexosis platform
 copyright: 2017 Nexosis 
 layout: default
-category: Getting Started
+category: Concepts
 tags: [Data, CSV, JSON, Quick Links]
 use_codestyles: true
 order: 4

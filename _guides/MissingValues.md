@@ -3,8 +3,8 @@ title: Missing Values
 description: What to do with missing values
 copyright: 2017 Nexosis 
 layout: default
-category: Concepts
-tags: [Imputation]
+category: Troubleshooting
+tags: [Favorite, Imputation]
 use_codestyles: true
 ---
 

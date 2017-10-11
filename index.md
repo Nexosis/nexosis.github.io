@@ -61,6 +61,8 @@ exclude_from_search: true
                   <img src="/assets/img/concepts.png">
                 {% when "Security" %}
                   <img src="/assets/img/security.png">
+                  {% when "Troubleshooting" %}
+                  <img src="/assets/img/troubleshooting.png">
                 {% endcase %}
               </div>
               <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 col-xl-9">
@@ -157,75 +159,4 @@ exclude_from_search: true
   {% endfor %}
 </div>
 
-<!-- API Clients -->
-<div class="row">
-  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-    <h3 class="badge badge-warning">API Clients</h3>
-  </div>
-</div>
-<div id="api-clients" class="row">
-  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-    <div class="panel bg-color-lightGray">
-      <div class="panel-body">
-          <div class="row">
-            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-              <p class="center">
-                <a href="/clients/dotnet">
-                  <img src="/assets/img/dotnet.png" style="width: 50px;"> <br />
-                  <span class="small">.NET</span>
-                </a>
-              </p>
-            </div>
-            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-              <p class="center">
-                <a href="/clients/nodejs">
-                  <img src="/assets/img/nodejs.png" style="width: 50px;"> <br />
-                  <span class="small">node.js</span>
-                </a>
-              </p>
-            </div>
-            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-              <p class="center">
-                <a href="/clients/python">
-                  <img src="/assets/img/python.png" style="width: 50px;"> <br />
-                  <span class="small">Python</span>
-                </a>
-              </p>
-            </div>
-            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-              <p class="center">
-                <a href="/clients/ruby">
-                  <img src="/assets/img/ruby.png" style="width: 50px;"> <br />
-                  <span class="small">Ruby</span>
-                </a>
-              </p>
-            </div>
-             <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-              <p class="center">
-                <a href="/clients/java">
-                  <img src="/assets/img/java.png" style="width: 50px;"> <br />
-                  <span class="small">Java</span>
-                </a>
-              </p>
-            </div>
-             <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-              <p class="center">
-                <a href="/clients/scala">
-                  <img src="/assets/img/scala.png" style="width: 50px;"> <br />
-                  <span class="small">Scala</span>
-                </a>
-              </p>
-            </div>
-            <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-              <p class="center">
-                <a href="/clients/powershell">
-                  <img src="/assets/img/powershell.png" style="width: 50px;"> <br />
-                  <span class="small">PowerShell</span>
-                </a>
-              </p>
-            </div>            
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
+{% include apiClients.html %}

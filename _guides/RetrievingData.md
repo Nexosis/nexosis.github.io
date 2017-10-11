@@ -3,7 +3,7 @@ title: Retrieving Data
 description: How do I get my results and my original data back out?
 copyright: 2017 Nexosis 
 layout: default
-category: Getting Started
+category: Concepts
 tags: [Data, CSV, JSON, Quick Links]
 use_codestyles: true
 order: 5

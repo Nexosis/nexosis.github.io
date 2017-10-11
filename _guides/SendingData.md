@@ -3,7 +3,7 @@ title: Sending Data
 description: In order to forecast or measure Impact, we need your data in JSON or CSV format.
 copyright: 2017 Nexosis 
 layout: default
-category: Getting Started
+category: Concepts
 tags: [Data, CSV, JSON, Quick Links]
 use_codestyles: true
 order: 4
