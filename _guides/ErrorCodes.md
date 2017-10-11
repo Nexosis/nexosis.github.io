@@ -3,8 +3,8 @@ title: Error Codes
 description: Detailed information about error codes
 copyright: 2017 Nexosis 
 layout: default
-category: Getting Started
-tags: [Favorite, Reference, Errors, Debugging, HTTP]
+category: Concepts
+tags: [Favorite, Reference, Errors, Quick Links, Debugging, HTTP]
 use_codestyles: true
 order: 10
 ---

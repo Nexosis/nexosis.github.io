@@ -4,7 +4,7 @@ description: How and why to create an account
 copyright: 2017 Nexosis 
 layout: default
 category: Getting Started
-tags: [Quick Links, Account, Favorite]
+tags: [Account, Favorite]
 use_codestyles: true
 order: 3
 ---
