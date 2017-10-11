@@ -129,13 +129,15 @@ exclude_from_search: true
                   {% when "Human Resources" %}
                     <img src="http://nexosis.com/assets/img/use-case/human-resources.png" style="width:60px;">
                   {% when "IoT" %}
-                    <img src="http://nexosis.com/assets/img/use-case/IoT.png" style="width:100px;">
+                    <img src="http://nexosis.com/assets/img/use-case/IoT.png" style="width:60px;">
                   {% when "Manufacturing & Operations" %}
                     <img src="http://nexosis.com/assets/img/use-case/manufacturing-operations.png" style="width:60px;">
                   {% when "Sales & Marketing" %}
                     <img src="http://nexosis.com/assets/img/use-case/sales-marketing.png" style="width:60px;">
                   {% when "Sports & Games" %}
                     <img src="http://docs.nexosis.com/assets/img/sports-games.png" style="width:60px;">
+                  {% when "Fun!" %}
+                    <img src="http://docs.nexosis.com/assets/img/fun.png" style="width:60px;">
                 {% endcase %}
               </div>
               <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">

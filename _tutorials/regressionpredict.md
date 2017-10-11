@@ -1,10 +1,10 @@
 ---
-title: Regression Walk-Through
-description: End to end example of predicting from a regression model
+title: Predicting an Automobile's Fuel Economy (MPG)
+description: Predicting and Automobile Fuel Efficiency (MPG) using a regression model
 copyright: 2017 Nexosis 
 layout: default
-category: Regression
-tags: [Predict, Quick Links, Favorite]
+category: Distribution & Logistics
+tags: [Predict, Favorite, Regression]
 use_codestyles: true
 ---
 
@@ -12,10 +12,10 @@ In the following tutorial we will take a step by step tour through the creation 
 
 ------
 ### Getting Started
-We like to think of using the Nexosis API as a 1-2-3 process of: [1)](#step1) load your data [2)](#step2) create your model [3)](#step3) predict using your model.  It really can be that simple - and hopefully this walk through can help you understand how to work with your own dataset so that you'll see it too. 
+We like to think of using the Nexosis API as a 1-2-3 process of: [1)](#step1) load your data [2)](#step2) create your model [3)](#step3) predict using your model.  It really can be that simple - and hopefully this walk through can help you understand how to work with your own dataset so that you'll see it too.
 <a name="step1"></a>
 #### Step 1 - Load Your Data
-As I said above we're going to use the Auto MPG data for this. The raw data available as TSV is in pretty good shape but we'll want to make some changes first in order to load it to the Nexosis API. First, we don't accept TSV directly so we at least need to reformat into a CSV or JSON. For this purpose I like to use MS Excel&reg;'s data import feature and then save as a CSV. I want to make a few changes to the data while I have it in Excel&reg;. First, this data has no header so I'm going to name the columns.  Second, we have several numeric columns where missing values have been identified by a '?' character. This will cause the Nexosis API to treat the whole thing as a string because it doesn't know what to do with that character. At the time of processing everything has to become a number and we can't possibly know what the intent of every DataSet value is - so we try not to guess too much. In this case let's just make every '?' into an empty string instead. 
+As I said above we're going to use the Auto MPG data for this. The raw data available as TSV is in pretty good shape but we'll want to make some changes first in order to load it to the Nexosis API. First, we don't accept TSV directly so we at least need to reformat into a CSV or JSON. For this purpose I like to use MS Excel&reg;'s data import feature and then save as a CSV. I want to make a few changes to the data while I have it in Excel&reg;. First, this data has no header so I'm going to name the columns.  Second, we have several numeric columns where missing values have been identified by a '?' character. This will cause the Nexosis API to treat the whole column as a string because it doesn't know what to do with that character. At the time of processing everything has to become a number and we can't possibly know what the intent of every DataSet value is - so we try not to guess too much. In this case let's just make every '?' into an empty string instead.
 
 The final change I want to make is to the car name column. The column description on the UCI website says every value is unique. That won't help us predict anything and yet I have a suspicion that a 1970's Honda is more fuel efficient than a Chevy. Turns out that the first word in every name is the make so I'm going to pull out that value into its own column - 'make'. But wait - that's a string value and I said everything has to become a number, right? That is true - but strings can be numbers if we just encode them that way. In this case the make column will be split into several columns by the Nexosis API. If you specify a string column as a feature we will doing something called "one hot encoding" to create a column of binary values where a '1' indicates that the row had that string value and a '0' otherwise.
 
@@ -102,26 +102,26 @@ At this point we are ready to let the Nexosis API take over and run all the algo
 ```
 https://ml.nexosis.com/v1/sessions/model
 ```
-In the body of the request we need to indicate a minimum of two things: 1) Which data source are we building a model for? and 2) Which class of algorithm are creating a model for? The data source is identified by the *dataSourceName* field and we call the class of algorithm the *predictionDomain*. What is a prediction domain? It's a class of algorithm and naming stuff is hard - so just put 'regression' in there and don't worry about it. You're request body would then be
+In the body of the request we need to indicate a minimum of two things: 1) Which data source are we building a model for? and 2) Which class of algorithm are creating a model for? The data source is identified by the *dataSourceName* field and we call the class of algorithm the *predictionDomain*. What is a prediction domain? It's a class of algorithm and naming stuff is hard - so just put 'regression' in there and don't worry about it. Your request body would then be
 
 ``` json
 {
   "dataSourceName": "MPG",
   "predictionDomain": "Regression"
 }
-``` 
+```
 
 Simple, right? We don't need much information here because we already identified the column metadata - including the target prediction column - in our initial upload of the data. If you didn't do that, or if you wanted to modify what the model was built on, then you could submit the target column and column metadata in this request. Any information in the session request will override what was submitted previously - just for that session.
 
-We now wait for the engines to spin in the Nexosis API and figure out the model for our DataSet. This can take from a minute or two to an hour or two depending on the shape of the DataSet. In this case we should have a model in about 10 minutes. 
+We now wait for the engines to spin in the Nexosis API and figure out the model for our DataSet. This can take from a minute or two to an hour or two depending on the shape of the DataSet. In this case we should have a model in about 10 minutes.
 
-The intial session POST would have responded with a JSON body which in part contained a field called SessionId. This sessionId is a unique identifier for your session and is what you'll use to get status and eventually results. You can get session status by sending an HTTP HEAD request to 
+The initial session POST would have responded with a JSON body which in part contained a field called SessionId. This sessionId is a unique identifier for your session and is what you'll use to get status and eventually results. You can get session status by sending an HTTP HEAD request to
 
 ```
 https://ml.nexosis.com/v1/sessions/{your sessionId}
 ```
 
-Once you get a status back of *completed* you're ready to go get the results. You get results by sending an HTTP GET request to 
+Once you get a status back of *completed* you're ready to go get the results. You get results by sending an HTTP GET request to
 
 ```
 https://ml.nexosis.com/v1/sessions/{your sessionId}/results
@@ -158,7 +158,7 @@ The session results will contain two interesting bits of data. The most importan
 }
 ```
 
-For illustration purposes I've pulled back the MPG results in the [Ruby Sample App](https://github.com/Nexosis/samples-rb) 
+For illustration purposes I've pulled back the MPG results in the [Ruby Sample App](https://github.com/Nexosis/samples-rb)
 
 <img src="/assets/img/tutorials/model_results.png" height="574" width="746" />
 
@@ -205,7 +205,7 @@ Notice that we are not sending the name field either because it wasn't a feature
   ... other model info elided ...
 }
 ```
-And we're done! Data uploaded, model built, prediction made. Hopefully you're now ready to go and make something smart of your own with the Nexosis API. 
+And we're done! Data uploaded, model built, prediction made. Hopefully you're now ready to go and make something smart of your own with the Nexosis API.
 
 -----
 <sup>1</sup>: Lichman, M. (2013). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.

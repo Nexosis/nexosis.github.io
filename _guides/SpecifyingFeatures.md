@@ -3,8 +3,8 @@ title: Specifying Features
 description: This tutorial shows more advanced specification of features and column metadata
 copyright: 2017 Nexosis
 layout: default
-category: Getting Started
-tags: [Forecasting, Causal Impact, Impact ]
+category: Concepts
+tags: [Forecasting, Causal Impact, Impact]
 use_codestyles: true
 order: 8
 ---
