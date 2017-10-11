@@ -1,6 +1,6 @@
 ---
-title: Generating Predictions
-description: Lean how to genreate forecasts using the Nexosis API
+title: Forecasting Walkthrough 
+description: Lean how to generate forecasts using the Nexosis API
 copyright: 2017 Nexosis 
 layout: default
 category: Forecasting

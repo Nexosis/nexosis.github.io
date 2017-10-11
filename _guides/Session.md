@@ -3,8 +3,8 @@ title: Sessions
 description: What is a Session in the Nexosis API?
 copyright: 2017 Nexosis 
 layout: default
-category: Getting Started
-tags: [Causal Impact, Predict, Quick Links]
+category: Concepts
+tags: [Causal Impact, Predict, Quick Links, Favorite]
 use_codestyles: true
 order: 6
 ---
