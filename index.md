@@ -136,7 +136,7 @@ exclude_from_search: true
                     <img src="http://nexosis.com/assets/img/use-case/sales-marketing.png" style="width:60px;">
                   {% when "Sports & Games" %}
                     <img src="http://docs.nexosis.com/assets/img/sports-games.png" style="width:60px;">
-                  {% when "Fun" %}
+                  {% when "Fun!" %}
                     <img src="http://docs.nexosis.com/assets/img/fun.png" style="width:60px;">
                 {% endcase %}
               </div>
