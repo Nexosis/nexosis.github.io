@@ -110,10 +110,12 @@ exclude_from_search: true
   {% endif %}
 {% endfor %}
 
+<style>.panel.tutorial{min-height: 100px;} </style>
+
 <div class="row">
   {% for ct in cats %}
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <div class="panel bg-color-lightGray">
+        <div class="panel tutorial bg-color-lightGray">
           <div class="panel-body">
             <div class="row">
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
