@@ -80,7 +80,7 @@ exclude_from_search: true
       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
         <div class="panel bg-color-lightGray">
           <div class="panel-body">
-            <h5 id="{{ ct | slugify }}">
+            <h5 id="{{ ct | slugify }}" class="jumptarget">
               {{ ct }}
               <img src="/assets/img/{{ category }}.png" class="api-client">
             </h5>

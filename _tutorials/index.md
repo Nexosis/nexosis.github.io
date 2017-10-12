@@ -51,7 +51,7 @@ exclude_from_search: true
   <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
     <div class="panel bg-color-lightGray">
       <div class="panel-body">
-      <h5 id="{{ ct | slugify }}">{{ ct }}</h5>
+      <h5 id="{{ ct | slugify }}" class="jumptarget">{{ ct }}</h5>
       <hr>
         <div class="row">
           {% for post in site.tutorials %}

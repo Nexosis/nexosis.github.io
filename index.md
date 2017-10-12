@@ -73,7 +73,7 @@ exclude_from_search: true
                     <p class="post-listing"><i class="fa {{list-icon}}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>
                   {% endif %}
                 {% endfor %}
-                <p class="post-listing"><i class="fa {{list-icon}}"></i> <a href="/guides#{{ ct }}">See more…</a></p>
+                <p class="post-listing"><i class="fa {{list-icon}}"></i> <a href="/guides#{{ ct | slugify }}">See more…</a></p>
               </div>
             </div>
           </div>
