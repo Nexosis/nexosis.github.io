@@ -5,6 +5,7 @@ copyright: 2017 Nexosis
 layout: default
 category: Regression
 tags: [Predict, Quick Links, Favorite, Regression, Walkthrough]
+order: 2
 use_codestyles: true
 ---
 
