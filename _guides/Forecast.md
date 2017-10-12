@@ -1,11 +1,12 @@
 ---
-title: Generating Predictions
-description: Lean how to genreate forecasts using the Nexosis API
+title: Forecasting Walkthrough 
+description: Lean how to generate forecasts using the Nexosis API
 copyright: 2017 Nexosis 
 layout: default
 category: Forecasting
-tags: [Predict, Quick Links, Favorite]
+tags: [Predict, Quick Links, Favorite, Walkthrough]
 use_codestyles: true
+order: 3
 ---
 
 A Forecast is when we take your historical time series data and predict what will happen in the future. You can forecast product demand at a sku level, predict call volume in a call center, forecast machine usage to get a better understanding of when equipment might need maintenance, anticipate wait times, or foresee turnover rates.
@@ -18,7 +19,7 @@ Forecast sessions is the mechanism in the API to generate these predictions. To 
 To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
 
 *Here are some important points to consider:*
-> The forecast start date should be on the same day as (or before) the last date in the dataset. If there is a gap between your forecast start date and the date of the last record in your data set, the Nexosis API will behave as if there is no gap. Read our [Missing Values](/guides/missingvalues) article for more information about how we handle gaps.
+> The forecast start date should be on the same day as (or before) the last date in the dataset. If there is a gap between your forecast start date and the date of the last record in your dataset, the Nexosis API will behave as if there is no gap. Read our [Missing Values](/guides/missingvalues) article for more information about how we handle gaps.
 
 
 Here are the Query String Parameters you can pass along when creating a Forecast Session:

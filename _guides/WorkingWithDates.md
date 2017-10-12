@@ -3,8 +3,8 @@ title: Working With Dates
 description: Formatting dates properly can be tricky.
 copyright: 2017 Nexosis 
 layout: default
-category: Concepts
-tags: [Dates, Formatting, Data, Favorite]
+category: Troubleshooting
+tags: [Dates, Favorite, Formatting, Data]
 use_codestyles: true
 order: 9
 ---

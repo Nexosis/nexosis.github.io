@@ -35,7 +35,7 @@ This will save the values from the CSV files into the database specified by the 
 in an `import` table in the database. The next step is to process the imported values into the data that will be submitted to the Nexosis API.
 At this point, [imputation](/guides/missingvalues){:target="_blank"} is not performed as part of the analysis in the API, and missing values will cause problems when
 doing predictions. Since this data has missing values,
-the average of the data set (93) was used as a constant value for each hour missing in the original data set. You will need to determine the best 
+the average of the dataset (93) was used as a constant value for each hour missing in the original dataset. You will need to determine the best 
 strategy given your data. In the sample, this step can be run with the following command:
 
 ```bash
@@ -71,7 +71,7 @@ for (int i = 0; i < ((measurements.Count / batchSize) + 1); i++)
         dataSetName,
         new DataSetDetail { Columns = columns, Data = measurements.Skip(i * batchSize).Take(batchSize).ToList() }
     );
-    Console.Out.WriteLine($"Added to data set named {ds.DataSetName}. Cost: ${ds.Cost.Amount}.");
+    Console.Out.WriteLine($"Added to dataset named {ds.DataSetName}. Cost: ${ds.Cost.Amount}.");
 }
 ```
 In this case, the API has inferred which column is the timestamp and which contains the target value to analyze. If necessary, you can specify

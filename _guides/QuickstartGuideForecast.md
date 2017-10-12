@@ -1,12 +1,12 @@
 ---
-title: Quick Start
+title: Forecasting Quick Start
 description: Getting started guide for using the Nexosis API
 copyright: 2017 Nexosis 
 layout: default
-category: Getting Started
-tags: [Quick Links, Favorite, REST]
+category: Forecasting
+tags: [Quick Links, Favorite, REST, QuickStart, TimeSeries]
 use_codestyles: true
-order: 1
+order: 2
 ---
 
 This is a quick walkthrough of the basics of the using the Nexosis API.  By following this walkthrough which uses a sample dataset, you will learn all of the steps needed to make forecasts using the Nexosis API.
