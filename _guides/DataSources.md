@@ -19,10 +19,12 @@ When a Session request asks for a data set name it is referencing a unique name 
 Another new type of data source is the Global Data Set. Globally available Data Sets may be included by providing the globally unique name. These datasets are not useful for directly forecasting in a session. Instead they are intended as common features one may wish to include with an existing dataset. You might try adding one of these if you suspect the subject matter of the global data set has an influence on your data. In order to add a Global Data Set to your session, include it as a join target in a [view](/guides/views).
 
 #### Available Global Data Sets
-The Nexosis API currently support holiday calendars as global data sets. In order to reference a holiday calendar you use the prefix *Nexosis.Holidays-* followed by the [two character country code as defined by ISO-3166](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). For example:
+The Nexosis API currently supports holiday calendars as global data sets. In order to reference a holiday calendar you use the prefix *Nexosis.Holidays-* followed by the [two character country code as defined by ISO-3166](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). For example:
  
 - Nexosis.Holidays-US - a time-series based set of day long holidays in the USA
 - Nexosis.Holidays-CA - a time-series based set of day long holidays in Canada
+
+See our [calendar listing in GitHub](https://github.com/Nexosis/holiday-calendars) for which country codes we support.
 
 In order to define a named calendar as a data source in a join you would include the following join syntax in your view definition:
 
