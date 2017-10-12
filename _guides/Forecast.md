@@ -6,7 +6,7 @@ layout: default
 category: Forecasting
 tags: [Predict, Quick Links, Favorite, Walkthrough]
 use_codestyles: true
-order: 2
+order: 3
 ---
 
 A Forecast is when we take your historical time series data and predict what will happen in the future. You can forecast product demand at a sku level, predict call volume in a call center, forecast machine usage to get a better understanding of when equipment might need maintenance, anticipate wait times, or foresee turnover rates.
