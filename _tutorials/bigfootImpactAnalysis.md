@@ -11,7 +11,7 @@ use_codestyles: true
 ### {{page.description}}
 
 We'll be doing this using JavaScript and the
-[JavaScript Nexosis API client](https://github.com/Nexosis/nexosisclient-javascript).
+[JavaScript Nexosis API client](https://github.com/Nexosis/nexosisclient-js).
 I'm assuming that you know JavaScript, ES6, and [Node.js](https://nodejs.org/en/).
 We will be using many of the built in array functions and ES6 Promises. We'll also
 be using [Moment.js](https://momentjs.com/) since it makes working with dates in
