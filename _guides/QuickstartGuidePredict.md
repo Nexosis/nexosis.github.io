@@ -1,4 +1,4 @@
-﻿---
+---
 title: Prediction Quick Start
 description: Getting started guide for using the Nexosis API
 copyright: 2017 Nexosis
