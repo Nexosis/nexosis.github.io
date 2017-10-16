@@ -49,19 +49,19 @@ Putting this all together, we will have a two requests that look like the ones b
 ### Upload a file
 
 ``` bash
-curl -v -X POST "https://ml.nexosis.com/v1/data/auto-mpg" \
--H "Content-Type: application/json" \
--H "api-key: {subscription key}" \
---data-binary "@/path/to/file/auto-mpg.data.json"
+curl -v -X PUT "https://ml.nexosis.com/v1/data/auto-mpg" \
+            -H "Content-Type: application/json" \
+            -H "api-key: {subscription key}" \
+ --data-binary "@/path/to/file/auto-mpg.data.json"
 ```
 
 ### Start a Session
 
 ``` bash
 curl -v -X POST "https://ml.nexosis.com/v1/sessions/model \
--H "Content-Type: application/json" \
--H "api-key: {subscription key}" \
--d '{"dataSourceName": "auto-mpg", "predictionDomain": "regression", "targetColumn": "mpg"}'
+             -H "Content-Type: application/json" \
+             -H "api-key: {subscription key}" \
+             -d '{"dataSourceName": "auto-mpg", "predictionDomain": "regression", "targetColumn": "mpg"}'
 ```
 
 Once the session has been started, you should see a response similar to this:
@@ -99,7 +99,7 @@ Here we can see that we have a `sessionId`, which we will need later on.  Also, 
 
 ``` bash
 curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}" \
--H "api-key: {subscription key}"
+            -H "api-key: {subscription key}"
 ```
 
 Once this request comes back with a `status` of `completed`, the model will be available for us to use in prediction request.
@@ -115,7 +115,7 @@ In order to predict you first need the modelId for the model trained by the sess
 
 ``` bash
 curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}/results" \
--H "api-key: {subscription key}"
+            -H "api-key: {subscription key}"
 ```
 
 This response will look a lot like the other above but importantly has the field *modelId*.
@@ -136,9 +136,9 @@ With the model id and a set of new values for the features you're ready to reque
 
 ``` bash
 curl -v -X POST "https://ml.nexosis.com/v1/models/{modelId}/predict" \
--H "api-key: {subscription key}" \
--H "Content-Type: application/json" \
--d '{"data":[{ "Make": "plymouth", "Origin": "1", "Weight": "3430", "Cylinders": "6", "ModelYear": "78", "Horsepower": "100", "Acceleration": "17.2", "Displacement": "225"}] }'
+            -H "api-key: {subscription key}" \
+            -H "Content-Type: application/json" \
+            -d '{"data":[{ "Make": "plymouth", "Origin": "1", "Weight": "3430", "Cylinders": "6", "ModelYear": "78", "Horsepower": "100", "Acceleration": "17.2", "Displacement": "225"}] }'
 ```
 
 The body of the response will include your data field echoed back to you but this time with your predicted field

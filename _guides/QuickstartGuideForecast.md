@@ -40,18 +40,18 @@ Putting this all together, we will have a two requests that look like the ones b
 ### Upload a file
 
 ``` bash
-curl -v -X POST "https://ml.nexosis.com/v1/data/location-a" \
--H "Content-Type: text/csv" \
--H "api-key: {subscription key}" \
---data-binary "@/path/to/file/Location A.csv"
+curl -v -X PUT "https://ml.nexosis.com/v1/data/location-a" \
+             -H "Content-Type: text/csv" \
+             -H "api-key: {subscription key}" \
+             --data-binary "@/path/to/file/Location A.csv"
 ```
 
 ### Start a Session
 
 ``` bash
 curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=location-a&targetColumn=sales&startDate=2017-01-01&endDate=2017-03-31" \
--H "Content-Type: application/json" \
--H "api-key: {subscription key}" \
+             -H "Content-Type: application/json" \
+             -H "api-key: {subscription key}" \
 ```
 
 Once the session has been started, you should see a response similar to this:
@@ -81,7 +81,7 @@ Here we can see that we have a `sessionId`, which we will need later on.  Also, 
 
 ``` bash
 curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}" \
--H "api-key: {subscription key}"
+            -H "api-key: {subscription key}"
 ```
 
 Once this request comes back with a `status` of `completed`, the forecast will be available for download.
@@ -96,7 +96,7 @@ Results can be downloaded by issuing a GET to the results endpoint.
 
 ``` bash
 curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}/results" \
--H "api-key: {subscription key}"
+            -H "api-key: {subscription key}"
 ```
 
 The body of this response is the forecasted values over the requested date range.  The results will be formatted like this.
