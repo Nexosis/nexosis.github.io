@@ -26,7 +26,7 @@ Then optionally:
 
 <img src="../assets/img/forecasting-impact-flow.png" alt="[How It Works: Time-Series Regression & Impact Analysis]" width="75%" class="img-responsive"/>
 
-### <a name="dataset" class="jumptarget">Submit a _Dataset_</a>
+<h3 id="dataset" class="jumptarget">Submit a Dataset</h3>
 
 To generate time-series based forecasts, datasets must have a timestamp column. This is slightly different from [regression](regression) which does not require a timestamp column, but still might have one.
 
@@ -38,7 +38,7 @@ If you’re still not sure which to use, and you have a date/timestamp with targ
 
 Read [Sending Data](sendingdata) for the technical details.
 
-### <a name="session" class="jumptarget">Initiate A _Session_</a>
+<h3 id="session" class="jumptarget">Initiate a Session</h3>
 
 A _Session_ is simply the a discovery process using the supplied Dataset.
 
@@ -51,7 +51,7 @@ This is where the data science happens at scale. Behind the scenes a host of alg
 
 Read [Sessions](session) for the technical details.
 
-### <a name="results" class="jumptarget">Retrieve the Results</a>
+<h3 id="results" class="jumptarget">Retrieve the Results</h3>
 
 Once the session has completed successfully, the results can be retrieved. Depending on the type of session, the results will contain prediction or impact analysis results.
 

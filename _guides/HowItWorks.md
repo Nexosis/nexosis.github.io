@@ -21,12 +21,12 @@ We've worked hard to keep the high-level process simple. Here's the basic proces
 
 Then optionally:
 
-1. Update yoru _Dataset_ with additional data
+1. Update your _Dataset_ with additional data
 2. Start a new Session. Repeat.
 
 <img src="../assets/img/how-it-works-developer-flow.png" alt="[How It Works]" width="75%" class="img-responsive"/>
 
-### <a name="dataset" class="jumptarget">Submit a _Dataset_</a>
+<h3 id="dataset" class="jumptarget">Submit a Dataset</h3>
 
 All Machine Learning processes must start with data and a question you are trying to gain insight into. This question could range from "How many robots will I sell next Tuesday?" to "What was the impact of our new marketing strategy on our Facebook likes for the month following our new marketing campaign?"
 
@@ -36,7 +36,7 @@ The data submitted is very important, as it is used to discover relationships wi
 
 Read [Sending Data](sendingdata) for more of the technical details on submitting data.
 
-### <a name="session" class="jumptarget">Initiate A _Session_</a>
+<h3 id="session" class="jumptarget">Initiate a Session</h3>
 
 A _Session_ is simply the discovery process using the supplied Dataset.
 
@@ -50,7 +50,7 @@ This is where the data science happens at scale. Behind the scenes a host of alg
 
 Read about [Sessions](session) for more technical details on building sessions.
 
-### <a name="results" class="jumptarget">Evaluate the Results and Make Predictions</a>
+<h3 id="results" class="jumptarget">Evaluate the Results and Make Predictions</h3>
 
 Once the session has completed successfully, the Nexosis API builds a custom mathematical _Model_, based the data that was used to build, or _train_ that model.  You can think of a _model_ as a custom algorithm built based on the relationships found between the different data contained in the _dataset_. Depending on the type of session, the results will vary somewhat but generally will solve for a variable you want to predict, also called the _target_. Once the model is built, it can be evaluated and then used for predictions, forecasts, and to evaluate impact.
 

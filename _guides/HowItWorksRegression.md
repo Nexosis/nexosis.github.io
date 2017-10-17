@@ -26,7 +26,7 @@ Then optionally:
 
 |<img src="../assets/img/regression-flow.png" alt="[How It Works]" width="75%"/>
 
-### <a name="dataset" class="jumptarget">Submit a _Dataset_</a>
+<h3 id="dataset" class="jumptarget">Submit a Dataset</h3>
 
 Regression is a process by which the Nexosis API, through the analysis of a particular dataset, will attempt to understand the relationship a series of variables have with one specific target value given many different sets of observed data. This relationship can then be used to predict a new target value given any combination of known new variables.
 
@@ -36,7 +36,7 @@ Once the _dataset_ has been submitted, a _regression_ session can be created to 
 
 Read [Sending Data](sendingdata) for the technical details.
 
-### <a name="session" class="jumptarget">Initiate A _Session_</a>
+<h3 id="session" class="jumptarget">Initiate A Session</h3>
 
 A _Session_ is simply the a discovery process using the supplied Dataset. This exploration of the data is computationally expensive and can be time consuming, depending on the amount of data in the _dataset_.
 
@@ -44,17 +44,16 @@ This is where the data science happens at scale. Behind the scenes a host of alg
 
 Read [Sessions](session) for the technical details.
 
-### <a name="results" class="jumptarget">Retrieve the Results</a>
+<h3 id="results" class="jumptarget">Retrieve the Results</h3>
 
 Once the all the results are analyzed and the relationships present are discovered, a model is built and deployed. The _SessionResult_ will contain a the _modelId_ used to identify production model endpoint where predictions get made. Additionally, the session result will also returns metrics to illuminate the strength of the relationships that were found between the features and the target value in the form of an accuracy metric in the dataset.
 
 Read [Retrieving a Session](session#retrievingSession) for more technical details.
 
-### <a name="predict" class="jumptarget">Use Model API Endpoint</a>
-
+<h3 id="predict" class="jumptarget">Use Model API Endpoint</h3>
 
 Once the model is deployed and you like there results, it becomes your prediction endpoint. By simply sending in new variables, or series of variables a set of predictions can be made.
 
-Over time you may collect more data that can help improve the model, or you could add additional variables to the _dataset_ allowing even better predictions in the future. Simplely upload more data and create a new session and get new results! Each new session will create a new model with a new _modelId_, so you don't have to worry about your current model getting clobbered.
+Over time you may collect more data that can help improve the model, or you could add additional variables to the _dataset_ allowing even better predictions in the future. Simply upload more data and create a new session and get new results! Each new session will create a new model with a new _modelId_, so you don't have to worry about your current model getting clobbered.
 
 Read [Prediction Quick Start](quickstartguidepredict) for an end-to-end example where you can see how the whole process works.
