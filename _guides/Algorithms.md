@@ -4,7 +4,7 @@ description: A list of algorithms the Nexosis Machine Learning API employs
 copyright: 2017 Nexosis 
 layout: default
 category: Concepts
-tags: [forecasting, regression, Favorite]
+tags: [forecasting, regression]
 use_codestyles: true
 ---
 
