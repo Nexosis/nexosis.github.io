@@ -32,7 +32,7 @@ A request to start a session takes the following query string parameters:
 * `startDate` - The start date of the session.  In Forecast sessions, this is the start of the forecast period.  In Impact Analysis sessions, this is the start of the even whose impact is being calculated.
 * `endDate` - The end date of the session.
 * `resultInterval` *(optional)* - The date/time interval (e.g. Day, Hour) at which predictions should be generated.  So, if `Hour` is specified for this parameter you will get a Result record for each hour between `startDate` and `endDate`.  If unspecified, we'll generate predictions at a `Day` interval.
-* `callbackUrl` *(optional)* - The Webhook url that will receive updates when the Session status changes
+* `callbackUrl` *(optional)* - The Webhook url that will receive updates when the Session status changes.  Those updates will come in the form of an HTTP `POST` with a `JSON` body that's the same as the response shown in [Retrieving a Session](#retrievingSession).
 If you provide a callback url, your response will contain a header named Nexosis-Webhook-Token. You will receive this same header in the request message to your Webhook, which you can use to validate that the message came from Nexosis.
 * `isEstimate` *(optional)* - If specified, the submitted data will not be saved, and the session will not be processed. The returned `Nexosis-Request-Cost` header will be populated with the estimated cost that the request would have incurred.
 
