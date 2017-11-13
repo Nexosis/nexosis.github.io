@@ -10,9 +10,11 @@ use_codestyles: true
 
 Finding good datasets can be one of the hardest parts of using machine learning. We've collected some of the best repositories for you.
 
-## [Data.gov](https://www.data.gov/)
+------
 
-<div class="label label-info">Searchable</div><div class="label label-info">Categorized</div><div class="label label-info">Localized Data Sources</div><div class="label label-info">Free</div>
+### [Data.gov](https://www.data.gov/)
+
+<p><span class="label label-info">Searchable</span><span class="label label-info">Categorized</span><span class="label label-info">Localized Data Sources</span><span class="label label-info">Free</span></p>
 
 **Topics include:**
 
@@ -31,21 +33,27 @@ Finding good datasets can be one of the hardest parts of using machine learning.
 * [Public Safety](https://www.data.gov/safety/)
 * [Science & Research](https://www.data.gov/research/)
 
-## [Data.world](https://data.world)
+------
 
-<div class="label label-info">Searchable</div><div class="label label-info">Free account with limits</div>
+### [Data.world](https://data.world)
+
+<p><span class="label label-info">Searchable</span><span class="label label-info">Free account with limits</span></p>
 
 Join their Open Data Community (https://data.world/open-data-community) to share data, collaborate on solving problems, and connect with likeminded people.
 
-## [Kaggle Datasets](https://www.kaggle.com/datasets)
+------
 
-<div class="label label-info">Searchable</div><div class="label label-info">Categorized</div>Free
+### [Kaggle Datasets](https://www.kaggle.com/datasets)
+
+<p><span class="label label-info">Searchable</span><span class="label label-info">Categorized</span><span class="label label-info">Free</span></p>
 
 Search for open datasets on everything from government, health, and science to popular games and dating trends or upload your own dataset.
 
-## [Open Data Network](https://www.opendatanetwork.com/)
+------
 
-<div class="label label-info">Searchable</div><div class="label label-info">Categorized</div><div class="label label-info">Localized Data Sources</div><div class="label label-info">Free</div>
+### [Open Data Network](https://www.opendatanetwork.com/)
+
+<p><span class="label label-info">Searchable</span><span class="label label-info">Categorized</span><span class="label label-info">Localized Data Sources</span><span class="label label-info">Free</span></p>
 
 **Data categories include:**
 
@@ -63,13 +71,17 @@ Search for open datasets on everything from government, health, and science to p
 * [Politics](https://www.opendatanetwork.com/search?categories=politics&ref=hp)
 * [Social Services](https://www.opendatanetwork.com/search?categories=social%20services&ref=hp)
 
-## [Open Data Day](http://opendataday.org/)
+------
+
+### [Open Data Day](http://opendataday.org/)
 
 Annual celebration of open data. Visit website for details.
 
-## [Awesome Public Datasets](https://github.com/caesar0301/awesome-public-datasets)
+------
 
-<div class="label label-info">Categorized</div><div class="label label-info">Free</div>
+### [Awesome Public Datasets](https://github.com/caesar0301/awesome-public-datasets)
+
+<p><span class="label label-info">Categorized</span><span class="label label-info">Free</span></p>
 
 **Extensive topic-centric listing of datasets including:**
 
