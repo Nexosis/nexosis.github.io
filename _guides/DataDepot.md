@@ -14,7 +14,7 @@ Finding good datasets can be one of the hardest parts of using machine learning.
 
 ### [Data.gov](https://www.data.gov/)
 
-<p><span class="label label-info">Searchable</span><span class="label label-info">Categorized</span><span class="label label-info">Localized Data Sources</span><span class="label label-info">Free</span></p>
+<p><span class="label label-default">Searchable</span> <span class="label label-default">Categorized</span> <span class="label label-default">Localized Data Sources</span> <span class="label label-default">Free</span></p>
 
 **Topics include:**
 
@@ -37,7 +37,7 @@ Finding good datasets can be one of the hardest parts of using machine learning.
 
 ### [Data.world](https://data.world)
 
-<p><span class="label label-info">Searchable</span><span class="label label-info">Free account with limits</span></p>
+<p><span class="label label-default">Searchable</span> <span class="label label-default">Free account with limits</span></p>
 
 Join their Open Data Community (https://data.world/open-data-community) to share data, collaborate on solving problems, and connect with likeminded people.
 
@@ -45,7 +45,7 @@ Join their Open Data Community (https://data.world/open-data-community) to share
 
 ### [Kaggle Datasets](https://www.kaggle.com/datasets)
 
-<p><span class="label label-info">Searchable</span><span class="label label-info">Categorized</span><span class="label label-info">Free</span></p>
+<p><span class="label label-default">Searchable</span> <span class="label label-default">Categorized</span> <span class="label label-default">Free</span></p>
 
 Search for open datasets on everything from government, health, and science to popular games and dating trends or upload your own dataset.
 
@@ -53,7 +53,7 @@ Search for open datasets on everything from government, health, and science to p
 
 ### [Open Data Network](https://www.opendatanetwork.com/)
 
-<p><span class="label label-info">Searchable</span><span class="label label-info">Categorized</span><span class="label label-info">Localized Data Sources</span><span class="label label-info">Free</span></p>
+<p><span class="label label-default">Searchable</span> <span class="label label-default">Categorized</span> <span class="label label-default">Localized Data Sources</span> <span class="label label-default">Free</span></p>
 
 **Data categories include:**
 
@@ -81,7 +81,7 @@ Annual celebration of open data. Visit website for details.
 
 ### [Awesome Public Datasets](https://github.com/caesar0301/awesome-public-datasets)
 
-<p><span class="label label-info">Categorized</span><span class="label label-info">Free</span></p>
+<p><span class="label label-default">Categorized</span> <span class="label label-default">Free</span></p>
 
 **Extensive topic-centric listing of datasets including:**
 
@@ -116,6 +116,6 @@ Annual celebration of open data. Visit website for details.
 * [Transportation](https://github.com/caesar0301/awesome-public-datasets#transportation)
 * [Complementary Collections](https://github.com/caesar0301/awesome-public-datasets#complementary-collections)
 
-### Additions
+#### Additions
 
 If you know of a great repository that isn't included here, please tell us.
