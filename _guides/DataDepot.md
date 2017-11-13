@@ -116,6 +116,8 @@ Annual celebration of open data. Visit website for details.
 * [Transportation](https://github.com/caesar0301/awesome-public-datasets#transportation)
 * [Complementary Collections](https://github.com/caesar0301/awesome-public-datasets#complementary-collections)
 
+------
+
 #### Additions
 
 If you know of a great repository that isn't included here, please [tell us](http://nexosis.com/Home/Contact).
