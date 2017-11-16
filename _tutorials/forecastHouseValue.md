@@ -39,7 +39,7 @@ RegionID, RegionName, SizeRank, 1996-04, 1996-05, 1996-06, 1996-07, ..., 2017-02
 9, California, 1,95100,94900,94500,94400,94400, ...,261500,263500,265800,267800
 ```
 
-To create a dataset Axon can work with, we'll extract each row and populate a DataSet object and then create a new dataset.
+To create a dataset we can work with, we'll extract each row and populate a DataSet object and then create a new dataset.
 
 # Using the API
 
