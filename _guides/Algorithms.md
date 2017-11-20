@@ -64,3 +64,6 @@ Solves the question, what can I expect x to be?
   * Hyperbolic Tan Function
   * Sigmoid Function
 * Random Forest
+* K-Nearest Neighbor
+* Logistic Regression
+* Naive Bayes
