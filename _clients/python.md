@@ -32,7 +32,7 @@ import dateutil.parser as date_parser
 
 client = nexosisapi.Client()
 
-with open('sales-file.csv')) as f:
+with open('sales-file.csv') as f:
     result = client.datasets.create_csv('widget-sales', f)
 
 session = client.sessions.create_forecast('widget-sales', 'daily_transaction',
