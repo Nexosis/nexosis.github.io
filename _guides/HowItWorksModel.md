@@ -1,16 +1,16 @@
 ---
-title: How It Works&#58; Regression
-description: End to end example of predicting from a regression model
+title: How It Works&#58; Regression & Classification
+description: Understand how to interact with the Nexosis API for both regression and classification models
 copyright: 2017 Nexosis 
 layout: default
-category: Regression
-tags: [Predict, Quick Links, Favorite]
+category: Regression, Classification
+tags: [Predict, Classify, Quick Links, Favorite]
 order: 1
 use_codestyles: false
 ---
 ## The Process
 
-Regression allows you to estimate the relationships between variables. The Nexosis API allows you to upload a dataset and it will model these relationships. Once the relationship is understood this model is persisted and used to further predict values, given new inputs. Take a moment to familiarize yourself with the high-level process before using Regression.
+Regression allows you to estimate the relationships between variables. Classification allows you to organize information into categories. The Nexosis API allows you to upload a dataset and it will model these relationships. Once the relationship is understood this model is persisted and used to further predict values or classify your data, given new inputs. Take a moment to familiarize yourself with the high-level process before using Regression and Classification.
 
 We've worked hard to keep the high-level process simple. Here's the basic process:
 
@@ -24,15 +24,22 @@ Then optionally:
 2. Update _Dataset_ with additional new data and rebuild, or train new model.
 3. Start a new Session. Repeat.
 
-|<img src="../assets/img/regression-flow.png" alt="[How It Works]" width="75%"/>
+|<img src="../assets/img/regression-classification-flow.png" alt="[How It Works - Regression and Classification]" width="75%"/>
 
 <h3 id="dataset" class="jumptarget">Submit a Dataset</h3>
 
+<h4>Regression</h4>
 Regression is a process by which the Nexosis API, through the analysis of a particular dataset, will attempt to understand the relationship a series of variables have with one specific target value given many different sets of observed data. This relationship can then be used to predict a new target value given any combination of known new variables.
 
 For example, if you wanted to be able to predict an approximate sale price of a house you'd need a dataset containing real attributes of many different kinds of houses and their real historical sale price.  Each row describes a distinct house - its columns represent specific attributes (independent variables) that likely influence the sale price (dependent variable). These independent variables are called _features_ and the dependent variable is called the _target_. Some examples of attributes that might correspond to the sale price could be the year a house was built, the number of rooms, the number of bathrooms, livable square footage, zip code, and so on.
 
-Once the _dataset_ has been submitted, a _regression_ session can be created to build a model.
+<h4>Classification</h4>
+Classification is a process by which the Nexosis API, through the analysis of a particular dataset, will attempt to understand the categories by which you might group the rows of data together.
+
+For example, if you had a variety of measurements of characteristics of an Iris flower that allowed you to determine which species it was - such as sepal length and width, and petal length and width, you could train a Classification model to learn to make this distinction given only these characteristics.
+
+<h4>The DataSet</h4>
+Once the _dataset_ has been submitted, a _regression_ or _classification_ session can be created to build a model.
 
 Read [Sending Data](sendingdata) for the technical details.
 
