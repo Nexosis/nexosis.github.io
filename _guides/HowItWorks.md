@@ -43,6 +43,7 @@ A _Session_ is simply the discovery process using the supplied Dataset.
 There are several types of sessions you can initiate and each type of Session can help answer different types of questions, but all act on the datasets you provide.
 
 * [Regression](regression) - when you want to make a prediction on data based on the discovered relationships in the data.
+* [Classification](quickstartguideclassification) - when you want to predict what category something is in.
 * [Forecasting](forecast) - when you want to forecast how something might change over time.
 * [Impact Analysis](impactanalysis) - running a forecast over time a historical time to see the impact of a change.
 
