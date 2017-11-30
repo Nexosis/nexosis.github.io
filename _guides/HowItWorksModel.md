@@ -63,4 +63,6 @@ Once the model is deployed and you like there results, it becomes your predictio
 
 Over time you may collect more data that can help improve the model, or you could add additional variables to the _dataset_ allowing even better predictions in the future. Simply upload more data and create a new session and get new results! Each new session will create a new model with a new _modelId_, so you don't have to worry about your current model getting clobbered.
 
-Read [Prediction Quick Start](quickstartguidepredict) for an end-to-end example where you can see how the whole process works.
+Read [Prediction Quick Start](quickstartguidepredict) for an end-to-end example where you can see how the whole process works with Regression.
+
+Read [Classification Quick Start](quickstartguideclassification) for an end-to-end example to see how the Classification process works.
