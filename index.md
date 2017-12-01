@@ -125,21 +125,21 @@ exclude_from_search: true
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 {% case ct %}
                   {% when "Customer Service" %}
-                    <img src="http://nexosis.com/assets/img/use-case/customer-service.png" style="width:60px;">
+                    <img src="https://nexosis.com/assets/img/use-case/customer-service.png" style="width:60px;">
                   {% when "Distribution & Logistics" %}
-                    <img src="http://nexosis.com/assets/img/use-case/distribution-logistics.png" style="width:60px;">
+                    <img src="https://nexosis.com/assets/img/use-case/distribution-logistics.png" style="width:60px;">
                   {% when "Energy" %}
-                    <img src="http://nexosis.com/assets/img/use-case/energy.png" style="width:60px;">
+                    <img src="https://nexosis.com/assets/img/use-case/energy.png" style="width:60px;">
                   {% when "Greater Good" %}
-                    <img src="http://nexosis.com/assets/img/use-case/greater-good.png" style="width:60px;">
+                    <img src="https://nexosis.com/assets/img/use-case/greater-good.png" style="width:60px;">
                   {% when "Human Resources" %}
-                    <img src="http://nexosis.com/assets/img/use-case/human-resources.png" style="width:60px;">
+                    <img src="https://nexosis.com/assets/img/use-case/human-resources.png" style="width:60px;">
                   {% when "IoT" %}
-                    <img src="http://nexosis.com/assets/img/use-case/IoT.png" style="width:60px;">
+                    <img src="https://nexosis.com/assets/img/use-case/IoT.png" style="width:60px;">
                   {% when "Manufacturing & Operations" %}
-                    <img src="http://nexosis.com/assets/img/use-case/manufacturing-operations.png" style="width:60px;">
+                    <img src="https://nexosis.com/assets/img/use-case/manufacturing-operations.png" style="width:60px;">
                   {% when "Sales & Marketing" %}
-                    <img src="http://nexosis.com/assets/img/use-case/sales-marketing.png" style="width:60px;">
+                    <img src="https://nexosis.com/assets/img/use-case/sales-marketing.png" style="width:60px;">
                   {% when "Sports & Games" %}
                     <img src="http://docs.nexosis.com/assets/img/sports-games.png" style="width:60px;">
                   {% when "Fun!" %}
