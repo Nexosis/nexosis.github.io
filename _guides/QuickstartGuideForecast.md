@@ -50,8 +50,8 @@ curl -v -X PUT "https://ml.nexosis.com/v1/data/location-a" \
 
 ``` bash
 curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=location-a&targetColumn=sales&startDate=2017-01-01&endDate=2017-03-31" \
-             -H "Content-Type: application/json" \
              -H "api-key: {subscription key}" \
+             -H "Content-Length: 0"
 ```
 
 Once the session has been started, you should see a response similar to this:
@@ -67,11 +67,11 @@ Once the session has been started, you should see a response similar to this:
   "startDate": "2017-01-01T00:00:00+00:00",
   "endDate": "2017-04-01T00:00:00+00:00",
   "columns": 
-  {
-    "timeStamp": { dataType: "date", role: "timestamp" },
-    "sales": { dataType: "numeric", role: "target" },
-    "transactions": { dataType: "numeric" }
-  }
+    {
+      "timeStamp": { dataType: "date", role: "timestamp" },
+      "sales": { dataType: "numeric", role: "target" },
+      "transactions": { dataType: "numeric" }
+    }
 }
 ```
 
