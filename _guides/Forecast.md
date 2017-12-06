@@ -97,23 +97,17 @@ For example, if you are uploading the data in green below, you should provide da
     </tbody>
 </table>
 
-<ul id="profileTabs" class="nav nav-tabs">
-    <li class="active"><a href="#json" data-toggle="tab">JSON</a></li>
-</ul>
-<div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="json">
-      <p>`timestamp` is the date and time being observed and `values` are a dictionary of values observed at that time.</p>
-      <pre class="language-bash">
-        <code class="language-bash code-toolbar">
-curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=Location-A&targetColumn=sales&startDate=01/01/2017T00:00:00Z&endDate=01/05/2017T00:00:00Z&resultInterval=day"
--H "Content-Type: application/json"
--H "api-key: {subscription key}"
 
---data-ascii "{body}"
-        </code>
-      </pre>
-       <pre class="language-javascript">
-          <code class="language-json code-toolbar">
+``` bash
+curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=Location-A&targetColumn=sales&startDate=01/01/2017T00:00:00Z&endDate=01/05/2017T00:00:00Z&resultInterval=day"
+      -H "Content-Type: application/json"
+      -H "api-key: {subscription key}"
+      --data-ascii "{ insert json body here }"
+```
+
+The JSON below can be included in the `curl` call above:
+
+``` json
 {
   "columns": {
     "timestamp": {
@@ -130,10 +124,7 @@ curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=Locatio
     }
   }
 }
-        </code>
-      </pre>
-    </div>
-</div>
+```
 
 ### Request Response
 
@@ -195,22 +186,16 @@ To learn about other response codes and what they mean, read more on the [Error 
 
 Forecast session results consist of the predictions for the dates specified when the session was created.
 
-<ul id="profileTabs" class="nav nav-tabs">
-    <li class="active"><a href="#json" data-toggle="tab">JSON</a></li>
-</ul>
-<div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="json">
-      <p>`timestamp` is the date and time being observed and `values` are a dictionary of values observed at that time.</p>
-      <pre class="language-bash">
-        <code class="language-bash code-toolbar">
+``` bash
 curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}/results"
 -H "api-key: {subscription key}"
 
---data-ascii "{body}"
-        </code>
-        </pre>
-       <pre class="language-javascript">
-          <code class="language-json code-toolbar">
+--data-ascii "{ insert json body here }"
+```
+
+This JSON can be passed into the `curl` call above:
+
+``` json
 {
   "metrics": {},
   "data": [
@@ -260,7 +245,4 @@ curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}/results"
   "resultInterval": null,
   "links": []
 }
-        </code>
-      </pre>
-    </div>
-</div>
+```
