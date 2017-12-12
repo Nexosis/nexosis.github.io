@@ -15,7 +15,7 @@ Here you can find links to the various Quick Start Guides to get a brief walkthr
 ### [Regression Quick Start Guide](quickstartguidepredict)
 This is a Quick Start Guide that introduces the basics of using the Nexosis API to build a Regression model and then how to use that model to make a series of predictions.
 
-### [Classification Quick Start Guide](quickstartguidepredict)
+### [Classification Quick Start Guide](quickstartguideclassification)
 This is a Quick Start Guide that introduces the basics of using the Nexosis API to build a Classification model and then how to use that model to classify data.
 
 ### [Forecasting Quick Start Guide](quickstartguideforecast)
