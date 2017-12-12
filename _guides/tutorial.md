@@ -9,5 +9,5 @@ order: 2
 ---
 <div id="content"></div>
 
-<script src="https://account.nexosis.com/app/moduleLoader"></script>
+<script src="https://account.nexosis.com/app/vendor"></script>
 <script src="https://account.nexosis.com/app/tutorial-app"></script>
