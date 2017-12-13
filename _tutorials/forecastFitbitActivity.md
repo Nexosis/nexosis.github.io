@@ -118,23 +118,25 @@ public async Task <IActionResult> Predict(string id)
     //send that dictionary to Nexosis as a single DataSet
     var request = new DataSetDetail() {Data = dataSetData.ToList()};
     var dataSetName = $"fitbit.{fitbitUser.UserId}"; 
-    await nexosisClient.DataSets.Create(dataSetName, request);
+    await nexosisClient.DataSets.Create(DataSet.From(dataSetName, request));
 
     //make sure that we've identified which column in the DataSet is our target (the one we want to predict)
-    var sessionRequest = new SessionDetail()
-    {
-        DataSetName = dataSetName,
-        Columns = new Dictionary<string, ColumnMetadata>()
+    var sessionRequest = Sessions.Forecast(
+        dataSetName,
+        new DateTimeOffset(DateTime.Today.AddDays(1)),
+        new DateTimeOffset(DateTime.Today.AddDays(31)),
+        ResultInterval.Day,
+        options: new ForecastSessionRequest()
         {
-            [id] = new ColumnMetadata() {Role = ColumnRole.Target, DataType = ColumnType.Numeric}
-        }
-    };
+            Columns = new Dictionary<string, ColumnMetadata>()
+            {
+                [id] = new ColumnMetadata() {Role = ColumnRole.Target, DataType = ColumnType.Numeric}
+            }
+        });
 
-    await nexosisClient.Sessions.CreateForecast(sessionRequest,
-        new DateTimeOffset(DateTime.Today.AddDays(1)), new DateTimeOffset(DateTime.Today.AddDays(31)), ResultInterval.Day);
+    await nexosisClient.Sessions.CreateForecast(sessionRequest);
             
     return RedirectToAction("Index", new{id=id});
-
 }
 ```
 
@@ -182,26 +184,43 @@ Now that we've submitted a [Forecast](/guides/forecast) session, we can go back 
 ``` C#
 [Authorize]
 public async Task<IActionResult> Index(string id)
-{   
-    var client = await fitbit.Connect(User);
-    var resourceType = TimeSeriesResourceType.Steps;
+{
 
-    //id, here, is the name of an activity in fitbit, e.g. steps
-    if (!Enum.TryParse(id, true, out resourceType))
+    if (id == null)
     {
-        return RedirectToAction("Index", new {id = "steps"});                    
+        return RedirectToAction("Index", new {id = "steps"});
     }
-      
-    var timeSeries = await client.GetTimeSeriesAsync(resourceType, DateTime.Today,
+    
+    TimeSeriesDataList timeSeries = null;
+
+    if (!cache.TryGetValue($"{User.Identity.Name}.{id}", out timeSeries))
+    {
+        var client = await fitbit.Connect(User);
+
+        var resourceType = TimeSeriesResourceType.Steps;
+        if (!Enum.TryParse(id, true, out resourceType))
+        {
+            return RedirectToAction("Index", new {id = "steps"});                    
+        }
+
+        timeSeries = await client.GetTimeSeriesAsync(resourceType, DateTime.Today,
             DateRangePeriod.SixMonths, "-");
+
+        cache.Set($"{User.Identity.Name}.{id}", timeSeries);
+    }
 
     var fitbitUser = await fitbit.GetFitbitUser(User);
 
     var nexosisClient = nexosis.Connect();
 
-    //look for the most recent session targeting the current activity
-    var lastSession = (await nexosisClient.Sessions.List($"fitbit.{fitbitUser.UserId}"))
-        .OrderByDescending(o=>o.RequestedDate).FirstOrDefault(s => s.TargetColumn == id);
+    var sessionsForThisActivity = (await nexosisClient.Sessions.List(Sessions.Where($"fitbit.{fitbitUser.UserId}")))
+        .Items
+        .OrderByDescending(o => o.RequestedDate).Where(s => s.TargetColumn == id)
+        .ToList();
+    
+    //look for the most recent completed session targeting the current activity
+    var lastSession = sessionsForThisActivity.FirstOrDefault(s => s.Status == Status.Completed)
+                      ?? sessionsForThisActivity.FirstOrDefault();
 
     SessionResult result = null;
 
