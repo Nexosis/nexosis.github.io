@@ -104,7 +104,9 @@ You can create a session to analyze impact with just one line of code.
 var api = new NexosisClient();
 
 // given the name of the dataset, the 'column' of the data to predict on and the date range, it is easy to start it.
-var impactSession = await api.Sessions.AnalyzeImpact(Sessions.Impact(dataSetName, startDate, endDate, ResultInterval.Hour, impactName, "value"));
+var impactSession = await api.Sessions.AnalyzeImpact(
+    Sessions.Impact(dataSetName, startDate, endDate, ResultInterval.Hour, impactName, "value")
+);
 
 using (var db = OpenDatabase(database))
 {

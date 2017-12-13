@@ -213,10 +213,11 @@ public async Task<IActionResult> Index(string id)
 
     var nexosisClient = nexosis.Connect();
 
-    var sessionsForThisActivity = (await nexosisClient.Sessions.List(Sessions.Where($"fitbit.{fitbitUser.UserId}")))
-        .Items
-        .OrderByDescending(o => o.RequestedDate).Where(s => s.TargetColumn == id)
-        .ToList();
+    var sessionsForThisActivity =
+                (await nexosisClient.Sessions.List(Sessions.Where($"fitbit.{fitbitUser.UserId}")))
+                .Items
+                .OrderByDescending(o => o.RequestedDate).Where(s => s.TargetColumn == id)
+                .ToList();
     
     //look for the most recent completed session targeting the current activity
     var lastSession = sessionsForThisActivity.FirstOrDefault(s => s.Status == Status.Completed)
