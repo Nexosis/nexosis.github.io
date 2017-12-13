@@ -28,17 +28,18 @@ The most basic thing you can do with the API is submit some data and then ask fo
 var client = new NexosisClient();
 using (var file = File.OpenText("C:\\path\\to\\sales-file.csv"))
 {
-    client.DataSets.Create("widget-sales", file);
+    client.DataSets.Create(DataSet.From("widget-sales", file));
 }
     
 // Creating a forecast session
 
 var sessionResponse = client.Sessions.CreateForecast(
-    "widget-sales",
-    "daily_transaction",
-    DateTimeOffset.Parse("2017-12-12 10:11:12 -0:00"), 
-    DateTimeOffset.Parse("2017-12-22 22:23:24 -0:00"), 
-    ResultInterval.Day
+    Sessions.Forecast(
+        "widget-sales",    
+        DateTimeOffset.Parse("2017-12-12 10:11:12 -0:00"), 
+        DateTimeOffset.Parse("2017-12-22 22:23:24 -0:00"), 
+        ResultInterval.Day,
+        "daily_transaction")
 );
 ```
 
@@ -49,10 +50,7 @@ above, you will want to get results with the following call:
 
 ```csharp
 // Retrieve forecast results
-using (var output = new StreamWriter(File.OpenWrite("results-file.csv")))
-{
-    client.Sessions.GetResults(sessionResponse.SavedSessionId, output);
-}
+var results = await client.Sessions.GetResults(sessionResponse.SavedSessionId);
 ```
 
 ### Issues
