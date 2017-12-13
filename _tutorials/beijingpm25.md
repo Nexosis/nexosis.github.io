@@ -67,10 +67,10 @@ var batchSize = 5000;
 // there is a limit on request size so we batch the data that is to be uploaded
 for (int i = 0; i < ((measurements.Count / batchSize) + 1); i++)
 {
-    var ds = await api.DataSets.Create(
+    var ds = await api.DataSets.Create(DataSet.From(
         dataSetName,
         new DataSetDetail { Columns = columns, Data = measurements.Skip(i * batchSize).Take(batchSize).ToList() }
-    );
+    ));
     Console.Out.WriteLine($"Added to dataset named {ds.DataSetName}. Cost: ${ds.Cost.Amount}.");
 }
 ```
@@ -104,7 +104,7 @@ You can create a session to analyze impact with just one line of code.
 var api = new NexosisClient();
 
 // given the name of the dataset, the 'column' of the data to predict on and the date range, it is easy to start it.
-var impactSession = await api.Sessions.AnalyzeImpact(dataSetName, impactName, "value", startDate, endDate, ResultInterval.Hour);
+var impactSession = await api.Sessions.AnalyzeImpact(Sessions.Impact(dataSetName, startDate, endDate, ResultInterval.Hour, impactName, "value"));
 
 using (var db = OpenDatabase(database))
 {
