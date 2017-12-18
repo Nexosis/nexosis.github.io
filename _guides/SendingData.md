@@ -79,11 +79,9 @@ In this example we'll create a Named DataSet called *sales* by sending some data
     <div role="tabpanel" class="tab-pane" id="csv">
       <div>
       <h3>TimeStamps</h3>
+      <p>The API will assume a <em>timestamp</em> role column if your data contains a single date type column with unique values and you have not otherwise specified a key or timestamp role column in metadata.</p>
       <p>
-      By default, the API will assume that the timestamp in your CSV DataSet is in a column named *timestamp*.
-      </p>
-      <p>
-      If your csv data has a timestamp with a different column name, you can provide that name with a parameter in the query string named *timestampColumn*
+      If your csv data has a timestamp with a different column name, you can provide that name with a parameter in the query string named <em>timestampColumn</em>.  For JSON data, simply specify the correct role in the <a href="/guides/columnmetadata">column metadata</a>.
       </p>
       </div>
       <pre class="language-bash">
@@ -121,7 +119,7 @@ The response to the `PUT` will be an `HTTP 200` with a response body that is a s
 
 ## Updating Data
 
-You can modify the DataSet with additional and/or updated data by issuing a `PUT` to the same DataSet name.
+You can modify a keyed DataSet or a time-series DataSet with additional and/or updated data by issuing a `PUT` to the same DataSet name. If your data has no user provided key, nor a timestamp role column then new data will simply be appended to the DataSet.
 
 So, issuing a `PUT` to the same *sales* DataSet above like so
 
