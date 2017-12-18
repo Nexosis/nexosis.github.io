@@ -129,7 +129,7 @@ Importing by URL is very straightforward and just requires a url property includ
 	"url": "https://example.com/data/somepayload.csv"
 }
 ```
-As with the imports above you'll need to indicate the location of a json, csv, or gzip file. Urls are a convenient way to load from diverse sources such as raw github content, temporary secure urls from DropBox, OneDrive, Google Drive, and any other resource that provides secure sharing urls. Again, with an abundance of caution we recommend that you deactivate sharing links after a successful import.
+As with the imports above you'll need to provide a url that returns JSON or CSV content, or that points to a gzip file. Urls are a convenient way to load from diverse sources such as raw github content, temporary secure urls from DropBox, OneDrive, Google Drive, and any other resource that provides secure sharing urls. Again, with an abundance of caution we recommend that you deactivate sharing links after a successful import.
 
 ## Checking the status of an import
 Once you've submitted an import, you may want to check back to see when it completes.  To see the status of an import you make a `GET` request to [/imports/{importId}]({{site.api_reference_baseurl}}/operations/595ce629e0ef6e0c98d37f30).  
