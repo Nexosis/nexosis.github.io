@@ -116,7 +116,7 @@ Import from Azure is very similar and allows the same file types and data format
 	"blob": "mydatafile.csv"
 }
 ```
-We recommend using SAS tokens whenever possible to provide limited access to the resource with the credentials you provide. As with all credentials, we will encrypt them and delete them after use but encourage best practices with regard to least privilege. Your SAS token then becomes part of the connection string as [discussed in this article](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string).
+We recommend using SAS tokens whenever possible to provide limited access to the resource with the credentials you provide. As with all credentials, we will encrypt them and delete them after use but encourage best practices with regard to least privilege. Your SAS token then becomes part of the connection string as [discussed in this article](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string){:target="_blank"}.
 
 Also note that any folder in your storage path should be made part of the 'blob' entry in your  json payload.
 
