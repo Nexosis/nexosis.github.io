@@ -16,7 +16,7 @@ use_codestyles: true
 Include the gem in your gemfile and use bundler to install your dependencies.
 
 ``` Ruby
-gem 'nexosis_api', '>= 1.1.0'
+gem 'nexosis_api', '>= 2.0.0'
 ```
 
 

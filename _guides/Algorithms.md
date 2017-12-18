@@ -67,3 +67,4 @@ Solves the question, what can I expect x to be?
 * K-Nearest Neighbor
 * Logistic Regression
 * Naive Bayes
+* XGBoost
