@@ -108,6 +108,10 @@ This status code indicates that the `api-key` header, which much be present on a
 }
 ```
 
+## 403 - Plan Upgrade Required
+This will be returned if you attempt to access paid developer endpoints using a Community subscription key. If you have purchased a plan, please double check that you are using the new API Key associated with the paid plan (named 'Paid Subscription' in your profile) as the key changes upon purchase. 
+
+
 ## 404 - Not Found
 
 Returned whenever the specified resource was not found.  This error can also be returned if the endpoint that the request was issued to does not exist.  If a specific resource was requested, the `itemId` and `itemType` will be included in the response.  Ensure that this Id is the one you intended.  Also, check the listing endpoints, such as `/data` or `/sessions` if you are unsure of the id.
