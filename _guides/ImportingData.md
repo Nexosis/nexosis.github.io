@@ -86,19 +86,26 @@ Simply add these variables to the json, with everything else above remaining the
 ### Supported File Extensions
 At this time we can support the following file extensions and formats.
 * `CSV`
-* `JSON` : If you're importing a JSON file, the contents of the JSON should be a simple array of JSON objects without any additional metadata:
+* `JSON` : If you're importing a JSON file, the contents of the JSON should match our data PUT endpoint including any metadata you wish to set for columns:
 
 ``` json
-[
-  {
-    "col1": "value11",
-    "col2": "value21"
-  },
-  {
-    "col1": "value12",
-    "col2": "value22"
-  }
-]
+{ 
+	"columns" : {
+		"col1": {
+			"role": "target"
+		}
+	}
+  	"data" : [
+	  {
+	    "col1": "value11",
+	    "col2": "value21"
+	  },
+	  {
+	    "col1": "value12",
+	    "col2": "value22"
+	  }
+	]
+}
 ```
 
 * `gz` : You can optionally gzip a file in one of the above formats.
