@@ -25,20 +25,36 @@ To start a session, you issue a `POST` to [/sessions/forecast]({{site.api_refere
 
 ### Session Requests
 
-A request to start a session takes the following query string parameters:
+A request to start a session takes the following parameters in the json payload:
+#### Model Building
+* `dataSetName` - The name of the DataSet on whose data the session performs its calculations.
+* `targetColumn` - The column in the DataSet that is the target of the calculation being performed.
+* `predictionDomain` - The class of model to build: 'regression' or 'classification'
+* `columns` - A columns metadata object of the form 
+
+``` json
+"columns": {
+	"columnName":{
+		"property" : "value"
+	}
+}
+```
+
+Where property and value are [available metadata options](/guides/columnmetadata).
+ 
+
+#### Forecast
 
 * `dataSetName` - The name of the DataSet on whose data the session performs its calculations.
-* `targetColumn` - The column in the DataSet that is the target of the calculation being performed.  In the case of [Forecasting](forecast), this is column for which we want to generate predictions.  In the case of [Impact Analysis](impactanalysis), this is the column in the DataSet against which we want to calculate the impact of an event.
-* `startDate` - The start date of the session.  In Forecast sessions, this is the start of the forecast period.  In Impact Analysis sessions, this is the start of the even whose impact is being calculated.
+* `targetColumn` - The column in the DataSet that is the target of the calculation being performed.  In the case of [Forecasting](forecast), this is column for which we want to generate predictions. * `startDate` - The start date of the session.  In Forecast sessions, this is the start of the forecast period.  In Impact Analysis sessions, this is the start of the even whose impact is being calculated.
 * `endDate` - The end date of the session.
 * `resultInterval` *(optional)* - The date/time interval (e.g. Day, Hour) at which predictions should be generated.  So, if `Hour` is specified for this parameter you will get a Result record for each hour between `startDate` and `endDate`.  If unspecified, we'll generate predictions at a `Day` interval.
 * `callbackUrl` *(optional)* - The Webhook url that will receive updates when the Session status changes.  Those updates will come in the form of an HTTP `POST` with a `JSON` body that's the same as the response shown in [Retrieving a Session](#retrievingSession).
 If you provide a callback url, your response will contain a header named Nexosis-Webhook-Token. You will receive this same header in the request message to your Webhook, which you can use to validate that the message came from Nexosis.
-* `isEstimate` *(optional)* - If specified, the submitted data will not be saved, and the session will not be processed. The returned `Nexosis-Request-Cost` header will be populated with the estimated cost that the request would have incurred.
+* `columns` - A columns metadata object
 
-In addition, an Impact session requires the following parameters:
-
-* `eventName` - A label to put on the the thing whose impact we are trying to calculate.
+#### Impact Analysis
+The same values as a forecast, with the addition of `eventName` - A label to put on the the thing whose impact we are trying to calculate.
 
 ------
 
@@ -63,7 +79,6 @@ The session response will look like the following:
   "startDate": "2017-05-12T00:00:00+00:00",
   "endDate": "2017-07-01T00:00:00+00:00",
   "callbackUrl": "https://d8fe87ba.ngrok.io/payload",
-  "isEstimate": false,
   "resultInterval": "day",
   "links":
    [ { "rel": "results",
@@ -90,6 +105,7 @@ The session response will look like the following:
 * `endDate` - The `endDate` from the request to start the session.
 * `resultInterval` - The `resultInterval` from the request to start the session.
 * `callbackUrl` - The `callbackUrl` from the request to start the session.
+
 
 ### Status Header
 
@@ -134,7 +150,6 @@ The response from this request will be an object with a Results property, contai
         "startDate": "2017-05-12T00:00:00+00:00",
         "endDate": "2017-07-01T00:00:00+00:00",
         "callbackUrl": "https://d8fe87ba.ngrok.io/payload",
-        "isEstimate": false,
         "resultInterval": "day",
         "links":
         [ { "rel": "results",
@@ -190,3 +205,6 @@ Session Results, in general, come back in the following form:
 * `data` - The predicted values that the Nexosis API generated.
 
 Interpretation of the values in `metrics` and `data` is different between [Forecast](forecast) and [Impact Analysis](impactanalysis) sessions, so you'll want to go to those pages to learn more about what to do with them.
+
+#### Model Session Results
+Model building sessions will additionally return the `modelId` once the model has been successfully built.
