@@ -15,7 +15,7 @@ This is a quick walkthrough of the basics of the using the Nexosis API.  By foll
 
 ## Step 1: Prepare data for upload
 
-In order to start using the Nexosis API, you'll need to upload some data for the API to process. Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have [several DataSets available](https://github.com/Nexosis/sampledata) which includes a [file named auto-mpg.data.json](https://raw.githubusercontent.com/Nexosis/sampledata/master/auto-mpg.data.json) which contains various car engine specifications which help determine MPG.  That DataSet includes data like this:
+In order to start using the Nexosis API, you'll need to upload some data for the API to process. Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have [several DataSets available](https://github.com/Nexosis/sampledata){:target="_blank"} which includes a [file named auto-mpg.data.json](https://raw.githubusercontent.com/Nexosis/sampledata/master/auto-mpg.data.json){:target="_blank"} which contains various car engine specifications which help determine MPG.  That DataSet includes data like this:
 
 ``` json
  "data": [
