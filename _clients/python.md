@@ -23,21 +23,21 @@ $ pip install nexosisapi
 
 ## Basic Usage
 
-You can load data from a CSV file, creating forecasts over the 'daily_transaction' data from that file, and
+In the following example we'll assume you have downloaded our sample transactions [file called 'LocationA.csv'](https://raw.githubusercontent.com/Nexosis/sampledata/master/LocationA.csv){:target="_blank"} to a local drive. You can load data from that CSV file and create forecasts for the 'transactions' data. You should be able to
 get the results with just a few lines of code.
 
 ```python
 import nexosisapi
 import dateutil.parser as date_parser
 
-client = nexosisapi.Client()
+client = nexosisapi.Client('your api key here')
 
-with open('sales-file.csv') as f:
+with open('yourlocaldrive/LocationA.csv') as f:
     result = client.datasets.create_csv('widget-sales', f)
 
-session = client.sessions.create_forecast('widget-sales', 'daily_transaction',
-        date_parser.parse('2017-12-12 00:00:00 -0:00'), date_parser.parse('2017-12-22 00:00:00 -0:00'))
-
+session = client.sessions.create_forecast('widget-sales', 'transactions',
+        date_parser.parse('2017-01-22 00:00:00 -0:00'), date_parser.parse('2017-02-22 00:00:00 -0:00'))
+# after some time passes you can get results...
 results = client.sessions.get_results(session.session_id)
 ```
 
@@ -132,3 +132,6 @@ bucket) into the 'test-python-import' dataset in the Nexosis API.
 If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-py/issues/new){:target="_blank"} in GitHub. Please include code to reproduce the error if possible.
 
 Pull requests are welcome.
+
+#### See Also
+[A video tutorial on using the python client](https://content.nexosis.com/blog/exploring-the-nexosis-api-with-ipython){:target="_blank"}
