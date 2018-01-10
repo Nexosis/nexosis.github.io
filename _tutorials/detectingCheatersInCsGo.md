@@ -44,7 +44,7 @@ Retrieving player stats from the Steam API is very simple. The API endpoint requ
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane" id="curl" class="tab-pane active" >
-     <p>Calling the Steam API with <code>curl</code> is straight-forward. This command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/\
+     <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/\
 ?steamid=76561198006920295&appid=730&key=$steamApiKey"</code></pre>Formatted HTTP Response:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
         "playerstats": {
                 "steamID": "76561198006920295",
@@ -1304,7 +1304,7 @@ Retrieving player stats from the Steam API is very simple. The API endpoint requ
       </pre>
     </div>
      <div role="tabpanel" class="tab-pane" id="powershell">
-      <p>Calling the Steam API using the PowerShell <code>Invoke-RestMethod</code> command is straight-forward.  This command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-powershell"><code class="language-powershell code-toolbar">PS> $results = Invoke-RestMethod -Method Get `
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-powershell"><code class="language-powershell code-toolbar">PS> $results = Invoke-RestMethod -Method Get `
         -Uri $("https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame" + `
                "/v0002/?steamid=76561198006920295&appid=730&key=$env:steamApiKey")
 PS> $results.playerstats.stats</code></pre><pre class="language-powershell" style="max-height:30em;"><code class="language-powershell code-toolbar">name                                                 value
@@ -1516,7 +1516,7 @@ Getting caught cheating results in a ban on a user's Steam Profile so many cheat
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="curlOwned">
-     <p>Calling the Steam API with <code>curl</code> is straight-forward. This command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?\
+     <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?\
 key=$steamApiKey&steamid=76561198006920295&format=json"</code></pre>Formatted HTTP Response:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
     "response": {
         "game_count": 76,
@@ -1831,7 +1831,7 @@ key=$steamApiKey&steamid=76561198006920295&format=json"</code></pre>Formatted HT
 }</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellOwned">
-      <p>Calling the Steam API using the PowerShell <code>Invoke-RestMethod</code> command is straight-forward.  This command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p>
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> $playerSummary = Invoke-RestMethod -Method Get `
 	 -Uri "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=$env:steamApiKey&steamid=76561198006920295&format=json"
 PS> $playerSummary.response</code></pre><pre class="language-powershell" style="max-height:30em;"><code class="language-powershell code-toolbar">
@@ -1853,7 +1853,7 @@ Player Bans endpoint contains the "VACBanned" property that we will use to label
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="curlGetPlayerBans">
-     <p>Calling the Steam API with <code>curl</code> is straight-forward. This command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "http://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=$steamApiKey\
+     <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "http://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=$steamApiKey\
 &steamids=76561198006920295"</code></pre>Formatted HTTP Response:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
   "players": [
                 {
@@ -1871,7 +1871,7 @@ Player Bans endpoint contains the "VACBanned" property that we will use to label
 </code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellGetPlayerBans">
-      <p>Calling the Steam API using the PowerShell <code>Invoke-RestMethod</code> command is straight-forward.  This command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p>
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> $playerSummary = Invoke-RestMethod -Method Get `
 	 -Uri "http://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=$env:steamApiKey&steamids=76561198006920295"
 PS> $playerBans.players[0]
@@ -1906,7 +1906,7 @@ As long as the parameter CommunityVisibilityState is set to 3, we can retrieve t
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="curlGetPlayerSummaries">
-    <p>Calling the Steam API with <code>curl</code> is straight-forward. This command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/\
+    <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/\
 ?key=$steamApiKey&steamids=76561198006920295"</code></pre>Formatted HTTP Response:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
   "response": {
     "players": [
@@ -1934,7 +1934,7 @@ As long as the parameter CommunityVisibilityState is set to 3, we can retrieve t
 }</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellGetPlayerSummaries">
-      <p>Calling the Steam API using the PowerShell <code>Invoke-RestMethod</code> command is straight-forward.  This command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p>
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$steamApiKey</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> $playerSummary = Invoke-RestMethod -Method Get `
     -Uri "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=$env:steamApiKey&steamids=76561198006920295"
 PS> $playerSummary.response.players[0]
@@ -2019,7 +2019,7 @@ Another important consideration when choosing what data to include has to do wit
 
 1. Exclude a Steam ID if the player doesn't own CS:GO or has a Private Steam Profile.
 2. Exclude a Steam ID that was VAC Banned before CS:GO was released. Being banned before the game existed means they were banned cheating at another game.
-3. Drop mathematically impossible statistics returned by the Steam API for a given Steam ID (range checks, can someone have over 100% accuracy, etc. No data set is clean)
+3. Drop mathematically impossible statistics returned by the Steam API for a given Steam ID (range checks, etc. No data set is clean)
 4. Drop Players that haven't played enough:
  * Drop rows in which a player has less than 100 frags
  * Drop rows if player has less than four (4) hours of play time.
@@ -2043,19 +2043,17 @@ SteamID,win_ratio,total_accuracy,kill_to_death_ratio,total_wins_per_hour,mvp_per
 
 Notice that some of the columns are empty - that's okay, the Nexosis API has data imputation strategies internally that help solve for that.
 
-The sample dataset used in building this model had around 21,000 player metrics and was aprox. 9MB on disk.
+The sample dataset originally used in building this model had around 21,000 CSGO player metrics and was aprox. 9MB on disk.
 
 ## Uploading the Data
 
-The original dataset we built was almost 9MB. For the simplification of this model and sample, we've prepared a smaller sub-set of the data which scores about 5% less in accuracy but is good enough to follow along and understand what's happening.
+For the simplification of this model and sample, we've prepared a smaller sub-set of the data which scores about 5% less accurate but is good enough to follow along and understand what's happening.
 
-> When you create an account with Nexosis and chose to include the sample datasets in your account, this dataset will be pre-loaded and is named 'CSGO-Stats'.
-
-We've also included it in our `sampledata` github repo here at [CSGO DataSet on Git](https://github.com/Nexosis/sampledata/blob/master/csgo-small.csv){:target="_blank"}
+> When you create an account with Nexosis and chose to include the sample datasets in your account, this dataset will be pre-loaded and is named 'CSGO-Stats'. We've also included it in our `sampledata` github repo here at [CSGO DataSet on Git](https://github.com/Nexosis/sampledata/blob/master/csgo-small.csv){:target="_blank"}
 
 If the SteamID is included when you upload the dataset, the API needs to know to treat it as a primary identifier (much like a database primary key) which requires the Columns metadata set to indicate it's Role.  To simplify, we can exclude this column as well since we don't plan on matching the model results back up with the original dataset and build the model without it.
 
-To import from our GitHub URL above:
+To import from our GitHub URL linked above `POST` to `https://ml.nexosis.com/v1/imports/Url` and set the BODY to `{"contentType": "csv","url":"https://raw.githubusercontent.com/Nexosis/sampledata/master/csgo-small.csv","dataSetName":"CSGO-Stats"}` like so:
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#curlUploadData" data-toggle="tab">Curl</a></li>
@@ -2063,7 +2061,7 @@ To import from our GitHub URL above:
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="curlUploadData">
-    <p>Calling the Nexosis API with <code>curl</code> is straight-forward. This command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -v -X POST "https://ml.nexosis.com/v1/imports/Url" \
+    <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -v -X POST "https://ml.nexosis.com/v1/imports/Url" -s \
         -H "Content-Type: application/json" \
         -H "api-key: $NEXOSIS_API_KEY" \
         -d '{"contentType": "csv","url":"https://raw.githubusercontent.com/Nexosis/sampledata/master/csgo-small.csv","dataSetName":"CSGO-Stats"}'</code></pre>Formatted HTTP Response:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
@@ -2091,7 +2089,7 @@ To import from our GitHub URL above:
 }</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellUploadData">
-      <p>Calling the Nexosis API using the Nexosis PowerShell client library using the <code>Import-NexosisDataSetFromUrl</code> command is straight-forward.  This command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Import-NexosisDataSetFromUrl -url https://raw.githubusercontent.com/Nexosis/sampledata/master/csgo-small.csv -dataSetName CSGO-Stats -contentType csv
 
 importId      : 0160dcdb-48ab-43e9-8465-10c9f0047183
@@ -2117,7 +2115,7 @@ Once the import has been queued, we can check on the `status` to be `completed`:
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="curlUploadDataStatus">
-    <p>Calling the Nexosis API with <code>curl</code> is straight-forward. This command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "https://ml.nexosis.com/v1/imports/0160dcdb-48ab-43e9-8465-10c9f0047183" \
+    <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "https://ml.nexosis.com/v1/imports/0160dcdb-48ab-43e9-8465-10c9f0047183" -s \
                 -H "api-key: $NEXOSIS_API_KEY"</code></pre>Formatted HTTP Response:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
     "importId": "0160dcdb-48ab-43e9-8465-10c9f0047183",
     "type": "url",
@@ -2149,7 +2147,7 @@ Once the import has been queued, we can check on the `status` to be `completed`:
 }</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellUploadDataStatus">
-      <p>Calling the Nexosis API using the Nexosis Powershell Client Library using the <code>Get-NexosisImport</code> command is straight-forward.  This command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Get-NexosisImport -importId 0160dcdb-48ab-43e9-8465-10c9f0047183
 
 importId      : 0160dcdb-48ab-43e9-8465-10c9f0047183
@@ -2170,7 +2168,7 @@ links         : {@{rel=self; href=https://ml.nexosis.com/v1/imports/0160dcdb-48a
 
 ## Creating a Classification Model
 
-Now the the data is upload, we can build a model that can then be used given player statistics, to predict with some probability if a player has been cheating:
+Now the the data is uploaded, a model can be built using CSGO player statistics to predict if a player has potentially been cheating:
 
 To build a classification model, `POST` to `https://ml.nexosis.com/v1/sessions/model` to start a Model building session:
 
@@ -2180,7 +2178,7 @@ To build a classification model, `POST` to `https://ml.nexosis.com/v1/sessions/m
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="curlBuildModel">
-    <p>Calling the Nexosis API with <code>curl</code> is straight-forward. This command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$  curl -v -X POST "https://ml.nexosis.com/v1/sessions/model" \
+    <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -s -X POST "https://ml.nexosis.com/v1/sessions/model" \
         -H "Content-Type: application/json" \
         -H "api-key: $NEXOSIS_API_KEY" \
         -d '{"dataSourceName":"csgo-stats","predictionDomain":"classification","targetColumn": "VACBanned"}'</code></pre>Formatted HTTP Response:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
@@ -2436,7 +2434,7 @@ To build a classification model, `POST` to `https://ml.nexosis.com/v1/sessions/m
 }</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellBuildModel">
-      <p>Calling the Nexosis API using the Nexosis Powershell Client Library <code>Start-NexosisModelSession</code> command is straight-forward.  This command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Start-NexosisModelSession -dataSourceName csgo -targetColumn VACBanned -predictionDomain Classification
 
 columns                      : @{win_ratio=; accuracy_aug=; accuracy_awp=; accuracy_mp7=; accuracy_mp9=; accuracy_p90=; accuracy_ak47=; accuracy_m249=; accuracy_m4a1=; 
@@ -2464,7 +2462,7 @@ costEstimate                 : 0.00 USD
     </div>
 </div>
 
-Since building a model is computationally expensive, it's not instanteous - we have to wait until it's complete before we can use it. To check to see if the model is complete, 
+Since building a model is computationally expensive, it's not instantaneous - we have to wait until it's complete before we can use it. To check to see if the model is complete, submit a `HEAD` request to `https://ml.nexosis.com/v1/sessions/{sessionId}` using the session ID returned from the previous step:
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#curlModelStatus" data-toggle="tab">Curl</a></li>
@@ -2472,7 +2470,7 @@ Since building a model is computationally expensive, it's not instanteous - we h
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="curlModelStatus">
-    <p>Calling the Nexosis API with <code>curl</code> is straight-forward. This command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X HEAD "https://api.uat.nexosisdev.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec" \
+    <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X HEAD "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec" \
      -H "api-key: $NEXOSIS_API_KEY" --head -s</code></pre>HTTP Headers:<pre class="language-test" style="max-height:30em;"><code class="language-test code-toolbar">HTTP/1.1 200 OK
 Content-Length: 0
 Nexosis-Session-Status: Completed
@@ -2487,7 +2485,7 @@ Nexosis-Request-Cost: 0.00 USD
 Date: Tue, 09 Jan 2018 23:27:18 GMT</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellModelStatus">
-      <p>Calling the Nexosis API using the Nexosis Powershell Client Library using the <code>Get-NexosisSessionStatus</code> command is straight-forward.  This command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Get-NexosisSessionStatus -SessionId 016050d8-8b42-44bc-9c2b-360a240d6aec
 
 Completed</code>
@@ -2495,62 +2493,874 @@ Completed</code>
     </div>
 </div>
 
+Once the `Nexosis-Session-Status` header returns `Completed` the session results can be retrieved which will contain a Model ID, winning algorithm, and accuracy metrics.
 
+## Reviewing the Session Results and Model Accuracy
 
-## Reviewing Model's Accuracy
+Once the Model Building Session is complete you can retrive the results issuing a `GET` request to `https://ml.nexosis.com/v1/sessions/{modelid}/results` like so:
 
-
-``` powershell
-PS> Get-NexosisSessionResult -SessionId 016050d8-8b42-44bc-9c2b-360a240d6aec
-
-metrics                      : @{macroAverageF1Score=0.78776778554244475; rocAreaUnderCurve=0.88144911297852468; accuracy=0.79720119293415925; macroAveragePrecision=0.7886199303670467; 
-                               macroAverageRecall=0.786988301202834; matthewsCorrelationCoefficient=0.57560591904294722}
-data                         : {@{SteamID=7.656119808421006e+16; VACBanned=0}, @{SteamID=7.656119807017104e+16; VACBanned=1}, @{SteamID=7.656119807330413e+16; VACBanned=0}, 
-                               @{SteamID=7.65611979975737e+16; VACBanned=1}...}
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active"><a href="#curlSessionResults" data-toggle="tab">Curl</a></li>
+    <li><a href="#powershellSessionResults" data-toggle="tab">Powershell</a></li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="curlSessionResults">
+    <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results"\
+    -H "api-key: $NEXOSIS_API_KEY" -s</code></pre>Formatted HTTP Response:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
+    "metrics": {
+        "macroAverageF1Score": 0.72521972411860092,
+        "rocAreaUnderCurve": 0.79444811632518164,
+        "accuracy": 0.72888888888888892,
+        "macroAveragePrecision": 0.72667984189723323,
+        "macroAverageRecall": 0.73690515532055523,
+        "matthewsCorrelationCoefficient": 0.46347221341824979
+    },
+    "data": [{
+        "VACBanned": "0",
+        "win_ratio": "0.51",
+        "accuracy_aug": "0.22",
+        "accuracy_awp": "0.4",
+        "accuracy_mp7": "0.18",
+        "accuracy_mp9": "0.17",
+        "accuracy_p90": "0.15",
+        "accuracy_ak47": "0.2",
+        "accuracy_m249": "0.1",
+        "accuracy_m4a1": "0.22",
+        "accuracy_mag7": "0.23",
+        "accuracy_nova": "0.19",
+        "accuracy_p250": "0.22",
+        "accuracy_tec9": "0.17",
+        "mvp_per_round": "0.09",
+        "accuracy_bizon": "0.14",
+        "accuracy_elite": "0.18",
+        "accuracy_famas": "0.2",
+        "accuracy_g3sg1": "0.14",
+        "accuracy_glock": "0.18",
+        "accuracy_mac10": "0.18",
+        "accuracy_negev": "0.05",
+        "accuracy_sg556": "0.19",
+        "accuracy_ssg08": "0.39",
+        "accuracy_ump45": "0.18",
+        "total_accuracy": "0.2",
+        "accuracy_deagle": "0.26",
+        "accuracy_scar20": "0.18",
+        "accuracy_xm1014": "0.18",
+        "VACBanned:actual": "0",
+        "accuracy_galilar": "0.15",
+        "accuracy_hkp2000": "0.19",
+        "accuracy_sawedoff": "0.16",
+        "total_games_owned": "51",
+        "accuracy_fiveseven": "0.22",
+        "kill_to_death_ratio": "1.3",
+        "total_wins_per_hour": "15.13",
+        "total_headshots_per_round": "1.06"
+    }, {
+        "VACBanned": "0",
+        "win_ratio": "0.51",
+        "accuracy_aug": "0.24",
+        "accuracy_awp": "0.36",
+        "accuracy_mp7": "0.17",
+        "accuracy_mp9": "0.2",
+        "accuracy_p90": "0.15",
+        "accuracy_ak47": "0.2",
+        "accuracy_m249": "0.1",
+        "accuracy_m4a1": "0.19",
+        "accuracy_mag7": "0.23",
+        "accuracy_nova": "0.09",
+        "accuracy_p250": "0.21",
+        "accuracy_tec9": "0.06",
+        "mvp_per_round": "0.1",
+        "accuracy_bizon": "0.17",
+        "accuracy_elite": "0.14",
+        "accuracy_famas": "0.23",
+        "accuracy_g3sg1": "0.23",
+        "accuracy_glock": "0.16",
+        "accuracy_mac10": "0.13",
+        "accuracy_negev": "0.06",
+        "accuracy_sg556": "0.19",
+        "accuracy_ssg08": "0.24",
+        "accuracy_ump45": "0.18",
+        "total_accuracy": "0.19",
+        "accuracy_deagle": "0.27",
+        "accuracy_scar20": "0.14",
+        "accuracy_xm1014": "0.18",
+        "VACBanned:actual": "0",
+        "accuracy_galilar": "0.19",
+        "accuracy_hkp2000": "0.17",
+        "accuracy_sawedoff": "0.21",
+        "total_games_owned": "42",
+        "accuracy_fiveseven": "0.18",
+        "kill_to_death_ratio": "1.01",
+        "total_wins_per_hour": "20.17",
+        "total_headshots_per_round": "0.63"
+    }, {
+        "VACBanned": "0",
+        "win_ratio": "0.5",
+        "accuracy_aug": "0.17",
+        "accuracy_awp": "0.35",
+        "accuracy_mp7": "0.2",
+        "accuracy_mp9": "0.09",
+        "accuracy_p90": "0.13",
+        "accuracy_ak47": "0.16",
+        "accuracy_m249": "0.09",
+        "accuracy_m4a1": "0.2",
+        "accuracy_mag7": "0.26",
+        "accuracy_nova": "0.17",
+        "accuracy_p250": "0.17",
+        "accuracy_tec9": "",
+        "mvp_per_round": "0.12",
+        "accuracy_bizon": "",
+        "accuracy_elite": "",
+        "accuracy_famas": "0.2",
+        "accuracy_g3sg1": "0.15",
+        "accuracy_glock": "0.17",
+        "accuracy_mac10": "0.04",
+        "accuracy_negev": "0.18",
+        "accuracy_sg556": "0.15",
+        "accuracy_ssg08": "0.24",
+        "accuracy_ump45": "0.23",
+        "total_accuracy": "0.18",
+        "accuracy_deagle": "0.19",
+        "accuracy_scar20": "0.17",
+        "accuracy_xm1014": "",
+        "VACBanned:actual": "0",
+        "accuracy_galilar": "0.14",
+        "accuracy_hkp2000": "0.19",
+        "accuracy_sawedoff": "",
+        "total_games_owned": "2",
+        "accuracy_fiveseven": "0.18",
+        "kill_to_death_ratio": "1.21",
+        "total_wins_per_hour": "24.11",
+        "total_headshots_per_round": "0.31"
+    },
+    {
+            // removed many many rows of data
+    }],
+    "pageNumber": 0,
+    "totalPages": 5,
+    "pageSize": 50,
+    "totalCount": 225,
+    "sessionId": "016050d8-8b42-44bc-9c2b-360a240d6aec",
+    "type": "model",
+    "status": "completed",
+    "predictionDomain": "classification",
+    "availablePredictionIntervals": [],
+    "modelId": "1b79d672-99a4-47f7-a387-a001d9420220",
+    "requestedDate": "2018-01-10T02:03:11.832359+00:00",
+    "statusHistory": [{
+        "date": "2018-01-10T02:03:11.832359+00:00",
+        "status": "requested"
+    }, {
+        "date": "2018-01-10T02:03:13.0436711+00:00",
+        "status": "started"
+    }, {
+        "date": "2018-01-10T02:06:17.7404773+00:00",
+        "status": "completed"
+    }],
+    "extraParameters": {
+        "balance": true
+    },
+    "messages": [{
+        "severity": "informational",
+        "message": "1126 observations were found in the dataset."
+    }],
+    "dataSourceName": "csgo-stats",
+    "dataSetName": "csgo-stats",
+    "targetColumn": "VACBanned",
+    "links": [{
+        "rel": "self",
+        "href": "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results"
+    }, {
+        "rel": "model",
+        "href": "https://ml.nexosis.com/v1/models/1b79d672-99a4-47f7-a387-a001d9420220"
+    }, {
+        "rel": "confusionMatrix",
+        "href": "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results/confusionmatrix"
+    }, {
+        "rel": "classScores",
+        "href": "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results/classScores"
+    }, {
+        "rel": "contest",
+        "href": "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/contest"
+    }, {
+        "rel": "first",
+        "href": "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results?page=0"
+    }, {
+        "rel": "next",
+        "href": "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results?page=1"
+    }, {
+        "rel": "last",
+        "href": "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results?page=4"
+    }]
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="powershellSessionResults">
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Get-NexosisSessionResult -SessionId 016050d8-8b42-44bc-9c2b-360a240d6aec</code></pre>Output:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">metrics                      : @{macroAverageF1Score=0.72521972411860092; rocAreaUnderCurve=0.79444811632518164; 
+                               accuracy=0.72888888888888892; macroAveragePrecision=0.72667984189723323; 
+                               macroAverageRecall=0.73690515532055523; matthewsCorrelationCoefficient=0.46347221341824979}
+data                         : {@{VACBanned=0; win_ratio=0.51; accuracy_aug=0.22; accuracy_awp=0.4; accuracy_mp7=0.18; accuracy_mp9=0.17; 
+                               accuracy_p90=0.15; accuracy_ak47=0.2; accuracy_m249=0.1; accuracy_m4a1=0.22; accuracy_mag7=0.23; 
+                               accuracy_nova=0.19; accuracy_p250=0.22; accuracy_tec9=0.17; mvp_per_round=0.09; accuracy_bizon=0.14; 
+                               accuracy_elite=0.18; accuracy_famas=0.2; accuracy_g3sg1=0.14; accuracy_glock=0.18; accuracy_mac10=0.18; 
+                               accuracy_negev=0.05; accuracy_sg556=0.19; accuracy_ssg08=0.39; accuracy_ump45=0.18; total_accuracy=0.2; 
+                               accuracy_deagle=0.26; accuracy_scar20=0.18; accuracy_xm1014=0.18; VACBanned:actual=0; accuracy_galilar=0.15; 
+                               accuracy_hkp2000=0.19; accuracy_sawedoff=0.16; total_games_owned=51; accuracy_fiveseven=0.22; 
+                               kill_to_death_ratio=1.3; total_wins_per_hour=15.13; total_headshots_per_round=1.06}, @{VACBanned=0; 
+                               win_ratio=0.51; accuracy_aug=0.24; accuracy_awp=0.36; accuracy_mp7=0.17; accuracy_mp9=0.2; accuracy_p90=0.15; 
+                               accuracy_ak47=0.2; accuracy_m249=0.1; accuracy_m4a1=0.19; accuracy_mag7=0.23; accuracy_nova=0.09; 
+                               accuracy_p250=0.21; accuracy_tec9=0.06; mvp_per_round=0.1; accuracy_bizon=0.17; accuracy_elite=0.14; 
+                               accuracy_famas=0.23; accuracy_g3sg1=0.23; accuracy_glock=0.16; accuracy_mac10=0.13; accuracy_negev=0.06; 
+                               accuracy_sg556=0.19; accuracy_ssg08=0.24; accuracy_ump45=0.18; total_accuracy=0.19; accuracy_deagle=0.27; 
+                               accuracy_scar20=0.14; accuracy_xm1014=0.18; VACBanned:actual=0; accuracy_galilar=0.19; accuracy_hkp2000=0.17; 
+                               accuracy_sawedoff=0.21; total_games_owned=42; accuracy_fiveseven=0.18; kill_to_death_ratio=1.01; 
+                               total_wins_per_hour=20.17; total_headshots_per_round=0.63}, @{VACBanned=0; win_ratio=0.5; accuracy_aug=0.17; 
+                               accuracy_awp=0.35; accuracy_mp7=0.2; accuracy_mp9=0.09; accuracy_p90=0.13; accuracy_ak47=0.16; 
+                               accuracy_m249=0.09; accuracy_m4a1=0.2; accuracy_mag7=0.26; accuracy_nova=0.17; accuracy_p250=0.17; 
+                               accuracy_tec9=; mvp_per_round=0.12; accuracy_bizon=; accuracy_elite=; accuracy_famas=0.2; 
+                               accuracy_g3sg1=0.15; accuracy_glock=0.17; accuracy_mac10=0.04; accuracy_negev=0.18; accuracy_sg556=0.15; 
+                               accuracy_ssg08=0.24; accuracy_ump45=0.23; total_accuracy=0.18; accuracy_deagle=0.19; accuracy_scar20=0.17; 
+                               accuracy_xm1014=; VACBanned:actual=0; accuracy_galilar=0.14; accuracy_hkp2000=0.19; accuracy_sawedoff=; 
+                               total_games_owned=2; accuracy_fiveseven=0.18; kill_to_death_ratio=1.21; total_wins_per_hour=24.11; 
+                               total_headshots_per_round=0.31}, @{VACBanned=0; win_ratio=0.49; accuracy_aug=0.21; accuracy_awp=0.3; 
+                               accuracy_mp7=0.26; accuracy_mp9=0.19; accuracy_p90=0.14; accuracy_ak47=0.16; accuracy_m249=0.13; 
+                               accuracy_m4a1=0.19; accuracy_mag7=0.15; accuracy_nova=0.17; accuracy_p250=0.19; accuracy_tec9=0.17; 
+                               mvp_per_round=0.1; accuracy_bizon=0.18; accuracy_elite=0.24; accuracy_famas=0.2; accuracy_g3sg1=0.11; 
+                               accuracy_glock=0.17; accuracy_mac10=0.19; accuracy_negev=0.08; accuracy_sg556=0.17; accuracy_ssg08=0.38; 
+                               accuracy_ump45=0.18; total_accuracy=0.15; accuracy_deagle=0.23; accuracy_scar20=0.15; accuracy_xm1014=0.15; 
+                               VACBanned:actual=0; accuracy_galilar=0.15; accuracy_hkp2000=0.18; accuracy_sawedoff=0.15; 
+                               total_games_owned=23; accuracy_fiveseven=0.19; kill_to_death_ratio=1.13; total_wins_per_hour=22.92; 
+                               total_headshots_per_round=0.42}...}
 pageNumber                   : 0
 totalPages                   : 5
-pageSize                     : 1000
-totalCount                   : 4356
-sessionId                    : 016050d8-8b42-44bc-9c2b-360a240d6aec
+pageSize                     : 50
+totalCount                   : 225
+sessionId                    : 0160ddce-965a-4281-8fd7-6a58e1cbba4b
 type                         : model
 status                       : completed
 predictionDomain             : classification
 availablePredictionIntervals : {}
-modelId                      : 20a41d0e-3663-469b-bdc0-5e2e1e12e0e4
-requestedDate                : 2017-12-13T17:07:36.862739+00:00
-statusHistory                : {@{date=2017-12-13T17:07:36.862739+00:00; status=requested}, @{date=2017-12-13T17:07:38.1453947+00:00; status=started}, 
-                               @{date=2017-12-13T17:41:27.5819871+00:00; status=completed}}
+modelId                      : 1b79d672-99a4-47f7-a387-a001d9420220
+requestedDate                : 2018-01-10T02:03:11.832359+00:00
+statusHistory                : {@{date=2018-01-10T02:03:11.832359+00:00; status=requested}, @{date=2018-01-10T02:03:13.0436711+00:00; 
+                               status=started}, @{date=2018-01-10T02:06:17.7404773+00:00; status=completed}}
 extraParameters              : @{balance=True}
-messages                     : {@{severity=informational; message=21792 observations were found in the dataset.}}
-dataSourceName               : csgo
-dataSetName                  : csgo
+messages                     : {@{severity=informational; message=1126 observations were found in the dataset.}}
+dataSourceName               : csgo-stats
+dataSetName                  : csgo-stats
 targetColumn                 : VACBanned
-links                        : {@{rel=self; href=https://ml.nexosisdev.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results}, @{rel=model; 
-                               href=https://ml.nexosisdev.com/v1/models/20a41d0e-3663-469b-bdc0-5e2e1e12e0e4}, @{rel=confusionMatrix; 
-                               href=https://ml.nexosisdev.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results/confusionmatrix}, @{rel=contest; 
-                               href=https://ml.nexosisdev.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/contest}...}
-```
+links                        : {@{rel=self; href=https://ml.nexosis.com/v1/sessions/0160ddce-965a-4281-8fd7-6a58e1cbba4b/results}, 
+                               @{rel=model; href=https://ml.nexosis.com/v1/models/1b79d672-99a4-47f7-a387-a001d9420220}, 
+                               @{rel=confusionMatrix; 
+                               href=https://ml.nexosis.com/v1/sessions/0160ddce-965a-4281-8fd7-6a58e1cbba4b/results/confusionmatrix}, 
+                               @{rel=classScores; 
+                               href=https://ml.nexosis.com/v1/sessions/0160ddce-965a-4281-8fd7-6a58e1cbba4b/results/classScores}...}</code>
+</pre>
+    </div>
+</div>
 
-``` powershell
-PS> $modelDetail = Get-NexosisModelDetail -ModelId 20a41d0e-3663-469b-bdc0-5e2e1e12e0e4
+Once the model has been created, it can be inspected by sending a `GET` to `https://ml.nexosis.com/v1/models/{modelId}`: 
+
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active"><a href="#curlModel" data-toggle="tab">Curl</a></li>
+    <li><a href="#powershellModel" data-toggle="tab">Powershell</a></li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="curlModel">
+    <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X GET "https://ml.nexosis.com/v1/models/1b79d672-99a4-47f7-a387-a001d9420220"\
+        -H "api-key: $NEXOSIS_API_KEY" -s</code></pre>Formatted HTTP Response:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
+    "columns": {
+        "VACBanned": {
+            "dataType": "numeric",
+            "role": "target",
+            "imputation": "mode",
+            "aggregation": "mode"
+        },
+        "win_ratio": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_aug": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_awp": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_mp7": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_mp9": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_p90": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_ak47": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_m249": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_m4a1": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_mag7": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_nova": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_p250": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_tec9": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "mvp_per_round": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_bizon": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_elite": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_famas": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_g3sg1": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_glock": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_mac10": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_negev": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_sg556": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_ssg08": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_ump45": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "total_accuracy": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_deagle": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_scar20": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_xm1014": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_galilar": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_hkp2000": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_sawedoff": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "total_games_owned": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "accuracy_fiveseven": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "kill_to_death_ratio": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "total_wins_per_hour": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        },
+        "total_headshots_per_round": {
+            "dataType": "numeric",
+            "role": "feature",
+            "imputation": "zeroes",
+            "aggregation": "sum"
+        }
+    },
+    "modelId": "1b79d672-99a4-47f7-a387-a001d9420220",
+    "sessionId": "0160ddce-965a-4281-8fd7-6a58e1cbba4b",
+    "predictionDomain": "classification",
+    "dataSourceName": "csgo-stats",
+    "createdDate": "2018-01-10T02:06:06.6928748+00:00",
+    "algorithm": {
+        "name": "SVC RBF",
+        "description": "Support Vector Classification using Radial Basis Function (Gaussian) kernel",
+        "key": "svc_rbf"
+    },
+    "metrics": {
+        "macroAverageF1Score": 0.72521972411860092,
+        "rocAreaUnderCurve": 0.79444811632518164,
+        "accuracy": 0.72888888888888892,
+        "macroAveragePrecision": 0.72667984189723323,
+        "macroAverageRecall": 0.73690515532055523,
+        "matthewsCorrelationCoefficient": 0.46347221341824979
+    },
+    "links": [{
+        "rel": "self",
+        "href": "https://ml.nexosis.com/v1/models/1b79d672-99a4-47f7-a387-a001d9420220"
+    }, {
+        "rel": "train",
+        "href": "https://ml.nexosis.com/v1/sessions/0160ddce-965a-4281-8fd7-6a58e1cbba4b"
+    }]
+}</code></pre>
+   </div>
+   <div role="tabpanel" class="tab-pane" id="powershellModel">
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Get-NexosisModelDetail -ModelId 1b79d672-99a4-47f7-a387-a001d9420220</code></pre>Output:<pre class="language-powershell" style="max-height:30em;"><code class="language-powershell code-toolbar">columns          : @{VACBanned=; win_ratio=; accuracy_aug=; accuracy_awp=; accuracy_mp7=; accuracy_mp9=; accuracy_p90=; accuracy_ak47=; 
+                   accuracy_m249=; accuracy_m4a1=; accuracy_mag7=; accuracy_nova=; accuracy_p250=; accuracy_tec9=; mvp_per_round=; 
+                   accuracy_bizon=; accuracy_elite=; accuracy_famas=; accuracy_g3sg1=; accuracy_glock=; accuracy_mac10=; accuracy_negev=; 
+                   accuracy_sg556=; accuracy_ssg08=; accuracy_ump45=; total_accuracy=; accuracy_deagle=; accuracy_scar20=; accuracy_xm1014=; 
+                   accuracy_galilar=; accuracy_hkp2000=; accuracy_sawedoff=; total_games_owned=; accuracy_fiveseven=; kill_to_death_ratio=; 
+                   total_wins_per_hour=; total_headshots_per_round=}
+modelId          : 1b79d672-99a4-47f7-a387-a001d9420220
+sessionId        : 0160ddce-965a-4281-8fd7-6a58e1cbba4b
+predictionDomain : classification
+dataSourceName   : csgo-stats
+createdDate      : 2018-01-10T02:06:06.6928748+00:00
+algorithm        : @{name=SVC RBF; description=Support Vector Classification using Radial Basis Function (Gaussian) kernel; key=svc_rbf}
+metrics          : @{macroAverageF1Score=0.72521972411860092; rocAreaUnderCurve=0.79444811632518164; accuracy=0.72888888888888892; 
+                   macroAveragePrecision=0.72667984189723323; macroAverageRecall=0.73690515532055523; 
+                   matthewsCorrelationCoefficient=0.46347221341824979}
+links            : {@{rel=self; href=https://ml.nexosis.com/v1/models/1b79d672-99a4-47f7-a387-a001d9420220}, @{rel=train; 
+                   href=https://ml.nexosis.com/v1/sessions/0160ddce-965a-4281-8fd7-6a58e1cbba4b}}</code>
+</pre>
+    </div>
+</div>
+
+Focus in on the `algorithm` and `metrics` nodes in the JSON response. The algorithm used is a `Support Vector Classification use Radial Basis Function` which resulted in an accuracy score is 72% for this model. As was mentioned already, providing more data which building the model can increase the accuracy.
+
+
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active"><a href="#curlModelAlgoMetrics" data-toggle="tab">Curl</a></li>
+    <li><a href="#powershellModelAlgoMetrics" data-toggle="tab">Powershell</a></li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="curlModelAlgoMetrics">
+    <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-json"><code class="language-json code-toolbar">{
+    // ...elided
+    "algorithm": {
+        "name": "SVC RBF",
+        "description": "Support Vector Classification using Radial Basis Function (Gaussian) kernel",
+        "key": "svc_rbf"
+    },
+    "metrics": {
+        "macroAverageF1Score": 0.72521972411860092,
+        "rocAreaUnderCurve": 0.79444811632518164,
+        "accuracy": 0.72888888888888892,
+        "macroAveragePrecision": 0.72667984189723323,
+        "macroAverageRecall": 0.73690515532055523,
+        "matthewsCorrelationCoefficient": 0.46347221341824979
+    },
+    // ...elided
+}</code></pre>
+   </div>
+   <div role="tabpanel" class="tab-pane" id="powershellModelAlgoMetrics">
+      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> $modelDetail = Get-NexosisModelDetail -ModelId 20a41d0e-3663-469b-bdc0-5e2e1e12e0e4
 PS> $modelDetail.algorithm
 
-name       description                                         key                      
-----       -----------                                         ---                      
-XGBoost L1 eXtreme Gradient Boosting with Lasso regularization xgboost_l1_classification
+name    description                                                                 key    
+----    -----------                                                                 ---    
+SVC RBF Support Vector Classification using Radial Basis Function (Gaussian) kernel svc_rbf
 
 PS> $modelDetail.metrics
 
-macroAverageF1Score            : 0.78776778554244475
-rocAreaUnderCurve              : 0.88144911297852468
-accuracy                       : 0.79720119293415925
-macroAveragePrecision          : 0.7886199303670467
-macroAverageRecall             : 0.786988301202834
-matthewsCorrelationCoefficient : 0.57560591904294722
-```
+macroAverageF1Score            : 0.72521972411860092
+rocAreaUnderCurve              : 0.79444811632518164
+accuracy                       : 0.72888888888888892
+macroAveragePrecision          : 0.72667984189723323
+macroAverageRecall             : 0.73690515532055523
+matthewsCorrelationCoefficient : 0.46347221341824979
+
+</code>
+</pre>
+    </div>
+</div>
+
 
 ## Using the Model
 
+Now that we have a model, let's use it to predict. We're going to need to retrieve data on a player from the Steam API, calculate the accuracy stats, and then submit it to the model prediction endpoint in the Nexosis API using the Model ID assigned to this model.
 
+To check to see how well our model did, I did some googling and found some complaints against certain Steam accounts and accused them of cheating so I ran them through this model and I also used vac-ban.com as well to find other already banned accounts to help validate the model.
+
+Here's the script using a function I wrote called `Invoke-CalculateCsGoStatsForSteamId` that does the Steam API call and calcuates the statistics and packages the data up properly to be submitted to the API:
+
+<pre class="language-powershell" style="max-height:38em;"><code class="language-powershell code-toolbar">$suspectStatData = @()
+# suspected cheaters identified by other players - posted in different forums online
+$suspectedCheatSteamID = @(
+    '76561198361486862',  # Steam ID of suspected cheater - stats indicate cheater
+    '76561198121540097',  # http://www.vac-ban.com/76561198121540097/stats.html - someone mentioned suspicion in a forum - stats don't trip cheat detection
+    '76561197978008587',  # http://www.vac-ban.com/76561197978008587/stats.html
+    '76561198097618775',  # http://www.vac-ban.com/76561198097618775/stats.html
+)
+
+foreach ($steamId in $suspectedCheatSteamID) {
+    $suspectedCheatStats = Invoke-CalculateCsGoStatsForSteamId($steamId)
+    if ($suspectedCheatStats -ne $null) {
+        $suspectStatData += $suspectedCheatStats
+    }
+    Start-Sleep -Milliseconds 500
+}
+
+# Run prediction using Model
+$suspiciousResults = Invoke-NexosisPredictTarget -modelId 1b79d672-99a4-47f7-a387-a001d9420220 -data $suspectStatData -Verbose
+$suspiciousResults.data
+</code></pre>
+
+Additionally, I captured the `VACBanned` flag from the Steam API and re-named it `VACBannedActual`. The Nexosis API will reflect back any column submitted in a prediction, but will not use unrecognized elements - this way we'll get back a `VACBanned` prediction from the Nexosis API and VacBannedActual which is what the Steam API has on record for this player.
+
+Here is the RAW JSON body needs to be packaged up as a JSON array like so in a `POST` to `https://ml.nexosis.com/v1/models/{modelId}/predict`
+
+<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
+    "data":  [
+      {
+        "accuracy_mp7":  0.17872340425531916,
+        "accuracy_hkp2000":  0.18116805721096543,
+        "accuracy_glock":  0.157167963846347,
+        "accuracy_elite":  0.17216642754662842,
+        "accuracy_ssg08":  0.34361233480176212,
+        "accuracy_m4a1":  0.21935575826681869,
+        "accuracy_ump45":  0.15429791777896423,
+        "total_accuracy":  0.173028144228552,
+        "accuracy_m249":  0.051560379918588875,
+        "accuracy_aug":  0.20770600615185364,
+        "accuracy_g3sg1":  0.33160621761658032,
+        "kill_to_death_ratio":  3.136818959198632,
+        "accuracy_p90":  0.15919519943522767,
+        "accuracy_mag7":  0.18167938931297709,
+        "total_headshots_per_round":  0.44644779332615714,
+        "accuracy_sg556":  0.15061475409836064,
+        "accuracy_fiveseven":  0.08387096774193549,
+        "mvp_per_round":  0.10656620021528525,
+        "accuracy_negev":  0.033666255190214343,
+        "accuracy_tec9":  0.17585301837270342,
+        "accuracy_scar20":  0.26609442060085836,
+        "total_wins_per_hour":  5.7162284075067678E-06,
+        "VACBannedActual":  0,
+        "steamId":  "76561198361486862",
+        "accuracy_sawedoff":  0.12444444444444444,
+        "accuracy_p250":  0.2,
+        "accuracy_nova":  0.24717145343777197,
+        "accuracy_xm1014":  0.20195960807838431,
+        "accuracy_mp9":  0.168359375,
+        "accuracy_ak47":  0.16113012549493322,
+        "total_games_owned":  301,
+        "accuracy_awp":  0.43594386600271617,
+        "accuracy_famas":  0.18745785569790965,
+        "accuracy_deagle":  0.25171467764060357,
+        "win_ratio":  1.711248654467169,
+        "accuracy_galilar":  0.17252283907238228,
+        "accuracy_bizon":  0.20948616600790515,
+        "accuracy_mac10":  0.1984271022383545
+      },
+      {
+        "accuracy_mp7":  0.20782892352301557,
+        "accuracy_hkp2000":  0.18866790009250695,
+        "accuracy_glock":  0.15199442419043535,
+        "accuracy_elite":  0.16281774381126432,
+        "accuracy_ssg08":  0.28807106598984772,
+        "accuracy_m4a1":  0.19933089278520258,
+        "accuracy_ump45":  0.17035325189831627,
+        "total_accuracy":  0.19232434737353687,
+        "accuracy_m249":  0.075642111205193333,
+        "accuracy_aug":  0.18128639421415088,
+        "accuracy_g3sg1":  0.24681271194928955,
+        "kill_to_death_ratio":  1.2476448050484561,
+        "accuracy_p90":  0.12632232247068195,
+        "accuracy_mag7":  0.20981713185755535,
+        "total_headshots_per_round":  0.62682415176942718,
+        "accuracy_sg556":  0.16531428571428572,
+        "accuracy_fiveseven":  0.18956853231675619,
+        "mvp_per_round":  0.12531922655964975,
+        "accuracy_negev":  0.045550905038865032,
+        "accuracy_tec9":  0.16504026527711985,
+        "accuracy_scar20":  0.29138178561783057,
+        "total_wins_per_hour":  1.3370898632388331E-06,
+        "VACBannedActual":  0,
+        "steamId":  "76561198121540097",
+        "accuracy_sawedoff":  0.16362204724409449,
+        "accuracy_p250":  0.22663152999534955,
+        "accuracy_nova":  0.19207501512401695,
+        "accuracy_xm1014":  0.14102984585109873,
+        "accuracy_mp9":  0.17253021811060842,
+        "accuracy_ak47":  0.16937251453545601,
+        "total_games_owned":  3,
+        "accuracy_awp":  0.44058280028429281,
+        "accuracy_famas":  0.15850956696878146,
+        "accuracy_deagle":  0.25248592623770189,
+        "win_ratio":  0.51942721634439981,
+        "accuracy_galilar":  0.15838808585194919,
+        "accuracy_bizon":  0.14906930693069306,
+        "accuracy_mac10":  0.18077354260089687
+      },
+      {
+        "accuracy_mp7":  0.16457399103139014,
+        "accuracy_hkp2000":  0.22922909289022064,
+        "accuracy_glock":  0.18168002210555403,
+        "accuracy_elite":  0.14909090909090908,
+        "accuracy_ssg08":  0.35866614967041488,
+        "accuracy_m4a1":  0.15684093437152391,
+        "accuracy_ump45":  0.13016845329249618,
+        "total_accuracy":  0.21874758825072932,
+        "accuracy_m249":  0.12008733624454149,
+        "accuracy_aug":  0.15062761506276151,
+        "accuracy_g3sg1":  0.077762619372442013,
+        "kill_to_death_ratio":  0.10682981229220298,
+        "accuracy_p90":  0.50327966607036378,
+        "accuracy_mag7":  0.18232454511696991,
+        "total_headshots_per_round":  0.46772655007949127,
+        "accuracy_sg556":  0.079805056350898573,
+        "accuracy_fiveseven":  0.27650727650727652,
+        "mvp_per_round":  0.059565447800741918,
+        "accuracy_negev":  0.81597021100537859,
+        "accuracy_tec9":  0.16871165644171779,
+        "accuracy_scar20":  1.1100917431192661,
+        "total_wins_per_hour":  8.0417772278010944E-07,
+        "VACBannedActual":  1,
+        "steamId":  "76561197978008587",
+        "accuracy_sawedoff":  0.14627241270839886,
+        "accuracy_p250":  0.23512441399206635,
+        "accuracy_nova":  0.19236957021374396,
+        "accuracy_xm1014":  0.18820468343451865,
+        "accuracy_mp9":  0.13748191027496381,
+        "accuracy_ak47":  0.15761821366024517,
+        "total_games_owned":  14,
+        "accuracy_awp":  0.4609004739336493,
+        "accuracy_famas":  0.17543335325762105,
+        "accuracy_deagle":  0.46508771929824561,
+        "win_ratio":  0.48055113937466881,
+        "accuracy_galilar":  0.10905587668593449,
+        "accuracy_bizon":  0.16933430338304839,
+        "accuracy_mac10":  0.13968715896689704
+      },
+      {
+        "accuracy_mp7":  0.23970290344361916,
+        "accuracy_hkp2000":  0.26665804950559041,
+        "accuracy_glock":  0.21003454773869346,
+        "accuracy_elite":  0.22915011914217634,
+        "accuracy_ssg08":  0.52289377289377292,
+        "accuracy_m4a1":  0.23553711455153631,
+        "accuracy_ump45":  0.20850265708033761,
+        "total_accuracy":  0.21440652294643309,
+        "accuracy_m249":  0.24479804161566707,
+        "accuracy_aug":  0.27552275522755226,
+        "accuracy_g3sg1":  0.19650391802290537,
+        "kill_to_death_ratio":  1.6247155747351902,
+        "accuracy_p90":  0.17222795550968925,
+        "accuracy_mag7":  0.2653876898481215,
+        "total_headshots_per_round":  0.52306958358890476,
+        "accuracy_sg556":  0.20404814004376368,
+        "accuracy_fiveseven":  0.29589041095890412,
+        "mvp_per_round":  0.16826824780208546,
+        "accuracy_negev":  0.097546556310966592,
+        "accuracy_tec9":  0.20973544973544975,
+        "accuracy_scar20":  0.37002652519893897,
+        "total_wins_per_hour":  2.06431806294603E-06,
+        "VACBannedActual":  1,
+        "steamId":  "76561198097618775",
+        "accuracy_sawedoff":  0.1980881571959639,
+        "accuracy_p250":  0.26325284485151262,
+        "accuracy_nova":  0.29329102447869448,
+        "accuracy_xm1014":  0.26422602467170714,
+        "accuracy_mp9":  0.24713958810068651,
+        "accuracy_ak47":  0.18438532429142757,
+        "total_games_owned":  278,
+        "accuracy_awp":  0.51533301389554387,
+        "accuracy_famas":  0.21656199116073505,
+        "accuracy_deagle":  0.33237867939538585,
+        "win_ratio":  0.56109861650650861,
+        "accuracy_galilar":  0.20742278110120865,
+        "accuracy_bizon":  0.19746208604147322,
+        "accuracy_mac10":  0.19654817104585265
+      }
+    ]
+}
+</code></pre>
+
+The response back from the Nexosis API will contain all the data that was submitted and it will add the prediction target `VACBanned`. Here's the response to our predictions - when comparing `VACBanned` with `VACBannedActual` this model agrees with 3 of the 4 Steam ID's below.
+
+<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
+    "data": [{
+            "steamId": "76561198361486862",
+            "VACBannedActual": "0",
+            "VACBanned": "0",
+            // data elided
+        },
+        {
+            "steamId": "76561198121540097",
+            "VACBannedActual": "0",
+            "VACBanned": "1",
+            // data elided
+        }, {
+            "steamId": "76561197978008587",
+            "VACBannedActual": "1",
+            "VACBanned": "1",
+            // data elided
+        }, {
+            "steamId": "76561198097618775",
+            "VACBannedActual": "1",
+            "VACBanned": "1",
+            // data elided
+        }
+    ],
+    "messages": [{
+        "severity": "warning",
+        "message": "Column 'VACBannedActual' was not a feature in the training data for this model, so it will not be considered for prediction."
+    }, {
+        "severity": "warning",
+        "message": "Column 'steamId' was not a feature in the training data for this model, so it will not be considered for prediction."
+    }],
+    "modelId": "1b79d672-99a4-47f7-a387-a001d9420220",
+    "sessionId": "0160ddce-965a-4281-8fd7-6a58e1cbba4b",
+    "predictionDomain": "classification",
+    "dataSourceName": "csgo-stats",
+    "createdDate": "2018-01-10T02:06:06.6928748+00:00",
+    "algorithm": {
+        "name": "SVC RBF",
+        "description": "Support Vector Classification using Radial Basis Function (Gaussian) kernel",
+        "key": "svc_rbf"
+    },
+    "metrics": {
+        "macroAverageF1Score": 0.72521972411860092,
+        "rocAreaUnderCurve": 0.79444811632518164,
+        "accuracy": 0.72888888888888892,
+        "macroAveragePrecision": 0.72667984189723323,
+        "macroAverageRecall": 0.73690515532055523,
+        "matthewsCorrelationCoefficient": 0.46347221341824979
+    },
+    "links": []
+}
+</code></pre>
 
 ## Final Thoughts: Improving the Model
+
+There's certainly more to do to improve this model but our first pass has us off to a great start. As has been mentioned a few times before, using more data will help improve the accuracy of the model. But not only is more data required, but the right data - this takes some thought about the problem and experimatiation.
+
+Our follow-up research indicates that the more important factors that could be used to identify cheaters were and may build a much more effective model:
+
+1.  weapons donated per hour
+2. total time played
+3. shot ratio with the p250
+4. p250 kill ratio
+5. p25 hit ratio
+
+When these were used we achieved an accuracy of just over 90%.  How well do you think you can do?
+
+Have fun experimenting and let us know!
