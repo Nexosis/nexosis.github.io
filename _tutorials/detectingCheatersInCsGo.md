@@ -3105,8 +3105,8 @@ Here's the script using a function I wrote called `Invoke-CalculateCsGoStatsForS
 <pre class="language-powershell" style="max-height:38em;"><code class="language-powershell code-toolbar">$suspectStatData = @()
 # suspected cheaters identified by other players - posted in different forums online
 $suspectedCheatSteamID = @(
-    '76561198361486862',  # Steam ID of suspected cheater - stats indicate cheater
-    '76561198121540097',  # http://www.vac-ban.com/76561198121540097/stats.html - someone mentioned suspicion in a forum - stats don't trip cheat detection
+    '76561198361486862',  # Steam ID of suspected cheater
+    '76561198121540097',  # http://www.vac-ban.com/76561198121540097/stats.html -  mentioned suspected cheater in forum
     '76561197978008587',  # http://www.vac-ban.com/76561197978008587/stats.html
     '76561198097618775',  # http://www.vac-ban.com/76561198097618775/stats.html
 )
