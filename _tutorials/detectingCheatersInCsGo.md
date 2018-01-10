@@ -10,7 +10,7 @@ use_codestyles: true
 
 [Counter-Strike: Global Offensive](https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive){:target="_blank"}, or CS:GO for short, is a team-based [multiplayer](https://en.wikipedia.org/wiki/Multiplayer_video_game){:target="_blank"} highly competitive [first person shooter](https://en.wikipedia.org/wiki/First-person_shooter){:target="_blank"} video game made and published by [Valve Software](http://www.valvesoftware.com){:target="_blank"} in 2012 and is still very popular today. This game, like many online games, has had it's share of issues with cheaters. Since cheaters use different techniques to give them an unfair advantage, we hypothesize a player's in-game performance metrics could be used to build a machine learning model that will classify if a player is cheating or not.
 
-This tutorial will walk the reader through this sample from beginning to end, starting with collecting and submitting a dataset, building and deploying a classification model, and finally using that model to classify players as a potential cheater or honest gamer.
+This tutorial will walk the reader through this sample from beginning to end, starting with collecting, preparing, and submitting the dataset, building and deploying a classification model, and finally using that model to classify players as a potential cheater or honest gamer. If you'd like to follow along, you can sign up for one of our free Community accounts and use curl, [Postman](https://www.getpostman.com){:target="_blank"}, the [Nexosis Powershell client library](https://www.powershellgallery.com/packages/PSNexosisClient/2.1.0){:target="_blank"}, or one of our other [Client Libraries](http://docs.nexosis.com/clients/){:target="_blank"} in the language of your choice.
 
 -----
 
@@ -3128,9 +3128,9 @@ $suspiciousResults = Invoke-NexosisPredictTarget -modelId 1b79d672-99a4-47f7-a38
 $suspiciousResults.data
 </code></pre>
 
-Additionally, I captured the `VACBanned` flag from the Steam API and re-named it `VACBannedActual`. The Nexosis API will reflect back any column submitted in a prediction, but will not use unrecognized elements - this way we'll get back a `VACBanned` prediction from the Nexosis API and VacBannedActual which is what the Steam API has on record for this player.
+Additionally, I captured the `VACBanned` flag from the Steam API and re-named it `VACBannedActual`. The Nexosis API will reflect back any column submitted in a prediction, but will not use unrecognized elements - this way we'll get back a `VACBanned` prediction from the Nexosis API and `VacBannedActual` which is what the Steam API has on record for this player.
 
-Here is the RAW JSON body needs to be packaged up as a JSON array like so in a `POST` to `https://ml.nexosis.com/v1/models/{modelId}/predict`
+Here is the RAW JSON body needs to be packaged up as a JSON array named `data` like so in a `POST` to `https://ml.nexosis.com/v1/models/{modelId}/predict`:
 
 <pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
     "data":  [
