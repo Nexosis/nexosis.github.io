@@ -25,13 +25,17 @@ Now that the Steam API has been identified as a source of the data, the last mis
 
 There are many web sites dedicated to tracking Steam players that have been banned by the Valve Anti-Cheat, such as [vacbanned.com](https://vacbanned.com){:target="_blank"} and [vac-ban.com](http://vac-ban.com){:target="_blank"}. The data's not perfect though, as it's possible to get VACBanned for cheating in a different game, but it's the best we can do without having access to in-game metrics available internally to Valve, who is really in the best position to build the most effective models.
 
-Finding a list of Steam ID's of users known to not be cheating is more difficult, because not all cheaters are detected by Valve's Anti-Cheat so we can't just rely on VACBanned set to 0 in the Steam API. Additionally, players will have a broad range of skill levels from beginner to professional level gamer. To find the cut-off point which should be the fine line between great to cheat we chose to collect data from players in the Professional Gaming League. These players are the best, but will still have human limitations, we need to make sure our model doesn't accidently classify them as cheaters either. Additionally, since these players are playing in competitive matches, they have an audience - since they are playing in the view of other professionals as well as the public, they are less likely to cheat for fear of getting caught and ruining their career.  There are plenty of web sites listing professional gamers, their statistics, as well as their Steam ID. 
+Finding a list of Steam ID's of users known to not be cheating is more difficult, because not all cheaters are detected by Valve's Anti-Cheat so we can't just rely on VACBanned set to 0 in the Steam API. Additionally, players will have a broad range of skill levels from beginner to professional level gamer. We decided to collect data from players in the Professional Gaming League to find the best cut-off point between great players and cheaters. These players are the best but will still have human limitations; we need to make sure our model doesn't accidently classify them as cheater. Additionally, since these players are playing in competitive matches, they have an audience and thus less likely to cheat for fear of getting caught and ruining their career.  There are plenty of web sites listing professional gamers, their statistics, as well as their Steam ID. 
 
-Collecting a list of Steam ID's from those web sites is outside the scope of this tutorial, but there are various ways to go about that. Once you have a list of Steam IDs, the next step is to iterate over them all and query the Steam API for the game metrics and save them to a CSV to used to build a classification model.
+Collecting a list of Steam ID's from those web sites is outside the scope of this tutorial, but there are various ways to go about that. Once you have a list of Steam IDs, the next step is to iterate over them all and query the Steam API for the game metrics and save them to a CSV used to build a classification model.
 
 ### The Steam API
 
-There are three main endpoints required from retrieving information collected to build a Classification Model. `GetUserStatsForGame` in order to get all the important metrics from the game as well as `GetOwnedGames` which we suspect is correlated to cheating as well - because [if you get VAC Banned you lose certain privileges on Steam making that Steam Account worthless for some things](https://support.steampowered.com/kb_article.php?ref=4044-qdhj-5691){:target="_blank"}. Additionally the API endpoint `GetPlayerBans` is used to make sure we don't accidently identify a player who was caught cheating as a non-cheater.
+There are three main endpoints required for retrieving information collected to build a Classification Model: 
+
+- `GetUserStatsForGame` in order to get all the important metrics from the game
+- `GetOwnedGames` which we suspect is correlated to cheating as well - because [if you get VAC Banned you lose certain privileges on Steam making that Steam Account worthless for some things](https://support.steampowered.com/kb_article.php?ref=4044-qdhj-5691){:target="_blank"}. 
+- `GetPlayerBans` is used to make sure we don't accidently identify a player who was caught cheating as a non-cheater.
 
 #### [GetUserStatsForGame](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetUserStatsForGame_.28v0002.29){:target="_blank"}
 `https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/`
@@ -1503,7 +1507,7 @@ GI.lesson.csgo_instr_explain_inspect                    32
     </div>
 </div>
 
-As you can see above, Counter-strike tracks approximately 190 public metrics, many of which might not be helpful for detecting cheaters. It will be important to decide which ones to eliminate and which ones to combine to create a new, more meaningful metrics. More on that in the next section.
+As you can see above, Counter-Strike tracks approximately 190 public metrics, many of which might not be helpful for detecting cheaters. It will be important to decide which ones to eliminate and which ones to combine to create a new, more meaningful metrics. More on that in the next section.
 
 #### [GetOwnedGames](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetOwnedGames_.28v0001.29){:target="_blank"}
 `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/`
@@ -1962,7 +1966,7 @@ locstatecode             : A8
 </div>
 ## Understanding and Preparing The Data
 
-Based on the amount of data available on a Player based on just the 4 Steam API endpoints - there is a choice of over 250 pieces of information. One could blindly jam every single one of these data-points in the Nexosis API, cross our fingers and hope it finds something - but if there's no correlation between each column and the target, we'll end up with a useless model.
+Based on the amount of data available on a player based on just the 4 Steam API endpoints - there is a choice of over 250 pieces of information. One could blindly jam every single one of these data-points in the Nexosis API, cross our fingers and hope it finds something. The Nexosis API will attempt to reduce the feature set to the most important ones - but if there's little or no correlation between each column and the target, we'll end up with a useless or insufficient model.
 
 This means putting some thought into what metrics can be used to identify cheaters in a video game. Some domain knowledge of CS:GO is helpful as well as how cheating works. I've already mentioned above why the number of games owned might help build a more effective model. Any metric that is available either directly or through a calculation indicating a players performance should be obvious choices since cheating should allow them to perform way better than the rest of the players.
 
@@ -2051,7 +2055,7 @@ For the simplification of this model and sample so it doesn't use up the Nexosis
 
 > When you create an account with Nexosis and chose to include the sample datasets in your account, this dataset will be pre-loaded and is named 'CSGO-Stats'. We've also included it in our `sampledata` github repo here at [CSGO DataSet on Git](https://github.com/Nexosis/sampledata/blob/master/csgo-small.csv){:target="_blank"}
 
-If the SteamID is included when you upload the dataset, the API needs to know to treat it as a primary identifier (much like a database primary key) which requires the Columns metadata set to indicate it's Role.  To simplify, we can exclude this column as well since we don't plan on matching the model results back up with the original dataset and build the model without it.
+If the SteamID is included when you upload the dataset, the API needs to know to treat it as a primary identifier (much like a database primary key) which requires the Columns metadata set to indicate its Role.  To simplify, we can exclude this column as well since we don't plan on matching the model results back up with the original dataset and build the model without it.
 
 To import from our GitHub URL linked above `POST` to `https://ml.nexosis.com/v1/imports/Url` and set the BODY to `{"contentType": "csv","url":"https://raw.githubusercontent.com/Nexosis/sampledata/master/csgo-small.csv","dataSetName":"CSGO-Stats"}` like so:
 
@@ -3043,7 +3047,7 @@ links            : {@{rel=self; href=https://ml.nexosis.com/v1/models/1b79d672-9
     </div>
 </div>
 
-Focus in on the `algorithm` and `metrics` nodes in the JSON response. The algorithm used is a `Support Vector Classification use Radial Basis Function` which resulted in an accuracy score is 72% for this model. As was mentioned already, providing more data which building the model can increase the accuracy.
+Focus in on the `algorithm` and `metrics` nodes in the JSON response. The algorithm used is a `Support Vector Classification using Radial Basis Function` which resulted in an accuracy score is 72% for this model. As was mentioned already, providing more data when building the model can increase the accuracy.
 
 
 <ul id="profileTabs" class="nav nav-tabs">
@@ -3351,9 +3355,9 @@ The response back from the Nexosis API will contain all the data that was submit
 
 ## Final Thoughts: Improving the Model
 
-There's certainly more to do to improve this model but our first pass has us off to a great start. As has been mentioned a few times before, using more data will help improve the accuracy of the model. But not only is more data required, but the right data - this takes some thought about the problem and experimatiation.
+There's certainly more to do to improve this model but our first pass has us off to a great start. As has been mentioned a few times before, using more data will help improve the accuracy of the model. But not only is more data required; we need the right data, and this takes some thought about the problem and some experimentation.
 
-It's very likely our model has some limitations based on the data available from the Steam API. For example, we can't take into account a players performance per game map which might help improve the model, or per game mode (CSGO has 13 different modes) since the Steam API doesn't provide stats per game mode. For example, if someone tends to play less common game mode like Capture and Hold, it may influence the models ability to accurately predict for them. With enough data hopefully these types of differences can be represented in the model, thus improving the accuracy. 
+It's very likely our model has some limitations based on the data available from the Steam API. For example, we can't take into account a player's performance per game map which might help improve the model, or per game mode (CSGO has 13 different modes) since the Steam API doesn't provide stats per game mode. For example, if someone tends to play less common game mode like Capture and Hold it may influence the model's ability to accurately predict for them. With enough data there is a better chance these types of differences can be represented in the model, thus improving the accuracy. 
 
 Finally, our follow-up research indicates that the more important factors that could be used to identify cheaters and using these features instead can help us build a much more accurate model:
 
