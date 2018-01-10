@@ -3124,9 +3124,9 @@ $suspiciousResults = Invoke-NexosisPredictTarget -modelId 1b79d672-99a4-47f7-a38
 $suspiciousResults.data
 </code></pre>
 
-Additionally, I captured the `VACBanned` flag from the Steam API and re-named it `VACBannedActual`. The Nexosis API will reflect back any column submitted in a prediction, but will not use unrecognized elements - this way we'll get back a `VACBanned` prediction from the Nexosis API and VacBannedActual which is what the Steam API has on record for this player.
+Additionally, I captured the `VACBanned` flag from the Steam API and re-named it `VACBannedActual`. The Nexosis API will reflect back any column submitted in a prediction, but will not use unrecognized elements - this way we'll get back a `VACBanned` prediction from the Nexosis API and `VacBannedActual` which is what the Steam API has on record for this player.
 
-Here is the RAW JSON body needs to be packaged up as a JSON array like so in a `POST` to `https://ml.nexosis.com/v1/models/{modelId}/predict`
+Here is the RAW JSON body needs to be packaged up as a JSON array named `data` like so in a `POST` to `https://ml.nexosis.com/v1/models/{modelId}/predict`:
 
 <pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
     "data":  [
