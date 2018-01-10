@@ -2047,7 +2047,7 @@ The sample dataset originally used in building this model had around 21,000 CSGO
 
 ## Uploading the Data
 
-For the simplification of this model and sample, we've prepared a smaller sub-set of the data which scores about 5% less accurate but is good enough to follow along and understand what's happening.
+For the simplification of this model and sample so it doesn't use up the Nexosis Quotas on our Community Pricing Tier, we've prepared a smaller sub-set of the data which scores about over 5% less accurate but is good enough to follow along and understand what's happening and get some decent results.
 
 > When you create an account with Nexosis and chose to include the sample datasets in your account, this dataset will be pre-loaded and is named 'CSGO-Stats'. We've also included it in our `sampledata` github repo here at [CSGO DataSet on Git](https://github.com/Nexosis/sampledata/blob/master/csgo-small.csv){:target="_blank"}
 
@@ -3353,13 +3353,15 @@ The response back from the Nexosis API will contain all the data that was submit
 
 There's certainly more to do to improve this model but our first pass has us off to a great start. As has been mentioned a few times before, using more data will help improve the accuracy of the model. But not only is more data required, but the right data - this takes some thought about the problem and experimatiation.
 
-Our follow-up research indicates that the more important factors that could be used to identify cheaters were and may build a much more effective model:
+It's very likely our model has some limitations based on the data available from the Steam API. For example, we can't take into account a players performance per game map which might help improve the model, or per game mode (CSGO has 13 different modes) since the Steam API doesn't provide stats per game mode. For example, if someone tends to play less common game mode like Capture and Hold, it may influence the models ability to accurately predict for them. With enough data hopefully these types of differences can be represented in the model, thus improving the accuracy. 
 
-1.  weapons donated per hour
-2. total time played
-3. shot ratio with the p250
-4. p250 kill ratio
-5. p25 hit ratio
+Finally, our follow-up research indicates that the more important factors that could be used to identify cheaters and using these features instead can help us build a much more accurate model:
+
+1. Weapons donated per hour
+2. Total time played
+3. P250 Shot ratio 
+4. P250 gun kill ratio
+5. P25 gun hit ratio
 
 When these were used we achieved an accuracy of just over 90%.  How well do you think you can do?
 
