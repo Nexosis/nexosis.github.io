@@ -3104,7 +3104,7 @@ Now that we have a model, let's use it to predict. We're going to need to retrie
 
 To check to see how well our model did, I did some googling and found some complaints against certain Steam accounts and accused them of cheating so I ran them through this model and I also used vac-ban.com as well to find other already banned accounts to help validate the model.
 
-Here's the script using a function I wrote called `Invoke-CalculateCsGoStatsForSteamId` that does the Steam API call and calcuates the statistics and packages the data up properly to be submitted to the API:
+[Here's a link to the gist of a PowerShell script for the function I wrote called `Invoke-CalculateCsGoStatsForSteamId`](https://gist.github.com/nexosisops/0880381e47befb96a8e86c38986a43e1){:target="_blank"}. It queries the Steam API using a players Steam ID, retrieves the metrics, calcuates the statistics and packages the data up properly to be submitted to the API:
 
 <pre class="language-powershell" style="max-height:38em;"><code class="language-powershell code-toolbar">$suspectStatData = @()
 # suspected cheaters identified by other players - posted in different forums online
