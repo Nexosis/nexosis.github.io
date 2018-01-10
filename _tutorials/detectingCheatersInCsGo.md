@@ -1972,6 +1972,8 @@ This means putting some thought into what metrics can be used to identify cheate
 
 None of the columns in the dataset contain a direct measure of accuracy, but that's easily solved with a little bit of math. Since we have metrics around the total number of shots overall (total_shots_fired) as well as total shots that hit a player (total_shots_hit) we can very easily come up with an accuracy metric:
 
+> [Here's a link to a gist of a sample  Powershell Script that ties together all of these Steam API calls to retrieve, calculate, and package up all of these player stats.](https://gist.github.com/nexosisops/0880381e47befb96a8e86c38986a43e1){:target="_blank"}
+
 ``` text
 total_accuracy = total_shots_hit / total_shots_fired
 ```
@@ -2009,7 +2011,7 @@ accuracy_tec9 = total_hits_tec9 / total_shots_tec9
 accuracy_ump45 = total_hits_ump45 / total_shots_ump45
 accuracy_xm1014 = total_hits_xm1014 / total_shots_xm1014
 ```
-Finally we can come up with some performance ratio's that create a metrics that ties to how well they are playing and can easily be compared:
+Finally we can come up with some performance ratio's that create metrics that ties to how well they are playing and can easily be compared:
 
 ``` text
 win_ratio = total_wins / total_rounds_played
