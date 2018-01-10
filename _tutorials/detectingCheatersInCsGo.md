@@ -2478,7 +2478,7 @@ Since building a model is computationally expensive, it's not instantaneous - we
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="curlModelStatus">
     <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X HEAD "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec" \
-     -H "api-key: $NEXOSIS_API_KEY" --head -s</code></pre>HTTP Headers:<pre class="language-test" style="max-height:30em;"><code class="language-test code-toolbar">HTTP/1.1 200 OK
+     -H "api-key: $NEXOSIS_API_KEY" --head -s</code></pre>HTTP Headers:<pre class="language-text" style="max-height:30em;"><code class="language-text code-toolbar">HTTP/1.1 200 OK
 Content-Length: 0
 Nexosis-Session-Status: Completed
 Nexosis-Account-DataSetCount-Allotted: 200
