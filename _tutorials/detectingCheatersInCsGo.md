@@ -25,6 +25,11 @@ Now that the Steam API has been identified as a source of the data, the last mis
 
 There are many web sites dedicated to tracking Steam players that have been banned by the Valve Anti-Cheat, such as [vacbanned.com](https://vacbanned.com){:target="_blank"} and [vac-ban.com](http://vac-ban.com){:target="_blank"}. The data's not perfect though, as it's possible to get VACBanned for cheating in a different game, but it's the best we can do without having access to in-game metrics available internally to Valve, who is really in the best position to build the most effective models.
 
+<p align="center">
+        <img src="/assets/img/tutorials/wall-hacks.jpg" class="img-responsive" alt="Wall Hacks Shot">
+        <b>Image showing Wall Hacks in CS:GO</b><br/>Source Video: <a href="https://www.youtube.com/watch?v=uwvhA0s6Ex0" target="_blank">How to HACK IN CSGO UNDETECTED 2017 (WALLS) (NO VAC BAN) (FREE)</a>
+</p>
+
 Finding a list of Steam ID's of users known to not be cheating is more difficult, because not all cheaters are detected by Valve's Anti-Cheat so we can't just rely on VACBanned set to 0 in the Steam API. Additionally, players will have a broad range of skill levels from beginner to professional level gamer. We decided to collect data from players in the Professional Gaming League to find the best cut-off point between great players and cheaters. These players are the best but will still have human limitations; we need to make sure our model doesn't accidently classify them as cheater. Additionally, since these players are playing in competitive matches, they have an audience and thus less likely to cheat for fear of getting caught and ruining their career.  There are plenty of web sites listing professional gamers, their statistics, as well as their Steam ID. 
 
 Collecting a list of Steam ID's from those web sites is outside the scope of this tutorial, but there are various ways to go about that. Once you have a list of Steam IDs, the next step is to iterate over them all and query the Steam API for the game metrics and save them to a CSV used to build a classification model.
@@ -3368,6 +3373,9 @@ Finally, our follow-up research indicates that the more important factors that c
 3. P250 Shot ratio 
 4. P250 gun kill ratio
 5. P25 gun hit ratio
+
+
+<img src="/assets/img/tutorials/variable-importance-plot.png" class="img-responsive" alt="Variable Importance Plot" height="50%" width="50%">
 
 When these were used we achieved an accuracy of just over 90%.  How well do you think you can do?
 
