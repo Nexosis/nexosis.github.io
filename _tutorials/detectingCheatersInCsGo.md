@@ -10,7 +10,9 @@ use_codestyles: true
 
 [Counter-Strike: Global Offensive](https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive){:target="_blank"}, or CS:GO for short, is a team-based [multiplayer](https://en.wikipedia.org/wiki/Multiplayer_video_game){:target="_blank"} highly competitive [first person shooter](https://en.wikipedia.org/wiki/First-person_shooter){:target="_blank"} video game made and published by [Valve Software](http://www.valvesoftware.com){:target="_blank"} in 2012 that is still very popular today. This game, like many online games, has seen its share of cheating issues. Since cheaters use a variety of techniques to gain an unfair advantage, we hypothesize a player's in-game performance metrics could be used to build a machine learning model that will classify whether or not that player is cheating.
 
-This tutorial will walk the reader through this sample from beginning to end: starting with collecting, preparing, and submitting the dataset, building and deploying a classification model, and finally using that model to classify players as either a potential cheater or an honest gamer. If you'd like to follow along, you can sign up for one of our free Community accounts and use curl, [Postman](https://www.getpostman.com){:target="_blank"}, the [Nexosis Powershell client library](https://www.powershellgallery.com/packages/PSNexosisClient/2.1.0){:target="_blank"}, or one of our other [Client Libraries](http://docs.nexosis.com/clients/){:target="_blank"} in the language of your choice.
+This tutorial will walk the reader through this sample from beginning to end: starting with collecting, preparing, and submitting the dataset, building and deploying a classification model, and finally using that model to classify players as either a potential cheater or an honest gamer. If you'd like to follow along, you can sign up for one of our free Community accounts and use curl, [Postman](https://www.getpostman.com){:target="_blank"}, the [Nexosis Powershell client library](https://www.powershellgallery.com/packages/PSNexosisClient/2.1.0){:target="_blank"}, or one of our other [Client Libraries](http://docs.nexosis.com/clients/){:target="_blank"} in the language of your choice. Here's a link to the dataset this article will be working with in our [`sampledata`](https://github.com/Nexosis/sampledata/){:target="_blank"} GitHub repository here at [CS:GO DataSet on GitHub](https://github.com/Nexosis/sampledata/blob/master/csgo-small.csv){:target="_blank"}.
+
+To jump straight to uploading data and building a model, you can start here at [Uploading the Data](#uploading-the-data) section.
 
 -----
 
@@ -18,7 +20,7 @@ This tutorial will walk the reader through this sample from beginning to end: st
 
 Acquiring publicly available in-game player metrics is trivial since Valve's [Steam](https://en.wikipedia.org/wiki/Steam_(software)){:target="_blank"} platform collects and displays this information and makes it available via the [Steam API](https://developer.valvesoftware.com/wiki/Steam_Web_API){:target="_blank"}. Registered Steam users are identified by a unique Steam ID, which can be used to retrieve public player information, in-game metrics, and instances of bans due to cheating detected by Valve Anti-Cheat (VAC). VAC has not always been very effective, which is why we want to build our own model and see if we can do better.
 
-> For more details on the topic of Valve Anti-Cheat's effectiveness, you can watch a talk that Ryan Sevey (Co-Founder/CEO) and I (Co-Founder/CTO) gave at DerbyCon back in 2014 titled [The Multibillion Dollar Industry That's Ignored](https://www.youtube.com/watch?v=xtvYUNF3JoQ&feature=youtu.be){:target="_blank"} which was key research and an event that led to the creation of Nexosis.
+> For more details on the topic of Valve Anti-Cheat's effectiveness back in 2014, you can watch a talk that Ryan Sevey (Co-Founder/CEO) and I (Co-Founder/CTO) gave at [DerbyCon 4.0](https://www.derbycon.com) titled [The Multibillion Dollar Industry That's Ignored](https://www.youtube.com/watch?v=xtvYUNF3JoQ&feature=youtu.be){:target="_blank"} which was key research and an event that led to the creation of Nexosis.
 
 ### All Class Types Must Be Represented In Training Dataset
 Now that the Steam API has been identified as our data source, the last missing piece is how to find each class (cheating / not cheating) of player needed to build an effective classification model. The training dataset must be labeled, meaning each record must contain a column identifying cheaters and honest players. Additionally, we'll want to collect approximately an equal number of samples for both classes - the cheaters and honest players. We don't have to be exact because the Nexosis API will automatically balance the data set so it doesn't build a model biased towards one class or the other (unless given a parameter to build an unbalanced dataset).
@@ -2058,7 +2060,7 @@ Notice that some of the columns are empty - that's okay. The Nexosis API has dat
 
 The sample dataset originally used in building this model had around 21,000 CS:GO player metrics and was approximately 9MB on disk.
 
-## Uploading the Data
+<h2 id="uploading-the-data" class="jumptarget">Uploading the Data</h2>
 
 To simplify this sample and avoid using up the quotas on our Community Pricing Tier, we've prepared a smaller sub-set of the data. This produces a less accurate model, but it is good enough to follow along, understand what iss happening, and get some decent results.
 
