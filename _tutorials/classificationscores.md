@@ -129,13 +129,13 @@ The *targetColumn* is the name of the column which contains the labels in our da
 }
 ```
 
-Give this one a minute or two; sessions with larger datasets tend to take a while longer. You can get the session details from the /sessions/:sessionid: endpoint
+Give this one a minute or two; sessions with larger datasets tend to take a while longer. You can get the session details from the /sessions/:sessionid: endpoint. Here I use the sessionId value from the original response. If you're following along, be sure and grab your own unique sessionId from your response.
 
 ```
 GET https://ml.nexosis.com/v1/sessions/0160bdf7-cd8f-458f-9b46-6413ff6973bc
 ```
 
- The response JSON will include a property *modelId* once the session has completed. This is the value we'll need to finally get some predictions from the hosted model.
+The response JSON will include a property *modelId* once the session has completed. This is the value we'll need to finally get some predictions from the hosted model. Again, each modelId is unique, so if you're following along make sure you grab your unique value from your response.
 
 ``` json
 {
