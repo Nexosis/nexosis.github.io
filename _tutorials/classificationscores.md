@@ -22,7 +22,7 @@ When executing a classification model we want the algorithm to identify a class 
 
 In order for the machine to learn the relationship between these 3 variables we feed it a training set that has many different combinations of R, G, and B and an existing label:
 
-|R|G|B|Color
+|R|G|B|Color|
 | --- | --- | --- | --- |
 | 255 | 0 | 0 | Red |
 | 255 | 255 | 0 | Yellow |
