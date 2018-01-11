@@ -22,11 +22,31 @@ When executing a classification model we want the algorithm to identify a class 
 
 In order for the machine to learn the relationship between these 3 variables we feed it a training set that has many different combinations of R, G, and B and an existing label:
 
-|R|G|B|Color|
-| --- | --- | --- | --- |
-| 255 | 0 | 0 | Red |
-| 255 | 255 | 0 | Yellow |
-| 233 | 150 | 122 | Salmon |
+<table>
+	<tr>
+		<th>R</th>
+		<th>G</th>
+		<th>B</th>
+		<th>Color</th>
+	</tr>
+	<tr>
+		<td>255</td>
+		<td>0</td>
+		<td>0</td>
+		<td><div style="background-color:Red;text-align:center;margin:-13px;padding:7px;">Red</div></td>
+	<tr>
+		<td>255</td>
+		<td>255</td>
+		<td>0</td>
+		<td><div style="background-color:Yellow;text-align:center;margin:-13px;padding:7px;">Yellow</div></td>
+	</tr>
+	<tr>
+		<td>233</td>
+		<td>150</td>
+		<td>122</td>
+		<td><div style="background-color:Salmon;text-align:center;margin:-13px;padding:7px;">Salmon</div></td>
+	</tr>
+</table>
 
 You get the idea. Generally speaking we don't want an overload of classes so in reality we're going to use only some major colors and categorize things like *Salmon* as *Red* instead. You can take a look at the full dataset in our [sample data repository on GitHub](https://raw.githubusercontent.com/Nexosis/sampledata/master/rgb.csv){:target="_blank"}. To get things started let's go ahead and load this dataset into our Nexosis API. 
 
