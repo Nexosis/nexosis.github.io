@@ -8,39 +8,47 @@ tags: [Classification, PowerShell, Video Games]
 use_codestyles: true
 ---
 
-[Counter-Strike: Global Offensive](https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive){:target="_blank"}, or CS:GO for short, is a team-based [multiplayer](https://en.wikipedia.org/wiki/Multiplayer_video_game){:target="_blank"} highly competitive [first person shooter](https://en.wikipedia.org/wiki/First-person_shooter){:target="_blank"} video game made and published by [Valve Software](http://www.valvesoftware.com){:target="_blank"} in 2012 and is still very popular today. This game, like many online games, has had it's share of issues with cheaters. Since cheaters use different techniques to give them an unfair advantage, we hypothesize a player's in-game performance metrics could be used to build a machine learning model that will classify if a player is cheating or not.
+[Counter-Strike: Global Offensive](https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive){:target="_blank"}, or CS:GO for short, is a team-based [multiplayer](https://en.wikipedia.org/wiki/Multiplayer_video_game){:target="_blank"} highly competitive [first person shooter](https://en.wikipedia.org/wiki/First-person_shooter){:target="_blank"} video game made and published by [Valve Software](http://www.valvesoftware.com){:target="_blank"} in 2012 that is still very popular today. This game, like many online games, has seen its share of cheating issues. Since cheaters use a variety of techniques to gain an unfair advantage, we hypothesize a player's in-game performance metrics could be used to build a machine learning model that will classify whether or not that player is cheating.
 
-This tutorial will walk the reader through this sample from beginning to end, starting with collecting, preparing, and submitting the dataset, building and deploying a classification model, and finally using that model to classify players as a potential cheater or honest gamer. If you'd like to follow along, you can sign up for one of our free Community accounts and use curl, [Postman](https://www.getpostman.com){:target="_blank"}, the [Nexosis Powershell client library](https://www.powershellgallery.com/packages/PSNexosisClient/2.1.0){:target="_blank"}, or one of our other [Client Libraries](http://docs.nexosis.com/clients/){:target="_blank"} in the language of your choice.
+This tutorial will walk the reader through this sample from beginning to end: starting with collecting, preparing, and submitting the dataset, building and deploying a classification model, and finally using that model to classify players as either a potential cheater or an honest gamer. If you'd like to follow along, you can sign up for one of our free Community accounts and use curl, [Postman](https://www.getpostman.com){:target="_blank"}, the [Nexosis Powershell client library](https://www.powershellgallery.com/packages/PSNexosisClient/2.1.0){:target="_blank"}, or one of our other [Client Libraries](http://docs.nexosis.com/clients/){:target="_blank"} in the language of your choice. Here's a link to the dataset this article will be working with in our [`sampledata`](https://github.com/Nexosis/sampledata/){:target="_blank"} GitHub repository here at [CS:GO DataSet on GitHub](https://github.com/Nexosis/sampledata/blob/master/csgo-small.csv){:target="_blank"}.
+
+To jump straight to uploading data and building a model, you can start here at [Uploading the Data](#uploading-the-data) section.
 
 -----
 
 ## Gathering The Data
 
-Acquiring publically available in-game player metrics is trivial since Valve's [Steam](https://en.wikipedia.org/wiki/Steam_(software)){:target="_blank"} platform collects and displays this information and makes it available via the [Steam API](https://developer.valvesoftware.com/wiki/Steam_Web_API){:target="_blank"}. Registered Steam users can be looked up via a unique Steam ID which can be used to retrieve public player info, in-game metrics, as well as if the player has been banned due to cheating detected via Valve Anti-Cheat (VAC). VAC has not always been very effective which is why we want to build our own model and see if we can do better.
+Acquiring publicly available in-game player metrics is trivial since Valve's [Steam](https://en.wikipedia.org/wiki/Steam_(software)){:target="_blank"} platform collects and displays this information and makes it available via the [Steam API](https://developer.valvesoftware.com/wiki/Steam_Web_API){:target="_blank"}. Registered Steam users are identified by a unique Steam ID, which can be used to retrieve public player information, in-game metrics, and instances of bans due to cheating detected by Valve Anti-Cheat (VAC). VAC has not always been very effective, which is why we want to build our own model and see if we can do better.
 
-> For more details on the topic of Valve Anti-Cheat's effectiveness, you can watch a talk that Ryan Sevey (Co-Founder/CEO) and I (Co-Founder/CTO) gave at DerbyCon back in 2014 titled [The Multibillion Dollar Industry That's Ignored](https://www.youtube.com/watch?v=xtvYUNF3JoQ&feature=youtu.be){:target="_blank"} which was key research and event leading up to the creation of Nexosis.
+> For more details on the topic of Valve Anti-Cheat's effectiveness back in 2014, you can watch a talk that Ryan Sevey (Co-Founder/CEO) and I (Co-Founder/CTO) gave at [DerbyCon 4.0](https://www.derbycon.com) titled [The Multibillion Dollar Industry That's Ignored](https://www.youtube.com/watch?v=xtvYUNF3JoQ&feature=youtu.be){:target="_blank"} which was key research and an event that led to the creation of Nexosis.
 
 ### All Class Types Must Be Represented In Training Dataset
-Now that the Steam API has been identified as a source of the data, the last missing piece is how to find each class (cheating / not cheating) of player needed to build an effective classification model. The training dataset must be labeled, meaning each record must contain a column identifying cheaters and honest players. Additionally, we'll want to collect approximately an equal number of samples of both classes - the cheaters and honest players. We don't have to be exact though, because the Nexosis API will automatically balance the data set so it doesn't build a model biased towards one class or the other (unless given a parameter to build an unbalanced dataset).
+Now that the Steam API has been identified as our data source, the last missing piece is how to find each class (cheating / not cheating) of player needed to build an effective classification model. The training dataset must be labeled, meaning each record must contain a column identifying cheaters and honest players. Additionally, we'll want to collect approximately an equal number of samples for both classes - the cheaters and honest players. We don't have to be exact because the Nexosis API will automatically balance the data set so it doesn't build a model biased towards one class or the other (unless given a parameter to build an unbalanced dataset).
 
-There are many web sites dedicated to tracking Steam players that have been banned by the Valve Anti-Cheat, such as [vacbanned.com](https://vacbanned.com){:target="_blank"} and [vac-ban.com](http://vac-ban.com){:target="_blank"}. The data's not perfect though, as it's possible to get VACBanned for cheating in a different game, but it's the best we can do without having access to in-game metrics available internally to Valve, who is really in the best position to build the most effective models.
+There are many web sites dedicated to tracking Steam players that have been banned by Valve Anti-Cheat, such as [vacbanned.com](https://vacbanned.com){:target="_blank"} and [vac-ban.com](http://vac-ban.com){:target="_blank"}. The data isn't perfect though, as it's possible to get VACBanned for cheating in a different game. Unfortunately it's the best we can do without having access to in-game metrics available internally to Valve, who is really in the best position to build the most effective models.
+
+<p align="center">
+        <img src="/assets/img/tutorials/wall-hacks.jpg" class="img-responsive" alt="Wall Hacks Shot">
+        <b>Image showing Wall Hacks in CS:GO</b><br/>Source Video: <a href="https://www.youtube.com/watch?v=uwvhA0s6Ex0" target="_blank">How to HACK IN CSGO UNDETECTED 2017 (WALLS) (NO VAC BAN) (FREE)</a>
+</p>
 
 Finding a list of Steam ID's of users known to not be cheating is more difficult, because not all cheaters are detected by Valve's Anti-Cheat so we can't just rely on VACBanned set to 0 in the Steam API. Additionally, players will have a broad range of skill levels from beginner to professional level gamer. We decided to collect data from players in the Professional Gaming League to find the best cut-off point between great players and cheaters. These players are the best but will still have human limitations; we need to make sure our model doesn't accidently classify them as cheater. Additionally, since these players are playing in competitive matches, they have an audience and thus less likely to cheat for fear of getting caught and ruining their career.  There are plenty of web sites listing professional gamers, their statistics, as well as their Steam ID. 
+Finding a list of Steam IDs identifying users known not to be cheating is more difficult. Not all cheaters are detected by Valve's Anti-Cheat, so we can't just rely on a VACBanned value of 0 in the Steam API. Additionally, players will have a broad range of skill levels from beginner to professional. We decided to collect data from players in the Professional Gaming League (PGL) to find the best cut-off point between great players and cheaters. These players are the best but will still have human limitations; we need to make sure our model doesn't accidently classify them as cheaters. Additionally, since these players are playing in competitive matches, they have an audience and are thus less likely to cheat for fear of being caught and jeopardizing their careers.  There are plenty of web sites listing professional gamers, their statistics, as well as their Steam IDs.
 
-Collecting a list of Steam ID's from those web sites is outside the scope of this tutorial, but there are various ways to go about that. Once you have a list of Steam IDs, the next step is to iterate over them all and query the Steam API for the game metrics and save them to a CSV used to build a classification model.
+Collecting a list of Steam IDs from those web sites is outside the scope of this tutorial, but there are various ways to go about that. Once you have a list of Steam IDs, the next step is to iterate over them all, query the Steam API for the game metrics, and save them to a CSV file that will be used to build our classification model.
 
 ### The Steam API
 
-There are three main endpoints required for retrieving information collected to build a Classification Model: 
+There are three main endpoints we will use to gather the data needed to build the model:
 
 - `GetUserStatsForGame` in order to get all the important metrics from the game
-- `GetOwnedGames` which we suspect is correlated to cheating as well - because [if you get VAC Banned you lose certain privileges on Steam making that Steam Account worthless for some things](https://support.steampowered.com/kb_article.php?ref=4044-qdhj-5691){:target="_blank"}. 
-- `GetPlayerBans` is used to make sure we don't accidently identify a player who was caught cheating as a non-cheater.
+- `GetOwnedGames` which we suspect is correlated to cheating as well - because [if you get VAC Banned you lose certain privileges on Steam making that Steam Account worthless for some purposes](https://support.steampowered.com/kb_article.php?ref=4044-qdhj-5691){:target="_blank"}. 
+- `GetPlayerBans` is used to make sure we don't accidently identify a player who was caught cheating in the past as a non-cheater.
 
 #### [GetUserStatsForGame](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetUserStatsForGame_.28v0002.29){:target="_blank"}
 `https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/`
 
-Retrieving player stats from the Steam API is very simple. The API endpoint requires a Steam API key, a player's Steam ID to query, and the AppID of CS:GO.
+Retrieving player stats from the Steam API is very simple. The API endpoint requires a Steam API key, a player's Steam ID, and the AppID of CS:GO.
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#curl" data-toggle="tab">Curl</a></li>
@@ -1507,12 +1515,12 @@ GI.lesson.csgo_instr_explain_inspect                    32
     </div>
 </div>
 
-As you can see above, Counter-Strike tracks approximately 190 public metrics, many of which might not be helpful for detecting cheaters. It will be important to decide which ones to eliminate and which ones to combine to create a new, more meaningful metrics. More on that in the next section.
+As you can see above, Counter-Strike tracks approximately 190 public metrics, many of which may not be helpful for detecting cheaters. It will be important to decide which ones to eliminate and which ones to combine to create new, more meaningful metrics. More on that in the next section.
 
 #### [GetOwnedGames](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetOwnedGames_.28v0001.29){:target="_blank"}
 `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/`
 
-Getting caught cheating results in a ban on a user's Steam Profile so many cheaters won't risk getting caught using their primary profile since it could impact other games they own. This type of account is called a 'Smurf account.' Using the number of games a player owns as one of our features seems like a good idea. However, more recently Steam requires a cell phone number linked to profiles and a ban will impact accounts sharing the same number. While a nice additional step, there are some ways around this (like using your spouse or parents phone number for instance).
+Getting caught cheating results in a recorded on a user's Steam Profile. Many cheaters won't risk being caught using their primary profile, since it could impact other games they own. For this reason players will sometimes create a separate 'Smurf account' on which they will purchase another copy of the game. Using the number of games a player owns as one of our features seems like a good idea. More recently, Steam required a mobile phone number to be linked to profiles. A ban will now impact accounts sharing the same phone number. While a nice additional step, there are still some ways around this, like using the phone number of a spouse or parent.
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#curlOwned" data-toggle="tab">Curl</a></li>
@@ -1849,7 +1857,7 @@ game_count games
 
 #### [GetPlayerBans](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerBans_.28v1.29){:target="_blank"}
 `https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/`
-Player Bans endpoint contains the "VACBanned" property that we will use to label the cheater dataset.
+The Player Bans endpoint contains the "VACBanned" property that we will use to label the cheater dataset.
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#curlGetPlayerBans" data-toggle="tab">Curl</a></li>
@@ -1895,7 +1903,7 @@ EconomyBan       : none
 #### [GetPlayerSummaries](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_.28v0002.29){:target="_blank"}
 `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/`
 
-The Players Summary information isn't required, but is useful for querying to see if the Player Profile is public before attempting to move on and pull down the in-game metrics. If their profile is not public, we cannot get the stats or other information needed so we should just ignore those.
+The Players Summary information isn't required, but is useful for querying to see if the Player Profile is public before attempting to retrieve in-game metrics. If their profile is not public, we cannot get the stats or other information needed so we should just ignore those.
 
 As long as the parameter CommunityVisibilityState is set to 3, we can retrieve their in-game stats.
 
@@ -1966,17 +1974,19 @@ locstatecode             : A8
 </div>
 ## Understanding and Preparing The Data
 
-Based on the amount of data available on a player based on just the 4 Steam API endpoints - there is a choice of over 250 pieces of information. One could blindly jam every single one of these data-points in the Nexosis API, cross our fingers and hope it finds something. The Nexosis API will attempt to reduce the feature set to the most important ones - but if there's little or no correlation between each column and the target, we'll end up with a useless or insufficient model.
+Based on the amount of data available on a player collected from just these four Steam API endpoints - we have a choice of over 250 pieces of information. We could blindly jam every one of these data-points into the Nexosis API, cross our fingers, and hope to find something. The Nexosis API will attempt to reduce the feature set to the most important points - but if there is little or no correlation between each column and the target, we'll end up with a useless or insufficient model.
 
-This means putting some thought into what metrics can be used to identify cheaters in a video game. Some domain knowledge of CS:GO is helpful as well as how cheating works. I've already mentioned above why the number of games owned might help build a more effective model. Any metric that is available either directly or through a calculation indicating a players performance should be obvious choices since cheating should allow them to perform way better than the rest of the players.
+It is more helpful to put some thought into which metrics should be used to identify cheaters in a video game. Some domain knowledge of CS:GO is helpful, as well as how cheating works. I've already mentioned above why the number of games owned might help build a more effective model. Any metric that is available, either directly or through a calculation, indicating a players performance should be an obvious choice since cheating should allow them to perform much better than their opponents.
 
-None of the columns in the dataset contain a direct measure of accuracy, but that's easily solved with a little bit of math. Since we have metrics around the total number of shots overall (total_shots_fired) as well as total shots that hit a player (total_shots_hit) we can very easily come up with an accuracy metric:
+None of the columns in the dataset contain a direct measure of accuracy, but that's easily solved with a little bit of math. Since we have metrics around the total number of shots  (total_shots_fired) and the total of shots that hit an enemy player (total_shots_hit) we can very easily come up with an accuracy metric:
+
+> [Here's a link to a gist of a sample  Powershell Script that ties together all of these Steam API calls to retrieve, calculate, and package up all of these player stats.](https://gist.github.com/nexosisops/0880381e47befb96a8e86c38986a43e1){:target="_blank"}
 
 ``` text
 total_accuracy = total_shots_hit / total_shots_fired
 ```
 
-And then again for each weapon, like so: 
+And then again for each weapon, like so:
 
 ``` text
 accuracy_ssg08 = total_hits_ssg08 / total_shots_ssg08
@@ -2009,7 +2019,8 @@ accuracy_tec9 = total_hits_tec9 / total_shots_tec9
 accuracy_ump45 = total_hits_ump45 / total_shots_ump45
 accuracy_xm1014 = total_hits_xm1014 / total_shots_xm1014
 ```
-Finally we can come up with some performance ratio's that create a metrics that ties to how well they are playing and can easily be compared:
+
+Finally we can compute some performance ratios that relate to how well they are playing and that can easily be compared:
 
 ``` text
 win_ratio = total_wins / total_rounds_played
@@ -2019,16 +2030,16 @@ mvp_per_round = total_mvps / total_rounds_played
 total_headshots_per_round = total_kills_headshot / total_rounds_played
 ```
 
-Another important consideration when choosing what data to include has to do with data quality. Here are some additional rules that were considered when choosing data to build the model:
+Another important consideration when choosing what data to include has to do with data quality. Here are some additional rules that were considered when choosing the data to train our model:
 
 1. Exclude a Steam ID if the player doesn't own CS:GO or has a Private Steam Profile.
-2. Exclude a Steam ID that was VAC Banned before CS:GO was released. Being banned before the game existed means they were banned cheating at another game.
-3. Drop mathematically impossible statistics returned by the Steam API for a given Steam ID (range checks, etc. No data set is clean)
+2. Exclude a Steam ID that was VAC Banned before CS:GO was released. Being banned before the game existed means they were definitely banned cheating at another game.
+3. Drop mathematically impossible statistics returned by the Steam API for a given Steam ID (range checks, etc.) No data set is completely clean.
 4. Drop Players that haven't played enough:
- * Drop rows in which a player has less than 100 frags
- * Drop rows if player has less than four (4) hours of play time.
+ * Drop rows in which a player has less than 100 kills.
+ * Drop rows in which a player has less than four hours of play time.
 
-Having excluded data that's not ideal for building the model and calculating metrics, a CSV file containing these data points would look something like this:
+Having excluded data that's not ideal for building the model and calculating metrics, a CSV file containing the relevant data points would look something like this:
 
 ``` csv
 SteamID,win_ratio,total_accuracy,kill_to_death_ratio,total_wins_per_hour,mvp_per_round,total_headshots_per_round,accuracy_ssg08,accuracy_awp,accuracy_deagle,accuracy_aug,accuracy_scar20,accuracy_m4a1,accuracy_ak47,accuracy_bizon,accuracy_elite,accuracy_famas,accuracy_fiveseven,accuracy_g3sg1,accuracy_galilar,accuracy_glock,accuracy_hkp2000,accuracy_m249,accuracy_mac10,accuracy_mag7,accuracy_mp7,accuracy_mp9,accuracy_negev,accuracy_nova,accuracy_p250,accuracy_p90,accuracy_sawedoff,accuracy_sg556,accuracy_tec9,accuracy_ump45,accuracy_xm1014,total_games_owned,VACBanned
@@ -2045,17 +2056,17 @@ SteamID,win_ratio,total_accuracy,kill_to_death_ratio,total_wins_per_hour,mvp_per
 
 ```
 
-Notice that some of the columns are empty - that's okay, the Nexosis API has data imputation strategies internally that help solve for that.
+Notice that some of the columns are empty - that's okay. The Nexosis API has data imputation strategies internally that help solve for that.
 
-The sample dataset originally used in building this model had around 21,000 CSGO player metrics and was aprox. 9MB on disk.
+The sample dataset originally used in building this model had around 21,000 CS:GO player metrics and was approximately 9MB on disk.
 
-## Uploading the Data
+<h2 id="uploading-the-data" class="jumptarget">Uploading the Data</h2>
 
-For the simplification of this model and sample so it doesn't use up the Nexosis Quotas on our Community Pricing Tier, we've prepared a smaller sub-set of the data which scores about over 5% less accurate but is good enough to follow along and understand what's happening and get some decent results.
+To simplify this sample and avoid using up the quotas on our Community Pricing Tier, we've prepared a smaller sub-set of the data. This produces a less accurate model, but it is good enough to follow along, understand what iss happening, and get some decent results.
 
-> When you create an account with Nexosis and chose to include the sample datasets in your account, this dataset will be pre-loaded and is named 'CSGO-Stats'. We've also included it in our `sampledata` github repo here at [CSGO DataSet on Git](https://github.com/Nexosis/sampledata/blob/master/csgo-small.csv){:target="_blank"}
+> When you create a Nexosis account and chose to include the sample datasets, this dataset will be pre-loaded and is named 'CSGO-Stats'. We've also included it in our `sampledata` GitHub repository here at [CS:GO DataSet on GitHub](https://github.com/Nexosis/sampledata/blob/master/csgo-small.csv){:target="_blank"}
 
-If the SteamID is included when you upload the dataset, the API needs to know to treat it as a primary identifier (much like a database primary key) which requires the Columns metadata set to indicate its Role.  To simplify, we can exclude this column as well since we don't plan on matching the model results back up with the original dataset and build the model without it.
+If the SteamID is included when you upload the dataset, the Nexosis API needs to know to treat it as a primary identifier (much like a database primary key) which requires the Columns metadata set to indicate its Role.  To simplify, we can exclude this column and build the model without it.
 
 To import from our GitHub URL linked above `POST` to `https://ml.nexosis.com/v1/imports/Url` and set the BODY to `{"contentType": "csv","url":"https://raw.githubusercontent.com/Nexosis/sampledata/master/csgo-small.csv","dataSetName":"CSGO-Stats"}` like so:
 
@@ -2093,7 +2104,7 @@ To import from our GitHub URL linked above `POST` to `https://ml.nexosis.com/v1/
 }</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellUploadData">
-      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Import-NexosisDataSetFromUrl -url https://raw.githubusercontent.com/Nexosis/sampledata/master/csgo-small.csv -dataSetName CSGO-Stats -contentType csv
 
 importId      : 0160dcdb-48ab-43e9-8465-10c9f0047183
@@ -2111,7 +2122,7 @@ links         : {@{rel=self; href=https://ml.nexosis.com/v1/imports/Url}, @{rel=
     </div>
 </div>
 
-Once the import has been queued, we can check on the `status` to be `completed`:
+Once the import has been queued, we can check on the `status` to see if it is `completed`:
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#curlUploadDataStatus" data-toggle="tab">Curl</a></li>
@@ -2151,7 +2162,7 @@ Once the import has been queued, we can check on the `status` to be `completed`:
 }</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellUploadDataStatus">
-      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Get-NexosisImport -importId 0160dcdb-48ab-43e9-8465-10c9f0047183
 
 importId      : 0160dcdb-48ab-43e9-8465-10c9f0047183
@@ -2172,7 +2183,7 @@ links         : {@{rel=self; href=https://ml.nexosis.com/v1/imports/0160dcdb-48a
 
 ## Creating a Classification Model
 
-Now the the data is uploaded, a model can be built using CSGO player statistics to predict if a player has potentially been cheating:
+Now that the data is uploaded, a model can be built using CS:GO player statistics to predict whether a player has potentially been cheating:
 
 To build a classification model, `POST` to `https://ml.nexosis.com/v1/sessions/model` to start a Model building session:
 
@@ -2438,7 +2449,7 @@ To build a classification model, `POST` to `https://ml.nexosis.com/v1/sessions/m
 }</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellBuildModel">
-      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Start-NexosisModelSession -dataSourceName csgo -targetColumn VACBanned -predictionDomain Classification
 
 columns                      : @{win_ratio=; accuracy_aug=; accuracy_awp=; accuracy_mp7=; accuracy_mp9=; accuracy_p90=; accuracy_ak47=; accuracy_m249=; accuracy_m4a1=; 
@@ -2475,7 +2486,7 @@ Since building a model is computationally expensive, it's not instantaneous - we
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="curlModelStatus">
     <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p><pre class="language-bash"><code class="language-bash code-toolbar">$ curl -X HEAD "https://ml.nexosis.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec" \
-     -H "api-key: $NEXOSIS_API_KEY" --head -s</code></pre>HTTP Headers:<pre class="language-test" style="max-height:30em;"><code class="language-test code-toolbar">HTTP/1.1 200 OK
+     -H "api-key: $NEXOSIS_API_KEY" --head -s</code></pre>HTTP Headers:<pre class="language-text" style="max-height:30em;"><code class="language-text code-toolbar">HTTP/1.1 200 OK
 Content-Length: 0
 Nexosis-Session-Status: Completed
 Nexosis-Account-DataSetCount-Allotted: 200
@@ -2489,7 +2500,7 @@ Nexosis-Request-Cost: 0.00 USD
 Date: Tue, 09 Jan 2018 23:27:18 GMT</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellModelStatus">
-      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Get-NexosisSessionStatus -SessionId 016050d8-8b42-44bc-9c2b-360a240d6aec
 
 Completed</code>
@@ -2699,7 +2710,7 @@ Once the Model Building Session is complete you can retrive the results issuing 
 }</code></pre>
     </div>
     <div role="tabpanel" class="tab-pane" id="powershellSessionResults">
-      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Get-NexosisSessionResult -SessionId 016050d8-8b42-44bc-9c2b-360a240d6aec</code></pre>Output:<pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">metrics                      : @{macroAverageF1Score=0.72521972411860092; rocAreaUnderCurve=0.79444811632518164; 
                                accuracy=0.72888888888888892; macroAveragePrecision=0.72667984189723323; 
                                macroAverageRecall=0.73690515532055523; matthewsCorrelationCoefficient=0.46347221341824979}
@@ -3025,7 +3036,7 @@ Once the model has been created, it can be inspected by sending a `GET` to `http
 }</code></pre>
    </div>
    <div role="tabpanel" class="tab-pane" id="powershellModel">
-      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> Get-NexosisModelDetail -ModelId 1b79d672-99a4-47f7-a387-a001d9420220</code></pre>Output:<pre class="language-powershell" style="max-height:30em;"><code class="language-powershell code-toolbar">columns          : @{VACBanned=; win_ratio=; accuracy_aug=; accuracy_awp=; accuracy_mp7=; accuracy_mp9=; accuracy_p90=; accuracy_ak47=; 
                    accuracy_m249=; accuracy_m4a1=; accuracy_mag7=; accuracy_nova=; accuracy_p250=; accuracy_tec9=; mvp_per_round=; 
                    accuracy_bizon=; accuracy_elite=; accuracy_famas=; accuracy_g3sg1=; accuracy_glock=; accuracy_mac10=; accuracy_negev=; 
@@ -3047,7 +3058,7 @@ links            : {@{rel=self; href=https://ml.nexosis.com/v1/models/1b79d672-9
     </div>
 </div>
 
-Focus in on the `algorithm` and `metrics` nodes in the JSON response. The algorithm used is a `Support Vector Classification using Radial Basis Function` which resulted in an accuracy score is 72% for this model. As was mentioned already, providing more data when building the model can increase the accuracy.
+Focus in on the `algorithm` and `metrics` nodes in the JSON response. The algorithm used is a `Support Vector Classification using Radial Basis Function` which resulted in an accuracy score of  72% for this model. As was mentioned already, providing more data when building the model can increase the accuracy.
 
 
 <ul id="profileTabs" class="nav nav-tabs">
@@ -3075,7 +3086,7 @@ Focus in on the `algorithm` and `metrics` nodes in the JSON response. The algori
 }</code></pre>
    </div>
    <div role="tabpanel" class="tab-pane" id="powershellModelAlgoMetrics">
-      <p>The following command assumes your Steam API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
+      <p>The following command assumes your Nexosis API Key is stored in an Environment Variable called <code>$NEXOSIS_API_KEY</code>.</p>
       <pre class="language-powershell"><code class="language-powershell code-toolbar">PS> $modelDetail = Get-NexosisModelDetail -ModelId 20a41d0e-3663-469b-bdc0-5e2e1e12e0e4
 PS> $modelDetail.algorithm
 
@@ -3100,17 +3111,17 @@ matthewsCorrelationCoefficient : 0.46347221341824979
 
 ## Using the Model
 
-Now that we have a model, let's use it to predict. We're going to need to retrieve data on a player from the Steam API, calculate the accuracy stats, and then submit it to the model prediction endpoint in the Nexosis API using the Model ID assigned to this model.
+Now that we have a model it is time to make predictions. We're going to need to retrieve data on a player from the Steam API, calculate the accuracy stats, and then submit it to the model prediction endpoint in the Nexosis API using the assigned Model ID.
 
-To check to see how well our model did, I did some googling and found some complaints against certain Steam accounts and accused them of cheating so I ran them through this model and I also used vac-ban.com as well to find other already banned accounts to help validate the model.
+To check to see how well our model did, I did some googling and found complaints against certain Steam accounts that had been accused of cheating. I ran them through this model and also used vac-ban.com to find some known, banned accounts that can help validate the model.
 
-Here's the script using a function I wrote called `Invoke-CalculateCsGoStatsForSteamId` that does the Steam API call and calcuates the statistics and packages the data up properly to be submitted to the API:
+[Here's a link to the gist of a PowerShell script for a function I wrote called `Invoke-CalculateCsGoStatsForSteamId`](https://gist.github.com/nexosisops/0880381e47befb96a8e86c38986a43e1){:target="_blank"}. It queries the Steam API using a players Steam ID, retrieves the metrics, calcuates the statistics and packages the data up properly to be submitted to the Nexosis API:
 
 <pre class="language-powershell" style="max-height:38em;"><code class="language-powershell code-toolbar">$suspectStatData = @()
 # suspected cheaters identified by other players - posted in different forums online
 $suspectedCheatSteamID = @(
-    '76561198361486862',  # Steam ID of suspected cheater - stats indicate cheater
-    '76561198121540097',  # http://www.vac-ban.com/76561198121540097/stats.html - someone mentioned suspicion in a forum - stats don't trip cheat detection
+    '76561198361486862',  # Steam ID of suspected cheater
+    '76561198121540097',  # http://www.vac-ban.com/76561198121540097/stats.html -  mentioned suspected cheater in forum
     '76561197978008587',  # http://www.vac-ban.com/76561197978008587/stats.html
     '76561198097618775',  # http://www.vac-ban.com/76561198097618775/stats.html
 )
@@ -3128,7 +3139,7 @@ $suspiciousResults = Invoke-NexosisPredictTarget -modelId 1b79d672-99a4-47f7-a38
 $suspiciousResults.data
 </code></pre>
 
-Additionally, I captured the `VACBanned` flag from the Steam API and re-named it `VACBannedActual`. The Nexosis API will reflect back any column submitted in a prediction, but will not use unrecognized elements - this way we'll get back a `VACBanned` prediction from the Nexosis API and `VacBannedActual` which is what the Steam API has on record for this player.
+Additionally, I captured the `VACBanned` flag from the Steam API and renamed it `VACBannedActual`. The Nexosis API will reflect back any column submitted in a prediction, but will not use unrecognized elements - this way we'll get back a `VACBanned` prediction from the Nexosis API and `VacBannedActual`, which is what the Steam API has on record for this player.
 
 Here is the RAW JSON body needs to be packaged up as a JSON array named `data` like so in a `POST` to `https://ml.nexosis.com/v1/models/{modelId}/predict`:
 
@@ -3298,7 +3309,7 @@ Here is the RAW JSON body needs to be packaged up as a JSON array named `data` l
 }
 </code></pre>
 
-The response back from the Nexosis API will contain all the data that was submitted and it will add the prediction target `VACBanned`. Here's the response to our predictions - when comparing `VACBanned` with `VACBannedActual` this model agrees with 3 of the 4 Steam ID's below.
+The response back from the Nexosis API will contain all the data that was submitted and it will add the prediction target `VACBanned`. Here's the response to our predictions - when comparing `VACBanned` with `VACBannedActual` this model agrees with 3 of the 4 Steam IDs below.
 
 <pre class="language-json" style="max-height:30em;"><code class="language-json code-toolbar">{
     "data": [{
@@ -3355,17 +3366,20 @@ The response back from the Nexosis API will contain all the data that was submit
 
 ## Final Thoughts: Improving the Model
 
-There's certainly more to do to improve this model but our first pass has us off to a great start. As has been mentioned a few times before, using more data will help improve the accuracy of the model. But not only is more data required; we need the right data, and this takes some thought about the problem and some experimentation.
+There's certainly more to do to improve this model, but our first pass has us off to a great start. As has been mentioned a few times before, using more data will help improve the accuracy of the model. But not only is more data required, we need the right data. This takes some thought about the problem and some experimentation.
 
-It's very likely our model has some limitations based on the data available from the Steam API. For example, we can't take into account a player's performance per game map which might help improve the model, or per game mode (CSGO has 13 different modes) since the Steam API doesn't provide stats per game mode. For example, if someone tends to play less common game mode like Capture and Hold it may influence the model's ability to accurately predict for them. With enough data there is a better chance these types of differences can be represented in the model, thus improving the accuracy. 
+Our model has some limitations based on the availability of data in the Steam API. For example, we can't take into account a player's performance per game map which might help improve the model, or per game mode (CS:GO has 13 different modes) since the Steam API doesn't provide statistics at those levels. If someone tends to play a less common game mode like Capture and Hold, it may influence the model's ability to accurately predict for them. With enough data there is a better chance these types of differences can be represented in the model, thus improving its accuracy.
 
-Finally, our follow-up research indicates that the more important factors that could be used to identify cheaters and using these features instead can help us build a much more accurate model:
+Finally, our follow-up research indicates that there are more important factors which could be used to identify cheaters, and using these features instead can help us build a much more accurate model:
 
 1. Weapons donated per hour
 2. Total time played
 3. P250 Shot ratio 
 4. P250 gun kill ratio
 5. P25 gun hit ratio
+
+
+<img src="/assets/img/tutorials/variable-importance-plot.png" class="img-responsive" alt="Variable Importance Plot" height="50%" width="50%">
 
 When these were used we achieved an accuracy of just over 90%.  How well do you think you can do?
 
