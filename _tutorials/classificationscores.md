@@ -18,9 +18,9 @@ In this tutorial we'll cover creating a classification model and using it to cla
 ### Classication of Color with RGB
 When executing a classification model we want the algorithm to identify a class (group, bucket, name, etc) based on new observations so the machine can tell us what something is. In our example here we want to hand in values of the 3 constituents of a Red, Green, and Blue based color and get a name for the color mapped to these values; for example if we have R: 255, G: 0, B: 0 as our observations, we should find this will be labeled *Red*. A trivial end goal perhaps, but all of the concepts are the same as classifying something as important as 'cancer'/'not cancer'.
 
-> You can see one of many online color maps at [RapidTables](https://www.rapidtables.com/web/color/RGB_Color.html){:target="_blank"}.
+You can see one of many online color maps at [RapidTables](https://www.rapidtables.com/web/color/RGB_Color.html){:target="_blank"}.
 
-In order for the machine to learn the relationship between these 3 variables we feed it a training set that has many different combinations of R, G, and B and an existing label:
+In order for the machine to learn the relationship between these 3 variables we feed it a training set that has many different combinations of R, G, and B and an existing label.
 
 <table>
 	<tr>
