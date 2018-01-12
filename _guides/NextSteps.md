@@ -18,6 +18,7 @@ Here are some good places to go next to gain further understanding:
 * [Working with Sessions](session)
 * [Specifying Features for Your Data](specifyingfeatures)
 * [Describing Your Data](columnmetadata)
+* [Algorithm Contest Results](/guides/contestendpoints)
 
 -----
 
