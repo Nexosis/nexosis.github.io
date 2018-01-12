@@ -1,5 +1,5 @@
 ---
-title: Anomaly Quick Start
+title: Anomaly Detection Quick Start
 description: Getting started guide for using the Nexosis API
 copyright: 2018 Nexosis
 layout: default 

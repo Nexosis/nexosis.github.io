@@ -142,13 +142,13 @@ The *targetColumn* is the name of the column which contains the labels in our da
 }
 ```
 
-Give this one a minute or two; sessions with larger datasets tend to take a while longer. You can get the session details from the /sessions/:sessionid: endpoint
+Give this session a minute or two to run. Sessions with larger datasets would tend to take a while longer than that. When you're ready you can get the session details from the /sessions/:sessionid: endpoint
 
 ```
 GET https://ml.nexosis.com/v1/sessions/0160bdf7-cd8f-458f-9b46-6413ff6973bc
 ```
 
- The response JSON will include a property *modelId* once the session has completed. This is the value we'll need to finally get some predictions from the hosted model.
+ The response JSON will include a property *modelId* if the session has completed. If the status of the session is still "started", then give it a little more time. The modelId is the value we'll need to finally get some predictions from the hosted model.
 
 ``` json
 {
@@ -162,7 +162,7 @@ GET https://ml.nexosis.com/v1/sessions/0160bdf7-cd8f-458f-9b46-6413ff6973bc
 Now that we have a model we can ask for the name of a color based on values for R,G, and B. Let's use the coral color from above as it is in the training set. We request predictions from the [model/:modelid:/predict](https://developers.nexosis.com/docs/services/98847a3fbbe64f73aa959d3cededb3af/operations/59d79fa1adf47c0d60484fe8){:target="_blank"} endpoint:
 
 ```
-POST https://ml.nexosis.com/v1/model//predict
+POST https://ml.nexosis.com/v1/model/82291eff-80c5-4c58-bf46-961266d00115/predict
 ```
 The JSON request body will include the values for R,G,B for which we want to predict a color. The request takes an array in the *data* property because we could submit multiple predictions in the same request.
 
