@@ -10,7 +10,7 @@ use_codestyles: false
 ---
 ## The Process
 
-Regression allows you to estimate the relationships between variables. Classification allows you to organize information into categories. The Nexosis API allows you to upload a dataset and it will model these relationships. Once the relationship is understood this model is persisted and used to further predict values or classify your data, given new inputs. Take a moment to familiarize yourself with the high-level process before using Regression and Classification.
+Regression allows you to estimate the relationships between variables. Classification allows you to organize information into categories. Anomaly Detection helps you find outliers in your data. The Nexosis API allows you to upload a dataset and it will model these relationships. Once the relationship is understood this model is persisted and used to further predict values or classify your data, given new inputs. Take a moment to familiarize yourself with the high-level process before using Regression and Classification.
 
 We've worked hard to keep the high-level process simple. Here's the basic process:
 
