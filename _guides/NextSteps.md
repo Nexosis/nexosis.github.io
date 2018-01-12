@@ -23,6 +23,8 @@ Here are some good places to go next to gain further understanding:
 
 Explore Our Walkthroughs and Tutorials
 * [Regression Walkthrough](regression)
+* [Classification Quick Start](quickstartguideclassification)
+* [Anomaly Detection Quick Start](quickstartguideanomaly)
 * [Forecast Walkthrough](forecast)
 * [Various Tutorials Answering Different Questions](/tutorials)
 
