@@ -49,7 +49,7 @@ Putting this all together, we will have a two requests that look like the ones b
 ### Upload a file
 
 ``` bash
-curl -v -X PUT "https://ml.nexosis.com/v1/data/auto-mpg" \
+curl -s -X PUT "https://ml.nexosis.com/v1/data/auto-mpg" \
             -H "Content-Type: application/json" \
             -H "api-key: {subscription key}" \
  --data-binary "@/path/to/file/auto-mpg.data.json"
@@ -58,7 +58,7 @@ curl -v -X PUT "https://ml.nexosis.com/v1/data/auto-mpg" \
 ### Start a Session
 
 ``` bash
-curl -v -X POST "https://ml.nexosis.com/v1/sessions/model \
+curl -s -X POST "https://ml.nexosis.com/v1/sessions/model" \
              -H "Content-Type: application/json" \
              -H "api-key: {subscription key}" \
              -d '{"dataSourceName": "auto-mpg", "predictionDomain": "regression", "targetColumn": "mpg"}'
@@ -98,7 +98,7 @@ Here we can see that we have a `sessionId`, which we will need later on.  Also, 
 ### Check status of session
 
 ``` bash
-curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}" \
+curl -s -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}" \
             -H "api-key: {subscription key}"
 ```
 
@@ -114,7 +114,7 @@ Predictions can be made by issuing a POST to the model/predict endpoint. When yo
 In order to predict you first need the modelId for the model trained by the session in step 2. This comes back in the session results
 
 ``` bash
-curl -v -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}/results" \
+curl -s -X GET "https://ml.nexosis.com/v1/sessions/{sessionId}/results" \
             -H "api-key: {subscription key}"
 ```
 
@@ -135,7 +135,7 @@ This response will look a lot like the other above but importantly has the field
 With the model id and a set of new values for the features you're ready to request a prediction.
 
 ``` bash
-curl -v -X POST "https://ml.nexosis.com/v1/models/{modelId}/predict" \
+curl -s -X POST "https://ml.nexosis.com/v1/models/{modelId}/predict" \
             -H "api-key: {subscription key}" \
             -H "Content-Type: application/json" \
             -d '{"data":[{ "Make": "plymouth", "Origin": "1", "Weight": "3430", "Cylinders": "6", "ModelYear": "78", "Horsepower": "100", "Acceleration": "17.2", "Displacement": "225"}] }'

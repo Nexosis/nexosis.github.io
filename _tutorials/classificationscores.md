@@ -70,7 +70,7 @@ I am going to use [Postman](https://www.getpostman.com/postman){:target="_blank"
 <img alt="set headers in postman" src="../assets/img/postmanheader.png" height="175px"/>
 
 ### Load the RGB.csv Dataset
-<a name="upload"/>
+<a name="upload" class="jumptarget"/>
 In this case I am going to load the file via the [imports/url](https://developers.nexosis.com/docs/services/98847a3fbbe64f73aa959d3cededb3af/operations/5a2af0a8adf47c0d20245a67){:target="_blank"} endpoint:
 
 ```
@@ -87,7 +87,7 @@ We need a couple of variables in the JSON payload; one to name this dataset, and
 Once you've executed this POST the Nexosis API will grab the content from the url and add a DataSet named *RGB*. When requesting a model session the DataSet name will be used as the data source from which the model is built.
 
 ### Build the Model
-<a name="model"/>
+<a name="model" class="jumptarget"/>
 
 We'll now submit a model build session request to the Nexosis API. Building a model means allowing an algorithm to run over the dataset to figure out the relationship between variables. This *learning* process is of course the whole point of ML. The resulting model is just a persistent calculation we can use on subsequent rows of data where we may not know the label or class. For example when we submit <span style="background-color:#F08080;margin:2px"> R: 240; G: 128; B: 128 </span> we expect the model to return the class prediction *Red*.  With the Nexosis API we build a model by making a call to the [sessions/model](https://developers.nexosis.com/docs/services/98847a3fbbe64f73aa959d3cededb3af/operations/59d79fa1adf47c0d60484fe9){:target="_blank"} endpoint:
 
@@ -158,7 +158,7 @@ GET https://ml.nexosis.com/v1/sessions/0160bdf7-cd8f-458f-9b46-6413ff6973bc
 }
 ```
 ### Color Predictions
-<a name="predict"/>
+<a name="predict" class="jumptarget"/>
 Now that we have a model we can ask for the name of a color based on values for R,G, and B. Let's use the coral color from above as it is in the training set. We request predictions from the [model/:modelid:/predict](https://developers.nexosis.com/docs/services/98847a3fbbe64f73aa959d3cededb3af/operations/59d79fa1adf47c0d60484fe8){:target="_blank"} endpoint:
 
 ```
