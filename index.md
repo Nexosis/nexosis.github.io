@@ -55,6 +55,8 @@ exclude_from_search: true
                   <img src="/assets/img/regression.png">
                 {% when "Classification" %}
                   <img src="/assets/img/classification.png">
+                {% when "Anomaly Detection" %}
+                  <img src="/assets/img/anomaly-detection.png">
                 {% when "Impact Analysis" %}
                   <img src="/assets/img/impact-analysis.png">
                 {% when "Getting Started" %}

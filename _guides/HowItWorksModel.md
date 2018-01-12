@@ -1,10 +1,10 @@
 ---
-title: How It Works&#58; Regression & Classification
-description: Understand how to interact with the Nexosis API for both regression and classification models
+title: How It Works&#58; Model Building
+description: Understand how to interact with the Nexosis API for both regression, classification and anomaly detection models.
 copyright: 2017 Nexosis 
 layout: default
-category: Regression, Classification
-tags: [Predict, Classify, Quick Links, Favorite]
+category: [Regression, Classification, Anomaly Detection]
+tags: [Predict, Classify, Anomaly Detection,  Quick Links, Favorite]
 order: 1
 use_codestyles: false
 ---
@@ -38,6 +38,11 @@ Classification is a process by which the Nexosis API, through the analysis of a 
 
 For example, if you had a variety of measurements of characteristics of an Iris flower that allowed you to determine which species it was - such as sepal length and width, and petal length and width, you could train a Classification model to learn to make this distinction given only these characteristics.
 
+<h4>Anomaly Detection</h4>
+Anomaly Detection is a process by which the Nexosis API, through the analysis of a particular dataset, will attempt to find observations in your dataset that fall outside of what's normal inside your dataset. It can then predict if other observations are anomalous, or outliers, using the generated model.
+
+For example, if you had a variety of heart measurements from an EKG (encephalograph) you could determine if some of the signals were outside of the normal range.
+
 <h4>The DataSet</h4>
 Once the _dataset_ has been submitted, a _regression_ or _classification_ session can be created to build a model.
 
@@ -66,3 +71,5 @@ Over time you may collect more data that can help improve the model, or you coul
 Read [Prediction Quick Start](quickstartguidepredict) for an end-to-end example where you can see how the whole process works with Regression.
 
 Read [Classification Quick Start](quickstartguideclassification) for an end-to-end example to see how the Classification process works.
+
+Read [Anomaly Detection Quick Start](quickstartguideanomaly) for an end-to-end example to see how the Anomaly Detection process works.

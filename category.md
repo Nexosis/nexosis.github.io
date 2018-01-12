@@ -23,7 +23,7 @@ exclude_from_search: true
   <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
     <div class="panel bg-color-lightGray">
       <div class="panel-body">
-        <h5 id="{{ ct | slugify }}">{{ ct }} <span class="color-mediumGray pull-right"><i class="fa fa-file-text-o"></i></span></h5>
+        <h5 id="{{ ct | slugify }}" class="jumptarget">{{ ct }} <span class="color-mediumGray pull-right"><i class="fa fa-file-text-o"></i></span></h5>
         <hr>
         <div class="row">
           <!-- Guides -->

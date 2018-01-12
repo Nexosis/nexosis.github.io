@@ -30,6 +30,7 @@ guides-category-order:
   - Forecasting
   - Regression
   - Classification
+  - Anomaly Detection
   - Security
   - Troubleshooting
 
