@@ -67,7 +67,7 @@ curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
 ### Start a Session
 
 ``` bash
-curl -v -X POST "https://ml.nexosis.com/v1/sessions/model \
+curl -v -X POST "https://ml.nexosis.com/v1/sessions/model" \
              -H "Content-Type: application/json" \
              -H "api-key: {subscription key}" \
              -d '{"dataSourceName": "iris", "predictionDomain": "classification", "targetColumn": "iris"}'
