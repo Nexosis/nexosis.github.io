@@ -15,7 +15,7 @@ This is a quick walkthrough of the basics of the using the Nexosis API.  By foll
 
 ## Step 1: Prepare data for upload
 
-In order to start using the Nexosis API, you'll need to upload some data for the API to process. Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have [several DataSets available](https://github.com/Nexosis/sampledata) which includes the famous iris data with some identifiable features of different species of Iris flowers.  The [Iris DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.csv) includes data like this (json shown):
+In order to start using the Nexosis API, you'll need to upload some data for the API to process. Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have [several DataSets available](https://github.com/Nexosis/sampledata){:target="_blank"} which includes the famous iris data with some identifiable features of different species of Iris flowers.  The [Iris JSON DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.json){:target="_blank"} includes data like this (json shown):
 
 ``` json
 [
@@ -45,7 +45,7 @@ Putting this all together, we will have a two requests that look like the ones b
 ### Upload a file
 
 #### JSON File 
-If you're using the `iris.json` file from our sampleData repo: [Iris DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.json). Make sure to submit the correct Content-Type.
+If you're using the `iris.json` file from our sampleData repo: [Iris JSON DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.json){:target="_blank"}. Make sure to submit the correct Content-Type.
 
 ``` bash
 curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
@@ -55,7 +55,7 @@ curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
 ```
 
 #### CSV File
-If you're using the `iris.csv` file from our sampleData repo: [Iris DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.csv). Make sure to submit the correct Content-Type.
+If you're using the `iris.csv` file from our sampleData repo: [Iris CSV DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.csv){:target="_blank"}. Make sure to submit the correct Content-Type.
 
 ``` bash
 curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
