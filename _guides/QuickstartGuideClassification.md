@@ -45,7 +45,7 @@ Putting this all together, we will have a two requests that look like the ones b
 ### Upload a file
 
 #### JSON File 
-If you're using the `iris.json` file from our sampleData repo: [Iris JSON DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.json){:target="_blank"}. Make sure to submit the correct Content-Type.
+If you're using the `iris.json` file from our sampleData repo: [Iris JSON DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.json){:target="_blank"}. Make sure to submit the correct `Content-Type` header.
 
 ``` bash
 curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
@@ -55,7 +55,7 @@ curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
 ```
 
 #### CSV File
-If you're using the `iris.csv` file from our sampleData repo: [Iris CSV DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.csv){:target="_blank"}. Make sure to submit the correct Content-Type.
+If you're using the `iris.csv` file from our sampleData repo: [Iris CSV DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.csv){:target="_blank"}. Make sure to submit the correct `Content-Type` header.
 
 ``` bash
 curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
