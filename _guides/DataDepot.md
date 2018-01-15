@@ -1,5 +1,5 @@
 ---
-title: Open Data Respositories
+title: Open Data Repositories
 description: A list of repositories to find good, open datasets 
 copyright: 2017 Nexosis 
 layout: default
