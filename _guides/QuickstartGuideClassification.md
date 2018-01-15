@@ -44,12 +44,25 @@ Putting this all together, we will have a two requests that look like the ones b
 
 ### Upload a file
 
+#### JSON File 
+If you're using the `iris.json` file from our sampleData repo: [Iris DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.json). Make sure to submit the correct Content-Type.
+
 ``` bash
 curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
             -H "Content-Type: application/json" \
             -H "api-key: {subscription key}" \
- --data-binary "@/path/to/file/iris.csv"
+ --data-binary "@/path/to/file/iris.json"
 ```
+
+#### CSV File
+If you're using the `iris.csv` file from our sampleData repo: [Iris DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.csv). Make sure to submit the correct Content-Type.
+
+``` bash
+curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
+            -H "Content-Type: text/csv" \
+            -H "api-key: {subscription key}" \
+ --data-binary "@/path/to/file/iris.csv"
+ ```
 
 ### Start a Session
 
