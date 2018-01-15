@@ -4,7 +4,7 @@ description: Understand how to interact with the Nexosis API for both regression
 copyright: 2017 Nexosis 
 layout: default
 category: [Regression, Classification, Anomaly Detection]
-tags: [Predict, Classify, Anomaly Detection,  Quick Links, Favorite]
+tags: [Predict, Classify, Anomaly Detection, Quick Links, Favorite]
 order: 1
 use_codestyles: false
 ---
@@ -24,7 +24,7 @@ Then optionally:
 2. Update _Dataset_ with additional new data and rebuild, or train new model.
 3. Start a new Session. Repeat.
 
-|<img src="../assets/img/regression-classification-flow.png" alt="[How It Works - Regression and Classification]" width="75%"/>
+|<img src="../assets/img/regression-classification-anomaly.png" alt="[How It Works - Regression and Classification]" width="75%"/>
 
 <h3 id="dataset" class="jumptarget">Submit a Dataset</h3>
 
