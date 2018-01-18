@@ -50,7 +50,7 @@ exclude_from_search: true
   h5 {font-size: 1.5em;font-weight: 600;}
 </style>
 
-{% for ct in site.guides-category-order %}
+{% for ct in site.tutorials-category-order %}
 <div class="col-md-12">
   <div class="panel">
     <div class="panel-body">
@@ -67,7 +67,7 @@ exclude_from_search: true
           </div>
         </div>
         <div class="col-md-7 p25 bg-color-lightGray" style="border-radius: 5px;">
-          {% assign guides = site.tutorials | sort: "order" %}
+          {% assign tutorials = site.tutorials | sort: "order" %}
           {% for post in tutorials %}
             {% if post.category contains ct %}
               <div class="col-md-6">
