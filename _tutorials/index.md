@@ -50,7 +50,7 @@ exclude_from_search: true
   h5 {font-size: 1.5em;font-weight: 600;}
 </style>
 
-{% for ct in site.tutorials-category-order %}
+{% for ct in cats %}
 <div class="col-md-12">
   <div class="panel">
     <div class="panel-body">
