@@ -1,5 +1,5 @@
 ---
-title: Scala 
+title: Scala Package
 description: Use the Nexosis Java Package to communicate with Nexosis API in Scala
 copyright: 2017 Nexosis 
 layout: default
