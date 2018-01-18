@@ -45,30 +45,29 @@ exclude_from_search: true
     -->
   </div>
 </div>
-
-<div class="row">
-  {% for ct in site.guides-category-order %}
-  <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-    <div class="panel bg-color-lightGray">
-      <div class="panel-body">
-      <h5 id="{{ ct | slugify }}" class="jumptarget">{{ ct }}</h5>
-      <hr>
-        <div class="row">
+<!-- New Layout -->
+{% for ct in site.guides-category-order %}
+<div class="col-md-12">
+  <div class="panel">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="row">
+            <div class="col-md-3">
+              <img src="/assets/img/{{ ct | slugify }}.png" style="width: 100px;">
+            </div>
+            <div class="col-md-9">
+              <h5 id="{{ ct | slugify }}" class="jumptarget mt20">{{ ct }}</h5>
+              <!-- <p>Description goes here.</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 p25 bg-color-lightGray" style="border-radius: 5px;">
           {% assign guides = site.guides | sort: "order" %}
           {% for post in guides %}
             {% if post.category contains ct %}
-              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <p>
-                  <strong><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></strong> 
-                  {% for tag in post.tags %}
-                      {% if tag != "Quick Links" and tag != "Favorite" %}
-                          <a class="label label-info pull-right" style="margin-right: 10px;" href="/tags#{{ tag | slugify }}">{{ tag }}</a>
-                      {% endif %}
-                  {% endfor %}
-                </p>
-                <p class="color-mediumGray" style="font-size: 85%; border-bottom: 1px dotted #afb0b4; padding-bottom: 10px;"> 
-                  {{ post.description }}           
-                </p>
+              <div class="col-md-6">
+                <p><strong><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></strong></p>
               </div>
             {% endif %}
           {% endfor %}
@@ -76,5 +75,5 @@ exclude_from_search: true
       </div>
     </div>
   </div>
-  {% endfor %}
 </div>
+{% endfor %}
