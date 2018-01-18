@@ -46,6 +46,10 @@ exclude_from_search: true
   </div>
 </div>
 <!-- New Layout -->
+<style>
+  h5 {font-size: 1.5em;font-weight: 600;}
+</style>
+
 {% for ct in site.guides-category-order %}
 <div class="col-md-12">
   <div class="panel">
