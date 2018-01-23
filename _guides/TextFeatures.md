@@ -34,31 +34,31 @@ The Nexosis API goes through a multi-stage process to add additional columns for
 
 A small example might help you to visualize what will happen to your data. Let's say we have the following dataset:
 
-product_key|description|product_class
-:----|:----:|:----:|
-1|"The best at cleaning"|"cleaning"
-2|"increases your digging power"|"garden"
+product_key | description| product_class
+:---------- | :--------: | :-----------:
+1 | "The best at cleaning" | "cleaning"
+2 | "increases your digging power" | "garden"
 
 From this dataset we would start with this set of words in our vocabulary:
 
-word|type|occurrences
-:---:|:---:|---:
- best | word | 1
- cleaning | word | 1
- best cleaning | word | 1
- increases | word | 1
- digging | word | 1
- power |  word | 1
- increases digging |  word | 1
- digging power |  word | 1
- the | stop_word | 1
- at | stop_word | 1
- your | stop_word | 1
+word | type | occurrences
+:---: | :---: | ---:
+best | word | 1
+cleaning | word | 1
+best cleaning | word | 1
+increases | word | 1
+digging | word | 1
+power |  word | 1
+increases digging |  word | 1
+digging power |  word | 1
+the | stop_word | 1
+at | stop_word | 1
+your | stop_word | 1
 
 After generating scores we can add the appropriate feature columns (down-selected heavily for brevity of the example):
 
-product_class|best cleaning|cleaning|digging
-:---:|:---:|:---:|:---:
+product_class | best cleaning | cleaning| digging
+:-----------: | :-----------: | :------:| :-----:
 cleaning|0.707106781|1|
 garden|||0.577350269
 
