@@ -32,37 +32,37 @@ The Nexosis API goes through a multi-stage process to add additional columns for
 - *Creating a Score* - with a vocabulary we can go about creating feature columns by running our version of the *tf-idf* algorithm mentioned above. We will create feature columns based on vocabulary words. These can be single words or pairs of words. Each score is specific to a single example so these are very sparse columns as it's easy to get a vocabulary of 10s of thousands of words where each example only has a few hundred.
 - *Down-select Features* - Related to the thousands of sparse columns created above we next run a feature selection algorithm to remove those columns which are least likely to provide additional predictive power to our model. Having too many columns can both increase computation time and in many cases reduce effectiveness of the model.
 
-A small example might help you to visualize what will happen to your data. Let's say we have the following dataset:
+<div style="margin:15px 0;">A small example might help you to visualize what will happen to your data. Let's say we have the following dataset:</div>
 
 product_key | description| product_class
 :---------- | :--------: | :-----------:
 1 | "The best at cleaning" | "cleaning"
 2 | "increases your digging power" | "garden"
 
-From this dataset we would start with this set of words in our vocabulary:
+<div style="margin:15px 0;">From this dataset we would start with this set of words in our vocabulary:</div>
 
-word | type | occurrences
-:---: | :---: | ---:
-best | word | 1
-cleaning | word | 1
-best cleaning | word | 1
-increases | word | 1
-digging | word | 1
-power |  word | 1
-increases digging |  word | 1
-digging power |  word | 1
-the | stop_word | 1
-at | stop_word | 1
-your | stop_word | 1
+| word | type | occurrences |
+| ---- | ---- | ----------- |
+| best | word | 1 |
+| cleaning | word | 1 |
+| best cleaning | word | 1 |
+| increases | word | 1 |
+| digging | word | 1 |
+| power |  word | 1 |
+| increases digging |  word | 1 |
+| digging power |  word | 1 |
+| the | stop_word | 1 |
+| at | stop_word | 1 |
+| your | stop_word | 1 |
 
-After generating scores we can add the appropriate feature columns (down-selected heavily for brevity of the example):
+<div style="margin:15px 0;">After generating scores we can add the appropriate feature columns (down-selected heavily for brevity of the example):</div>
 
-product_class | best cleaning | cleaning| digging
-:-----------: | :-----------: | :------:| :-----:
-cleaning|0.707106781|1|
-garden|||0.577350269
+product_class | best cleaning | cleaning | digging
+------------- | ------------- | -------- | -------
+cleaning|0.707106781|1|-
+garden|-|-|0.577350269
 
-A few additional notes are in order given the need for a simplistic example. Every word occurring once in the vocabulary would be abnormal for words with actual predictive power. We dropped the key column because we don't actually use identified keys in model building. Classes will be processed as numbers in the final preparation before model building.
+<div style="margin-top:15px;">A few additional notes are in order given the need for a simplistic example. Every word occurring once in the vocabulary would be abnormal for words with actual predictive power. We dropped the key column because we don't actually use identified keys in model building. Classes will be processed as numbers in the final preparation before model building.</div>
 ### Viewing Vocabularies via the API
 If you want to see the vocabulary for a particular column you can see a [list of available vocabularies](https://developers.nexosis.com/docs/services/98847a3fbbe64f73aa959d3cededb3af/operations/5a67315badf47c095051206d) through the API. Each vocabulary has a unique id and identifies the dataset and column for which it was created. 
 
