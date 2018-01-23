@@ -30,9 +30,6 @@ Here are the optional Query String Parameters you can pass along when creating a
 * `startDate` - Format date-time (as date-time in ISO8601). First date of the event
 * `endDate` - Format date-time (as date-time in ISO8601). Last date of the event
 * `callbackUrl` - The Webhook url that will receive updates when the Session status changes
-* `isEstimate` - If specified, the submitted data will not be saved, and the session will not be processed
-
-> To get a Cost Estimate, include and set the `isEstimate` query string parameter to `true`. The returned Nexosis-Request-Cost header will populate with the estimated cost that the request would have incurred.
 
 ### Starting an Impact Session
 

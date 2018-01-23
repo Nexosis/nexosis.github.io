@@ -95,8 +95,7 @@ The session response will look like the following:
   * `started` - Calculations have started on the session.
   * `completed` - Calculations have completed and the results are ready
   <!--`cancelled` (leaving this out because we don't have cancel capability yet)-->
-  * `failed` - There was a failure when trying to run the session
-  * `estimated` - The session was requested with parameter `isEstimate` set to `true`.  It will not actually be executed.
+  * `failed` - There was a failure when trying to run the session.
 * `statusHistory` - The history of status changes on this session.
 * `extraParameters` - In the case of Impact sessions, this property will contain the event name, e.g. `{eventName: "MyEvent"}`
 * `dataSetName` - The `dataSetName` provided in the request to start the session. 
@@ -183,7 +182,6 @@ Session Results, in general, come back in the following form:
     "startDate": "2017-01-01T00:00:00+00:00",
     "endDate": "2017-12-31T00:00:00+00:00",
     "callbackUrl": "",
-    "isEstimate": false,
     "links": []
   },
   "data": [

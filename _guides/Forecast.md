@@ -30,9 +30,6 @@ Here are the Query String Parameters you can pass along when creating a Forecast
 * `resultInterval` - The interval at which predictions should be generated. Possible values are `Hour`, `Day`, `Week`, `Month`, and `Year`. Defaults to `Day`
 * `callbackUrl` *(optional)* - The Webhook url that will receive updates when the Session status changes.  Those updates will come in the form of an HTTP `POST` with a `JSON` body that's the same as the response shown in [Retrieving a Session](session#retrievingSession).
 If you provide a callback url, your response will contain a header named Nexosis-Webhook-Token. You will receive this same header in the request message to your Webhook, which you can use to validate that the message came from Nexosis.
-* `isEstimate` - If specified, the submitted data will not be saved, and the session will not be processed. 
-
-> To get a Cost Estimate, include and set the `isEstimate` query string parameter to `true`. The returned `Nexosis-Request-Cost` header will be populated with the estimated cost that the request would have incurred.
 
 ### Column Metadata
 
@@ -158,7 +155,6 @@ An `200 OK` response will include the following JSON output, confirming the Colu
   "startDate": "2017-01-01T00:00:00+00:00",
   "endDate": "2017-01-05T00:00:00+00:00",
   "callbackUrl": "",
-  "isEstimate": false,
   "resultInterval": "Day",
   "links": []
 }
@@ -241,7 +237,6 @@ This JSON can be passed into the `curl` call above:
   "startDate": "2017-01-01T00:00:00+00:00",
   "endDate": "2017-12-31T00:00:00+00:00",
   "callbackUrl": "",
-  "isEstimate": false,
   "resultInterval": null,
   "links": []
 }
