@@ -93,12 +93,6 @@ In the example above I have used the *Location C.csv* sample data file. You shou
 
 Having started off the session we can now see two new links - one to start over and request another session on the same dataset, and another to see the status of the session we've submitted.
 
-#### Session Estimates
-
-You might have noticed the checkbox to "estimate" the forecast session in the screenshot above. If you want to figure out what something will cost before you do it, just send the "isEstimate=true" value in the query string of your request. In the case of our mini-app you'll see the value returned to you at the top of the page.
-
-![estimate](../assets/img/estimate.png)
-
 Your values have been pre-filled, so if you're ready to go ahead just hit the submit button again.
 <hr/>
 Sessions will take longer to run the first time you request them on a dataset because we run our algorithm selection process to determine how best to forecast your result. While we will run this again in the future to make sure we keep giving the best results, we will keep the selection around for a while, making subsequent sessions on the same dataset run much more quickly.

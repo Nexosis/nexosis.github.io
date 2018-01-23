@@ -87,7 +87,6 @@ Once the session has been started, you should see a response similar to this:
     "dataSourceName": "mpg-dataset",
     "dataSetName": "mpg-dataset",
     "targetColumn": "mpg",
-    "isEstimate": false,
     ... other information elided...
 }
 

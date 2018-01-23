@@ -97,7 +97,6 @@ Once the session has been started, you should see a response similar to this:
     "dataSourceName": "iris",
     "dataSetName": "iris",
     "targetColumn": "iris",
-    "isEstimate": false,
     ... other information elided...
 }
 
