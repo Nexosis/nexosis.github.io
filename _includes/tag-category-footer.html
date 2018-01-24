@@ -1,16 +1,16 @@
 {% if page.exclude_navfooter != true %}
-          {% if page.title != "Overview" and page.title != "Content by Category" and page.title != "Content by Tag" and page.title != "Search Results" and page.title != "API Clients" %}
-          <div class="panel bg-color-lightGray" style="margin-top:20px;">
-            <div class="panel-body">
-              <p style="padding:0; margin:0; font-size: .85em;">
-                <span class="color-mediumGray"><i class="fa fa-tags"></i>&nbsp;&nbsp;</span> 
-                {% for tag in page.tags %}
-                  {% if tag != "Quick Links" and tag != "Favorite" %}
-                      <a class="label label-info" href="/tags#{{ tag | slugify }}">{{ tag }}</a>
-                  {% endif %}
-                {% endfor %}
-              </p>
-            </div>
-          </div>
+  {% if page.title != "Overview" and page.title != "Content by Category" and page.title != "Content by Tag" and page.title != "Search Results" and page.title != "API Clients" %}
+  <div class="panel">
+    <div class="panel-body">
+      <p class="p0 m0 small">
+        <i class="fa fa-tags color-mediumGray mr10"></i>
+        {% for tag in page.tags %}
+          {% if tag != "Quick Links" and tag != "Favorite" %}
+            <a href="/tags#{{ tag | slugify }}">{{ tag }}</a>{% if forloop.last == false %},{% endif %}
           {% endif %}
+        {% endfor %}
+      </p>
+    </div>
+  </div>
+  {% endif %}
 {% endif %}
