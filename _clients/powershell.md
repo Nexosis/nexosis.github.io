@@ -284,7 +284,6 @@ targetColumn    : sales
 startDate       : 2013-01-06T00:00:00+00:00
 endDate         : 2017-01-13T00:00:00+00:00
 callbackUrl     : 
-isEstimate      : False
 resultInterval  : day
 links           :
 ```
@@ -313,14 +312,13 @@ targetColumn    : sales
 startDate       : 2013-01-03T00:00:00+00:00
 endDate         : 2013-01-10T00:00:00+00:00
 callbackUrl     : 
-isEstimate      : False
 resultInterval  : day
 links           :
 ```
 
 An object containing information about the session is returned, such as the `sessionID` which can be used to check the status and return the Session Results when completed.
 
-To check on the status of these jobs, you would use the `Get-NexosisSessionStatus` function which will return one of the follow status messages `Started`, `Requested`, `Completed`, `Cancelled`, `Failed`, or `Estimated`.
+To check on the status of these jobs, you would use the `Get-NexosisSessionStatus` function which will return one of the follow status messages `Started`, `Requested`, `Completed`, `Cancelled`, or `Failed`.
 
 ```powershell
 PS> Get-NexosisSessionStatus -sessionID '015e2995-a5f5-485d-b614-56294aa4abd8'
@@ -346,7 +344,6 @@ targetColumn    : sessions
 startDate       : 2017-08-25T00:00:00+00:00
 endDate         : 2017-09-10T00:00:00+00:00
 callbackUrl     : 
-isEstimate      : False
 resultInterval  : hour
 links           : 
 

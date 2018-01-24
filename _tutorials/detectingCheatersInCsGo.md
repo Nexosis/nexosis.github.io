@@ -2438,7 +2438,6 @@ To build a classification model, `POST` to `https://ml.nexosis.com/v1/sessions/m
     "dataSourceName": "csgo-stats",
     "dataSetName": "csgo-stats",
     "targetColumn": "VACBanned",
-    "isEstimate": false,
     "links": [{
         "rel": "results",
         "href": "https://ml.nexosis.com/v1/sessions/0160dcf9-09a9-4c1a-9f5a-75f066ee886c/results"
@@ -2471,7 +2470,6 @@ dataSetName                  : csgo
 targetColumn                 : VACBanned
 links                        : {@{rel=results; href=https://ml.nexosisdev.com/v1/sessions/016050d8-8b42-44bc-9c2b-360a240d6aec/results}, @{rel=data; 
                                href=https://ml.nexosisdev.com/v1/data/csgo}}
-costEstimate                 : 0.00 USD
   </code>
 </pre>
     </div>

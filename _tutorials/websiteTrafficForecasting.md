@@ -219,10 +219,8 @@ dataSetName     : sampleWebData
 targetColumn    : Sessions
 startDate       : 2017-09-01T00:00:00+00:00
 endDate         : 2017-09-15T00:00:00+00:00
-isEstimate      : False
 resultInterval  : day
 links           : {@{rel=results; href=https://ml.nexosis.com/v1/sessions/015e766c-2430-46e5-9c22-68d6ba63c52e/results}, @{rel=data; href=https://ml.nexosis.com/v1/data/sampleWebData}}
-costEstimate    : 0.01 USD
 ```
 
 ## Impact of Event On Web Sessions
@@ -253,17 +251,15 @@ dataSetName     : nexosisWebSiteTraffic
 targetColumn    : Sessions
 startDate       : 2017-07-10T00:00:00+00:00
 endDate         : 2017-08-31T00:00:00+00:00
-isEstimate      : False
 resultInterval  : day
 links           : {@{rel=results; href=https://ml.nexosis.com/v1/sessions/015e80fc-48f8-426c-994a-59a6053c1228/results}, @{rel=data; href=https://ml.nexosis.com/v1/data/nexosisWebSiteTraffic}}
-costEstimate    : 0.01 USD
 ```
 
 ## Waiting for Session To Complete
 
 Since building a Time Series model is asynchronous, it goes off and does work and when it's done we can retrieve the results. 
 
-Checking on the status of a Session is simple. The PSNexosisClient has a command called `Get-NexosisSessionStatus` that will return the status of the Session given a session Id - potential results are 'Started', 'Requested', 'Completed', 'Cancelled', 'Failed', and 'Estimated'.
+Checking on the status of a Session is simple. The PSNexosisClient has a command called `Get-NexosisSessionStatus` that will return the status of the Session given a session Id - potential results are 'Started', 'Requested', 'Completed', 'Cancelled', and 'Failed'.
 
 To monitor a session, there's a sample command called `Invoke-NexosisMonitorSession` which monitors the session's status (10 second intervals) and return when the status is no longer 'Requested' or 'Started'.
 
@@ -309,7 +305,6 @@ dataSetName     : sampleWebData
 targetColumn    : sessions
 startDate       : 2017-09-01T00:00:00+00:00
 endDate         : 2017-09-15T00:00:00+00:00
-isEstimate      : False
 resultInterval  : hour
 links           : {@{rel=results; href=https://ml.nexosis.com/v1/sessions/015e766c-2430-46e5-9c22-68d6ba63c52e/results}, @{rel=data; href=https://ml.nexosis.com/v1/data/sampleWebData}}
 ```
