@@ -43,14 +43,15 @@ Of course the easiest way to build a join is through one of our existing [API Cl
 
 #### How Joins Join
 
-There are some things to think about when joining two different datasets. First, how should any one row in the right side of the join be understood to match a row in the left side? Going back to our database analogy, this depends on the key field. With a time-series dataset this will be the time-stamp column. Of course, two time-stamps are rarely going to match exactly but we'll cover that detail below. Simply put, rows which are matched by key will:
+There are some things to think about when joining two different datasets. First, how should any one row in the right side of the join be understood to match a row in the left side? Going back to our database analogy, this depends on the key field of the right-side dataset, and the field being joined to in the left-side dataset. In all cases, right-side rows which are matched will add values to the left-side row. 
 
-- Union the Values: If the columns have matching names. A matching column name and value will ignore the value from the right side of the join; First named dataset wins ties.
-- Add Columns: If the joined dataset has new non-matching columns.
+When the join columns are simple keys, rows from the right side of the join with a key value exactly matching the join column value in the left side are matched. In database terminology, this is an equi-join, and it's the most common type of join to use in views.
+
+When joining to a date field in the left-side dataset, joining gets a bit more complicated. More often than not timestamps won't match exactly, but we'll cover that detail below. 
 
 #### Viewing Join Results
 
-Before submitting a session based on a View it's best to have a look at the join results by viewing the View data. When we return data from a view we show you the processed results. This is important to understand as there may be additional transformations on the data depending on the join interval and column aliases. However, the benefit of seeing the View as processed results is that you know exactly what will be used in forecasting, and you could save this data as its own dataset.
+Before submitting a session based on a View it's best to have a look at the join results by viewing the View data. By examining View data you can ensure that joins are being interpreted the way that you intended.
 
 #### Example
 
@@ -172,11 +173,11 @@ We can define a join of these two datasets with the following View Definition:
 
 In the above definition we have not only specified which datasets will provide the values, but have given roles to the newly joined columns; identifying them as features.
 
-The *joinInterval* option simply states that we should try to match the holiday dataset to the daily sales dataset based on the day level of granularity. If used, it should be specified on the time-stamp column of the joined dataset.
+The *joinInterval* option simply states that we should try to match the holiday dataset to the daily sales dataset based on the day level of granularity. If used, it should be specified on the timestamp column of the joined dataset.
 
 #### Join Results
 
-Having created the join above we should expect the following output (remember that the data has been processed and so boolean values have replaced true and false strings):
+Having created the join above we should expect the following output:
 
 <table class="table table-bordered mb20">
     <thead>
@@ -191,39 +192,39 @@ Having created the join above we should expect the following output (remember th
         <tr class="success">
             <td>2010-02-11T00:00Z</td>
             <td class="right">24924.5</td>
-            <td class="right">0</td>
-            <td class="right">0</td>
+            <td class="right">false</td>
+            <td class="right">false</td>
         </tr>
         <tr class="success">
             <td>2010-02-12T00:00Z</td>
             <td class="right">46039.49</td>
-            <td class="right">0</td>
-            <td class="right">0</td>
+            <td class="right">false</td>
+            <td class="right">false</td>
         </tr>
         <tr class="success">
             <td>2010-02-13T00:00Z</td>
             <td class="right">41595.55</td>
-            <td class="right">1</td>
-            <td class="right">0</td>
+            <td class="right">true</td>
+            <td class="right">false</td>
         </tr>
         <tr class="success">
             <td>2010-02-14T00:00Z</td>
             <td class="right">19403.54</td>
-            <td class="right">1</td>
-            <td class="right">0</td>
+            <td class="right">true</td>
+            <td class="right">false</td>
         </tr>
         <tr class="info">
             <td>2010-02-15T00:00Z</td>
              <td class="right">18399.22</td>
-            <td class="right">0</td>
-            <td class="right">1</td>
+            <td class="right">false</td>
+            <td class="right">true</td>
         </tr>               
     </tbody>
 </table>
 
 ## Using Joins
 
-Once you have a View defined it can be used in a Session as the data source. If you have used previous versions of the API you'll notice that we have changed the parameter 'dataSetName' in the request for a Session to 'dataSourceName'. This change indicates that you can use datasources - either a view or a dataset. If we had named our view above "SalesWithCalendar" then we could create a Session by POSTing to
+Once you have a View defined it can be used in a Session as the data source. If you have used previous versions of the API you'll notice that we have changed the parameter 'dataSetName' in the request for a Session to 'dataSourceName'. This change indicates that you can use a data source - either a view or a dataset. If we had named our view above "SalesWithCalendar" then we could create a Session by POSTing to
 
 ```
 https://ml.nexosis.com/v1/sessions/forecast?dataSourceName=SalesWithCalendar&startDate=2010-02-16&endDate=2010-02-20

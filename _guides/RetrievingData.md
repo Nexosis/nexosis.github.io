@@ -29,16 +29,13 @@ The response is a summary listing of your DataSets
    ]
 }
 ```
-
-**Note** this listing only includes [Named DataSets.](sendingdata)  It does not include Session-Scoped DataSets.
-
 ------
 
 ## Retrieving Data
 
 To retrieve data from a DataSet, issue a `GET` request to [/data/\{dataSetName\}]({{site.api_reference_baseurl}}/operations/5919ef80a730020dd851f232), where `dataSetName` is the name you provided when uploading the DataSet, or in the case of a Session-Scoped DataSet the generated name.  You can get that name from the Links section of the [Session](session).
 
-You can also pass one of the following optional parameters in the query string.
+You can also pass one or more of the following optional parameters in the query string.
 
 * `startDate` - Limits results to those on or after the specified date
 * `endDate` - Limits results to those on or before the specified date
