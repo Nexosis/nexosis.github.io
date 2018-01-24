@@ -9,7 +9,7 @@ use_codestyles: true
 order: 3
 ---
 
-A Forecast is when we take your historical time series data and predict what will happen in the future. You can forecast product demand at a sku level, predict call volume in a call center, forecast machine usage to get a better understanding of when equipment might need maintenance, anticipate wait times, or foresee turnover rates.
+A Forecast is when we take your historical time series data and predict what will happen in the future. You can forecast product demand at a SKU level, predict call volume in a call center, forecast machine usage to get a better understanding of when equipment might need maintenance, anticipate wait times, or foresee turnover rates.
 
 -----
 
@@ -22,14 +22,14 @@ To understand how to submit data, you can read more in the [Sending Data](/guide
 > The forecast start date should be on the same day as (or before) the last date in the dataset. If there is a gap between your forecast start date and the date of the last record in your dataset, the Nexosis API will behave as if there is no gap. Read our [Missing Values](/guides/missingvalues) article for more information about how we handle gaps.
 
 
-Here are the Query String Parameters you can pass along when creating a Forecast Session:
-* `dataSetName` (required) - Name of the dataset to forecast. 
+Here are the parameters you can include in either the query string or the body of a POST request to create a Forecast Session:
+* `dataSourceName` (required) - Name of the data source (dataset or view) to forecast. 
 * `targetColumn` - Column in the specified dataset to forecast
 * `startDate` - Format - date-time (as date-time in ISO8601). First date to forecast
 * `endDate` - Format - date-time (as date-time in ISO8601). Last date to forecast
 * `resultInterval` - The interval at which predictions should be generated. Possible values are `Hour`, `Day`, `Week`, `Month`, and `Year`. Defaults to `Day`
-* `callbackUrl` *(optional)* - The Webhook url that will receive updates when the Session status changes.  Those updates will come in the form of an HTTP `POST` with a `JSON` body that's the same as the response shown in [Retrieving a Session](session#retrievingSession).
-If you provide a callback url, your response will contain a header named Nexosis-Webhook-Token. You will receive this same header in the request message to your Webhook, which you can use to validate that the message came from Nexosis.
+* `callbackUrl` *(optional)* - The Webhook URL that will receive updates when the Session status changes.  Those updates will come in the form of an HTTP `POST` with a `JSON` body that's the same as the response shown in [Retrieving a Session](session#retrievingSession).
+If you provide a callback URL, your response will contain a header named Nexosis-Webhook-Token. You will receive this same header in the request message to your Webhook, which you can use to validate that the message came from Nexosis.
 
 ### Column Metadata
 
@@ -96,7 +96,7 @@ For example, if you are uploading the data in green below, you should provide da
 
 
 ``` bash
-curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=Location-A&targetColumn=sales&startDate=01/01/2017T00:00:00Z&endDate=01/05/2017T00:00:00Z&resultInterval=day"
+curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSourceName=Location-A&targetColumn=sales&startDate=01/01/2017T00:00:00Z&endDate=01/05/2017T00:00:00Z&resultInterval=day"
       -H "Content-Type: application/json"
       -H "api-key: {subscription key}"
       --data-ascii "{ insert json body here }"
@@ -150,7 +150,7 @@ An `200 OK` response will include the following JSON output, confirming the Colu
       "role": "target"
     }
   },
-  "dataSetName": "Location-A",
+  "dataSourceName": "Location-A",
   "targetColumn": "sales",
   "startDate": "2017-01-01T00:00:00+00:00",
   "endDate": "2017-01-05T00:00:00+00:00",
@@ -232,7 +232,7 @@ This JSON can be passed into the `curl` call above:
       "role": "target"
     }
   },
-  "dataSetName": "Location-A",
+  "dataSourceName": "Location-A",
   "targetColumn": "sales",
   "startDate": "2017-01-01T00:00:00+00:00",
   "endDate": "2017-12-31T00:00:00+00:00",

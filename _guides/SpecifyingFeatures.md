@@ -4,7 +4,7 @@ description: This tutorial shows more advanced specification of features and col
 copyright: 2017 Nexosis
 layout: default
 category: Concepts
-tags: [Forecasting, Causal Impact, Regression]
+tags: [Forecasting, Causal Impact]
 use_codestyles: true
 order: 8
 ---

@@ -17,27 +17,26 @@ Impact analysis is when we analyze your historical time series data and determin
 
 Impact sessions determine the impact of a particular event on a dataset. To create an impact session, specify the dataset for which to determine impact, as well as the start and end dates of the impactful event. The Nexosis API will execute a series of machine learning algorithms to determine the impact of the event on the dataset.
 
-> Both the start and end dates for the impact session must always be on or before the timeStamp of the last record in your dataset.
+> Both the start and end dates for the impact session must always be on or before the specified timestamp of the last record in your dataset.
 
 To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
 
-Here are the optional Query String Parameters you can pass along when creating an Impact Session:
-
-* `dataSetName` - Name of the dataset for which to determine impact. If data is sent in the body of this request, the dataSetName will be used as part of the unique name given to the dataSet for this session
+Here are the parameters you can include in either the query string or the body of a POST request to create an Impact Analysis Session:
+* `dataSourceName` - Name of the data source (dataset or view) for which to determine impact
 * `targetColumn`- Column in the specified dataset for which to determine impact
 * `eventName` - Name of the event for which to determine impact
 * `resultInterval` - The interval at which predictions should be generated. Possible values are `Hour`, `Day`, `Week`, `Month`, and `Year`. Defaults to `Day`
 * `startDate` - Format date-time (as date-time in ISO8601). First date of the event
 * `endDate` - Format date-time (as date-time in ISO8601). Last date of the event
-* `callbackUrl` - The Webhook url that will receive updates when the Session status changes
+* `callbackUrl` - The Webhook URL that will receive updates when the Session status changes
 
 ### Starting an Impact Session
 
-Impact sessions are essentially identical to a forecast run, so make sure to read and understand how to [create predictions](forecast). All of that information will apply with a couple of additional points that will be outlined in the rest of this section.
+Impact sessions are essentially identical to forecast sessions, so make sure to read and understand how to [create predictions](forecast). All of that information will apply with a couple of additional points that will be outlined in the rest of this section.
 
 Here are the differences:
 
-1. Query string parameters add an additional value called `eventName` so you can create a friendly name for the intervention period.
+1. Parameters include an additional value called `eventName` so you can create a friendly name for the intervention period.
 2. Impact session results also include metrics that describe the overall impact of the event on the dataset. These metrics are:
     * `pValue` - Statistical value used to determine the significance of the impact. A small p-value indicates strong evidence of impact, whereas a p-value approaching 0.5 indicates weak evidence of impact.
     * `absoluteEffect` - Total absolute effect of the event on the dataset. Answers the question, "How much did this event affect my dataset?"

@@ -20,6 +20,7 @@ When [uploading data](sendingdata), [importing data](importingdata), or [startin
 Setting the column `dataType` property is defining the kind of data that the column contains.  The supported data types are:
 
 - Numeric - Numbers, which can be integers or floats.
+- NumericMeasure - Exactly like a Numeric column, except that Imputation and Aggregation are handled differently.
 - Logical - Boolean values, which can be one of the following pairs of values:
     - `True` - `False`
     - `1` - `0`
@@ -27,7 +28,7 @@ Setting the column `dataType` property is defining the kind of data that the col
     - `Yes` - `No`
 - Date - Dates or dates and times which should be in [ISO-8601 format](workingwithdates).
 - String - Any other data which does not fit into the above categories.  These values can the thought of as labels on a row of data. The data science technique we use is called [One Hot Encoding](https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science).
-- NumericMeasure - Exactly like a Numeric column, except that Imputation and Aggregation are handled differently.
+- Text - Free-form text. See [Using Text Based Features](textfeatures) for more information.
 
 Our handling of Imputation and Aggregation are discussed in more detail in the sections below.
 
@@ -37,10 +38,12 @@ Our handling of Imputation and Aggregation are discussed in more detail in the s
 
 Whenever you request a [Forecast session](forecast) or an [Impact Analysis session](impactanalysis) from the Nexosis API, you ask for that forecast to come back in a certain `resultInterval`.  That interval is something like `hour`, `day`, `week`, etc.
 
-When you request a session, the Nexosis API goes through the following process against your data to prepare it for the Session:
+When you request a one of these sessions, the Nexosis API goes through the following process against your data to prepare it for the Session:
 
 - Loads your data from its source DataSet
-- Aggregates that data by the `resultInterval` requested in the session.
+- Orders the data according to the column with the role `timestamp`
+- Processes the data into numeric values, using techniques such as [One Hot Encoding](https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science)
+- Aggregates that data by the `resultInterval` requested in the session
 
 > Nexosis itself doesn't care one bit whether your data is a daily/hourly/weekly rollup, or whether it's a raw feed of sensor data.
 
@@ -62,6 +65,8 @@ The Nexosis API offers the following options for Imputation.
 - `mean` -- A missing value is filled in with the **average** of the nearest values we can find on either side of that gap.
 - `median` -- A missing value is filled in with the **median** value of the rest of the values in that column
 - `mode` -- A missing value is filled in with the **mode** of the rest of the values in that column
+- `max` -- A missing value is filled in with the **maximum** of the rest of the values in that column
+- `min` -- A missing value is filled in with the **minimum** of the rest of the values in that column
 
 ### Aggregation Options
 
@@ -71,6 +76,8 @@ The Nexosis API offers the following options when aggregating to a given `result
 - `mean` -- The resulting value is the **average** of all column values that fall within the `resultInterval`
 - `median` -- The resulting value is the **median** of all column values that fall within the `resultInterval`
 - `mode` -- The resulting value is the **mode** of all column values that fall within the `resultInterval`
+- `max` -- The resulting value is the **maximum** of all column values that fall within the `resultInterval`
+- `min` -- The resulting value is the **minimum** of all column values that fall within the `resultInterval`
 
 ### Defaults per dataType
 
@@ -78,11 +85,14 @@ Nexosis tries to assign sensible defaults for each `dataType` available.  Those 
 
 | DataType | Typical Usage | Imputation Default | Aggregation Default |
 | -------- | ------------- | ------------------ | ------------------- |
-| Date | Timestamp values.  You can't explicitly set an imputation or aggregation strategy for these | | |
 | Numeric | Number of sales, etc. | `zeroes` | `sum` |
+| NumericMeasure | Temperature reading, or a value that's an interval itself (transactions/sec, etc) | `mean` | `mean` |
 | Logical | Values that are a simple yes/no | `mode` | `mode` |
 | String | Categorical data as described [in DataTypes](#dataTypes) | `mode` | `mode` |
-| NumericMeasure | Temperature reading, or a value that's an interval itself (transactions/sec, etc) | `mean` | `mean` |
+
+Date values are generally used for timestamps, and so you cannot explicitly set imputation or aggregation strategy for these.
+
+Text columns are not currently used by time-series sessions, and so missing values are never aggregated. Missing text values are treated as empty.
 
 ----
 
@@ -91,7 +101,7 @@ Nexosis tries to assign sensible defaults for each `dataType` available.  Those 
 While the data type of a column defines what kind of data is in a column, the role of a column defines how that column is used by the Nexosis API.  These roles can actually be changed depending on what you are trying to learn from your dataset.  The available roles are:
 
 - None - Setting a column role to None means that this column will not be used when generating results.
-- Timestamp - Defines the column used for time series algorithms.
+- Timestamp - Defines the column used for ordering/aggregation when performing time-series analysis.
 - Target - Specifies that this is the column which should be the target of the session.  This is the column that will have results generated by sessions.  Only one target column may be specified at a time.
 - Feature - A feature column contains other supporting data that may be related to the target column.  These values provide more information that the Nexosis API is able to use when generating results.
 - Key - An optional unique key for each record to aid in data set operations or matching up session results with originals. Nexosis will create an internal key if no key column is specified, but it will not be returned in DataSet queries.
