@@ -8,7 +8,9 @@ tags: [Classification, Postman, '101']
 use_codestyles: true
 ---
 
-Understanding the survivability on the Titanic is a common way to get introduced to Machine Learning. This beginner course will introduce the basic concepts of Machine Learning using the Nexosis API and some simple data about each passengers aboard the Titanic. Given this data, we'll show how Machine Learning can be used to build a model to predict a passenger's survivability based on factors such as age, gender, as well as a measure of socio-economic status.
+Understanding the survivability on the Titanic is a common way to get introduced to Machine Learning. 
+
+This beginner course will introduce the basic concepts of Machine Learning using the Nexosis API and some simple data about each passengers aboard the Titanic. Given this data, we'll show how Machine Learning can be used to build a model to predict a passenger's survivability based on factors such as age, gender, as well as a measure of socio-economic status.
 
 **Time:** 10 minutes<br/>
 **Level:** Introductory / 101
