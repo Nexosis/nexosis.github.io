@@ -8,14 +8,12 @@ breadcrumb: API Clients
 tags: [Java, JAR, Package]
 use_codestyles: true
 ---
-## Supported platforms
-
+> <h5 class="mt0">Supported platforms</h5>
 The Nexosis Client for Java supports Java versions 1.7 and 1.8.
 
-## Installing the Client
+## Installing the client
 
-#### [View package details](https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java){:target="_blank"}
-*[view the source code](https://github.com/Nexosis/nexosisclient-java){:target="_blank"}* 
+> <p><a href="https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-java" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ### Maven
 Add this dependency to <code>pom.xml</code>:

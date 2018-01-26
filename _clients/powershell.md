@@ -9,9 +9,9 @@ tags: [PowerShell, module]
 use_codestyles: true
 ---
 
-## Installation
+## Installing the client
 
-The client has been tested against Powershell 5.0 on Windows and OS X.
+#### The client has been tested against Powershell 5.0 on Windows and OS X.
 
 To install it from the Powershell Gallery (make sure you have an elevated client and have trusted the PS Gallery store - [more information on that topic here](https://blogs.technet.microsoft.com/poshchap/2015/08/07/getting-started-with-the-powershell-gallery/){:target="_blank"}.
 
@@ -25,10 +25,7 @@ Or to choose a path to save the module to:
 PS> Save-Module -Name PSNexosisClient -Path <path>
 ```
 
-[Powershell Package Details](https://www.powershellgallery.com/packages/PSNexosisClient/
-){:target="_blank"}
-
-[View Source in our git repo](https://github.com/Nexosis/nexosisclient-ps){:target="_blank"}
+> <p><a href="https://www.powershellgallery.com/packages/PSNexosisClient/" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-ps" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ## Basic Usage
 

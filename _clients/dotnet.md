@@ -8,17 +8,15 @@ tags: [C#, .NET, Nuget]
 use_codestyles: true
 ---
 
-## Installation
+## Installing the client
 
-You need to be using a project referencing .NET Standard (any version of .NET Core or .NET Framework 4.6.2 or above).
+#### You need to be using a project referencing .NET Standard (any version of .NET Core or .NET Framework 4.6.2 or above).
 
 ``` 
 PM> Install-Package Nexosis.Api.Client 
 ```
 
-[View Nuget Package details](https://www.nuget.org/packages/Nexosis.Api.Client/){:target="_blank"}
-
-[View Source in our git repo](https://github.com/Nexosis/nexosisclient-net){:target="_blank"}
+> <p><a href="https://www.nuget.org/packages/Nexosis.Api.Client/" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Nuget Package Details</a><a href="https://github.com/Nexosis/nexosisclient-net" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ### Usage
 
@@ -56,4 +54,4 @@ var results = await client.Sessions.GetResults(sessionResponse.SavedSessionId);
 ### Issues
 If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-net/issues/new){:target="_blank"} in github. Please include code to reproduce the error if possible.
 
-Pull requests are welcome.
+#### Pull requests are welcome.

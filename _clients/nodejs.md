@@ -8,12 +8,13 @@ breadcrumb: API Clients
 tags: [node, nodejs, npm]
 use_codestyles: true
 ---
-## Supported platforms
+> <h5 class="mt0">Supported platforms</h5>
 NodeJs.  This package will not yet work in a web browser.
 
-## Installing the Client
-#### [View package details](https://www.npmjs.com/package/nexosis-api-client){:target="_blank"}
-*[view the source code](https://github.com/Nexosis/nexosisclient-js){:target="_blank"}* 
+## Installing the client
+
+> <p><a href="https://www.npmjs.com/package/nexosis-api-client" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-js" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
+
 
 Either install directly into your application at the command line:
 

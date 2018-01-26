@@ -9,17 +9,15 @@ tags: [python, module]
 use_codestyles: true
 ---
 
-## Installation
+## Installing the client
 
-The client has been tested against Python 2.7, and 3.3-3.6. Install with `pip`.
+#### The client has been tested against Python 2.7, and 3.3-3.6. Install with `pip`.
 
 ```bash
 $ pip install nexosisapi
 ```
 
-[PyPI Package Details](https://pypi.python.org/pypi/nexosisapi){:target="_blank"}
-
-[View Source in our git repo](https://github.com/Nexosis/nexosisclient-py){:target="_blank"}
+> <p><a href="https://pypi.python.org/pypi/nexosisapi" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> PyPI Package Details</a><a href="https://github.com/Nexosis/nexosisclient-py" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ## Basic Usage
 
@@ -131,7 +129,6 @@ bucket) into the 'test-python-import' dataset in the Nexosis API.
 ### Issues
 If you run into issues using this client library, create a [new issue](https://github.com/Nexosis/nexosisclient-py/issues/new){:target="_blank"} in GitHub. Please include code to reproduce the error if possible.
 
-Pull requests are welcome.
+#### Pull requests are welcome.
 
-#### See Also
-[A video tutorial on using the python client](https://content.nexosis.com/blog/exploring-the-nexosis-api-with-ipython){:target="_blank"}
+> <strong>See Also:</strong> [A video tutorial on using the python client](https://content.nexosis.com/blog/exploring-the-nexosis-api-with-ipython){:target="_blank"}

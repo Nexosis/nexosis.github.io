@@ -9,14 +9,12 @@ tags: [scala, Package]
 use_codestyles: true
 ---
 <script src="/assets/js/prism/components/prism-scala.min.js" data-default-language="markup"></script>
-## Supported platforms
-
+> <h5 class="mt0">Supported platforms</h5>
 The Scala client uses the Nexosis API Java package - tested with Scala 2.12.x.
 
-## Installing the Client
+## Installing the client
 
-#### [View package details](https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java){:target="_blank"}
-*[view the Java Client source code](https://github.com/Nexosis/nexosisclient-java){:target="_blank"}* 
+> <p><a href="https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-java" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ### SBT
 Add this dependency to `build.sbt`:
