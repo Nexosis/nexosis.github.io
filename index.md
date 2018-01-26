@@ -15,7 +15,7 @@ exclude_from_search: true
 <hr>
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
     <div class="panel bg-color-lightGray">
       <div class="panel-body center pt20">
           <img src="/assets/img/guides.png">
@@ -25,7 +25,7 @@ exclude_from_search: true
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
     <div class="panel bg-color-lightGray">
       <div class="panel-body center pt20">
           <img src="/assets/img/tutorials.png">
@@ -35,6 +35,7 @@ exclude_from_search: true
       </div>
     </div>
   </div>
+  <!--
   <div class="col-md-3">
     <div class="panel bg-color-lightGray">
       <div class="panel-body center pt20">
@@ -45,7 +46,8 @@ exclude_from_search: true
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  -->
+  <div class="col-md-4">
     <div class="panel bg-color-lightGray">
       <div class="panel-body center pt20">
           <img src="/assets/img/api-clients.png">
@@ -58,8 +60,7 @@ exclude_from_search: true
 </div>
 
 <hr>
-<h1 class="center">Quick Start Guides</h1>
-<hr>
+<h2 class="center color-blue">Quick Start Guides</h2>
 
 <div class="row">
   <div class="col-md-3">
