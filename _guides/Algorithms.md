@@ -10,61 +10,63 @@ use_codestyles: true
 
 Our machine learning platform has a growing suite of about 30 core algorithms with a total of over 300 permutations. Given your data, our suite of algorithms will tune and select a model that best fits your data and the problem you're trying to solve.
 
-## Forecasting a future quantity
+------
 
-Solves the question, how much of x can I expect in the future?
+### Forecasting a future quantity
 
-Algorithms support hourly, daily, weekly, monthly, and annual seasonalities
+##### Solves the question, how much of **x** can I expect in the future?
 
-All support Anomaly Smoothing and Model Ensembling
+1. Algorithms support hourly, daily, weekly, monthly, and annual seasonalities
+2. All support Anomaly Smoothing and Model Ensembling
 
-* ARIMA
+
+* **ARIMA**
   * Various combinations of 
   * AutoRegressive component with p parameters
   * Differencing component with d parameters
   * Moving Average component with q parameters
   * with external regressors
-* Exponential Smoothing
+* **Exponential Smoothing**
   * Simple
   * Double
   * Triple
   * with Box-Cox Transformation
-* Autoregressive Neural Network
+* **Autoregressive Neural Network**
   * with or without external regressors
-* Multiple Linear Regression
+* **Multiple Linear Regression**
   * with or without external regressors
-* Spline
-* Seasonal and Trend Decomposition using Loess
+* **Spline**
+* **Seasonal and Trend Decomposition using Loess**
   * with ARIMA
   * with or without external regressors
   * with Exponential Smoothing
-* Bayesian Time Series Regression
+* **Bayesian Time Series Regression**
   * with or without external regressors
-* Additive Model
-* Home-grown Nexosis Algorithms
+* **Additive Model**
+* **Home-grown Nexosis Algorithms**
 
-## Predicting a variable
+### Predicting a variable
 
-Solves the question, what can I expect x to be?
+##### Solves the question, what can I expect **x** to be?
 
-* Least Squares
+* **Least Squares**
   * Linear
   * Polynomial
-* Elastic Net
-* Lasso
-* Ridge
-* Support Vector Regression
+* **Elastic Net**
+* **Lasso**
+* **Ridge**
+* **Support Vector Regression**
   * Linear Kernel
   * Polynomial Kernel
   * Radial Basis Function kernel
   * Sigmoid Kernel
-* Multi-Layer Perceptron (Neural Network)
+* **Multi-Layer Perceptron (Neural Network)**
   * with 1, 2, or 3 hidden layers
   * Rectified Linear Unit Function
   * Hyperbolic Tan Function
   * Sigmoid Function
-* Random Forest
-* K-Nearest Neighbor
-* Logistic Regression
-* Naive Bayes
-* XGBoost
+* **Random Forest**
+* **K-Nearest Neighbor**
+* **Logistic Regression**
+* **Naive Bayes**
+* **XGBoost**
