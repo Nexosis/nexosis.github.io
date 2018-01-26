@@ -118,6 +118,6 @@ Annual celebration of open data. Visit website for details.
 
 ------
 
-#### Additions
+### Additions
 
-If you know of a great repository that isn't included here, please [tell us](https://nexosis.com/Home/Contact).
+If you know of a great repository that isn't included here, please [tell us](https://community.nexosis.com/t/open-data-repositories/102) and we'll add it to this listing.

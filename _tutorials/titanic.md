@@ -10,7 +10,7 @@ use_codestyles: true
 
 Understanding the survivability on the Titanic is a common way to get introduced to Machine Learning. 
 
-This beginner course will introduce the basic concepts of Machine Learning using the Nexosis API and some simple data about each passengers aboard the Titanic. Given this data, we'll show how Machine Learning can be used to build a model to predict a passenger's survivability based on factors such as age, gender, as well as a measure of socio-economic status.
+This beginner course will introduce the basic concepts of Machine Learning using the Nexosis API and some simple data about each passenger aboard the Titanic. Given this data, we'll show how Machine Learning can be used to build a model to predict a passenger's survivability based on factors such as age, gender, as well as a measure of socio-economic status.
 
 **Time:** 10 minutes<br/>
 **Level:** Introductory / 101
@@ -184,7 +184,7 @@ When the model is finished, you will receive an email with your session ID. You 
  <img src="/assets/img/tutorials/titanic-postman13.png" alt="Session Results Params" style="padding: 10px;" class="img-responsive">
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
  <img src="/assets/img/tutorials/postman-send.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
-4. The Sesion Result response body contains both metrics of how accurate the model's predictive capabilities, as well as the test data used to calculate the model's accuracy.
+4. The Session Result response body contains both metrics of how accurate the model's predictive capabilities, as well as the test data used to calculate the model's accuracy.
  <img src="/assets/img/tutorials/titanic-postman14.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive">
 
 <h4 id="understanding-results" class="jumptarget">Understanding the Results</h4>
