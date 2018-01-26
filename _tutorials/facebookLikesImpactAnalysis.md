@@ -278,4 +278,4 @@ Here's a plot showing a forecast of what likely would have happened (orange) had
 
 -----
 
-In this case, it's pretty obvious there was a great impact just based on eye-balling the charts.
+#### In this case, it's pretty obvious there was a great impact just based on eye-balling the charts.

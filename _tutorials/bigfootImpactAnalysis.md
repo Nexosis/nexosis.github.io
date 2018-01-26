@@ -8,23 +8,18 @@ tags: [Impact Analysis, JavaScript]
 use_codestyles: true
 ---
 
-### {{page.description}}
-
-We'll be doing this using JavaScript and the
-[JavaScript Nexosis API client](https://github.com/Nexosis/nexosisclient-js).
-I'm assuming that you know JavaScript, ES6, and [Node.js](https://nodejs.org/en/).
-We will be using many of the built in array functions and ES6 Promises. We'll also
-be using [Moment.js](https://momentjs.com/) since it makes working with dates in
-JavaScript much much easier.
-
->The [full source code is on GitHub](https://github.com/Nexosis/sample-js-bigfoot). I
-won't be showing all the code in this tutorial, just the interesting parts, so go
-ahead and clone it now so you can follow along.
+{{page.description}}
 
 ------
-My hypothesis is that the airing of popular television shows featuring bigfoot
-and other similar cryptids should result in an increase of the number of bigfoot
-sightings. I have selected two shows to test my hypothesis:
+
+#### We'll be doing this using JavaScript and the [JavaScript Nexosis API client](https://github.com/Nexosis/nexosisclient-js). I'm assuming that you know JavaScript, ES6, and [Node.js](https://nodejs.org/en/). We will be using many of the built in array functions and ES6 Promises. We'll also be using [Moment.js](https://momentjs.com/) since it makes working with dates in JavaScript much much easier.
+
+>The [full source code is on GitHub](https://github.com/Nexosis/sample-js-bigfoot). I won't be showing all the code in this tutorial, just the interesting parts, so go ahead and clone it now so you can follow along.
+
+------
+#### My hypothesis is that the airing of popular television shows featuring bigfoot and other similar cryptids should result in an increase of the number of bigfoot sightings. 
+
+**I have selected two shows to test my hypothesis:**
 
   - The X-Files which aired September 1993 through May 2002
   - The Six Million Dollar Man which had several episodes in 1976 and 1977 featuring bigfoot
@@ -34,7 +29,7 @@ sightings. I have selected two shows to test my hypothesis:
 
 ------
 
-The big challenge here is where to get the data.
+##### The big challenge here is where to get the data.
 
 Fortunately, there is an organization that tracks sasquatch sightings. They call
 themselves the Bigfoot Field Researchers Organization or [BFRO](https://www.bfro.net/)
@@ -58,9 +53,9 @@ The Internet never ceases to amaze me.
 So, armed with this data let's set out to test my hypothesis.
 
 ------
-### The Raw Data
+## The Raw Data
 
-If we look inside `bfro-report-locations.csv` we'll see it looks like this:
+#### If we look inside `bfro-report-locations.csv` we'll see it looks like this:
 
 ```{:.line-numbers}{:.language-csv}
 number,title,classification,timestamp,latitude,longitude
@@ -638,7 +633,7 @@ function saveToFile(data, filename) {
 
 So now we have a functional tool to run impact analyses. Let's run them!
 
-#### The Six Million Dollar Man
+##### The Six Million Dollar Man
 
 First, _The Six Million Dollar Man_. My wife and I both have fond memories of
 watching this show as kids. I can hear the dated sound effect letting us know
@@ -683,7 +678,7 @@ related to the paranormal on _The Six Million Dollar Man_ so maybe this is not
 so surprising.
 
 ------
-#### Fun Fact #1
+##### Fun Fact #1
 
 André the Giant played Bigfoot in Season 3, Episode 16 & 17 of _The
 Six Million Dollar Man_ back in 1976. The episode was a two-parter called "The
@@ -693,7 +688,7 @@ Secret of Bigfoot". It was so popular they even made an action figure.
 
 ------
 
-#### The X-Files
+##### The X-Files
 
 Now, let's see how _The X-Files_ stacks up. I started watching _The X-Files_
 shortly after graduating from college. I made sure I knew how to program my VCR
@@ -731,7 +726,7 @@ These are much stronger numbers. I think we can confidently say that _The X-File
 impacted bigfoot sightings. Or... something. Perhaps life was imitating art?
 
 ------
-#### Fun Fact #2
+##### Fun Fact #2
 
 Surprisingly, bigfoot has never been featured on _The X-Files_. However,
 in Season 1, Episode 6 a sketch of the Jersey Devil distinctly resembles a very

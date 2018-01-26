@@ -79,7 +79,7 @@ Once you have a named dataset you can submit data again with the same name and e
 
 Now that a dataset has been loaded you should see a new line on the */account* page such as that shown outlined in red below.
 
-<img src="../assets/img/dataset_success.png" alt="datasets" class="responsive"/>
+<img src="../assets/img/dataset_success.png" alt="datasets"/>
 
 Notice that next to the dataset name *RubySample* there are two links - one to create a forecast and another to create an impact analysis. These activities will create sessions based on the named dataset.
 
@@ -107,7 +107,7 @@ Good, you're back. The results are in and we now see an link on the *All session
 
 If you click on the *See Results* link you'll be presented with a visualization of the data, the data itself, and a link to see some information about how we created the forecast. This is a bit busier page than others, but really its just your observations from the dataset and Nexosis' forecasts as requested from your session.
 
-<img src="/assets/img/results.png" alt="forecast results" class="responsive" />
+<img src="/assets/img/results.png" alt="forecast results" />
 
 In the screenshot we see that sales have been predicted for the next two months. Again if you're running locally, you can interact with the graph and hover over the line to see the predictions. Otherwise, note the predictions are listed in a table below the graph.
 

@@ -27,7 +27,7 @@ PS> Import-Module .\PSNexosisWebAnalytics
 PS> $env:NEXOSIS_API_KEY = '<yourkeyhere>'
 ```
 
-**Note:** This Powershell module uses [Microsoft Chart Controls for Microsoft .NET Framework 3.5](https://www.microsoft.com/en-us/download/details.aspx?id=14422){:target="_blank"}. You may need to install this to generate and save the graphs.
+> **Note:** This Powershell module uses [Microsoft Chart Controls for Microsoft .NET Framework 3.5](https://www.microsoft.com/en-us/download/details.aspx?id=14422){:target="_blank"}. You may need to install this to generate and save the graphs.
 
 ## Loading Analytics Data from Exported CSV
 
@@ -135,7 +135,7 @@ sampleWebData @{Sessions=; timestamp=}
 
 Let's take a quick look at the logic needed to import this CSV by reviewing excerpts of the code in `Invoke-NexosisUploadAnalyticsCsv.ps1` script.
 
-### Steps To Convert and Upload Google Analytics File
+### Steps to Convert and Upload Google Analytics File
 
 1. Parse date range from the comments in the top of the file
 2. Combine the Start Date from the header with the Hours Index to calculate hourly timestamp
@@ -384,15 +384,15 @@ relativeEffect: 0.6686
 
 Relative effect is showing a ~67% increase. The absolute effect is showing the area under the curve in the chart below that’s between the orange and blue line during the impact period.
 
-## Try It Yourself!
-
+> ##### Try It Yourself!
 To try it on your Google Analytics data, install the module or [clone it from git here](https://github.com/Nexosis/sample-ps-websiteforecasts){:target="_blank"}!
 
+------
 
-## Commands Contained in this Sample Module 
+### Commands Contained in this Sample Module 
 Here is a list of all commands coded for this Sample PowerShell Module
     
-### Public Scripts
+##### Public Scripts
 ```
 Get-NexosisAllDataSetData -            Illustrates how to implement paging to download ALL data.
 
@@ -407,7 +407,7 @@ Invoke-NexosisUploadAnalyticsCsv -     Takes an csv file formatted specifically 
                                        Export and transforms and uploads it to Nexosis API.
 ```
 
-### Private
+##### Private
 
 These are some private scripts in the PS Module that are used to provide some PowerShell command line interface:
 

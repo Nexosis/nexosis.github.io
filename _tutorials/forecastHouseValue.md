@@ -17,7 +17,7 @@ Zillow provides the data under the following [Terms and Conditions](https://www.
 >You can follow along using the [full source code in github](https://github.com/Nexosis/sample-scala-housepriceforecasting){:target="_blank"}.
 
 
-# Getting Started
+## Getting Started
 
 To get started using the Nexosis API with Scala, you'll need the [Scala Client Library](/clients/scala){:target="_blank"}.
 
@@ -28,7 +28,7 @@ resolvers +=
 libraryDependencies += "com.nexosis" % "nexosisclient-java" % "1.1.2"
 ```
 
-## Source Data
+### Source Data
 
 We will not be distributing the source data. You can find source files and download them on the [Zillow ZHVI Research Data](https://www.zillow.com/research/data/){:target="_blank"} site.
 
@@ -41,9 +41,9 @@ RegionID, RegionName, SizeRank, 1996-04, 1996-05, 1996-06, 1996-07, ..., 2017-02
 
 To create a dataset we can work with, we'll extract each row and populate a DataSet object and then create a new dataset.
 
-# Using the API
+## Using the API
 
-## Parsing and Uploading Data
+### Parsing and Uploading Data
 
 Always start by creating an instance of the `NexosisClient`.
 

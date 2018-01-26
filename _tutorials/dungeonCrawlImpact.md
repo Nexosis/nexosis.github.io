@@ -8,13 +8,15 @@ tags: [Impact Analysis, F#]
 use_codestyles: true
 ---
 
-[Dungeon Crawl Stone Soup](https://crawl.develz.org/){:target="_blank"} is a [roguelike](https://en.wikipedia.org/wiki/Roguelike){:target="_blank"} game which has been in active open source development since 2006. The game can be downloaded and played locally, or it can be played online in a web browser. In this example, we are going to take a look at online games from one of the servers, [http://crawl.akrasiac.org](http://crawl.akrasiac.org){:target="_blank"}. This server has records of games going all the way back to 2006, but, we are only going to look at the last few years of data. Specifically, we will be looking at what happens to the number of Games, Players, and Wins during tournaments. 
+[Dungeon Crawl Stone Soup](https://crawl.develz.org/){:target="_blank"} is a [roguelike](https://en.wikipedia.org/wiki/Roguelike){:target="_blank"} game which has been in active open source development since 2006. The game can be downloaded and played locally, or it can be played online in a web browser. 
 
------
+------
+
+In this example, we are going to take a look at online games from one of the servers, [http://crawl.akrasiac.org](http://crawl.akrasiac.org){:target="_blank"}. This server has records of games going all the way back to 2006, but, we are only going to look at the last few years of data. Specifically, we will be looking at what happens to the number of Games, Players, and Wins during tournaments. 
 
 >We will be using the [Nexosis API](https://developers.nexosis.com/){:target="_blank"} to measure impact analysis using machine learning algorithms. And, we will be calling the API from F#. You can find the full source-code for this tutorial on GitHub: [https://github.com/Nexosis/sample-fsharp-dcss](https://github.com/Nexosis/sample-fsharp-dcss){:target="_blank"}
 
-### Tournament Games
+## Tournament Games
 
 Every time a new major version of DCSS is released, a player tournament is held. All online games played on the public servers are counted towards a player's tournament score. Players form teams and earn points by winning games. Bonus points can also be earned by meeting special requirements during gameplay, such as winning in the fewest turns, or by getting the highest score. Since DCSS is very difficult, large numbers of games must be played in order to get a competitive tournament score. We are going to see just how many extra games are played during tournaments. To give an idea of the difficulty level, this is the percent of winning games in our dataset.
 
@@ -28,7 +30,7 @@ let totalGames = dataSet?Games |> Stats.sum
 0.9684491638%
 ```
 
-### The Data
+## The Data
 
 The data we are looking at is provided by one of the DCSS servers on [per day basis](http://crawl.akrasiac.org/scoring/per-day.html){:target="_blank"}. After downloading all of these records, we can truncate the dataset to 2012, since we are only going to be looking at tournaments from the 0.10 version onwards.
 
@@ -276,4 +278,4 @@ The absolute effect on the number of wins is increasing each tournament. Since t
 
 -----
 
-There are certainly more ways to look at this data and discover interesting patterns. If you would like to keep investigating, [take a look at the source code](https://github.com/Nexosis/sample-fsharp-dcss){:target="_blank"} used in creating this write-up and let us know what you find.
+#### There are certainly more ways to look at this data and discover interesting patterns. If you would like to keep investigating, [take a look at the source code](https://github.com/Nexosis/sample-fsharp-dcss){:target="_blank"} used in creating this write-up and let us know what you find.

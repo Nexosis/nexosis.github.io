@@ -7,16 +7,24 @@ category: Developer Education
 tags: [Classification, Postman]
 use_codestyles: true
 ---
-## Classification with Scores
-In this tutorial we'll cover creating a classification model and using it to classify R, G, and B values into named colors. We'll then use the model to also get scores from the model for each of the candidate classes. We'll do this in 3 steps:
+In this tutorial we'll cover creating a classification model and using it to classify R, G, and B values into named colors. We'll then use the model to also get scores from the model for each of the candidate classes. 
 
-- <a href="#upload">Upload Data</a>
-- <a href="#model">Build A Model</a>
-- <a href="#predict">Predict Colors</a>
+------
+
+## Getting Started
+
+#### As always, we'll build our model in 3 easy steps:
+
+1. <a href="#upload">Upload Data</a>
+2. <a href="#model">Build A Model</a>
+3. <a href="#predict">Predict Colors</a>
 
 
-### Classification of Color with RGB
-When executing a classification model we want the algorithm to identify a class (group, bucket, name, etc) based on new observations so the machine can tell us what something is. In our example here we want to hand in values of the 3 constituents of a Red, Green, and Blue based color and get a name for the color mapped to these values; for example if we have R: 255, G: 0, B: 0 as our observations, we should find this will be labeled *Red*. A trivial end goal perhaps, but all of the concepts are the same as classifying something as important as 'cancer'/'not cancer'.
+## Classification of Color with RGB
+
+#### When executing a classification model we want the algorithm to identify a class (group, bucket, name, etc) based on new observations so the machine can tell us what something is. 
+
+In our example here we want to hand in values of the 3 constituents of a Red, Green, and Blue based color and get a name for the color mapped to these values; for example if we have R: 255, G: 0, B: 0 as our observations, we should find this will be labeled *Red*. A trivial end goal perhaps, but all of the concepts are the same as classifying something as important as 'cancer'/'not cancer'.
 
 > You can see one of many online color maps at [RapidTables](https://www.rapidtables.com/web/color/RGB_Color.html){:target="_blank"}.
 
@@ -241,4 +249,4 @@ Here we see some information about the model's decision making. Red was a close 
 
 We can also see that this color has absolutely nothing to do with blue, but could marginally be related to violet.  Again, with colors this information is intutitive and perhaps not telling you something you couldn't easily perceive. Yet, the power of the machine to pick up on this information and to provide relative values of association between classes has interesting implications for other ways to use classification algorithms in the Nexosis API. 
 
-What could you find out with a classification model built by the Nexosis API?
+##### What could you find out with a classification model built by the Nexosis API?

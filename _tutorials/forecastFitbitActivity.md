@@ -19,11 +19,11 @@ As a fun exercise, we built a small web application that uses the Nexosis API an
 
 ## Getting Started
 
-To get ourselves off the ground a bit faster with the APIs we'll be using, we started off by using [Auth0](https://auth0.com/) and their [Asp.Net core quickstart](https://auth0.com/docs/quickstart/webapp/aspnet-core) to handle things like identity management and OAuth with Fitbit, as well as the [Nexosis .Net Client Library](/clients/dotnet){:target="_blank"} to interact with the Nexosis API.  
+#### To get ourselves off the ground a bit faster with the APIs we'll be using, we started off by using [Auth0](https://auth0.com/) and their [Asp.Net core quickstart](https://auth0.com/docs/quickstart/webapp/aspnet-core) to handle things like identity management and OAuth with Fitbit, as well as the [Nexosis .Net Client Library](/clients/dotnet){:target="_blank"} to interact with the Nexosis API.  
 
 Lastly, we found a popular [.Net Fitbit Api Client](https://github.com/aarondcoleman/Fitbit.NET) and started using it.  Unfortunately it didn't support .Net Core [yet](https://github.com/aarondcoleman/Fitbit.NET/issues/175), so we [forked](https://github.com/vermeeca/Fitbit.NET) it and made the [bare minimum](https://github.com/vermeeca/Fitbit.NET/commit/2d52c6e3149c08efe4193650cd0eede766515d8f) changes we could make to get it compiling under .Net Standard.
 
-### Fitbit Time Series Api
+### Fitbit Time Series API
 
 Conveniently for us, Fitbit exposes a [Time Series API](https://dev.fitbit.com/docs/activity/#activity-time-series) that we can use to quickly retrieve many years of history for a given activity.
 
@@ -63,7 +63,8 @@ public async Task<IActionResult> Index(string id)
 
 
 ## Generating a Forecast
-Now that we're able to fetch your fitbit activity history, let's write a [controller](https://github.com/Nexosis/app-fitbit/blob/master/Controllers/ActivityController.cs) action to generate a set of predictions for whichever fitbit activity we're looking at.
+
+#### Now that we're able to fetch your fitbit activity history, let's write a [controller](https://github.com/Nexosis/app-fitbit/blob/master/Controllers/ActivityController.cs) action to generate a set of predictions for whichever fitbit activity we're looking at.
 
 ``` C#
 [Authorize]
@@ -179,7 +180,7 @@ This code will upload a DataSet to the Nexosis API that looks something like thi
 
 ## Getting Forecast Results
 
-Now that we've submitted a [Forecast](/guides/forecast) session, we can go back to our first controller action and update it to fetch the most recent forecast session and return it to the view for graphing.
+#### Now that we've submitted a [Forecast](/guides/forecast) session, we can go back to our first controller action and update it to fetch the most recent forecast session and return it to the view for graphing.
 
 ``` C#
 [Authorize]
@@ -382,6 +383,6 @@ Also it might be interesting to use the Nexosis [Impact Analysis](/guides/impact
 ![Vacation Steps](/assets/img/tutorials/fitbit-steps-vacation.png){:class="img-responsive"}
 
 ## Conclusion
-As you can see, the Nexosis API can make it easy to take data from other APIs and get a forecast on that data.  Sometimes that forecast leads to other questions, and can lead you toward interesting insights.
+#### As you can see, the Nexosis API can make it easy to take data from other APIs and get a forecast on that data.  Sometimes that forecast leads to other questions, and can lead you toward interesting insights.
 
 > If you have an idea for expanding on this sample application, [let us know](https://github.com/Nexosis/app-fitbit/issues/new)!  If you're so inclined, take a shot at implementing that idea and submit it back to us as a Pull Request.  We'd love to expand on this app and make it more useful to folks.

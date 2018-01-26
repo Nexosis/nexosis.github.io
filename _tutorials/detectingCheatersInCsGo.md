@@ -10,13 +10,15 @@ use_codestyles: true
 
 [Counter-Strike: Global Offensive](https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive){:target="_blank"}, or CS:GO for short, is a team-based [multiplayer](https://en.wikipedia.org/wiki/Multiplayer_video_game){:target="_blank"} highly competitive [first person shooter](https://en.wikipedia.org/wiki/First-person_shooter){:target="_blank"} video game made and published by [Valve Software](http://www.valvesoftware.com){:target="_blank"} in 2012 that is still very popular today. This game, like many online games, has seen its share of cheating issues. Since cheaters use a variety of techniques to gain an unfair advantage, we hypothesize a player's in-game performance metrics could be used to build a machine learning model that will classify whether or not that player is cheating.
 
+------
+
 This tutorial will walk the reader through this sample from beginning to end: starting with collecting, preparing, and submitting the dataset, building and deploying a classification model, and finally using that model to classify players as either a potential cheater or an honest gamer. If you'd like to follow along, you can sign up for one of our free Community accounts and use curl, [Postman](https://www.getpostman.com){:target="_blank"}, the [Nexosis Powershell client library](https://www.powershellgallery.com/packages/PSNexosisClient/2.1.0){:target="_blank"}, or one of our other [Client Libraries](http://docs.nexosis.com/clients/){:target="_blank"} in the language of your choice. Here's a link to the dataset this article will be working with in our [`sampledata`](https://github.com/Nexosis/sampledata/){:target="_blank"} GitHub repository here at [CS:GO DataSet on GitHub](https://github.com/Nexosis/sampledata/blob/master/csgo-small.csv){:target="_blank"}.
 
-To jump straight to uploading data and building a model, you can start here at [Uploading the Data](#uploading-the-data) section.
+> To jump straight to uploading data and building a model, you can start here at [Uploading the Data](#uploading-the-data) section.
 
 -----
 
-## Gathering The Data
+## Gathering the Data
 
 Acquiring publicly available in-game player metrics is trivial since Valve's [Steam](https://en.wikipedia.org/wiki/Steam_(software)){:target="_blank"} platform collects and displays this information and makes it available via the [Steam API](https://developer.valvesoftware.com/wiki/Steam_Web_API){:target="_blank"}. Registered Steam users are identified by a unique Steam ID, which can be used to retrieve public player information, in-game metrics, and instances of bans due to cheating detected by Valve Anti-Cheat (VAC). VAC has not always been very effective, which is why we want to build our own model and see if we can do better.
 
@@ -45,7 +47,7 @@ There are three main endpoints we will use to gather the data needed to build th
 - `GetOwnedGames` which we suspect is correlated to cheating as well - because [if you get VAC Banned you lose certain privileges on Steam making that Steam Account worthless for some purposes](https://support.steampowered.com/kb_article.php?ref=4044-qdhj-5691){:target="_blank"}. 
 - `GetPlayerBans` is used to make sure we don't accidently identify a player who was caught cheating in the past as a non-cheater.
 
-#### [GetUserStatsForGame](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetUserStatsForGame_.28v0002.29){:target="_blank"}
+##### [GetUserStatsForGame](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetUserStatsForGame_.28v0002.29){:target="_blank"}
 `https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/`
 
 Retrieving player stats from the Steam API is very simple. The API endpoint requires a Steam API key, a player's Steam ID, and the AppID of CS:GO.
@@ -1855,7 +1857,7 @@ game_count games
     </div>
 </div>
 
-#### [GetPlayerBans](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerBans_.28v1.29){:target="_blank"}
+##### [GetPlayerBans](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerBans_.28v1.29){:target="_blank"}
 `https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/`
 The Player Bans endpoint contains the "VACBanned" property that we will use to label the cheater dataset.
 
@@ -1900,7 +1902,7 @@ EconomyBan       : none
     </div>
 </div>
 
-#### [GetPlayerSummaries](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_.28v0002.29){:target="_blank"}
+##### [GetPlayerSummaries](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_.28v0002.29){:target="_blank"}
 `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/`
 
 The Players Summary information isn't required, but is useful for querying to see if the Player Profile is public before attempting to retrieve in-game metrics. If their profile is not public, we cannot get the stats or other information needed so we should just ignore those.
@@ -1972,6 +1974,7 @@ locstatecode             : A8
 </pre>
     </div>
 </div>
+
 ## Understanding and Preparing The Data
 
 Based on the amount of data available on a player collected from just these four Steam API endpoints - we have a choice of over 250 pieces of information. We could blindly jam every one of these data-points into the Nexosis API, cross our fingers, and hope to find something. The Nexosis API will attempt to reduce the feature set to the most important points - but if there is little or no correlation between each column and the target, we'll end up with a useless or insufficient model.
