@@ -1,6 +1,6 @@
 ---
 title: The Titanic - ML Beginner Course (101)
-description: This course will introduce some basic concepts of Machine Learning using the Nexosis API and some simple data about each passengers aboard the Titanic.
+description: This course will introduce some basic concepts of Machine Learning using the Nexosis API and some simple data about each passenger aboard the Titanic.
 copyright: 2018 Nexosis 
 layout: default
 category: Developer Education
@@ -73,7 +73,7 @@ With machine learning the primary focus is on the data being used to create our 
 
 We’re going to start off by using a slightly modified version of the Kaggle Titanic training and testing datasets.  You can grab the training dataset [here](https://raw.githubusercontent.com/Nexosis/sampledata/master/titanic-train.csv){:target="_blank"}.
 
-The training dataset is what we’ll be using to build our model with.  The test dataset is how we’ll evaluate the model accuracy.
+The training dataset is what we’ll use to build our model.  The test dataset is how we’ll evaluate the model accuracy.
 
 <h4 id="training-data" class="jumptarget">Training Data</h4>
 
@@ -104,7 +104,7 @@ Install Postman and the Nexosis API Collection (if you haven’t already done so
 
 We’re going to use Postman to submit our data via the Nexosis API to create a model.
 
-1. The Nexosis API Collections should be listed in postman on the left-hand side. Click on the Data folder and select `PUT /data/:dataSetName`
+1. The Nexosis API Collections should be listed in postman on the left-hand side. Open the Data folder and click `PUT /data/:dataSetName`
  ![Postman: Using PUT /data/:dataSetName](/assets/img/tutorials/titanic-postman1.png){:.img-responsive}
 2. Click on Headers and add keys and values. 
     <table border="1">
@@ -162,7 +162,7 @@ We’re going to use Postman to submit our data via the Nexosis API to create a 
 
 When the model is finished, you will receive an email with your session ID. You can also check the status of your session in Postman. To do this, you will need the session ID you copied from the previous step. 
 
-1. Select the Sessions folder in the Nexosis Collections and click `GET /sessions/:sessionId`
+1. Open the Sessions folder and click `GET /sessions/:sessionId`
    <img src="/assets/img/tutorials/titanic-postman9.png" alt="Session Response" style="padding: 10px;" class="img-responsive"><br>
   
 2. Click `Params` and paste the unique session ID for `sessionId` Value.
@@ -177,7 +177,7 @@ When the model is finished, you will receive an email with your session ID. You 
  <h3 id="results" class="jumptarget">Results</h3>
  Now that the model has been created, is it any good? The Session results will contain metrics and the results of an internal test set. 
 
- 1. In the Sessions folder in the Nexosis Collections, click `GET /sessions/:sessionId/results`
+ 1. Open the Sessions folder and click `GET /sessions/:sessionId/results`
  <img src="/assets/img/tutorials/titanic-postman12.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
 2. Click Params and paste the unique session ID for `sessionId` Value.
 > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161301c-4d30-422d-9ebb-e4a60671714e`.
@@ -242,7 +242,7 @@ The `data` section in the session results contains the internal test set used to
 <h4 id="how-to-use-results" class="jumptarget">How to Use the Results</h4>
 Now that the model exists, a prediction endpoint is available that can be used to provide predictions. 
 
-1. Select the `models` folder in the Nexosis Collections and click `POST /models/:modelId/predict`
+1. Open the `models` folder and click `POST /models/:modelId/predict`
  <img src="/assets/img/tutorials/titanic-postman15.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive">
 2. Click Params and paste the model ID for `modelId` Value.
  <img src="/assets/img/tutorials/titanic-postman16.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive">
