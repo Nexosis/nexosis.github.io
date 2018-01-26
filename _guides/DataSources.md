@@ -12,19 +12,19 @@ The Nexosis API generates predictions in a forecast session based on data source
 
 -----
 
-## Data Sources
+## Overview
 When a Session request asks for a dataset name it is referencing a unique name that you have assigned to either a [DataSet](/guides/sendingdata) or a [View](/guides/views). These names must be unique within your organization so that a name can be meaningfully used when creating a session. Views are a helper mechanism designed to allow you to mix and match data from different Data Sets you have already loaded to the API. You are encouraged to read more about how they can help you [here](/guides/views).
 
-### Global Data Sets
+## Global Data Sets
 Another new type of data source is the Global Data Set. Globally available Data Sets may be included by providing the globally unique name. These datasets are not useful for directly forecasting in a session. Instead they are intended as common features one may wish to include with an existing dataset. You might try adding one of these if you suspect the subject matter of the global dataset has an influence on your data. In order to add a Global Data Set to your session, include it as a join target in a [view](/guides/views).
 
-#### Available Global Data Sets
+### Available Global Data Sets
 The Nexosis API currently supports holiday calendars as global data sets. In order to reference a holiday calendar you use the prefix *Nexosis.Holidays-* followed by the [two character country code as defined by ISO-3166](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). For example:
  
 - Nexosis.Holidays-US - a time-series based set of day long holidays in the USA
 - Nexosis.Holidays-CA - a time-series based set of day long holidays in Canada
 
-See our [calendar listing in GitHub](https://github.com/Nexosis/holiday-calendars) for which country codes we support.
+> See our [calendar listing in GitHub](https://github.com/Nexosis/holiday-calendars) for which country codes we support.
 
 In order to define a named calendar as a data source in a join you would include the following join syntax in your view definition:
 
@@ -41,4 +41,4 @@ In order to define a named calendar as a data source in a join you would include
 }
 
 ```
-See [our guide to calendars](/guides/calendars) for more details about how calendars can be used to create features in your view.
+> See [our guide to calendars](/guides/calendars) for more details about how calendars can be used to create features in your view.

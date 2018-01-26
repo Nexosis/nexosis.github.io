@@ -15,7 +15,9 @@ This is a quick walkthrough of the basics of the using the Nexosis API.  By foll
 
 ## Step 1: Prepare data for upload
 
-In order to start using the Nexosis API, you'll need to upload some data for the API to process. Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have a [few datasets available](https://github.com/Nexosis/sampledata) which have examples of sales per day at a store, and sales of a single product per day.  One of the sample datasets look like this:
+#### In order to start using the Nexosis API, you'll need to upload some data for the API to process. 
+
+Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have a [few datasets available](https://github.com/Nexosis/sampledata) which have examples of sales per day at a store, and sales of a single product per day.  One of the sample datasets look like this:
 
 ``` csv
 timeStamp,sales,transactions
@@ -31,7 +33,9 @@ Since we are working with time series data, each row must have a timestamp of wh
 
 ## Step 2: Start a Session
 
-Now that we have some data, let's upload it and get a forecast of how these values will change over time.  To do this, we need to first send our data to a `Dataset`.  Then we start a `Session`, referencing the `Dataset` we just created and containing parameters needed to determine how the Nexosis machine learning algorithms should work.  Once the `Session` is started, our algorithms will start crunching the numbers to produce a set of forecast results.
+#### Now that we have some data, let's upload it and get a forecast of how these values will change over time.  
+
+To do this, we need to first send our data to a `Dataset`.  Then we start a `Session`, referencing the `Dataset` we just created and containing parameters needed to determine how the Nexosis machine learning algorithms should work.  Once the `Session` is started, our algorithms will start crunching the numbers to produce a set of forecast results.
 
 For this dataset, we want to forecast the sales for the first quarter of 2017.  All we need to do is specify the `StartDate` and `EndDate` as `2017-01-01` and `2017-04-01`.  The `TargetColumn` parameter also needs to be specified, which is the value which will be forecasted for this date range.  We will set this value to `sales`.
 
@@ -90,7 +94,7 @@ Once this request comes back with a `status` of `completed`, the forecast will b
 
 ## Step 3: Download results
 
-Results can be downloaded by issuing a GET to the results endpoint.
+#### Results can be downloaded by issuing a GET to the results endpoint.
 
 ### Download session results
 
@@ -125,7 +129,7 @@ The values object contains a key value pair of the column name, and the predicti
 
 ## Next steps
 
-The Nexosis API can also do impact analysis of events.  This can be used to gauge, for example, how impactful promotions or special events are on sales numbers.  These types of sessions can be posted in the same way as forecasts, but to the `sessions/impact` endpoint.
+#### The Nexosis API can also do impact analysis of events.  This can be used to gauge, for example, how impactful promotions or special events are on sales numbers.  These types of sessions can be posted in the same way as forecasts, but to the `sessions/impact` endpoint.
 
 
 Now that you are familiar with the basics, try running forecasts against new datasets, or, take a look at the [code samples](https://github.com/Nexosis?utf8=✓&q=samples) and [client libraries](/clients), and write an application which integrates with the API.  Show us what you were able to build!

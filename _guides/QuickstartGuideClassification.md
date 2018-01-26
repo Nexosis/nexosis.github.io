@@ -15,7 +15,9 @@ This is a quick walkthrough of the basics of the using the Nexosis API.  By foll
 
 ## Step 1: Prepare data for upload
 
-In order to start using the Nexosis API, you'll need to upload some data for the API to process. Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have [several DataSets available](https://github.com/Nexosis/sampledata){:target="_blank"} which includes the famous iris data with some identifiable features of different species of Iris flowers.  The [Iris JSON DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.json){:target="_blank"} includes data like this (json shown):
+#### In order to start using the Nexosis API, you'll need to upload some data for the API to process. 
+
+Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have [several DataSets available](https://github.com/Nexosis/sampledata){:target="_blank"} which includes the famous iris data with some identifiable features of different species of Iris flowers.  The [Iris JSON DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.json){:target="_blank"} includes data like this (json shown):
 
 ``` json
 [
@@ -36,7 +38,9 @@ The *iris* field is our target value.  The other columns will be treated as feat
 
 ## Step 2: Start a Session
 
-Now that we have some data, let's upload it and get a model which we can use to classify irises from previously unseen values.  To do this, we need to first send our data to a `DataSet`.  Then we start a `Session`, referencing the `DataSet` we just created and containing parameters needed to determine how the Nexosis machine learning algorithms should work.  Once the `Session` is started, our algorithms will start crunching the numbers to produce a model.
+#### Now that we have some data, let's upload it and get a model which we can use to classify irises from previously unseen values.  
+
+To do this, we need to first send our data to a `DataSet`.  Then we start a `Session`, referencing the `DataSet` we just created and containing parameters needed to determine how the Nexosis machine learning algorithms should work.  Once the `Session` is started, our algorithms will start crunching the numbers to produce a model.
 
 For this DataSet, we want to classify iris type given some measurements of the flower in centimeters.  The `TargetColumn` parameter will then be specified as *iris*.
 
@@ -44,7 +48,7 @@ Putting this all together, we will have a two requests that look like the ones b
 
 ### Upload a file
 
-#### JSON File 
+##### JSON File 
 If you're using the `iris.json` file from our sampleData repo: [Iris JSON DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.json){:target="_blank"}. Make sure to submit the correct `Content-Type` header.
 
 ``` bash
@@ -54,7 +58,7 @@ curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
  --data-binary "@/path/to/file/iris.json"
 ```
 
-#### CSV File
+##### CSV File
 If you're using the `iris.csv` file from our sampleData repo: [Iris CSV DataSet](https://github.com/Nexosis/sampledata/blob/master/iris.csv){:target="_blank"}. Make sure to submit the correct `Content-Type` header.
 
 ``` bash
@@ -117,7 +121,7 @@ Once this request comes back with a `status` of `completed`, the model will be a
 
 ## Step 3: Predict Class
 
-Classification predictions can be made by issuing a POST to the model/predict endpoint. When you request a prediction you send in a JSON body which contains the feature values on which the prediction should be made.
+#### Classification predictions can be made by issuing a POST to the model/predict endpoint. When you request a prediction you send in a JSON body which contains the feature values on which the prediction should be made.
 
 ### Get the model id
 In order to predict you first need the modelId for the model trained by the session in step 2. This comes back in the session results
@@ -171,6 +175,6 @@ The body of the response will include your data field echoed back to you but thi
 
 ## Next steps
 
-The Nexosis API can also do [timeseries forecasting](http://docs.nexosis.com/guides/quickstartguideforecast) and impact analysis of events, and [regression analysis](http://docs.nexosis.com/guides/quickstartguidepredict) to create predictions of continuous variables.
+#### The Nexosis API can also do [timeseries forecasting](http://docs.nexosis.com/guides/quickstartguideforecast) and impact analysis of events, and [regression analysis](http://docs.nexosis.com/guides/quickstartguidepredict) to create predictions of continuous variables.
 
 Now that you are familiar with the basics, try getting predictions from new datasets, or, take a look at the [code samples](https://github.com/Nexosis?utf8=✓&q=samples) and [client libraries](/clients), and write an application which integrates with the API.  Show us what you were able to build!

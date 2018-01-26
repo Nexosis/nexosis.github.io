@@ -17,7 +17,7 @@ of the historical PM<sub>2.5</sub> levels in Beijing<sup>[1](#data-quality)</sup
 
 ## Getting Started
 
-In order to run the code associated with this sample, you must first [create an account](/guides/createaccount){:target="_blank"}. The sample code is hosted [on GitHub](https://github.com/nexosis/sample-csharp-air-quality){:target="_blank"} and can be cloned and run locally. 
+In order to run the code associated with this sample, you must first [create an account](https://support.nexosis.com/hc/en-us/articles/115009326227-How-to-create-an-account){:target="_blank"}. The sample code is hosted [on GitHub](https://github.com/nexosis/sample-csharp-air-quality){:target="_blank"} and can be cloned and run locally. 
 
 -----
 

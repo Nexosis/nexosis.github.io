@@ -14,7 +14,8 @@ As an alternative to [sending](sendingdata) your data directly to the Nexosis AP
  ---
 
 ## Importing from AWS S3
-If you have a `CSV` or `JSON` file hosted out on [AWS S3](https://aws.amazon.com/s3), you can tell the Nexosis Platform to import that data into a [DataSet](howitworks#dataset).
+
+#### If you have a `CSV` or `JSON` file hosted out on [AWS S3](https://aws.amazon.com/s3), you can tell the Nexosis Platform to import that data into a [DataSet](howitworks#dataset).
 
 To tell Nexosis to import data from S3, you'll issue a `POST` request to [/imports/s3]({{site.api_reference_baseurl}}/operations/595ce629e0ef6e0c98d37f2f). The body of this request should have the following information.
 
@@ -68,7 +69,8 @@ The response from this POST will be some details about the import.
 The response will also contain a `Nexosis-Import-Status` header with the status of the import.
 
 ### Using AWS Credentials
-If your S3 resource is private you can attach an accessKeyId and secretAccessKey to the request in order to make an authenticated request. We will encrypt your keys while in use, and will delete them immediately after the import. However, we still recommend that you use an IAM account with least privilege to read only the intended resource.
+
+#### If your S3 resource is private you can attach an accessKeyId and secretAccessKey to the request in order to make an authenticated request. We will encrypt your keys while in use, and will delete them immediately after the import. However, we still recommend that you use an IAM account with least privilege to read only the intended resource.
 
 Simply add these variables to the json, with everything else above remaining the same: 
  
@@ -84,7 +86,9 @@ Simply add these variables to the json, with everything else above remaining the
 ```
 
 ### Supported File Extensions
-At this time we can support the following file extensions and formats.
+
+#### At this time we can support the following file extensions and formats.
+
 * `CSV`
 * `JSON` : If you're importing a JSON file, the contents of the JSON should match our data PUT endpoint including any metadata you wish to set for columns:
 
@@ -113,7 +117,8 @@ At this time we can support the following file extensions and formats.
 See the guide on [Sending Data](/guides/sendingdata) for more examples.
 
 ## Importing From Azure
-Import from Azure is very similar and allows the same file types and data formats. When importing from Azure you modify the endpoint to /imports/azure and then provide Azure specific directives with the dataset name in the json request payload:
+
+#### Import from Azure is very similar and allows the same file types and data formats. When importing from Azure you modify the endpoint to /imports/azure and then provide Azure specific directives with the dataset name in the json request payload:
 
 ``` json
 {
@@ -128,7 +133,7 @@ We recommend using SAS tokens whenever possible to provide limited access to the
 Also note that any folder in your storage path should be made part of the 'blob' entry in your  json payload.
 
 ## Importing By URL
-Importing by URL is very straightforward and just requires a url property included in your json payload sent to the /imports/url endpoint:
+#### Importing by URL is very straightforward and just requires a url property included in your json payload sent to the /imports/url endpoint:
 
 ``` json
 {
@@ -139,7 +144,8 @@ Importing by URL is very straightforward and just requires a url property includ
 As with the imports above you'll need to provide a url that returns JSON or CSV content, or that points to a gzip file. Urls are a convenient way to load from diverse sources such as raw github content, temporary secure urls from DropBox, OneDrive, Google Drive, and any other resource that provides secure sharing urls. Again, with an abundance of caution we recommend that you deactivate sharing links after a successful import.
 
 ## Checking the status of an import
-Once you've submitted an import, you may want to check back to see when it completes.  To see the status of an import you make a `GET` request to [/imports/{importId}]({{site.api_reference_baseurl}}/operations/595ce629e0ef6e0c98d37f30).  
+
+#### Once you've submitted an import, you may want to check back to see when it completes.  To see the status of an import you make a `GET` request to [/imports/{importId}]({{site.api_reference_baseurl}}/operations/595ce629e0ef6e0c98d37f30).  
 
 The response from this endpoint will be in the same format as when you made the initial `POST` to start the import.
 
@@ -181,7 +187,8 @@ The response from this endpoint will be in the same format as when you made the 
 ```
 
 ## Listing imports
-You can also query the imports you've run previously by issuing a `GET` to [/imports]({{site.api_reference_baseurl}}/operations/595ce629e0ef6e0c98d37f31). 
+
+#### You can also query the imports you've run previously by issuing a `GET` to [/imports]({{site.api_reference_baseurl}}/operations/595ce629e0ef6e0c98d37f31). 
 
 You can also provide the following parameters in the query string to filter the imports you've run.
 

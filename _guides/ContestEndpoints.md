@@ -15,7 +15,7 @@ Every session involves a process we call "Reigning Champion" where several candi
 First off it is important to note that contest endpoints are available only in the paid tiers. [Consider upgrading](https://www.nexosis.com/pricing) if you have a Community license but would like to examine your sessions in detail.
 
 ## To Choose a Champion
-The contest endpoints will make a little more sense when you understand the terms we use for the participants in the process. 
+#### The contest endpoints will make a little more sense when you understand the terms we use for the participants in the process. 
 
 * `Contest` - The process of choosing a champion within a single session.
 * `Champion` - because we call the process "Reigning Champion" we consider the winning algorithm to be the *champion*. Think of it like Thunderdome - many algorithms enter, one algorithm leaves.
@@ -23,7 +23,7 @@ The contest endpoints will make a little more sense when you understand the term
 * `Champion Metric` - Each class of algorithms has a particular metric by which the champion is chosen. While many metrics may be calculated, the *championMetric* is the one used to pick a winner. 
 
 ## Contest Endpoints
-We have provided 5 endpoints to retrieve information about the contest:
+#### We have provided 5 endpoints to retrieve information about the contest:
 
 * /sessions/{sessionId}/contest - Overview of champion and all contestant algorithm's performance
 * /sessions/{sessionId}/contest/champion - Champion metrics and test data
@@ -61,7 +61,7 @@ Each champion or contestant algorithm is returned with the same json schema. Con
 }
 ``` 
 
-The properties and objects included are as follows:
+##### The properties and objects included are as follows:
 
 * `id` - A unique identifier for this algorithm within this session. This is used primarily as a way to pull back the test data from the contestants endpoint.
 * `algorithm` - contains the name and description for this particular algorithm.

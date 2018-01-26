@@ -11,13 +11,13 @@ order: 7
 
 When [uploading data](sendingdata), [importing data](importingdata), or [starting a session](session), you can specify metadata about the columns in your dataset.  This allows the Nexosis API to better understand how your data should be used and interpreted when running machine learning algorithms.
 
-> Note: Setting column metadata is totally optional.  For simple datasets with a couple of columns, the contents of the columns are inferred, and providing metadata may not make a difference in how the algorithms execute.
+> Note: Setting column metadata is totally optional. For simple datasets with a couple of columns, the contents of the columns are inferred, and providing metadata may not make a difference in how the algorithms execute.
 
 ----
 
-## <a name="dataTypes">Column DataTypes</a>
+## <span name="dataTypes">Column DataTypes</span>
 
-Setting the column `dataType` property is defining the kind of data that the column contains.  The supported data types are:
+#### Setting the column `dataType` property is defining the kind of data that the column contains. The supported data types are:
 
 - Numeric - Numbers, which can be integers or floats.
 - NumericMeasure - Exactly like a Numeric column, except that Imputation and Aggregation are handled differently.
@@ -36,7 +36,7 @@ Our handling of Imputation and Aggregation are discussed in more detail in the s
 
 ## Imputation and Aggregation
 
-Whenever you request a [Forecast session](forecast) or an [Impact Analysis session](impactanalysis) from the Nexosis API, you ask for that forecast to come back in a certain `resultInterval`.  That interval is something like `hour`, `day`, `week`, etc.
+#### Whenever you request a [Forecast session](forecast) or an [Impact Analysis session](impactanalysis) from the Nexosis API, you ask for that forecast to come back in a certain `resultInterval`.  That interval is something like `hour`, `day`, `week`, etc.
 
 When you request a one of these sessions, the Nexosis API goes through the following process against your data to prepare it for the Session:
 
@@ -45,7 +45,7 @@ When you request a one of these sessions, the Nexosis API goes through the follo
 - Processes the data into numeric values, using techniques such as [One Hot Encoding](https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science)
 - Aggregates that data by the `resultInterval` requested in the session
 
-> Nexosis itself doesn't care one bit whether your data is a daily/hourly/weekly rollup, or whether it's a raw feed of sensor data.
+> The Nexosis API doesn't care whether your data is a daily/hourly/weekly rollup, or whether it's a raw feed of sensor data.
 
 - Once the data is aggregated by `resultInterval`, it looks for gaps in the aggregated data and Imputes missing values.
 
@@ -59,7 +59,7 @@ If you wish to manually override the strategy used by the API for a column of da
 
 ### Imputation
 
-The Nexosis API offers the following options for Imputation.
+#### The Nexosis API offers the following options for Imputation.
 
 - `zeroes` -- A missing value is filled in with 0
 - `mean` -- A missing value is filled in with the **average** of the nearest values we can find on either side of that gap.
@@ -70,7 +70,7 @@ The Nexosis API offers the following options for Imputation.
 
 ### Aggregation Options
 
-The Nexosis API offers the following options when aggregating to a given `resultInterval`
+#### The Nexosis API offers the following options when aggregating to a given `resultInterval`
 
 - `sum` -- The resulting value is the **sum** of all column values that fall within the `resultInterval`
 - `mean` -- The resulting value is the **average** of all column values that fall within the `resultInterval`
@@ -81,7 +81,7 @@ The Nexosis API offers the following options when aggregating to a given `result
 
 ### Defaults per dataType
 
-Nexosis tries to assign sensible defaults for each `dataType` available.  Those defaults are below.
+#### Nexosis tries to assign sensible defaults for each `dataType` available.  Those defaults are below.
 
 | DataType | Typical Usage | Imputation Default | Aggregation Default |
 | -------- | ------------- | ------------------ | ------------------- |
@@ -98,7 +98,7 @@ Text columns are not currently used by time-series sessions, and so missing valu
 
 ## Column Roles
 
-While the data type of a column defines what kind of data is in a column, the role of a column defines how that column is used by the Nexosis API.  These roles can actually be changed depending on what you are trying to learn from your dataset.  The available roles are:
+#### While the data type of a column defines what kind of data is in a column, the role of a column defines how that column is used by the Nexosis API.  These roles can actually be changed depending on what you are trying to learn from your dataset.  The available roles are:
 
 - None - Setting a column role to None means that this column will not be used when generating results.
 - Timestamp - Defines the column used for ordering/aggregation when performing time-series analysis.
@@ -110,7 +110,7 @@ While the data type of a column defines what kind of data is in a column, the ro
 
 ## Overriding Roles
 
-Column roles can be specified on both a dataset, and on a session that uses the same dataset.  In this situation, the column roles specified on the session will be used only for that session.  This can be useful when you want to predict the values of different columns in a dataset and use the other columns as features.
+#### Column roles can be specified on both a dataset, and on a session that uses the same dataset.  In this situation, the column roles specified on the session will be used only for that session.  This can be useful when you want to predict the values of different columns in a dataset and use the other columns as features.
 
 > Impact sessions should be started with an override of column roles if the value being tested for impact is defined as a feature in the dataset.  This ensures that the algorithms process the dataset as if the impact feature was not present.  The column which specifies the impact event should be set to a role of `None`.
 
@@ -120,7 +120,7 @@ Refer to the [Specifying Features](specifyingfeatures) tutorial for a more in-de
 
 ## Example
 
-An example showing how you can specify some of the options available in Column Metadata
+#### An example showing how you can specify some of the options available in Column Metadata
 
 ``` json
 {
@@ -153,4 +153,4 @@ An example showing how you can specify some of the options available in Column M
 
 ## Validations and restrictions
 
-Column datatypes and roles must meet some restrictions and validations.  If any of these requirements are not met, you will receive a [400 error response](errorcodes) which details which column has the validation issue, and what that validation restriction is.  These validations ensure that the Nexosis API is able to understand how to use the values in your dataset, and is able to generate accurate results.
+#### Column datatypes and roles must meet some restrictions and validations.  If any of these requirements are not met, you will receive a [400 error response](errorcodes) which details which column has the validation issue, and what that validation restriction is.  These validations ensure that the Nexosis API is able to understand how to use the values in your dataset, and is able to generate accurate results.

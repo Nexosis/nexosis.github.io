@@ -12,13 +12,15 @@ use_codestyles: true
 Regression models can be created for all types of DataSets. The Nexosis API helps you build the best model to fit your DataSet and then you can repeatedly use that model in real time.
 
 -----
-### Creating Regression Models
-Creating a regression model starts with the data just like any other prediction capability of our API. To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
+## Creating Regression Models
+
+#### Creating a regression model starts with the data just like any other prediction capability of our API. To understand how to submit data, you can read more in the [Sending Data](/guides/sendingdata) article.
 
 Once you have a DataSet you are ready to get going. If you have used the API to do timeseries forecasting, some of this will be familiar but there is at least one new step. When building a regression model you don't get your prediction results right away. In this case we're going to build a model with your DataSet, but you'll submit more feature data to get predictions only after the model is built.
 
 Let's back up and go through the steps in detail.
-#### Starting A Model Building Session
+
+### Starting A Model Building Session
 Building a model means training an algorithm so that we can use it over and over again with data that it hasn't seen before to get your predictions. Whereas in a timeseries scenario the most recent data in time can be the most important, a regression model can continue to be useful without taking new observations into account. Like any model you will want to refresh it occasionally but in general you'll keep using one regression model for a longer period than for timeseries. That said, model building is our first step and we do that by running a model building session by posting to the following API endpoint...
 
 ```url
@@ -41,7 +43,8 @@ Let's say you have a data source called HousingData and the target column is *Sa
 }
 ```
 The Nexosis API will then go and figure out the best model to build for the data source and target you have identified. We'll build several different models with different algorithms and compare the results for you in order to pick the best one.
-#### Model Session Results
+
+### Model Session Results
 A model training session can last for a while so we don't return results right away. The initial call does however return a SessionId which you can use to check the status of your session by occasionally making a call to the 'get session' endpoint
 ```url
 https://ml.nexosis.com/v1/sessions/{your session id}

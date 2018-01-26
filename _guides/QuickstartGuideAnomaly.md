@@ -15,7 +15,9 @@ This is a quick walkthrough of the basics of the using the Nexosis API.  By foll
 
 ## Step 1: Prepare data for upload
 
-In order to start using the Nexosis API, you'll need to upload some data for the API to process. Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have [several DataSets available](https://github.com/Nexosis/sampledata){:target="_blank"} which includes a [file named cardio.json](https://raw.githubusercontent.com/Nexosis/sampledata/master/cardio.json){:target="_blank"} which contains some heartbeat data that help identify abnormal signals. That DataSet includes data like this:
+#### In order to start using the Nexosis API, you'll need to upload some data for the API to process. 
+
+Data can be uploaded by posting the rows and columns as JSON, or, as a CSV file.  We have [several DataSets available](https://github.com/Nexosis/sampledata){:target="_blank"} which includes a [file named cardio.json](https://raw.githubusercontent.com/Nexosis/sampledata/master/cardio.json){:target="_blank"} which contains some heartbeat data that help identify abnormal signals. That DataSet includes data like this:
 
 ``` json
  "data": [
@@ -55,7 +57,9 @@ There are 3 types of columns here. All of the *X.#* columns are the measurements
 
 ## Step 2: Start a Session
 
-Now that we have some data, let's upload it and get a model which we can use to find anomalies.  To do this, we need to first upload the data so it becomes a `DataSet`.  Then we start a `Session`, referencing the `DataSet` we just created and containing parameters needed to determine how the Nexosis machine learning algorithms should work.  Once the `Session` is started, our algorithms will start crunching the numbers to produce a model.
+#### Now that we have some data, let's upload it and get a model which we can use to find anomalies.  
+
+To do this, we need to first upload the data so it becomes a `DataSet`.  Then we start a `Session`, referencing the `DataSet` we just created and containing parameters needed to determine how the Nexosis machine learning algorithms should work.  Once the `Session` is started, our algorithms will start crunching the numbers to produce a model.
 
 Putting this all together, we will have a two requests that look like the ones below.  Make sure to replace the `{subscription key}` section with your [actual subscription key](https://developers.nexosis.com/developer).
 
@@ -123,7 +127,9 @@ Once this request comes back with a `status` of `completed` two things will be a
 ------
 
 ## Step 3: Retrieve Anomalies
-The Nexosis API identified anomalous observations in the DataSet as part of the model building process. These anomalies will be returned as part of the "data" array property on the results response. We can get that by making a GET request to the results endpoint:
+#### The Nexosis API identified anomalous observations in the DataSet as part of the model building process. 
+
+These anomalies will be returned as part of the "data" array property on the results response. We can get that by making a GET request to the results endpoint:
 
 ``` bash
 # replace {sessionId} from the response to your session request
@@ -154,7 +160,7 @@ The results JSON contains a data array with each anomalous observation containin
 ```
 
 ## Step 4: Predict Anomalies
-Predictions can be made by issuing a POST to the model/predict endpoint. When you request a prediction you send in a JSON body which contains the feature values on which the prediction should be made.
+#### Predictions can be made by issuing a POST to the model/predict endpoint. When you request a prediction you send in a JSON body which contains the feature values on which the prediction should be made.
 
 ### Get the model id
 In order to predict you first need the modelId for the model trained by the session in step 2. This comes back in the session results
@@ -227,11 +233,12 @@ Just as with the data in the session result, the body of the response will inclu
 ------
 
 ## Next steps
-Check out [the gist](https://gist.github.com/nexosisops/f328d588b0238b50c54260392d1a82b5){:target="_blank"} which encapsulates all of these steps and evaluate results against the live API, test your own values, etc. It's free to play around with the API and start learning.
+
+#### Check out [the gist](https://gist.github.com/nexosisops/f328d588b0238b50c54260392d1a82b5){:target="_blank"} which encapsulates all of these steps and evaluate results against the live API, test your own values, etc. It's free to play around with the API and start learning.
 
 Now that you are familiar with the basics, try getting predictions from new datasets, or, take a look at the [code samples](https://github.com/Nexosis?utf8=✓&q=samples) and [client libraries](/clients), and write an application which integrates with the API.  Show us what you were able to build!
 
-Check out other quick starts for different types of predictions:
+##### Check out other quick starts for different types of predictions:
 
 * [Timeseries Forecasts](http://docs.nexosis.com/guides/quickstartguideforecast)
 * [Regression](http://docs.nexosis.com/guides/quickstartguidepredict)

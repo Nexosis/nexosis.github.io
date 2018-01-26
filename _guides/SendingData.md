@@ -15,7 +15,7 @@ Before the Nexosis API can do anything really useful, you're going to need to se
 
 ## Datasets
 
-You can send data to the Nexosis API through the [Data]({{ site.api_reference_baseurl }}/operations/5919ef80a730020dd851f233) endpoint.
+#### You can send data to the Nexosis API through the [Data]({{ site.api_reference_baseurl }}/operations/5919ef80a730020dd851f233) endpoint.
 
 Data can be sent to the Nexosis API as either `JSON` or `CSV`, with optional [metadata](columnmetadata)
 
@@ -23,7 +23,7 @@ Data can be sent to the Nexosis API as either `JSON` or `CSV`, with optional [me
 
 ## Examples
 
-In this example we'll create a Named DataSet called *sales* by sending some data to it.
+#### In this example we'll create a Named DataSet called *sales* by sending some data to it.
 
 
 <ul id="profileTabs" class="nav nav-tabs">
@@ -119,7 +119,7 @@ The response to the `PUT` will be an `HTTP 200` with a response body that is a s
 
 ## Updating Data
 
-You can modify a keyed DataSet or a time-series DataSet with additional and/or updated data by issuing a `PUT` to the same DataSet name. If your data has no user provided key, nor a timestamp role column then new data will simply be appended to the DataSet.
+#### You can modify a keyed DataSet or a time-series DataSet with additional and/or updated data by issuing a `PUT` to the same DataSet name. If your data has no user provided key, nor a timestamp role column then new data will simply be appended to the DataSet.
 
 So, issuing a `PUT` to the same *sales* DataSet above like so
 

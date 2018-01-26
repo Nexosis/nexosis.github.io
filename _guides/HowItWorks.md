@@ -11,7 +11,7 @@ use_codestyles: true
 
 ## The Process
 
-Before coding up your first application, take a moment to familiarize yourself with the process of using the Nexosis API to make forecasts, predictions or measure impact.
+#### Before coding up your first application, take a moment to familiarize yourself with the process of using the Nexosis API to make forecasts, predictions or measure impact.
 
 We've worked hard to keep the high-level process simple. Here's the basic process:
 
@@ -34,7 +34,7 @@ To use the Nexosis API, you must provide us with a _Dataset_. This Dataset is si
 
 The data submitted is very important, as it is used to discover relationships within the data using a host of algorithms. This discovery process happens during what we call a _Session_
 
-Read [Sending Data](sendingdata) for more of the technical details on submitting data.
+_Read [Sending Data](sendingdata) for more of the technical details on submitting data._
 
 <h3 id="session" class="jumptarget">Initiate a Session</h3>
 
@@ -50,12 +50,12 @@ There are several types of sessions you can initiate and each type of Session ca
 
 This is where the data science happens at scale. Behind the scenes a host of algorithms will work to discover what makes your Dataset tick, attempting to find what factors are influential to others, where the correlations are and ultimately provide what's called a mathematical _Model_. This _Model_ is then used, and in many cases, stored permanently for you to reuse.
 
-Read about [Sessions](session) for more technical details on building sessions.
+_Read about [Sessions](session) for more technical details on building sessions._
 
 <h3 id="results" class="jumptarget">Evaluate the Results and Make Predictions</h3>
 
 Once the session has completed successfully, the Nexosis API builds a custom mathematical _Model_, based the data that was used to build, or _train_ that model.  You can think of a _model_ as a custom algorithm built based on the relationships found between the different data contained in the _dataset_. Depending on the type of session, the results will vary somewhat but generally will solve for a variable you want to predict, also called the _target_. Once the model is built, it can be evaluated and then used for predictions, forecasts, and to evaluate impact.
 
-Read [Retrieving a Session](session#retrievingSession) for more technical details.
+_Read [Retrieving a Session](session#retrievingSession) for more technical details._
 
 > Not sure what do do next? [Next Steps](nextsteps) is a good place to start.

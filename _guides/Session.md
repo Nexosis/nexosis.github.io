@@ -15,7 +15,7 @@ A Session is a request for the Nexosis API to perform some calculations on data,
 
 ## Types of Sessions
 
-A Session can be one of the following types:
+#### A Session can be one of the following types:
 * A model-building session, used to build a [Regression](regression), [Classification](quickstartguideclassification), or [Anomaly Detection](quickstartguideanomaly) model.
 * A [Forecast](forecast) session, used to predict future values based on past values in a time-series dataset.
 * An [Impact Analysis](impactanalysis) session, used to analyze impact of some event during a certain window of a time-series dataset.
@@ -24,15 +24,16 @@ A Session can be one of the following types:
 
 ## Starting a Session
 
-To start a session, you issue a `POST` to one of the following URLs, based on the type of session you're trying to start:
+#### To start a session, you issue a `POST` to one of the following URLs, based on the type of session you're trying to start:
 * [/sessions/model]({{site.api_reference_baseurl}}/operations/59d79fa1adf47c0d60484fe9)
 * [/sessions/forecast]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41ab)
 * [/sessions/impact]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41aa)
 
 ### Session Requests
 
-A request to start a session takes the following parameters in the json payload:
-#### Model Building
+#### A request to start a session takes the following parameters in the json payload:
+
+##### Model Building
 * `dataSourceName` - The name of the data source (dataset or view) on whose data the session performs its calculations.
 * `targetColumn` - The column in the data source that is the target of the calculation being performed.
 * `predictionDomain` - The type of model to build: 'regression', 'classification', or 'anomalies'
@@ -49,7 +50,7 @@ A request to start a session takes the following parameters in the json payload:
 Where property and value are [available metadata options](/guides/columnmetadata).
  
 
-#### Forecast
+##### Forecast
 
 * `dataSourceName` - The name of the data source on whose data the session performs its calculations.
 * `targetColumn` - The column in the data source that is the target of the calculation being performed.  In the case of [Forecasting](forecast), this is column for which we want to generate predictions. 
@@ -60,14 +61,14 @@ Where property and value are [available metadata options](/guides/columnmetadata
 If you provide a callback url, your response will contain a header named Nexosis-Webhook-Token. You will receive this same header in the request message to your Webhook, which you can use to validate that the message came from Nexosis.
 * `columns` - A columns metadata object. If your data source doesn't already have a column with the role of "timestamp", make sure to indicate which field should be used as the timestamp for this session. Data from your data source will be ordered and aggregated based on whatever column you specify as the timestamp for the session.
 
-#### Impact Analysis
+##### Impact Analysis
 The same values as a forecast, with the addition of `eventName` - A label to put on the the thing whose impact we are trying to calculate.
 
 ------
 
-## <a name="retrievingSession" class="jumptarget">Retrieving a Session</a>
+## <span name="retrievingSession" class="jumptarget">Retrieving a Session</span>
 
-You can retrieve an individual session by issuing a `GET` request to [/sessions/\{SessionId\}]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a8/)
+#### You can retrieve an individual session by issuing a `GET` request to [/sessions/\{SessionId\}]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a8/)
 
 The session response will look like the following:
 
@@ -128,7 +129,7 @@ The Session object returned also contains some links with urls pointing to resou
 
 ## Querying Sessions
 
-You can list your sessions by issuing a `GET` request to [/sessions]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a6/)
+#### You can list your sessions by issuing a `GET` request to [/sessions]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a6/)
 
 A sessions query takes the following optional parameters in the query string
 
@@ -171,7 +172,7 @@ The response from this request will be an object with a Results property, contai
 
 ## Retrieving Session Results
 
-You can retrieve the results from an individual session by issuing a `GET` request to [/sessions/\{sessionId\}/results]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a7), where the `sessionId` is the unique Id for a session.
+#### You can retrieve the results from an individual session by issuing a `GET` request to [/sessions/\{sessionId\}/results]({{site.api_reference_baseurl}}/operations/59149d7da730020f20dd41a7), where the `sessionId` is the unique Id for a session.
 
 Session Results, in general, come back in the following form:
 
@@ -211,5 +212,5 @@ Session Results, in general, come back in the following form:
 
 Interpretation of the values in `metrics` and `data` is different between the different types of sessions, so you'll want to read more about those session types in order to know how to interpret results.
 
-#### Model Session Results
+### Model Session Results
 Model building sessions will additionally return the `modelId` once the model has been successfully built.

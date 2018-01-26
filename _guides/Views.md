@@ -14,7 +14,9 @@ Views are data sources created by mixing two other datasets. Using a view you ca
 
 ## Views
 
-API Views are conceptually similar to database views. To stretch the analogy a little, if a Dataset is a table, then an API View creates an ephemeral dataset (table) based on a definition which mixes data from other Datasets (tables). The analogy is best ended there as these Views are really quite simple in their construction. The key point is that if you have a Dataset which represents some observations and want to use another for features which you don't want to mix directly - allow Views to do it for you.
+#### API Views are conceptually similar to database views. 
+
+To stretch the analogy a little, if a Dataset is a table, then an API View creates an ephemeral dataset (table) based on a definition which mixes data from other Datasets (tables). The analogy is best ended there as these Views are really quite simple in their construction. The key point is that if you have a Dataset which represents some observations and want to use another for features which you don't want to mix directly - allow Views to do it for you.
 
 ### View Definition
 
@@ -41,7 +43,7 @@ https://ml.nexosis.com/v1/views/{viewName}
 
 Of course the easiest way to build a join is through one of our existing [API Clients](http://docs.nexosis.com/clients/).
 
-#### How Joins Join
+### How Joins Join
 
 There are some things to think about when joining two different datasets. First, how should any one row in the right side of the join be understood to match a row in the left side? Going back to our database analogy, this depends on the key field of the right-side dataset, and the field being joined to in the left-side dataset. In all cases, right-side rows which are matched will add values to the left-side row. 
 
@@ -49,11 +51,11 @@ When the join columns are simple keys, rows from the right side of the join with
 
 When joining to a date field in the left-side dataset, joining gets a bit more complicated. More often than not timestamps won't match exactly, but we'll cover that detail below. 
 
-#### Viewing Join Results
+### Viewing Join Results
 
 Before submitting a session based on a View it's best to have a look at the join results by viewing the View data. By examining View data you can ensure that joins are being interpreted the way that you intended.
 
-#### Example
+##### Example
 
 It will probably help at this point to just look at an example.
 
@@ -175,7 +177,7 @@ In the above definition we have not only specified which datasets will provide t
 
 The *joinInterval* option simply states that we should try to match the holiday dataset to the daily sales dataset based on the day level of granularity. If used, it should be specified on the timestamp column of the joined dataset.
 
-#### Join Results
+### Join Results
 
 Having created the join above we should expect the following output:
 
@@ -222,9 +224,11 @@ Having created the join above we should expect the following output:
     </tbody>
 </table>
 
-## Using Joins
+### Using Joins
 
-Once you have a View defined it can be used in a Session as the data source. If you have used previous versions of the API you'll notice that we have changed the parameter 'dataSetName' in the request for a Session to 'dataSourceName'. This change indicates that you can use a data source - either a view or a dataset. If we had named our view above "SalesWithCalendar" then we could create a Session by POSTing to
+#### Once you have a View defined it can be used in a Session as the data source. 
+
+If you have used previous versions of the API you'll notice that we have changed the parameter 'dataSetName' in the request for a Session to 'dataSourceName'. This change indicates that you can use a data source - either a view or a dataset. If we had named our view above "SalesWithCalendar" then we could create a Session by POSTing to
 
 ```
 https://ml.nexosis.com/v1/sessions/forecast?dataSourceName=SalesWithCalendar&startDate=2010-02-16&endDate=2010-02-20
