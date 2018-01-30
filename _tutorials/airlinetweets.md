@@ -105,7 +105,7 @@ Because text fields tend to create thousands of feature columns, sessions with t
 
 OK, so either you're back or you're skipping ahead and just want to know what happened. Once the session completed I made a GET request to the same endpoint as we checked for status above.
 
-![session get](../assets/img/postman_sessionget.png){:style="max-width:840px"}
+![session get](../assets/img/Postman_sessionget.png){:style="max-width:840px"}
 
 The important thing in this session response is that it gives us a *modelId* value. The modelId is a unique id that allows us to make calls to our newly created model and get predictions. You'll find it in the JSON response like this:
 
