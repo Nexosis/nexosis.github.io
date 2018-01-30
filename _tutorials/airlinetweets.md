@@ -12,7 +12,7 @@ order: 6
 
 ### Getting Started
 
-We're going to look at tweet data related to airlines to demonstrate how to work with *Text* type fields in your data. This dataset was originally provided as part of a [Kaggle competition](https://www.kaggle.com/crowdflower/twitter-airline-sentiment){:target="_blank"}, but I have made a [modified version](https://raw.githubusercontent.com/Nexosis/sampledata/master/airline_tweets.csv) {:target="_blank"} available in our samples directory so that you can follow along. 
+We're going to look at tweet data related to airlines to demonstrate how to work with *Text* type fields in your data. This dataset was originally provided as part of a [Kaggle competition](https://www.kaggle.com/crowdflower/twitter-airline-sentiment){:target="_blank"}, but I have made a [modified version](https://raw.githubusercontent.com/Nexosis/sampledata/master/airline_tweets.csv){:target="_blank"} available in our samples directory so that you can follow along. 
 
 > Note: you don't need to download the file if you won't be modifying it. We'll talk through how to load it directly into your Nexosis API account.
 
@@ -57,7 +57,7 @@ Within Postman just create a new POST request and input the url below along with
 ```
 It should look like this before you hit 'Send'...
 
-![post to imports endpoint](../assets/img/postman_posturlimport.png)
+![post to imports endpoint](../assets/img/postman_posturlimport.png){:style="max-width:840px"}
 
 After the import runs you will have a dataset in your account called *AirlineTweets*. Recall that this dataset has only two columns: **text**, which contains the tweets; and **airline_sentiment** which has the labels. The Nexosis API will automatically determine that the text field is a *Text* data type. However, you can also [set metadata](http://docs.nexosis.com/guides/columnmetadata) if you have a dataset where the Nexosis API inference is incorrect.
 
@@ -78,7 +78,7 @@ Machine learning model building always crunches numbers no matter the original f
 ```
 POST this to https://ml.nexosis.com/v1/sessions/model
 
-![postman post to sessions/model](../assets/img/postman_postclasssession.png)
+![postman post to sessions/model](../assets/img/postman_postclasssession.png){:style="max-width:840px"}
 
 This request starts what we call a *session*. Sessions represent the model building process and can take some time to finish while the machine crunches the numbers. When you sent the request you received a JSON response which contained some infromation about the session which in part included something like this:
 
@@ -95,17 +95,17 @@ Note the *sessionId* field because that's how we're going to check back in on th
 
 You can get status with a simple HEAD request sent to the **/sessions/:sessionId** endpoint:
 
-![session status head request](../assets/img/postman_sessionstatushead.png)
+![session status head request](../assets/img/postman_sessionstatushead.png){:style="max-width:840px"}
 
 Look in the "Headers" tab of the response in Postman for the header named **Nexosis-Session-Status** which will eventually tell you the session is *completed*.
 
-![session header status](../assets/img/session_status_completed.png)
+![session header status](../assets/img/session_status_completed.png){:style="max-width:840px"}
 
 Because text fields tend to create thousands of feature columns, sessions with text require a bit of additional crunch time. If you're following along this is a good time to go check on the kids, play a round of Threes - or whatever game you're into, etc. Text-based model builds often take ~30 minutes.
 
 OK, so either you're back or you're skipping ahead and just want to know what happened. Once the session completed I made a GET request to the same endpoint as we checked for status above.
 
-![session get](../assets/img/postman_sessionget.png)
+![session get](../assets/img/postman_sessionget.png){:style="max-width:840px"}
 
 The important thing in this session response is that it gives us a *modelId* value. The modelId is a unique id that allows us to make calls to our newly created model and get predictions. You'll find it in the JSON response like this:
 
@@ -124,7 +124,7 @@ Again, just as with sessionId above this is a unique value and if you're followi
 ### Model Evaluation
 The Nexosis API has actually run several different algorithms to try and find you the best possible model given the dataset provided. The results of the session will provide you the one best algorithm's metrics to help you determine whether it performed well enough to meet your needs. In this case we're trying to judge sentiment of a tweet. A practical application you could imagine would be to automatically test all tweets targeted at your employer's airline and then alert a customer service rep whenever you detect a negative tweet. For this type of use we might have a relatively low bar for accuracy because a human getting involved when the tweet was actually *positive* or *neutral* is low impact. However, if we wanted to retweet automatically every tweet we deemed *positive*, then we might have a higher bar for accuracy. How high? That's up to the individual use case. Let's go ahead and make a GET request to the **/sessions/:sessionId/results** endpoint and see how we did.
 
-![get session results](../assets/img/postman_getsessionresults.png)
+![get session results](../assets/img/postman_getsessionresults.png){:style="max-width:840px"}
 
 The results response JSON will be somewhat large as we're also going to get back the training data results. For now, let's just look at the *metrics* section at the top of results.
 
@@ -166,7 +166,7 @@ So we've built a model and are ready to test it out with some new tweets it has 
 }
 ```
 
-![predict from model](../assets/img/postman_modelpredict.png)
+![predict from model](../assets/img/postman_modelpredict.png){:style="max-width:840px"}
 
 After a second or two we get a response with our predicted sentiment class:
 
