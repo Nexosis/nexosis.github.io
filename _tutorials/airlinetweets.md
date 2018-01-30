@@ -72,7 +72,7 @@ Machine learning model building always crunches numbers no matter the original f
 	"dataSourceName" : "AirlineTweets",
 	"targetColumn": "airline_sentiment",
 	"extraParameters" : {
-		"balance": false
+		"balance": true
 	}
 }
 ```
@@ -91,7 +91,7 @@ This request starts what we call a *session*. Sessions represent the model build
     "predictionDomain": "classification",
     ... some fields removed ...
 ```
-Note the *sessionId* field because that's how we're going to check back in on the progress of our model. These are unique ids, so yours will be different. Copy yours and as you follow along us that one where I use mine.
+Note the *sessionId* field because that's how we're going to check back in on the progress of our model. These are unique ids, so yours will be different. Copy yours and as you follow along use that one where I use mine.
 
 You can get status with a simple HEAD request sent to the **/sessions/:sessionId** endpoint:
 
