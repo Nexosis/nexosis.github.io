@@ -11,7 +11,7 @@ exclude_from_search: true
     <h1>{{ page.title }}</h1>
     <hr>
     {% for ct in cats %}
-      <a class="badge badge-success" style="margin-left: 10px;" href="#{{ ct | slugify }}"> {{ ct }} </a>
+      <a class="badge badge-success m5" href="#{{ ct | slugify }}"> {{ ct }} </a>
     {% endfor %}
     <hr>
   </div>

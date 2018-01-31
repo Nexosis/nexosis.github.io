@@ -11,7 +11,7 @@ exclude_from_search: true
     <h1>{{ page.title }}</h1>
     <hr>
     {% for tag in tags %}
-      <a class="badge badge-info" style="margin-left: 10px;" href="#{{ tag | slugify }}"> {{ tag }} </a>
+      <a class="badge badge-info m5" href="#{{ tag | slugify }}"> {{ tag }} </a>
     {% endfor %}
     <hr>
   </div>
