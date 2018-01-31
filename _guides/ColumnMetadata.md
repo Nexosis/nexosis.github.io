@@ -57,6 +57,14 @@ Each `dataType` available for a column of data in the Nexosis API comes with a s
 
 If you wish to manually override the strategy used by the API for a column of data, you can do so through the `imputation` and `aggregation` fields.
 
+### Imputation and Aggregation Option Definitions
+
+- **Mean** -- The mean is the **average** of all the values. To calculate this value, we add up all the values in the column and divide by the rows. *(Example: 1, 2, 3, 5, 8 = mean of 3.8)*
+- **Median** -- The median is the **middle** value. To calculate this value, we take all the values in sequential order and find the one that is in the middle. *(Example: 1, 2, 3, 5, 8 = median of 3. If there are two values in the middle as you would find in a dataset with an even number of rows, the lower of those two values is returned as the median.)*
+- **Mode** -- The mode is the value that appears **most often**. To calculate this value, we take all of the values and determine which we see the most. *(Example: 1, 2, 2, 3, 5, 8 = mode of 2)*
+- **Max** -- The max is simply the **highest value**.
+- **Min** -- The min is the **lowest value**.
+
 ### Imputation
 
 #### The Nexosis API offers the following options for Imputation.
