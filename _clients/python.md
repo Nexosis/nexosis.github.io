@@ -65,7 +65,7 @@ with open('cups_of_coffee.csv') as f:
 ```
 
 When creating a dataset, you can specify `ColumnMetadata` that tells the system how to interpret the
-data. See the [Column Metadata guide](/guides/columnmetadata) for more information about what that
+data. See the [Column Metadata guide](/guides/column-metadata) for more information about what that
 means to the API.
 
 Once data is saved, you can list all the datasets stored by the API:

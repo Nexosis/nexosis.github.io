@@ -133,7 +133,7 @@ PS> $results = Get-NexosisSessionResults -sessionId $session.SessionID
 
 ## Detailed Usage
 
-To get started, first read [How It Works](http://docs.nexosis.com/guides/howitworks). That will help you understand the basic concept of submitting data, running sessions, and retrieving results. 
+To get started, first read [How It Works](http://docs.nexosis.com/guides/how-it-works). That will help you understand the basic concept of submitting data, running sessions, and retrieving results. 
 
 
 ### DataSets
@@ -185,7 +185,7 @@ This will return an object with the DataSetName as well as the Columns Metadata,
 
 Columns MetaData can be used to help the platform make smart decisions about your data. You can indicate data types, imputation, and aggregation strategies.
 
-[You can read more about Columns MetaData in the Nexosis API Documentation here.](http://docs.nexosis.com/guides/columnmetadata)
+[You can read more about Columns MetaData in the Nexosis API Documentation here.](http://docs.nexosis.com/guides/column-metadata)
 
 Here's an example of how Columns Metadata should be structured when submitted a new DataSet or Session (see more on sessions below):
 
@@ -256,7 +256,7 @@ Once you create a view, you can use the `Get-NexosisView` command to show the vi
 ### Sessions
 Once datasets or views have been created, a Session can be created to perform a predictive task on that data using `Start-NexosisForecastSession` or `Start-NexosisImpactSession`.
 
-[For language agnostic details on creating Forecast sessions, read more in the Nexosis API documentation](http://docs.nexosis.com/guides/forecast).
+[For language agnostic details on creating Forecast sessions, read more in the Nexosis API documentation](http://docs.nexosis.com/guides/forecasting-walkthrough).
 
 To create a Forecast on the DataSource (a dataSet or View) named 'salesData', targeting Daily forecast on column `sales` starting on `01-06-2013` through `01-13-2013`, you would type the following command to start the session.
 
