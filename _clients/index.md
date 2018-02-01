@@ -69,7 +69,7 @@ exclude_from_search: true
           {% when "PowerShell" %}
             {% assign category = "powershell" %}
         {% endcase %}
-        <div class="col-md-3">
+        <div class="col-sm-3">
           <div class="panel bg-color-lightGray">
             <div class="panel-body center pt20">
                 <img src="/assets/img/{{ category }}.png">

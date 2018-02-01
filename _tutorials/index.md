@@ -51,22 +51,22 @@ exclude_from_search: true
 </style>
 
 {% for ct in cats %}
-<div class="col-md-12">
+<div class="col-sm-12">
   <div class="panel">
     <div class="panel-body">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-sm-5">
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-sm-3 center">
               <img src="/assets/img/{{ ct | slugify }}.png" style="width: 100px;">
             </div>
-            <div class="col-md-9">
-              <h5 id="{{ ct | slugify }}" class="jumptarget mt20">{{ ct }}</h5>
+            <div class="col-sm-9">
+              <h5 id="{{ ct | slugify }}" class="center jumptarget mt20">{{ ct }}</h5>
               <!-- <p>Description goes here.</p> -->
             </div>
           </div>
         </div>
-        <div class="col-md-7 p25 bg-color-lightGray" style="border-radius: 5px;">
+        <div class="col-sm-7 p25 bg-color-lightGray" style="border-radius: 5px;">
           {% for post in site.tutorials %}
             {% if post.category contains ct %}
               <div class="col-md-6">
