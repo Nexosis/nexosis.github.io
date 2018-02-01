@@ -61,7 +61,7 @@ exclude_from_search: true
               <img src="/assets/img/{{ ct | slugify }}.png" style="width: 100px;">
             </div>
             <div class="col-sm-9">
-              <h5 id="{{ ct | slugify }}" class="center jumptarget mt20">{{ ct }}</h5>
+              <h5 id="{{ ct | slugify }}" class="justify jumptarget mt20">{{ ct }}</h5>
               <!-- <p>Description goes here.</p> -->
             </div>
           </div>
