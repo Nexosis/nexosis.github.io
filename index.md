@@ -16,24 +16,28 @@ exclude_from_search: true
 
 <div class="row">
   <div class="col-md-4">
+    <a href="/guides">
     <div class="panel bg-color-lightGray">
       <div class="panel-body center pt20">
           <img src="/assets/img/guides.png">
           <h3 id="guides" class="jumptarget center mt20">Guides</h3>
           <hr>
-          <p><strong><a href="/guides">View now <i class="fa fa-angle-right ml5"></i></a></strong></p>
+          <p><strong>View now <i class="fa fa-angle-right ml5"></i></strong></p>
       </div>
     </div>
+    </a>
   </div>
   <div class="col-md-4">
-    <div class="panel bg-color-lightGray">
-      <div class="panel-body center pt20">
-          <img src="/assets/img/tutorials.png">
-          <h3 id="tutorials" class="jumptarget center mt20">Tutorials</h3>
-          <hr>
-          <p><strong><a href="/tutorials">View now <i class="fa fa-angle-right ml5"></i></a></strong></p>
+    <a href="/tutorials">
+      <div class="panel bg-color-lightGray">
+        <div class="panel-body center pt20">
+            <img src="/assets/img/tutorials.png">
+            <h3 id="tutorials" class="jumptarget center mt20">Tutorials</h3>
+            <hr>
+            <p><strong>View now <i class="fa fa-angle-right ml5"></i></strong></p>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
   <!--
   <div class="col-md-3">
@@ -48,14 +52,16 @@ exclude_from_search: true
   </div>
   -->
   <div class="col-md-4">
-    <div class="panel bg-color-lightGray">
-      <div class="panel-body center pt20">
-          <img src="/assets/img/api-clients.png">
-          <h3 id="api-clients" class="jumptarget center mt20">API Clients</h3>
-          <hr>
-          <p><strong><a href="/clients">View now <i class="fa fa-angle-right ml5"></i></a></strong></p>
+    <a href="/clients">
+      <div class="panel bg-color-lightGray">
+        <div class="panel-body center pt20">
+            <img src="/assets/img/api-clients.png">
+            <h3 id="api-clients" class="jumptarget center mt20">API Clients</h3>
+            <hr>
+            <p><strong>View now <i class="fa fa-angle-right ml5"></i></strong></p>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
 
@@ -64,44 +70,52 @@ exclude_from_search: true
 
 <div class="row">
   <div class="col-md-3">
-    <div class="panel bg-color-lightGray">
-      <div class="panel-body center pt20">
-          <img src="/assets/img/classification.png">
-          <h3 id="guides" class="jumptarget center mt20">Classification</h3>
-          <hr>
-          <p><strong><a href="/guides/quick-start-guide-classification">View now <i class="fa fa-angle-right ml5"></i></a></strong></p>
+    <a href="/guides/quick-start-guide-classification">
+      <div class="panel bg-color-lightGray">
+        <div class="panel-body center pt20">
+            <img src="/assets/img/classification.png">
+            <h3 id="guides" class="jumptarget center mt20">Classification</h3>
+            <hr>
+            <p><strong>View now <i class="fa fa-angle-right ml5"></i></strong></p>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
   <div class="col-md-3">
-    <div class="panel bg-color-lightGray">
-      <div class="panel-body center pt20">
-          <img src="/assets/img/regression.png">
-          <h3 id="tutorials" class="jumptarget center mt20">Regression</h3>
-          <hr>
-          <p><strong><a href="/guides/quick-start-guide-regression">View now <i class="fa fa-angle-right ml5"></i></a></strong></p>
+    <a href="/guides/quick-start-guide-regression">
+      <div class="panel bg-color-lightGray">
+        <div class="panel-body center pt20">
+            <img src="/assets/img/regression.png">
+            <h3 id="tutorials" class="jumptarget center mt20">Regression</h3>
+            <hr>
+            <p><strong>View now <i class="fa fa-angle-right ml5"></i></strong></p>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
   <div class="col-md-3">
-    <div class="panel bg-color-lightGray">
-      <div class="panel-body center pt20">
-          <img src="/assets/img/forecasting.png">
-          <h3 id="example-applications" class="jumptarget center mt20">Forecasting</h3>
-          <hr>
-          <p><strong><a href="/guides/quick-start-guide-forecast">View now <i class="fa fa-angle-right ml5"></i></a></strong></p>
+    <a href="/guides/quick-start-guide-forecast">
+      <div class="panel bg-color-lightGray">
+        <div class="panel-body center pt20">
+            <img src="/assets/img/forecasting.png">
+            <h3 id="example-applications" class="jumptarget center mt20">Forecasting</h3>
+            <hr>
+            <p><strong>View now <i class="fa fa-angle-right ml5"></i></strong></p>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
   <div class="col-md-3">
-    <div class="panel bg-color-lightGray">
-      <div class="panel-body center pt20">
-          <img src="/assets/img/anomaly-detection.png">
-          <h3 id="api-clients" class="jumptarget center mt20">Anomaly Detection</h3>
-          <hr>
-          <p><strong><a href="/guides/quick-start-guide-anomaly-detection">View now <i class="fa fa-angle-right ml5"></i></a></strong></p>
+    <a href="/guides/quick-start-guide-anomaly-detection">
+      <div class="panel bg-color-lightGray">
+        <div class="panel-body center pt20">
+            <img src="/assets/img/anomaly-detection.png">
+            <h3 id="api-clients" class="jumptarget center mt20">Anomaly Detection</h3>
+            <hr>
+            <p><strong>View now <i class="fa fa-angle-right ml5"></i></strong></p>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
 
