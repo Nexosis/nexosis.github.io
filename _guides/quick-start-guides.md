@@ -36,7 +36,7 @@ Here you can find links to the various Quick Start Guides to get a brief walkthr
     </div>
     <div class="col-sm-8">
         <h3><a href="quick-start-guide-forecast">Forecasting</a></h3>
-        <p>TThis Quick Start introduces how to use the Nexosis API to build Time Series based linear-regression model. By following this walkthrough, which uses a sample dataset, you will learn all of the steps needed to make forecasts using the Nexosis API.</p>
+        <p>This Quick Start introduces how to use the Nexosis API to build Time Series based linear-regression model. By following this walkthrough, which uses a sample dataset, you will learn all of the steps needed to make forecasts using the Nexosis API.</p>
     </div>
 </div>
 <div class="row">
