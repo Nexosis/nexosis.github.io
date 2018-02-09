@@ -3,9 +3,10 @@ title: Detecting Cheaters in Counter-Strike&#58; Global Offensive
 description: This tutorial will demonstrate usage of the Nexosis API to build a classification model that predicts if a user should be banned or not. 
 copyright: 2017 Nexosis 
 layout: default
-category: Sports & Games
-tags: [Classification, PowerShell, Video Games]
+category: Classification
+tags: [Sports & Games, PowerShell, Video Games]
 use_codestyles: true
+order: 2
 ---
 
 [Counter-Strike: Global Offensive](https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive){:target="_blank"}, or CS:GO for short, is a team-based [multiplayer](https://en.wikipedia.org/wiki/Multiplayer_video_game){:target="_blank"} highly competitive [first person shooter](https://en.wikipedia.org/wiki/First-person_shooter){:target="_blank"} video game made and published by [Valve Software](http://www.valvesoftware.com){:target="_blank"} in 2012 that is still very popular today. This game, like many online games, has seen its share of cheating issues. Since cheaters use a variety of techniques to gain an unfair advantage, we hypothesize a player's in-game performance metrics could be used to build a machine learning model that will classify whether or not that player is cheating.

@@ -3,9 +3,10 @@ title: Forecasting Website Traffic
 description: This tutorial will demonstrate how to forecast hourly website sessions based on historical traffic.
 copyright: 2017 Nexosis 
 layout: default
-category: Sales & Marketing
-tags: [Forecasting, PowerShell]
+category: Forecasting
+tags: [Sales & Marketing, PowerShell]
 use_codestyles: true
+order: 4
 ---
 
 This sample tutorial will show you how use Google Analytics Web Session data to forecast future web sessions and 

@@ -3,9 +3,10 @@ title: Predicting an Automobile's Fuel Economy (MPG)
 description: Predicting and Automobile Fuel Efficiency (MPG) using a regression model
 copyright: 2017 Nexosis 
 layout: default
-category: Distribution & Logistics
-tags: [Predict, Favorite, Regression]
+category: Regression
+tags: [Predict, Favorite, Distribution & Logistics]
 use_codestyles: true
+order: 1
 ---
 
 In the following tutorial we will take a step by step tour through the creation and use of a regression model built by the Nexosis API. 

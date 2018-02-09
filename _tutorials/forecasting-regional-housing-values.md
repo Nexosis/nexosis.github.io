@@ -3,9 +3,10 @@ title: Forecasting Regional Housing Values
 description: This tutorial will demonstrate how to forecast house costs
 copyright: 2017 Nexosis 
 layout: default
-category: Sales & Marketing
-tags: [Forecasting, Scala, Zillow]
+category: Forecasting
+tags: [Sales & Marketing, Scala, Zillow]
 use_codestyles: true
+order: 2
 ---
 
 This sample application is intended to show very simple usage of the Nexosis API in Scala using the Java client library to forecast region level house value and plot the results. If you are following along, you will be able to to analyze data provided by [Zillow](https://www.zillow.com/research/data/){:target="_blank"} that contain historical house values in different regions.

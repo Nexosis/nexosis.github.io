@@ -3,9 +3,10 @@ title: Forecasting Sales
 description: This tutorial will demonstrate how to forecast daily level sales based on historical sales.
 copyright: 2017 Nexosis 
 layout: default
-category: Sales & Marketing
-tags: [Forecasting, Ruby]
+category: Forecasting
+tags: [Sales & Marketing, Ruby]
 use_codestyles: true
+order: 3
 ---
 
 This sample application is intended as a guided tour of the Nexosis API as well as a simple way to view your own data and associated results. We'll walk through the application below and use the walkthrough to explain major concepts at work in the API and introduce you to how you can interact with it.

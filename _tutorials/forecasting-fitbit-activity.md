@@ -3,9 +3,10 @@ title: Forecasting Fitbit Activity
 description: This tutorial demonstrates building a web app that forecasts your Fitbit activity using the Nexosis Api
 copyright: 2017 Nexosis 
 layout: default
-category: Sports & Games
-tags: [Forecasting, C#, Fitbit]
+category: Forecasting
+tags: [Sports & Games, C#, Fitbit]
 use_codestyles: true
+order: 1
 ---
 
 Chances are, you or someone you know has some sort of activity tracker, such as a Fitbit or a Garmin. These devices keep track of your activity throughout the day (steps taken, stairs climbed, calories burned, etc).  They also often have a social aspect to them, in that you can compare your activity levels to friends, host friendly challenges, etc. 

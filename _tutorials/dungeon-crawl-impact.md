@@ -3,9 +3,10 @@ title: Tournament Impact of Dungeon Crawl Stone Soup
 description: A tutorial that uses the Nexosis machine learning API to conduct an impact analysis on the number of Games, Players and Wins during Dungeon Crawl Stone Soup tournaments.
 copyright: 2017 Nexosis 
 layout: default
-category: Sports & Games
-tags: [Impact Analysis, F#]
+category: Forecasting
+tags: [Impact Analysis, F#, Sports & Games]
 use_codestyles: true
+order: 8
 ---
 
 [Dungeon Crawl Stone Soup](https://crawl.develz.org/){:target="_blank"} is a [roguelike](https://en.wikipedia.org/wiki/Roguelike){:target="_blank"} game which has been in active open source development since 2006. The game can be downloaded and played locally, or it can be played online in a web browser. 
