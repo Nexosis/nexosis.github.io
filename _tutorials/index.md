@@ -67,7 +67,8 @@ exclude_from_search: true
           </div>
         </div>
         <div class="col-sm-7 p25 bg-color-lightGray" style="border-radius: 5px;">
-          {% for post in site.tutorials %}
+          {% assign tut = site.tutorials | sort:"order" %}
+          {% for post in tut %}
             {% if post.category contains ct %}
               <div class="col-md-6">
                 <p><strong><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></strong></p>
