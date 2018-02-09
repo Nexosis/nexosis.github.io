@@ -27,12 +27,17 @@ collections:
 guides-category-order:
   - Getting Started
   - Concepts
-  - Forecasting
-  - Regression
   - Classification
+  - Regression
+  - Forecasting
   - Anomaly Detection
   - Security
   - Troubleshooting
+
+tutorials-category-order:
+  - Classification
+  - Regression
+  - Forecasting
 
 # Handling Reading
 safe:                 false
