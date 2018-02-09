@@ -3,9 +3,10 @@ title: Using Classification Scores
 description: This tutorial demonstrates the use of scores on classification predictions of color given RGB input values. 
 copyright: 2017 Nexosis 
 layout: default
-category: Developer Education
+category: Classification
 tags: [Classification, Postman]
 use_codestyles: true
+order: 3
 ---
 In this tutorial we'll cover creating a classification model and using it to classify R, G, and B values into named colors. We'll then use the model to also get scores from the model for each of the candidate classes. 
 
