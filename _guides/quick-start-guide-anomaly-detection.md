@@ -4,9 +4,9 @@ description: Getting started guide for using the Nexosis API
 copyright: 2018 Nexosis
 layout: default 
 category: Anomaly Detection
-tags: [Quick Links, Favorite, REST, QuickStart, Anomaly Detection]
+tags: [REST, Quick Start, Anomaly Detection]
 use_codestyles: true
-order: 4
+order: 1
 ---
 
 This is a quick walkthrough of the basics of the using the Nexosis API.  By following this walkthrough which uses a sample dataset, you will learn all of the steps needed to find anomalies using the Nexosis API.

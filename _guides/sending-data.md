@@ -3,15 +3,28 @@ title: Sending & Updating Data
 description: In order to forecast or measure Impact, we need your data in JSON or CSV format.
 copyright: 2017 Nexosis 
 layout: default
-category: Concepts
+category: Nexosis Concepts
+subcategory: Upload your data
 tags: [Data, CSV, JSON, Quick Links]
 use_codestyles: true
-order: 4
+order: 1
 ---
 
 Before the Nexosis API can do anything really useful, you're going to need to send it some data that it can use for [Forecasts](forecasting-walkthrough) or [Impact Analysis](impact-analysis).
 
 ------
+
+<!-- Video Walkthrough -->
+<div class="alert alert-info" data-toggle="collapse" href="#youtube" aria-expanded="false" aria-controls="youtube" style="cursor: pointer;">
+  <h5 class="m0"><i class="fa fa-video-camera mr10"></i> Watch the video <span class="small">(19:25)</span></h5>
+</div>
+
+<div class="collapse" id="youtube">
+  <div class="center">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0cjgXBYquX0?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <hr>
+</div>
 
 ## Datasets
 

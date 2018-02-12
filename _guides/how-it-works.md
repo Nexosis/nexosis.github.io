@@ -4,7 +4,7 @@ description: Learn how the Nexosis API works.
 copyright: 2017 Nexosis 
 layout: default
 category: Getting Started
-tags: [General, Favorite]
+tags: [General, Quick Links]
 order: 1
 use_codestyles: true
 ---
@@ -42,11 +42,11 @@ A _Session_ is simply the discovery process using the supplied Dataset.
 
 There are several types of sessions you can initiate and each type of Session can help answer different types of questions, but all act on the datasets you provide.
 
-* [Regression](regression-walkthrough) - when you want to make a prediction on data based on the discovered relationships in the data.
 * [Classification](quick-start-guide-classification) - when you want to predict what category something is in.
-* [Anomaly Detection](quick-start-guide-anomaly-detection) - when you want to predict what category something is in.
+* [Regression](regression-walkthrough) - when you want to make a prediction on data based on the discovered relationships in the data.
 * [Forecasting](forecasting-walkthrough) - when you want to forecast how something might change over time.
 * [Impact Analysis](impact-analysis) - running a forecast over time a historical time to see the impact of a change.
+* [Anomaly Detection](quick-start-guide-anomaly-detection) - when you want to predict what category something is in.
 
 This is where the data science happens at scale. Behind the scenes a host of algorithms will work to discover what makes your Dataset tick, attempting to find what factors are influential to others, where the correlations are and ultimately provide what's called a mathematical _Model_. This _Model_ is then used, and in many cases, stored permanently for you to reuse.
 

@@ -4,9 +4,9 @@ description: Using the Nexosis API to determine the Impact of an event on your d
 copyright: 2017 Nexosis 
 layout: default
 category: Forecasting
-tags: [Causal Impact, Impact, Quick Links, Favorite]
+tags: [Causal Impact, Impact]
 use_codestyles: true
-order: 3
+order: 4
 ---
 
 Impact analysis is when we analyze your historical time series data and determine the impact of internal and external factors. You can use the predictive power of impact analysis to evaluate the impact of an event, promotion, limited time offer, etc. on your bottom line, determine impact of weather or illness on productivity, or understand how holidays will impact sales.

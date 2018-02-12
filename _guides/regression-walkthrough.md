@@ -4,14 +4,27 @@ description: Lean how to generate regression models using the Nexosis API
 copyright: 2017 Nexosis 
 layout: default
 category: Regression
-tags: [Predict, Quick Links, Favorite, Regression, Walkthrough]
-order: 2
+tags: [Predict, Regression, Walkthrough]
+order: 3
 use_codestyles: true
 ---
 
 Regression models can be created for all types of DataSets. The Nexosis API helps you build the best model to fit your DataSet and then you can repeatedly use that model in real time.
 
 -----
+
+<!-- Video Walkthrough -->
+<div class="alert alert-info" data-toggle="collapse" href="#youtube" aria-expanded="false" aria-controls="youtube" style="cursor: pointer;">
+  <h5 class="m0"><i class="fa fa-video-camera mr10"></i> Watch the video walkthrough <span class="small">(21:15)</span></h5>
+</div>
+
+<div class="collapse" id="youtube">
+  <div class="center">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/45-QJzBz5RY?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <hr>
+</div>
+
 ## Creating Regression Models
 
 #### Creating a regression model starts with the data just like any other prediction capability of our API. To understand how to submit data, you can read more in the [Sending Data](/guides/sending-data) article.

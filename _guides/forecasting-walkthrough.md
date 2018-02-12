@@ -4,7 +4,7 @@ description: Lean how to generate forecasts using the Nexosis API
 copyright: 2017 Nexosis 
 layout: default
 category: Forecasting
-tags: [Predict, Quick Links, Favorite, Walkthrough]
+tags: [Predict, Forecasting, Walkthrough]
 use_codestyles: true
 order: 3
 ---

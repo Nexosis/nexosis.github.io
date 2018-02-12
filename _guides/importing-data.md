@@ -3,10 +3,11 @@ title: Importing Data
 description: Import data into the Nexosis platform
 copyright: 2017 Nexosis 
 layout: default
-category: Concepts
+category: Nexosis Concepts
+subcategory: Upload your data
 tags: [Data, CSV, JSON, Quick Links]
 use_codestyles: true
-order: 4
+order: 3
 ---
 
 As an alternative to [sending](sending-data) your data directly to the Nexosis API, you can import your data into the Nexosis platform from external sources.

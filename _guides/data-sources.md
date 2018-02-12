@@ -3,9 +3,11 @@ title: Data Sources
 description: Learn about data sources used in forecasts
 copyright: 2017 Nexosis 
 layout: default
-category: Concepts
+category: Nexosis Concepts
+subcategory: Upload your data
 tags: [DataSet, Quick Links, Favorite]
 use_codestyles: true
+order: 5
 ---
 
 The Nexosis API generates predictions in a forecast session based on data sources. Typically these are Data Sets you have provided to the API. As of the August 2017 API update these data sources can also be Views or Global Data Sets.

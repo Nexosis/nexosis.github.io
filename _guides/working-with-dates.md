@@ -6,7 +6,7 @@ layout: default
 category: Troubleshooting
 tags: [Dates, Favorite, Formatting, Data]
 use_codestyles: true
-order: 9
+order: 3
 ---
 
 When it comes to forecasting, getting the dates correct is critical. When dealing with dates as strings the date formatting has to be correct. We use libraries in all languages that support [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formats for interchanging dates.

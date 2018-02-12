@@ -6,7 +6,7 @@ layout: default
 category: Troubleshooting
 tags: [Favorite, Reference, Errors, Debugging, HTTP]
 use_codestyles: true
-order: 10
+order: 1
 ---
 
 The following are the different kinds of error messages you could receive when using the Nexosis API.

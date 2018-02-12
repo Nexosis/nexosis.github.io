@@ -1,11 +1,11 @@
 ---
-title: How It Works&#58; Model Building
+title: How It Works&#58; Classification
 description: Understand how to interact with the Nexosis API for both regression, classification and anomaly detection models.
 copyright: 2017 Nexosis 
 layout: default
-category: [Regression, Classification, Anomaly Detection]
-tags: [Predict, Classify, Anomaly Detection, Quick Links, Favorite]
-order: 1
+category: Classification
+tags: [Predict, Classify]
+order: 2
 use_codestyles: false
 ---
 ## The Process
@@ -30,20 +30,10 @@ Then optionally:
 
 <h3 id="dataset" class="jumptarget">Submit a Dataset</h3>
 
-<h5>Regression</h5>
-Regression is a process by which the Nexosis API, through the analysis of a particular dataset, will attempt to understand the relationship a series of variables have with one specific target value given many different sets of observed data. This relationship can then be used to predict a new target value given any combination of known new variables.
-
-For example, if you wanted to be able to predict an approximate sale price of a house you'd need a dataset containing real attributes of many different kinds of houses and their real historical sale price.  Each row describes a distinct house - its columns represent specific attributes (independent variables) that likely influence the sale price (dependent variable). These independent variables are called _features_ and the dependent variable is called the _target_. Some examples of attributes that might correspond to the sale price could be the year a house was built, the number of rooms, the number of bathrooms, livable square footage, zip code, and so on.
-
 <h5>Classification</h5>
 Classification is a process by which the Nexosis API, through the analysis of a particular dataset, will attempt to understand the categories by which you might group the rows of data together.
 
 For example, if you had a variety of measurements of characteristics of an Iris flower that allowed you to determine which species it was - such as sepal length and width, and petal length and width, you could train a Classification model to learn to make this distinction given only these characteristics.
-
-<h5>Anomaly Detection</h5>
-Anomaly Detection is a process by which the Nexosis API, through the analysis of a particular dataset, will attempt to find observations in your dataset that fall outside of what's normal inside your dataset. It can then predict if other observations are anomalous, or outliers, using the generated model.
-
-For example, if you had a variety of heart measurements from an EKG (encephalograph) you could determine if some of the signals were outside of the normal range.
 
 <h5>The DataSet</h5>
 Once the _dataset_ has been submitted, a _regression_ or _classification_ session can be created to build a model.

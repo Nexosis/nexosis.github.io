@@ -3,9 +3,11 @@ title: Calendar Data Sources
 description: Learn about using calendars as data sources
 copyright: 2017 Nexosis 
 layout: default
-category: Concepts
+category: Nexosis Concepts
+subcategory: Upload your data
 tags: [DataSet, Views, Datasources]
 use_codestyles: true
+order: 6
 ---
 Many forecasts can be improved by including special dates as features in your time series data. Whether you are including common holidays in a sales foreacast, or sporting events for a traffic forecast, using an existing calendar can simplify your process while improving results.  
 

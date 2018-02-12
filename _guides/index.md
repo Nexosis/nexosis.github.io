@@ -48,9 +48,12 @@ exclude_from_search: true
 <!-- New Layout -->
 <style>
   h5 {font-size: 1.5em;font-weight: 600;}
+  .clearfix {clear: both;}
+  hr:first-child {display: none;}
 </style>
 
 {% for ct in site.guides-category-order %}
+{% assign subcat = null %}
 <div class="col-sm-12">
   <div class="panel">
     <div class="panel-body">
@@ -66,10 +69,15 @@ exclude_from_search: true
             </div>
           </div>
         </div>
-        <div class="col-sm-7 p25 bg-color-lightGray" style="border-radius: 5px;">
+        <div class="col-sm-7 p25 pb15 bg-color-lightGray" style="border-radius: 5px;">
           {% assign guides = site.guides | sort: "order" %}
           {% for post in guides %}
             {% if post.category contains ct %}
+              {% if post.subcategory != subcat %}
+                <hr class="mt10 mb10"/>
+                <h6><strong>{{ post.subcategory }}</strong></h6>
+                {% assign subcat = post.subcategory %}
+              {% endif %}
               <div class="col-md-6">
                 <p><strong><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></strong></p>
               </div>

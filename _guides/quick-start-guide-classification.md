@@ -4,9 +4,9 @@ description: Getting started guide for using the Nexosis API
 copyright: 2017 Nexosis
 layout: default 
 category: Classification
-tags: [Quick Links, Favorite, REST, QuickStart, Classification]
+tags: [REST, Quick Start, Classification]
 use_codestyles: true
-order: 2
+order: 1
 ---
 
 This is a quick walkthrough of the basics of the using the Nexosis API.  By following this walkthrough which uses a sample dataset, you will learn all of the steps needed to predict classes using the Nexosis API.

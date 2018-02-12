@@ -6,6 +6,7 @@ layout: default
 category: Troubleshooting
 tags: [Favorite, Imputation]
 use_codestyles: true
+order: 2
 ---
 
 ## Working with Missing Values

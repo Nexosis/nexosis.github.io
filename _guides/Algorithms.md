@@ -3,9 +3,11 @@ title: Algorithms Employed
 description: A list of algorithms the Nexosis Machine Learning API employs 
 copyright: 2017 Nexosis 
 layout: default
-category: Concepts
+category: Nexosis Concepts
+subcategory: Run a session
 tags: [forecasting, regression]
 use_codestyles: true
+order: 11
 ---
 
 Our machine learning platform has a growing suite of about 30 core algorithms with a total of over 300 permutations. Given your data, our suite of algorithms will tune and select a model that best fits your data and the problem you're trying to solve.

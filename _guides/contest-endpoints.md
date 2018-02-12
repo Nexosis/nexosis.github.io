@@ -3,10 +3,11 @@ title: Algorithm Contest Results
 description: Dig into the performance of various algorithms run during a session.
 copyright: 2017 Nexosis
 layout: default
-category: Concepts
+category: Nexosis Concepts
+subcategory: Run a session
 tags: [Quick Links, Predict, Data Science]
 use_codestyles: true
-order: 5
+order: 12
 ---
 Every session involves a process we call "Reigning Champion" where several candidate algorithms compete. We expose contest endoints to allow you insight into what happened during the selection process.
 

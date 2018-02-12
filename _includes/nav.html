@@ -48,6 +48,7 @@
   {% endif %}
   <!-- Start Category Loop -->
   {% for ct in cats %}
+  {% assign subcat = null %}
   <div class="panel {% if page.category == ct %} active {% endif %}">
     <div id="{{ ct | slugify }}-heading" role="tab">
       <h5 class="category-listing" role="button" data-toggle="collapse" data-parent="#accordion" href="#{{ ct | slugify }}" aria-expanded="{% if page.category == ct %} true {% else %} false {% endif %}" aria-controls="{{ ct | slugify }}">
@@ -61,6 +62,10 @@
           {% assign ordered = site.guides | sort: "order" %}
           {% for post in ordered where post.category == ct %}
             {% if post.category contains ct %}
+            {% if post.subcategory != subcat %}
+              <h6><strong>{{ post.subcategory }}</strong></h6>
+              {% assign subcat = post.subcategory %}
+            {% endif %}
               <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
             {% endif %}
           {% endfor %}
@@ -97,8 +102,8 @@
     <div id="quickLinks" class="panel-collapse collapse" role="tabpanel" aria-labelledby="quickLinks-heading">
       <div class="panel-body">
         <!-- Start Post Loop -->
-        {% assign ordered = site.guides | sort: "order" %}
-        {% for post in ordered %}
+        <!-- {% assign ordered = site.guides | sort: "order" %} -->
+        {% for post in site.guides %}
           {% if post.tags contains "Quick Links" %}
           <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
           {% endif %}

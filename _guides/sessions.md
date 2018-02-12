@@ -3,10 +3,11 @@ title: Sessions
 description: What is a Session in the Nexosis API?
 copyright: 2017 Nexosis 
 layout: default
-category: Concepts
+category: Nexosis Concepts
+subcategory: Run a session
 tags: [Causal Impact, Predict, Quick Links, Favorite]
 use_codestyles: true
-order: 6
+order: 8
 ---
 
 A Session is a request for the Nexosis API to perform some calculations on data, resulting in either time-series results, or a model that you can use to perform predictions.

@@ -5,7 +5,7 @@ copyright: 2017 Nexosis
 layout: lite
 category: Getting Started
 use_codestyles: true
-order: 2
+order: 3
 ---
 <div id="content"></div>
 

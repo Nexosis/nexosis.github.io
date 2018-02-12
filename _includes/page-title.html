@@ -47,9 +47,18 @@
     <i class="fa fa-angle-right" style="margin: 0 5px;"></i>
     
     <span>
-      <a href="/category#{{ page.category }}">{{ page.category }}</a>
+      <a href="/category#{{ page.category | slugify }}">{{ page.category }}</a>
     </span>
     {% endif %}
+
+    {% if page.subcategory != " " %}
+    <i class="fa fa-angle-right" style="margin: 0 5px;"></i>
+    
+    <span>
+      <a href="/category#{{ page.category | slugify }}">{{ page.subcategory }}</a>
+    </span>
+    {% endif %}
+
   </p>
 {% endif %}
 

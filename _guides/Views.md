@@ -3,9 +3,11 @@ title: Views
 description: Learn about Views and how they help with forecasting
 copyright: 2017 Nexosis 
 layout: default
-category: Concepts
-tags: [DataSet, View, Quick Links, Favorite]
+category: Nexosis Concepts
+subcategory: Upload your data
+tags: [DataSet, View]
 use_codestyles: true
+order: 4
 ---
 
 Views are data sources created by mixing two other datasets. Using a view you can create a session based on a dataset of observations mixed with a different dataset which contains the features.

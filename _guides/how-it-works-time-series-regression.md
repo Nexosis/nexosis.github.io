@@ -4,8 +4,8 @@ description: Learn how the Nexosis API works.
 copyright: 2017 Nexosis 
 layout: default
 category: Forecasting
-tags: [General, Quick Links, Favorite]
-order: 1
+tags: [General, Forecasting]
+order: 2
 use_codestyles: true
 ---
 

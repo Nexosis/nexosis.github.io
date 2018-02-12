@@ -3,10 +3,11 @@ title: Specifying Features
 description: This tutorial shows more advanced specification of features and column metadata
 copyright: 2017 Nexosis
 layout: default
-category: Concepts
+category: Nexosis Concepts
+subcategory: Run a session
 tags: [Forecasting, Causal Impact]
 use_codestyles: true
-order: 8
+order: 9
 ---
 
 While the Nexosis API is able to forecast and analyze event impact on datasets with little additional guidance, it may be helpful to provide some metadata about your dataset to improve the quality of results.  In this tutorial, we will look at how to specify this metadata and use the Nexosis API to generate even better forecast and impact results.
