@@ -58,60 +58,77 @@ Once it's imported, all of the functions will be available. To discover all the 
 ```powershell
 PS> Get-Command -Module PSNexosisClient
 
-CommandType     Name                                Version    Source                                                                                                                                         
------------     ----                                -------    ------                                                                                                                                         
-Function        Get-NexosisAccountBalance           1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisConfig                   1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisDataSet                  1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisDataSetData              1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisImport                   1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisSession                  1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisSessionResult            1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisSessionStatus            1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisSessionStatusDetail      1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisView                     1.3.2      PSNexosisClient                                                                                                                                
-Function        Get-NexosisViewData                 1.3.2      PSNexosisClient                                                                                                                                
-Function        Import-NexosisDataSetFromCsv        1.3.2      PSNexosisClient                                                                                                                                
-Function        Import-NexosisDataSetFromS3         1.3.2      PSNexosisClient                                                                                                                                
-Function        New-NexosisDataSet                  1.3.2      PSNexosisClient                                                                                                                                
-Function        New-NexosisView                     1.3.2      PSNexosisClient                                                                                                                                
-Function        Remove-NexosisDataSet               1.3.2      PSNexosisClient                                                                                                                                
-Function        Remove-NexosisSession               1.3.2      PSNexosisClient                                                                                                                                
-Function        Remove-NexosisView                  1.3.2      PSNexosisClient                                                                                                                                
-Function        Set-NexosisConfig                   1.3.2      PSNexosisClient                                                                                                                                
-Function        Start-NexosisForecastSession        1.3.2      PSNexosisClient                                                                                                                                
-Function        Start-NexosisImpactSession          1.3.2      PSNexosisClient
+CommandType     Name                                               Version    Source                                  
+-----------     ----                                               -------    ------                                   
+Function        Get-NexosisAccountQuotas                           2.2.0      PSNexosisClient
+Function        Get-NexosisConfig                                  2.2.0      PSNexosisClient
+Function        Get-NexosisContest                                 2.2.0      PSNexosisClient
+Function        Get-NexosisContestant                              2.2.0      PSNexosisClient
+Function        Get-NexosisContestChampion                         2.2.0      PSNexosisClient
+Function        Get-NexosisContestSelection                        2.2.0      PSNexosisClient
+Function        Get-NexosisDataSet                                 2.2.0      PSNexosisClient
+Function        Get-NexosisDataSetData                             2.2.0      PSNexosisClient
+Function        Get-NexosisImport                                  2.2.0      PSNexosisClient
+Function        Get-NexosisModel                                   2.2.0      PSNexosisClient
+Function        Get-NexosisModelDetail                             2.2.0      PSNexosisClient
+Function        Get-NexosisSession                                 2.2.0      PSNexosisClient
+Function        Get-NexosisSessionAnomalyScore                     2.2.0      PSNexosisClient
+Function        Get-NexosisSessionClassScore                       2.2.0      PSNexosisClient
+Function        Get-NexosisSessionConfusionMatrix                  2.2.0      PSNexosisClient
+Function        Get-NexosisSessionResult                           2.2.0      PSNexosisClient
+Function        Get-NexosisSessionStatus                           2.2.0      PSNexosisClient
+Function        Get-NexosisSessionStatusDetail                     2.2.0      PSNexosisClient
+Function        Get-NexosisView                                    2.2.0      PSNexosisClient
+Function        Get-NexosisViewData                                2.2.0      PSNexosisClient
+Function        Get-NexosisVocabulary                              2.2.0      PSNexosisClient
+Function        Get-NexosisVocabularySummary                       2.2.0      PSNexosisClient
+Function        Import-NexosisDataSetFromAzure                     2.2.0      PSNexosisClient
+Function        Import-NexosisDataSetFromCsv                       2.2.0      PSNexosisClient
+Function        Import-NexosisDataSetFromJson                      2.2.0      PSNexosisClient
+Function        Import-NexosisDataSetFromS3                        2.2.0      PSNexosisClient
+Function        Import-NexosisDataSetFromUrl                       2.2.0      PSNexosisClient
+Function        Invoke-NexosisPredictTarget                        2.2.0      PSNexosisClient
+Function        New-NexosisDataSet                                 2.2.0      PSNexosisClient                             
+Function        New-NexosisView                                    2.2.0      PSNexosisClient
+Function        Remove-NexosisDataSet                              2.2.0      PSNexosisClient
+Function        Remove-NexosisModel                                2.2.0      PSNexosisClient
+Function        Remove-NexosisSession                              2.2.0      PSNexosisClient
+Function        Remove-NexosisView                                 2.2.0      PSNexosisClient
+Function        Set-NexosisConfig                                  2.2.0      PSNexosisClient
+Function        Start-NexosisForecastSession                       2.2.0      PSNexosisClient
+Function        Start-NexosisImpactSession                         2.2.0      PSNexosisClient
+Function        Start-NexosisModelSession                          2.2.0      PSNexosisClient
 ```
 
 To get detailed help on any of the Functions above, type `Get-Help`
 
 ```powershell
 
-PS> Get-Help Get-NexosisAccountBalance
+PS> Get-Help Get-NexosisAccountQuotas
 
 NAME
-    Get-NexosisAccountBalance
+    Get-NexosisAccountQuotas
     
 SYNOPSIS
-    Retrieves the current balance of your Nexosis API Account in US Dollars.
+    Retrieves the Account Usage Status of your Nexosis API Account.
     
     
 SYNTAX
-    Get-NexosisAccountBalance [<CommonParameters>]
+    Get-NexosisAccountQuotas [<CommonParameters>]
     
     
 DESCRIPTION
-    Given the current API Key, Get-NexosisAccountBalance returns the current balance of the Nexosis API Account in US Dollars.
+    Given the current API Key, Get-NexosisAccountQuotas returns the Account Usage Stats tracked for current pricing tier.
     
 
 RELATED LINKS
     http://docs.nexosis.com/clients/powershell
 
 REMARKS
-    To see the examples, type: "get-help Get-NexosisAccountBalance -examples".
-    For more information, type: "get-help Get-NexosisAccountBalance -detailed".
-    For technical information, type: "get-help Get-NexosisAccountBalance -full".
-    For online help, type: "get-help Get-NexosisAccountBalance -online"
+    To see the examples, type: "get-help Get-NexosisAccountQuotas -examples".
+    For more information, type: "get-help Get-NexosisAccountQuotas -detailed".
+    For technical information, type: "get-help Get-NexosisAccountQuotas -full".
+    For online help, type: "get-help Get-NexosisAccountQuotas -online"
 ```
 
 Here's an example of a quick program that submits a dataset from a CSV file to the Nexosis API, creates a forecast session, and retrieves the results.
