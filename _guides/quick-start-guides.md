@@ -1,8 +1,6 @@
 ---
 title: Quick Start Guides
 description: The Getting Started guides for using the Nexosis API
-copyright: 2017 Nexosis 
-layout: default
 category: Getting Started
 tags: [QuickStart]
 use_codestyles: false

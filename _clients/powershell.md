@@ -1,8 +1,6 @@
 ---
 title: PowerShell Module
 description: PowerShell module for using the Nexosis API
-copyright: 2017 Nexosis 
-layout: default
 category: PowerShell
 breadcrumb: API Clients
 tags: [PowerShell, module]

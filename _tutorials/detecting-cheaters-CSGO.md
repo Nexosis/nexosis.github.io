@@ -1,8 +1,6 @@
 ---
 title: Detecting Cheaters in Counter-Strike&#58; Global Offensive
 description: This tutorial will demonstrate usage of the Nexosis API to build a classification model that predicts if a user should be banned or not. 
-copyright: 2017 Nexosis 
-layout: default
 category: Classification
 tags: [Sports & Games, PowerShell, Video Games]
 use_codestyles: true

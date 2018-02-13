@@ -1,8 +1,6 @@
 ---
 title: Impact Analysis 
 description: Using the Nexosis API to determine the Impact of an event on your data
-copyright: 2017 Nexosis 
-layout: default
 category: Forecasting
 tags: [Causal Impact, Impact]
 use_codestyles: true

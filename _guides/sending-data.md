@@ -1,8 +1,6 @@
 ---
 title: Sending & Updating Data
 description: In order to forecast or measure Impact, we need your data in JSON or CSV format.
-copyright: 2017 Nexosis 
-layout: default
 category: Nexosis Concepts
 subcategory: Upload your data
 tags: [Data, CSV, JSON, Quick Links]

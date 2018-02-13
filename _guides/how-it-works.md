@@ -1,8 +1,6 @@
 ---
 title: How It Works&#58; Overview
 description: Learn how the Nexosis API works.
-copyright: 2017 Nexosis 
-layout: default
 category: Getting Started
 tags: [General, Quick Links]
 order: 1

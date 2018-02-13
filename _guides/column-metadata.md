@@ -1,8 +1,6 @@
 ---
 title: Column Metadata
 description: How to define column metadata on a dataset
-copyright: 2017 Nexosis 
-layout: default
 category: Nexosis Concepts
 subcategory: Upload your data
 tags: [Reference, Quick Links, Data, Favorite]

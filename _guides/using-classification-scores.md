@@ -1,8 +1,6 @@
 ---
 title: Using Classification Scores
 description: This tutorial demonstrates the use of scores on classification predictions of color given RGB input values. 
-copyright: 2017 Nexosis 
-layout: default
 category: Classification
 tags: [Classification, Postman]
 use_codestyles: true

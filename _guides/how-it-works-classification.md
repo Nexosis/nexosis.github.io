@@ -1,8 +1,6 @@
 ---
 title: How It Works&#58; Classification
 description: Understand how to interact with the Nexosis API for both regression, classification and anomaly detection models.
-copyright: 2017 Nexosis 
-layout: default
 category: Classification
 tags: [Predict, Classify]
 order: 2

@@ -1,8 +1,6 @@
 ---
 title: Importing Data
 description: Import data into the Nexosis platform
-copyright: 2017 Nexosis 
-layout: default
 category: Nexosis Concepts
 subcategory: Upload your data
 tags: [Data, CSV, JSON, Quick Links]

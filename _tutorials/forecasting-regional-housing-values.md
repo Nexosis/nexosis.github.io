@@ -1,8 +1,6 @@
 ---
 title: Forecasting Regional Housing Values
 description: This tutorial will demonstrate how to forecast house costs
-copyright: 2017 Nexosis 
-layout: default
 category: Forecasting
 tags: [Sales & Marketing, Scala, Zillow]
 use_codestyles: true

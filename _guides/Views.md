@@ -1,8 +1,6 @@
 ---
 title: Views
 description: Learn about Views and how they help with forecasting
-copyright: 2017 Nexosis 
-layout: default
 category: Nexosis Concepts
 subcategory: Upload your data
 tags: [DataSet, View]

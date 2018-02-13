@@ -1,8 +1,6 @@
 ---
 title: Working with Dates
 description: Formatting dates properly can be tricky.
-copyright: 2017 Nexosis 
-layout: default
 category: Troubleshooting
 tags: [Dates, Favorite, Formatting, Data]
 use_codestyles: true

@@ -1,8 +1,6 @@
 ---
 title: Sessions 
 description: What is a Session in the Nexosis API?
-copyright: 2017 Nexosis 
-layout: default
 category: Nexosis Concepts
 subcategory: Run a session
 tags: [Causal Impact, Predict, Quick Links, Favorite]

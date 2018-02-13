@@ -1,7 +1,6 @@
 ---
 title: Guides
 description: Guides that explain how to use the Nexosis API
-copyright: 2017 Nexosis 
 layout: fullwidth
 breadcrumb: Guides
 exclude_navbreadcrumb: true

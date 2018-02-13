@@ -79,7 +79,11 @@ timezone:      null
 
 quiet:    false
 verbose:  false
-defaults: []
+defaults:
+  -
+    values:
+      copyright: ©2018 Nexosis, Inc.
+      layout: default
 
 liquid:
   error_mode: warn

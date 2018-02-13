@@ -1,8 +1,6 @@
 ---
 title: How It Works&#58; Anomaly Detection
 description: Understand how to interact with the Nexosis API for both regression, classification and anomaly detection models.
-copyright: 2017 Nexosis 
-layout: default
 category: Anomaly Detection
 tags: [Anomaly Detection]
 order: 2

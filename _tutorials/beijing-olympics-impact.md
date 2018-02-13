@@ -1,8 +1,6 @@
 ---
 title: Impact of Olympics on Air Quality in Beijing
 description: This tutorial will demonstrate usage of the Nexosis API in combination with a local database to perform analysis on sensor data.
-copyright: 2017 Nexosis 
-layout: default
 category: Forecasting
 tags: [ Impact Analysis, C#, Greater Good]
 use_codestyles: true

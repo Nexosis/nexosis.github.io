@@ -1,8 +1,6 @@
 ---
 title: Next Steps
 description: You've read the Quick Start and high-level walkthrough, here are some ideas of what to try next!
-copyright: 2017 Nexosis 
-layout: default
 category: Getting Started
 tags: [Favorite, General]
 use_codestyles: false

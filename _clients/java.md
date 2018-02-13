@@ -1,8 +1,6 @@
 ---
 title: Java package
 description: Use the Nexosis Java Client to communicate with Nexosis API
-copyright: 2017 Nexosis 
-layout: default
 category: Java
 breadcrumb: API Clients
 tags: [Java, JAR, Package]

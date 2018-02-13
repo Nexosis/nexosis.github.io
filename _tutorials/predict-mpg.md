@@ -1,8 +1,6 @@
 ---
 title: Predicting an Automobile's Fuel Economy (MPG)
 description: Predicting and Automobile Fuel Efficiency (MPG) using a regression model
-copyright: 2017 Nexosis 
-layout: default
 category: Regression
 tags: [Predict, Favorite, Distribution & Logistics]
 use_codestyles: true

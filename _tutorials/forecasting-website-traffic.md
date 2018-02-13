@@ -1,8 +1,6 @@
 ---
 title: Forecasting Website Traffic
 description: This tutorial will demonstrate how to forecast hourly website sessions based on historical traffic.
-copyright: 2017 Nexosis 
-layout: default
 category: Forecasting
 tags: [Sales & Marketing, PowerShell]
 use_codestyles: true

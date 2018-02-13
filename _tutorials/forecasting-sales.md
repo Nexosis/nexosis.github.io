@@ -1,8 +1,6 @@
 ---
 title: Forecasting Sales
 description: This tutorial will demonstrate how to forecast daily level sales based on historical sales.
-copyright: 2017 Nexosis 
-layout: default
 category: Forecasting
 tags: [Sales & Marketing, Ruby]
 use_codestyles: true

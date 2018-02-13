@@ -1,8 +1,6 @@
 ---
 title: Classification Quick Start
 description: Getting started guide for using the Nexosis API
-copyright: 2017 Nexosis
-layout: default 
 category: Classification
 tags: [REST, Quick Start, Classification]
 use_codestyles: true

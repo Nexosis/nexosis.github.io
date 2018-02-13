@@ -1,8 +1,6 @@
 ---
 title: Specifying Features
 description: This tutorial shows more advanced specification of features and column metadata
-copyright: 2017 Nexosis
-layout: default
 category: Nexosis Concepts
 subcategory: Run a session
 tags: [Forecasting, Causal Impact]

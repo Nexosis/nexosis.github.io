@@ -1,7 +1,6 @@
 ---
 title: Guided API Tutorial
 description: A guided tutorial of using the API to upload a dataset, create a forecast session and retrieve the results.
-copyright: 2017 Nexosis 
 layout: lite
 category: Getting Started
 use_codestyles: true

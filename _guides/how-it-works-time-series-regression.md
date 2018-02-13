@@ -1,8 +1,6 @@
 ---
 title: How It Works&#58; Time-Series Regression & Impact Analysis
 description: Learn how the Nexosis API works.
-copyright: 2017 Nexosis 
-layout: default
 category: Forecasting
 tags: [General, Forecasting]
 order: 2

@@ -1,8 +1,6 @@
 ---
 title: Forecasting Walkthrough 
 description: Lean how to generate forecasts using the Nexosis API
-copyright: 2017 Nexosis 
-layout: default
 category: Forecasting
 tags: [Predict, Forecasting, Walkthrough]
 use_codestyles: true

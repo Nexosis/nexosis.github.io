@@ -1,8 +1,6 @@
 ---
 title: API Clients
 description: 
-copyright: 2017 Nexosis 
-layout: default
 breadcrumb: API Clients
 layout: fullwidth
 exclude_navbreadcrumb: true

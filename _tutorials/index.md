@@ -1,7 +1,6 @@
 ---
 title: Tutorials
 description: 
-copyright: 2017 Nexosis 
 layout: fullwidth
 breadcrumb: Tutorials
 exclude_navbreadcrumb: true
