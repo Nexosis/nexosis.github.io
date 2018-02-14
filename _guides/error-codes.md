@@ -2,7 +2,7 @@
 title: Error Codes
 description: Detailed information about error codes
 category: Troubleshooting
-tags: [Favorite, Reference, Errors, Debugging, HTTP]
+tags: [reference, errors, debugging, http]
 use_codestyles: true
 order: 1
 ---

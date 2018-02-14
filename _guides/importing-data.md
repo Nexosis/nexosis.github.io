@@ -3,7 +3,8 @@ title: Importing Data
 description: Import data into the Nexosis platform
 category: Nexosis Concepts
 subcategory: Upload your data
-tags: [Data, CSV, JSON, Quick Links]
+tags: [data, csv, json]
+quick_link: true
 use_codestyles: true
 order: 3
 ---

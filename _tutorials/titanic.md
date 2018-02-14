@@ -2,7 +2,7 @@
 title: The Titanic - ML Beginner Course (101)
 description: This course will introduce some basic concepts of Machine Learning using the Nexosis API and some simple data about each passenger aboard the Titanic.
 category: Classification
-tags: [Postman, '101']
+tags: [postman, '101', classification]
 use_codestyles: true
 order: 1
 ---

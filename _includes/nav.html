@@ -62,10 +62,10 @@
           {% assign ordered = site.guides | sort: "order" %}
           {% for post in ordered where post.category == ct %}
             {% if post.category contains ct %}
-            {% if post.subcategory != subcat %}
-              <h6><strong>{{ post.subcategory }}</strong></h6>
-              {% assign subcat = post.subcategory %}
-            {% endif %}
+              {% if post.subcategory != subcat %}
+                <h6><strong>{{ post.subcategory }}</strong></h6>
+                {% assign subcat = post.subcategory %}
+              {% endif %}
               <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
             {% endif %}
           {% endfor %}
@@ -104,20 +104,20 @@
         <!-- Start Post Loop -->
         <!-- {% assign ordered = site.guides | sort: "order" %} -->
         {% for post in site.guides %}
-          {% if post.tags contains "Quick Links" %}
-          <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
+          {% if post.quick_link %}
+            <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
           {% endif %}
         {% endfor %}
         {% assign ordered = site.tutorials | sort: "order" %}
         {% for post in ordered %}
-          {% if post.tags contains "Quick Links" %}
-          <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
+          {% if post.quick_link %}
+            <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
           {% endif %}
         {% endfor %}
         {% assign ordered = site.clients | sort: "order" %}
         {% for post in ordered %}
-          {% if post.tags contains "Quick Links" %}
-          <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
+          {% if post.quick_link %}
+            <p class="post-listing"><i class="fa {{ list-icon }}"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>  
           {% endif %}
         {% endfor %}
         <!-- End Post Loop -->

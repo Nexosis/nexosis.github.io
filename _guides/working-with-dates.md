@@ -2,7 +2,7 @@
 title: Working with Dates
 description: Formatting dates properly can be tricky.
 category: Troubleshooting
-tags: [Dates, Favorite, Formatting, Data]
+tags: [dates, formatting, data]
 use_codestyles: true
 order: 3
 ---

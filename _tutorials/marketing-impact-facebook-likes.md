@@ -2,7 +2,7 @@
 title: Marketing Impact on Facebook Page Likes
 description: This tutorial will demonstrate how to measure the impact of marketing messaging changes on Facebook Likes
 category: Forecasting
-tags: [Impact Analysis, Java, Facebook, Sales & Marketing]
+tags: [impact analysis, java, facebook, marketing]
 use_codestyles: true
 order: 7
 ---

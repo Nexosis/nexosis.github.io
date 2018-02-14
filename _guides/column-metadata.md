@@ -3,7 +3,8 @@ title: Column Metadata
 description: How to define column metadata on a dataset
 category: Nexosis Concepts
 subcategory: Upload your data
-tags: [Reference, Quick Links, Data, Favorite]
+tags: [reference, data]
+quick_link: true
 use_codestyles: true
 order: 7
 ---

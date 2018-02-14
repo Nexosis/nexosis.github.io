@@ -2,7 +2,7 @@
 title: Classification Quick Start
 description: Getting started guide for using the Nexosis API
 category: Classification
-tags: [REST, Quick Start, Classification]
+tags: [rest, quick start, classification]
 use_codestyles: true
 order: 1
 ---

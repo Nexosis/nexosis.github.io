@@ -2,7 +2,7 @@
 title: Forecasting Quick Start
 description: Getting started guide for using the Nexosis API
 category: Forecasting
-tags: [REST, Quick Start, Time Series, Forecasting]
+tags: [rest, quick start, time series, forecasting]
 use_codestyles: true
 order: 1
 ---

@@ -1,8 +1,8 @@
 ---
 title: API Keys
-description: API Keys are used to gain access to your Sessions in 
+description: API Keys are used to gain access to your Sessions
 category: Security
-tags: [API Keys, keys, security, Favorite]
+tags: [keys, security]
 use_codestyles: true
 ---
 

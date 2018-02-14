@@ -2,7 +2,7 @@
 title: Ruby GEM
 description: Ruby GEM for using the Nexosis API
 category: Ruby
-tags: [Ruby, Gem]
+tags: [ruby, gem]
 use_codestyles: true
 ---
 

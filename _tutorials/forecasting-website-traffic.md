@@ -2,7 +2,7 @@
 title: Forecasting Website Traffic
 description: This tutorial will demonstrate how to forecast hourly website sessions based on historical traffic.
 category: Forecasting
-tags: [Sales & Marketing, PowerShell]
+tags: [marketing, powershell]
 use_codestyles: true
 order: 4
 ---

@@ -2,7 +2,8 @@
 title: How It Works&#58; Overview
 description: Learn how the Nexosis API works.
 category: Getting Started
-tags: [General, Quick Links]
+tags: [general, how it works]
+quick_link: true
 order: 1
 use_codestyles: true
 ---

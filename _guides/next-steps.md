@@ -2,7 +2,7 @@
 title: Next Steps
 description: You've read the Quick Start and high-level walkthrough, here are some ideas of what to try next!
 category: Getting Started
-tags: [Favorite, General]
+tags: [general]
 use_codestyles: false
 order: 4
 ---

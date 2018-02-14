@@ -3,7 +3,7 @@ title: Calendar Data Sources
 description: Learn about using calendars as data sources
 category: Nexosis Concepts
 subcategory: Upload your data
-tags: [DataSet, Views, Datasources]
+tags: [dataset, views, datasources]
 use_codestyles: true
 order: 6
 ---

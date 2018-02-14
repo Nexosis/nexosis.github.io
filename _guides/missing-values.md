@@ -2,7 +2,7 @@
 title: Missing Values
 description: What to do with missing values
 category: Troubleshooting
-tags: [Favorite, Imputation]
+tags: [imputation]
 use_codestyles: true
 order: 2
 ---

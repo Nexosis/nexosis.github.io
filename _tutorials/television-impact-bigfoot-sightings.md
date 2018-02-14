@@ -2,7 +2,7 @@
 title: Impact of Television on Bigfoot Sightings
 description: This tutorial will use JavaScript and the Nexosis API to explore the impact of television on bigfoot sightings
 category: Forecasting
-tags: [Impact Analysis, JavaScript, Fun!]
+tags: [impact analysis, javascript]
 use_codestyles: true
 order: 6
 ---

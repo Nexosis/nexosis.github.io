@@ -6,83 +6,90 @@ exclude_from_search: true
 
 {% include category-finder.html %}
 
-<div class="row">
-  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-    <h1>{{ page.title }}</h1>
-    <hr>
-    {% for ct in cats %}
-      <a class="badge badge-success m5" href="#{{ ct | slugify }}"> {{ ct }} </a>
-    {% endfor %}
-    <hr>
-  </div>
-</div>
+<style>
+  .title {font-size: 1.15em; font-weight: 700; margin: 5px 0; padding: 5px 10px 0;}
+  .description {color: #afb0b4; font-size: .85em; padding: 0 10px 5px 10px; margin-bottom: 10px;}
+  h5.section {font-size: 1.5em;font-weight: 600;}
+</style>
 
-<!-- Category Groups -->
 <div class="row">
-  {% for ct in cats %}
-  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-    <div class="panel bg-color-lightGray">
-      <div class="panel-body">
-        <h5 id="{{ ct | slugify }}" class="jumptarget">{{ ct }} <span class="color-mediumGray pull-right"><i class="fa fa-file-text-o"></i></span></h5>
-        <hr>
-        <div class="row">
-          <!-- Guides -->
-          {% for post in site.guides %}
-            {% if post.category contains ct %}
-              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <p>
-                  <strong><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></strong> 
-                  {% for tag in post.tags %}
-                      {% if tag != "Quick Links" and tag != "Favorite" %}
-                          <a class="label label-info pull-right" style="margin-right: 10px;" href="/tags#{{ tag | slugify }}">{{ tag }}</a>
-                      {% endif %}
-                  {% endfor %}
-                </p>
-                <p class="color-mediumGray" style="font-size: 85%; border-bottom: 1px dotted #afb0b4; padding-bottom: 10px;">
-                  {{ post.description }}           
-                </p>
-              </div>
-            {% endif %}
-          {% endfor %}
-          <!-- Tutorials -->
-          {% for post in site.tutorials %}
-            {% if post.category contains ct %}
-              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <p>
-                  <strong><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></strong> 
-                  {% for tag in post.tags %}
-                      {% if tag != "Quick Links" %}
-                          <a class="label label-info pull-right" style="margin-right: 10px;" href="/tags#{{ tag | slugify }}">{{ tag }}</a>
-                      {% endif %}
-                  {% endfor %}
-                </p>
-                <p class="color-mediumGray" style="font-size: 85%; border-bottom: 1px dotted #afb0b4; padding-bottom: 10px;">
-                  {{ post.description }}           
-                </p>
-              </div>
-            {% endif %}
-          {% endfor %}
-          <!-- API Clients -->
-          {% for post in site.clients %}
-            {% if post.category contains ct %}
-              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <p>
-                  <strong><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></strong> 
-                  {% for tag in post.tags %}
-                      {% if tag != "Quick Links" %}
-                          <a class="label label-info pull-right" style="margin-right: 10px;" href="/tags#{{ tag | slugify }}">{{ tag }}</a>
-                      {% endif %}
-                  {% endfor %}
-                </p>
-                <p class="color-mediumGray" style="font-size: 85%; border-bottom: 1px dotted #afb0b4; padding-bottom: 10px;">
-                  {{ post.description }}           
-                </p>
-              </div>
-            {% endif %}
-          {% endfor %}
+  <div class="col-sm-4 col-md-3 col-lg-3 col-xl-3 mt15">
+    <!-- Nav -->
+    <div class="panel-group nav-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel active">
+        <div id="categories-heading" role="tab">
+          <h5 class="category-listing" role="button" data-toggle="collapse" data-parent="#accordion" href="#categories" aria-expanded="false" aria-controls="categories">
+              Categories <i class="fa fa-angle-down pull-right"></i>
+          </h5>
+        </div>
+        <div id="categories" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="categories-heading">
+          <div class="panel-body">
+            <!-- Start Post Loop -->
+            {% for ct in cats %}
+              <p class="post-listing"><i class="fa fa-file-text-o"></i> <a href="#{{ ct | slugify }}">{{ ct }}</a></p>
+            {% endfor %}
+            <!-- End Post Loop -->
+          </div>
         </div>
       </div>
     </div>
+    <!-- End Nav -->
   </div>
-  {% endfor %}
+  <div class="col-sm-8 col-md-9 col-lg-9 col-xl-9">
+    <h1>{{ page.title }}</h1>
+    <hr>
+    <div class="docs-content">
+    <!-- Category Listig -->
+    {% for ct in cats %}
+      <div class="panel">
+        <div class="panel-body">
+          <h5 id="{{ ct | slugify }}" class="jumptarget section">{{ ct }} <span class="color-mediumGray pull-right"><i class="fa fa-file-text-o"></i></span></h5>
+          <div class="row">
+            <!-- Guides -->
+            {% for post in site.guides %}
+              {% if post.category contains ct %}
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <p class="title">
+                    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                  </p>
+                  <p class="description">
+                    {{ post.description }}           
+                  </p>
+                </div>
+              {% endif %}
+            {% endfor %}
+            <!-- Tutorials -->
+            {% for post in site.tutorials %}
+              {% if post.category contains ct %}
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <p class="title">
+                    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                  </p>
+                  <p class="description">
+                    {{ post.description }}           
+                  </p>
+                </div>
+              {% endif %}
+            {% endfor %}
+            <!-- API Clients -->
+            {% for post in site.clients %}
+              {% if post.category contains ct %}
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <p class="title">
+                    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                  </p>
+                  <p class="description">
+                    {{ post.description }}           
+                  </p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <hr>
+      {% endfor %}
+      <!-- End Category Listing -->
+    </div>
+  </div>
 </div>

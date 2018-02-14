@@ -3,7 +3,8 @@ title: Algorithm Contest Results
 description: Dig into the performance of various algorithms run during a session.
 category: Nexosis Concepts
 subcategory: Run a session
-tags: [Quick Links, Predict, Data Science]
+tags: [predict, data science]
+quick_link: true
 use_codestyles: true
 order: 12
 ---

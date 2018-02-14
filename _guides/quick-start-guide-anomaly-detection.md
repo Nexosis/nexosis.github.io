@@ -2,7 +2,7 @@
 title: Anomaly Detection Quick Start
 description: Getting started guide for using the Nexosis API
 category: Anomaly Detection
-tags: [REST, Quick Start, Anomaly Detection]
+tags: [rest, quick start, anomaly detection]
 use_codestyles: true
 order: 1
 ---

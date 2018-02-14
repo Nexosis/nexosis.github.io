@@ -3,7 +3,8 @@ title: Retrieving Data
 description: How do I get my results and my original data back out?
 category: Nexosis Concepts
 subcategory: Upload your data
-tags: [Data, CSV, JSON, Quick Links]
+tags: [data, csv, json]
+quick_link: true
 use_codestyles: true
 order: 2
 ---

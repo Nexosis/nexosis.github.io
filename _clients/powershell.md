@@ -3,7 +3,7 @@ title: PowerShell Module
 description: PowerShell module for using the Nexosis API
 category: PowerShell
 breadcrumb: API Clients
-tags: [PowerShell, module]
+tags: [powershell, module]
 use_codestyles: true
 ---
 

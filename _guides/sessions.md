@@ -3,7 +3,8 @@ title: Sessions
 description: What is a Session in the Nexosis API?
 category: Nexosis Concepts
 subcategory: Run a session
-tags: [Causal Impact, Predict, Quick Links, Favorite]
+tags: [impact analysis, predict]
+quick_link: true
 use_codestyles: true
 order: 8
 ---

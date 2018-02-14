@@ -2,7 +2,7 @@
 title: Forecasting Regional Housing Values
 description: This tutorial will demonstrate how to forecast house costs
 category: Forecasting
-tags: [Sales & Marketing, Scala, Zillow]
+tags: [forecasting, scala, zillow]
 use_codestyles: true
 order: 2
 ---

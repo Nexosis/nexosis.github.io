@@ -2,7 +2,7 @@
 title: Quick Start Guides
 description: The Getting Started guides for using the Nexosis API
 category: Getting Started
-tags: [QuickStart]
+tags: [quick start]
 use_codestyles: false
 order: 2
 ---

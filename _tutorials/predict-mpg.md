@@ -2,7 +2,7 @@
 title: Predicting an Automobile's Fuel Economy (MPG)
 description: Predicting and Automobile Fuel Efficiency (MPG) using a regression model
 category: Regression
-tags: [Predict, Favorite, Distribution & Logistics]
+tags: [predict, distribution, logistics]
 use_codestyles: true
 order: 1
 ---

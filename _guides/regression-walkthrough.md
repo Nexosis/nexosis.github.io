@@ -2,7 +2,7 @@
 title: Regression Walkthrough
 description: Lean how to generate regression models using the Nexosis API
 category: Regression
-tags: [Predict, Regression, Walkthrough]
+tags: [predict, regression, walkthrough]
 order: 3
 use_codestyles: true
 ---

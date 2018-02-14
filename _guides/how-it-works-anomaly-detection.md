@@ -2,7 +2,7 @@
 title: How It Works&#58; Anomaly Detection
 description: Understand how to interact with the Nexosis API for both regression, classification and anomaly detection models.
 category: Anomaly Detection
-tags: [Anomaly Detection]
+tags: [anomaly detection, how it works]
 order: 2
 use_codestyles: false
 ---

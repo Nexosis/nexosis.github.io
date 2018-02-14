@@ -3,7 +3,8 @@ title: Data Sources
 description: Learn about data sources used in forecasts
 category: Nexosis Concepts
 subcategory: Upload your data
-tags: [DataSet, Quick Links, Favorite]
+tags: [dataset]
+quick_link: true
 use_codestyles: true
 order: 5
 ---

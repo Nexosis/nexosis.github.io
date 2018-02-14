@@ -2,7 +2,7 @@
 title: Regression Quick Start
 description: Getting started guide for using the Nexosis API
 category: Regression
-tags: [REST, Quick Start, Regression]
+tags: [rest, quick start, regression]
 use_codestyles: true
 order: 1
 ---

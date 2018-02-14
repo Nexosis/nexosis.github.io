@@ -1,8 +1,8 @@
 ---
-title: Classify Twitter Sentiment
-description: use a collection of labeled airline tweets to determine whether a new tweet is positive, negative, or neutral.
+title: Classifying Twitter Sentiment
+description: Use a collection of labeled airline tweets to determine whether a new tweet is positive, negative, or neutral.
 category: Classification
-tags: [Text, Sentiment, NLP, Reference]
+tags: [text, sentiment, nlp]
 use_codestyles: true
 order: 3
 ---

@@ -2,7 +2,7 @@
 title: Impact of Olympics on Air Quality in Beijing
 description: This tutorial will demonstrate usage of the Nexosis API in combination with a local database to perform analysis on sensor data.
 category: Forecasting
-tags: [ Impact Analysis, C#, Greater Good]
+tags: [impact analysis, c#, greater good]
 use_codestyles: true
 order: 5
 ---
@@ -90,7 +90,7 @@ the data on an hourly interval level.
 
 ### Impact Analysis
 
-When you want to look at the effect of an outside influence on your data, you can do [causal impact analysis](/guides/impact-analysis){:target="_blank"}. 
+When you want to look at the effect of an outside influence on your data, you can do [impact analysis](/guides/impact-analysis){:target="_blank"}. 
 In this example, you can look at how the PM<sub>2.5</sub> changed during the 2008 Summer Olympic Games hosted in Beijing. At the time,
 it was widely reported that athletes were concerned about the air quality and how it might hurt their performance or have long term
 negative effects. [China responded](http://www.nytimes.com/2008/08/01/sports/olympics/01china.html){:target="_blank"} by curbing pollution-causing activites.

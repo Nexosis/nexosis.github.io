@@ -2,7 +2,7 @@
 title: How It Works&#58; Time-Series Regression & Impact Analysis
 description: Learn how the Nexosis API works.
 category: Forecasting
-tags: [General, Forecasting]
+tags: [forecasting, how it works]
 order: 2
 use_codestyles: true
 ---

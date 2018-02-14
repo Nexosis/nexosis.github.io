@@ -3,7 +3,8 @@ title: Using Text Based Features
 description: Working with free-form entry text fields such as user feedback, tweets, or maintenance logs
 category: Nexosis Concepts
 subcategory: Run a session
-tags: [Text, Sentiment, NLP, Reference, Quick Links, Favorite]
+tags: [text, sentiment, nlp, reference]
+quick_link: true
 use_codestyles: true
 order: 10
 ---

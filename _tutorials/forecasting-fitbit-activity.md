@@ -2,7 +2,7 @@
 title: Forecasting Fitbit Activity
 description: This tutorial demonstrates building a web app that forecasts your Fitbit activity using the Nexosis Api
 category: Forecasting
-tags: [Sports & Games, C#, Fitbit]
+tags: [sports, c#, fitbit]
 use_codestyles: true
 order: 1
 ---

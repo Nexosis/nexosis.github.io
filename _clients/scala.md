@@ -3,7 +3,7 @@ title: Scala Package
 description: Use the Nexosis Java Package to communicate with Nexosis API in Scala
 category: Scala
 breadcrumb: API Clients
-tags: [scala, Package]
+tags: [scala, package]
 use_codestyles: true
 ---
 <script src="/assets/js/prism/components/prism-scala.min.js" data-default-language="markup"></script>

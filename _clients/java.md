@@ -3,7 +3,7 @@ title: Java package
 description: Use the Nexosis Java Client to communicate with Nexosis API
 category: Java
 breadcrumb: API Clients
-tags: [Java, JAR, Package]
+tags: [java, jar, package]
 use_codestyles: true
 ---
 > <h5 class="mt0">Supported platforms</h5>

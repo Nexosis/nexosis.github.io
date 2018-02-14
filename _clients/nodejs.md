@@ -3,7 +3,7 @@ title: Node.JS Module
 description: Using NodeJS with the Nexosis API.
 category: Node.js
 breadcrumb: API Clients
-tags: [node, nodejs, npm]
+tags: [nodejs, npm]
 use_codestyles: true
 ---
 > <h5 class="mt0">Supported platforms</h5>

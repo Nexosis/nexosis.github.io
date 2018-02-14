@@ -2,7 +2,7 @@
 title: Forecasting Sales
 description: This tutorial will demonstrate how to forecast daily level sales based on historical sales.
 category: Forecasting
-tags: [Sales & Marketing, Ruby]
+tags: [sales, ruby]
 use_codestyles: true
 order: 3
 ---

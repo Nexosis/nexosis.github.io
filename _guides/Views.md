@@ -3,7 +3,7 @@ title: Views
 description: Learn about Views and how they help with forecasting
 category: Nexosis Concepts
 subcategory: Upload your data
-tags: [DataSet, View]
+tags: [dataset, views]
 use_codestyles: true
 order: 4
 ---

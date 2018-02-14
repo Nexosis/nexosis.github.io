@@ -2,7 +2,7 @@
 title: .NET Library
 description: Getting started guide for using the Nexosis API
 category: .NET
-tags: [C#, .NET, Nuget]
+tags: [c#, .net, nuget]
 use_codestyles: true
 ---
 

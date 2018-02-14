@@ -5,9 +5,7 @@
       <p class="p0 m0 small">
         <i class="fa fa-tags color-mediumGray mr5"></i>
         {% for tag in page.tags %}
-          {% if tag != "Quick Links" and tag != "Favorite" %}
-            <a href="/tags#{{ tag | slugify }}">{{ tag }}</a>{% if forloop.last == false %},{% endif %}
-          {% endif %}
+          <a href="/tags#{{ tag | slugify }}">{{ tag }}</a>{% if forloop.last == false %},{% endif %}
         {% endfor %}
       </p>
     </div>
