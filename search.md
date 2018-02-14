@@ -25,6 +25,7 @@ $(document).ready(function() {
   $('#tipue_search_input').tipuesearch({
       'mode': 'static',
       'show': 10,
+      'showTime': false,
       'minimumLength': 3,
       'debug': false,
       'highlightTerms': true,

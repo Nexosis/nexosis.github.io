@@ -1,6 +1,6 @@
 
 /*
-Tipue Search 6.0
+Tipue Search 6.1
 Copyright (c) 2017 Tipue
 Tipue Search is released under the MIT License
 http://www.tipue.com/search
@@ -39,8 +39,8 @@ http://www.tipue.com/search
 {
     color: #333;
     width: 100%;
-	/*padding: 17px;*/
-	border: 1px solid #afb0b4;
+    /*padding: 17px;*/
+    border: 1px solid #afb0b4;
 	/*border-radius: 0;*/
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -133,6 +133,7 @@ span#tipue_search_input
      word-wrap: break-word;
      hyphens: auto;
      margin-top: 5px;
+     padding: 0 10px;
 }
 .tipue_search_content_bold
 {
