@@ -235,16 +235,15 @@ duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urge
     <li> <b>(Optional)</b> - In the Original CSV, every line in the CSV is terminated with a period. Because of that, all the items in the <code>type</code> column will contain a period (e.g. <code>noraml.</code>, <code>satan.</code>, <code>buffer_overflow.</code>, etc.) If you are on linux or mac, or if you have unix tools installed on windows (i.e. gitbash, cygwin, etc.) you can quickly clean this up using the <code>sed</code> command with a regular expression, like so:
      <pre class="language-bash"><code class="language-bash code-toolbar">sed -i -e 's/\.$//' kddcup-training.csv</code></pre>
     </li>
-    <li><b>IMPORTANT CRITICAL FINAL STEP BEFORE SUBMITTING TO NEXOSIS API: Validate the CSV file.</b>
-    
-      Notice the odd square on line <code>494023</code> below. This will need removed or the import will fail. An easy way to fix this in bash is with the <code>head</code> command, which removes the last line:
+    <li><b>IMPORTANT CRITICAL FINAL STEP BEFORE SUBMITTING TO NEXOSIS API: Validate the CSV file.</b><br/>
+      Notice the odd square on line <code>494023</code> below. 
 <img src="/assets/img/tutorials/kddcup-csv-bad-char.png" alt="Bad character in CSV file." class="img-responsive">
-
+This will need removed or the import will fail. An easy way to fix this in bash is with the <code>head</code> command, which removes the last line:
 <pre class="language-batch"><code class="language-batch code-toolbar">
 head -n -1  kddcup-training.csv > kddcup-training.tmp ; mv kddcup-training.tmp kddcup-training.csv
 </code></pre>
 
-    If there are any illeagal characters, jagged rows, unpaired quotations around strings, extra commas, etc. the Import will fail. The Nexosis API will attempt to provide details in Response body as to where the error was encountered. In this case, the file we downloaded has an illegal byte at the end of the file. By opening reviewing the file in Visual Studio Code, Notepad++, or another text editor, it can help identify issues. Excel can help validate files as well, but it can also mask issues as well.
+    If there are any illeagal characters, jagged rows, unpaired quotations around strings, extra commas, etc. the Import will fail. The Nexosis API will attempt to provide details in Response body as to where the error was encountered. In this case, the file we downloaded has an illegal byte at the end of the file. By opening reviewing the file in Visual Studio Code, Notepad++, or another text editor, it can help identify issues. Excel can help validate there are no jagged rows, but it can also mask other issues as well.
 
     <blockquote>Avoid using <code>notepad.exe</code> to review CSV files unless the file is very small - small in both number of rows as well as the length of each line. Notepad has proven time and again to be increadibly unreliable in many ways.</blockquote>
 
@@ -325,3 +324,28 @@ Here are the steps to accomplish this using the JSON above:
 Now that the training data has been submitted to the Nexosis API, experimentation with building a model can commence.
 
 <h3 id="building-the-model" class="jumptarget">Building the Model</h3>
+
+1. From the Nexosis API Collections, open the Sessions folder and click `POST /sessions/model`.
+ <img src="/assets/img/tutorials/kddcup-postman5.png" alt="Click Send" style="padding: 10px;" class="img-responsive"><br>
+ If you don’t have the Nexosis API collections, you can simply select `POST` from the dropdown and type `https://ml.nexosis.com/v1/sessions/model` in the text bar.
+ <img src="/assets/img/tutorials/kddcup-postman6.png" alt="Choose the Session Endpoint" style="padding: 10px;" class="img-responsive">
+2. Click `Body` and paste the following code. - **Note:** `type` was the column in our dataset that had the network attack type in it (e.g. ). By setting `type` as the target column, we are telling the Nexosis API  
+ <br>
+ ```json
+{
+      "dataSourceName": "kddcup-training",
+      "targetColumn": "type",
+      "predictionDomain": "classification"
+}
+ ```
+ <br>
+ You should have a POST request that looks like this (don't forget to set the `api-key` header): 
+ <br>
+<img src="/assets/img/tutorials/kddcup-postman7.png" alt="Set the JSON Body" style="padding: 5px;" class="img-responsive">
+3. Click the blue `Send` button to the Right of the URL in Postman.<br>
+ <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive"><br>
+ When you scroll to the bottom of the body, you will see your unique session ID and the response `status` should say `requested` or `started`. 
+
+TODO - INSERT PIC HERE
+
+> **Important:** Copy your `SessionID` out of the response body as you will need this in the next steps.
