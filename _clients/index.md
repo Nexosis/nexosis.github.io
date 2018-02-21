@@ -66,6 +66,8 @@ exclude_from_search: true
             {% assign category = "objc" %}
           {% when "PowerShell" %}
             {% assign category = "powershell" %}
+           {% when "Postman" %}
+            {% assign category = "postman" %}
         {% endcase %}
         <div class="col-sm-3">
           <div class="panel bg-color-lightGray">
