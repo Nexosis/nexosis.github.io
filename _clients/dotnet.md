@@ -14,7 +14,7 @@ use_codestyles: true
 PM> Install-Package Nexosis.Api.Client 
 ```
 
-> <p><a href="https://www.nuget.org/packages/Nexosis.Api.Client/" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Nuget Package Details</a><a href="https://github.com/Nexosis/nexosisclient-net" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
+> <p><a href="https://www.nuget.org/packages/Nexosis.Api.Client/" class="btn btn-primary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Nuget Package Details</a><a href="https://github.com/Nexosis/nexosisclient-net" class="btn btn-primary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ### Usage
 

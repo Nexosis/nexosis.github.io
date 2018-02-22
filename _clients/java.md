@@ -11,7 +11,7 @@ The Nexosis Client for Java supports Java versions 1.7 and 1.8.
 
 ## Installing the client
 
-> <p><a href="https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-java" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
+> <p><a href="https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java" class="btn btn-primary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-java" class="btn btn-primary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ### Maven
 Add this dependency to <code>pom.xml</code>:

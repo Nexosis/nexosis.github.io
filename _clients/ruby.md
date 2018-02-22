@@ -13,7 +13,7 @@ use_codestyles: true
 ``` Ruby
 gem 'nexosis_api', '>= 2.0.0'
 ```
-> <p><a href="https://rubygems.org/gems/nexosis_api" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Gem Details</a><a href="https://github.com/Nexosis/nexosisclient-rb" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
+> <p><a href="https://rubygems.org/gems/nexosis_api" class="btn btn-primary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Gem Details</a><a href="https://github.com/Nexosis/nexosisclient-rb" class="btn btn-primary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ## Ruby Quick Start
 

@@ -15,7 +15,7 @@ use_codestyles: true
 $ pip install nexosisapi
 ```
 
-> <p><a href="https://pypi.python.org/pypi/nexosisapi" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> PyPI Package Details</a><a href="https://github.com/Nexosis/nexosisclient-py" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
+> <p><a href="https://pypi.python.org/pypi/nexosisapi" class="btn btn-primary mr10" target="_blank"><i class="fa fa-cube mr5"></i> PyPI Package Details</a><a href="https://github.com/Nexosis/nexosisclient-py" class="btn btn-primary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ## Basic Usage
 
