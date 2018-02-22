@@ -1,8 +1,8 @@
 ---
 title: Detecting Hackers Like It's 1999
 description: Using network data to classify network attacks 
-category: Classification
-tags: [classification, security, reference]
+category: 
+tags:
 use_codestyles: true
 order: 4
 ---
