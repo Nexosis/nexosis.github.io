@@ -11,7 +11,7 @@ NodeJs.  This package will not yet work in a web browser.
 
 ## Installing the client
 
-> <p><a href="https://www.npmjs.com/package/nexosis-api-client" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-js" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
+> <p><a href="https://www.npmjs.com/package/nexosis-api-client" class="btn btn-primary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-js" class="btn btn-primary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 
 Either install directly into your application at the command line:

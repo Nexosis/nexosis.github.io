@@ -23,7 +23,7 @@ Or to choose a path to save the module to:
 PS> Save-Module -Name PSNexosisClient -Path <path>
 ```
 
-> <p><a href="https://www.powershellgallery.com/packages/PSNexosisClient/" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-ps" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
+> <p><a href="https://www.powershellgallery.com/packages/PSNexosisClient/" class="btn btn-primary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-ps" class="btn btn-primary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ## Basic Usage
 

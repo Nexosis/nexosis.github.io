@@ -12,7 +12,7 @@ The Scala client uses the Nexosis API Java package - tested with Scala 2.12.x.
 
 ## Installing the client
 
-> <p><a href="https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java" class="btn secondary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-java" class="btn secondary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
+> <p><a href="https://mvnrepository.com/artifact/com.nexosis/nexosisclient-java" class="btn btn-primary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Package Details</a><a href="https://github.com/Nexosis/nexosisclient-java" class="btn btn-primary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
 ### SBT
 Add this dependency to `build.sbt`:
