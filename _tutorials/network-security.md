@@ -1,8 +1,8 @@
 ---
 title: Detecting Hackers Like It's 1999
 description: Using network data to classify network attacks 
-category: 
-tags:
+category: Classification
+tags: [classification, security, reference]
 use_codestyles: true
 order: 4
 ---
@@ -23,15 +23,22 @@ td{
     border:1px solid #000000;
     padding: 4px;
 }
+.pad {
+    padding: 10px;
+}
+
+.max30 {
+    max-height:30em;
+}
 </style>
 
 This tutorial will  using the Nexosis API to classify malicious network traffic using prepared network data captured from a Defense Department Network while it was under attack. Given this data, we'll show how Machine Learning can be used to build a model that will classify network data as malicious or normal based on it's characteristics.
 
 **Time:** 20 minutes<br/>
-**Level:** Intermediate / 201
+**Level:** Intermediate / 200-level
 
 #### **Prerequisites:**
-* [Postman](https://www.getpostman.com){:target="_blank"}
+* [Nexosis Postman Collection](http://docs.nexosis.com/clients/postman){:target="_blank"}
 * [Nexosis API key](https://developers.nexosis.com/developer){:target="_blank"}
 
 ------
@@ -179,11 +186,11 @@ Since we're building a Classification model, we'll want to use a labeled dataset
 * [kddcup.data.gz](http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz){:target="_blank"}. - The full data set, with labels (18M; 743M Uncompressed)
 * [kddcup-data_10_percent.gz](http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz){:target="_blank"}. - A 10% subset, with labels. (2.1M; 75M Uncompressed)
 
-> The Nexosis API will automatically split the training data into internal train and test datasets (80% to train, and 20% test cases) when building and tuning its models. Subsequently, it's common to hold back even more test data to validate that the model works with other data it's never seen before.
+> The Nexosis API will automatically split the training data into internal train and test datasets (80% to train, and 20% test cases) when building and tuning its models. Additionally, the Nexosis API will perform [cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)){:target="_blank"} to make sure the model will perform more accurately in practice.  It's not a bad idea to hold back even more test data to validate that the model works with other data it's never seen before.
 
 The full dataset is 743MB which is rather large. It's better to start with a smaller set of data considering more data is more computationally expensive and the accuracy gains deminish after a certain point. We'll choose the 10% dataset to start out and see how well it performs. 75MB is still potentially larger than it needs to be but we'll start there, knowing we can futher reduce it later if desired.
 
-> To read more about finding the idea training dataset size, read [Data Education: The Value of Data Experimentation](https://content.nexosis.com/blog/the-value-of-data-experimentation){:target="_blank"} blog post.
+> To read more about finding the ideal training dataset size, read [Data Education: The Value of Data Experimentation](https://content.nexosis.com/blog/the-value-of-data-experimentation){:target="_blank"} blog post.
 
 One last catch. The file does not have a CSV header. A CSV header should be added to the top of the csv file. The names of the features, or column headers, are provided in [kddcup.names](http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names){:target="_blank"} file.
 
@@ -194,7 +201,7 @@ Here are the specific steps used to prepare the file to send to the Nexosis API 
 <ol>
     <li> Download the 10% training file <a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz" target="_blank">kddcup-data_10_percent.gz</a>. </li>
 
-    <li> Decompress the file using a decompression tool, such as <a href="http://www.7-zip.org/" target="_blank">7-ZIP</a>. The extracted file will be named <code>kddcup.data_10_percent_corrected</code>.</li>
+    <li> Decompress the file using a decompression tool, such as <a href="http://www.7-zip.org/" target="_blank">7-ZIP</a> on windows or `gzip` on linux. The extracted file will be named <code>kddcup.data_10_percent_corrected</code>.</li>  
 
     <li> Create a new file called <code>kddheader.csv</code> and paste the following in it and save it in the same folder with the uncompressed kddcup data file:
 
@@ -267,9 +274,9 @@ After the model is built, we can use this dataset to measure our model performan
 
 Since the dataset is larger than the maximum POST size allowed by the API, the file will need to be uploaded in batches (1MB at a time), or hosted at a URL.
 
-In this tutorial, [Digital Ocean Spaces](https://www.digitalocean.com/products/spaces/){:target="_blank"} is used for file storage to host the training dataset file. Nexosis API also supports files stored in AWS S3, Azure Blob, or any URL that contains a path to a CSV file.
+In this tutorial, [Digital Ocean Spaces](https://www.digitalocean.com/products/spaces/){:target="_blank"} is used for file storage to host the training dataset file. Nexosis API also supports files stored in AWS S3, Azure Blob, or any URL that contains a path to a CSV file or properly formatted JSON file.
 
-> For more information on Importing CSV Files, see the documentation on [Importing Data](/guides/importing-data){:target="_blank"} in the documentation to import data from other sources.
+> For more information on Importing JSON and CSV Files, see the documentation on [Importing Data](/guides/importing-data){:target="_blank"} in the documentation to import data from other sources.
 
 1. To create a Space in Digital Ocean, create and account and login. Click `Spaces` link in the nav bar at the top.![Digital Ocean Spaces](/assets/img/tutorials/do-spaces.png){:.img-responsive}
 
@@ -291,7 +298,9 @@ Now that the the large training dataset is in a place where it can be retrieved,
 }
 ```
 Here are the steps to accomplish this using the JSON above:
-1. Open Postman, and in a New Request set the HTTP Verb to `POST`, and set the URL to `https://ml.nexosis.com/v1/imports/Url`. Set the `Accept`, `Content-Type`, and `api-key` headers.
+1. Open Postman, in the Nexosis Postman Collection, expand the Imports and select `Import from URL`.
+![Nexosis Postman Collection: Imports](/assets/img/tutorials/kddcup-postman4.png){:.pad}{:.img-responsive}<br>
+The HTTP Verb is set to `POST`, and the URL to `https://ml.nexosis.com/v1/imports/Url`. The `Accept`, `Content-Type`, and `api-key` headers should be set as follows:
 ![Postman: Set Headers](/assets/img/tutorials/kddcup-import-headers.png){:.img-responsive}
 > For information on finding your API key, read [this support article](https://support.nexosis.com/hc/en-us/articles/115002132274-Where-do-I-find-my-API-Key){:target="_blank"}.
 2. Click on the request `Body` tab in Postmane and include the `JSON` from above: 
@@ -325,17 +334,18 @@ Now that the training data has been submitted to the Nexosis API, experimentatio
 
 <h3 id="building-the-model" class="jumptarget">Building the Model</h3>
 
-1. From the Nexosis API Collections, open the Sessions folder and click `POST /sessions/model`.
- <img src="/assets/img/tutorials/kddcup-postman5.png" alt="Click Send" style="padding: 10px;" class="img-responsive"><br>
+1. From the Nexosis API Collections, open the Sessions folder and click `POST /sessions/model`. 
+ ![Nexosis Postman Collection: Model Session](/assets/img/tutorials/kddcup-postman5.png){:.pad}{:.img-responsive}<br>
  If you don’t have the Nexosis API collections, you can simply select `POST` from the dropdown and type `https://ml.nexosis.com/v1/sessions/model` in the text bar.
  <img src="/assets/img/tutorials/kddcup-postman6.png" alt="Choose the Session Endpoint" style="padding: 10px;" class="img-responsive">
-2. Click `Body` and paste the following code. - **Note:** `type` was the column in our dataset that had the network attack type in it (e.g. ). By setting `type` as the target column, we are telling the Nexosis API  
+2. Click `Body` and paste the following code. - **Note:** `type` was the column in our dataset that had the network attack type in it (e.g. `nmap`, `neptune`, `warezclient`, `teardrop`, etc). By setting `type` as the target column, we are telling the Nexosis API to build a model that can predict the attack type based on all the other columns in the dataset, which by default will be used as features.
  <br>
  ```json
 {
-      "dataSourceName": "kddcup-training",
-      "targetColumn": "type",
-      "predictionDomain": "classification"
+  "name": "predictAttackType",
+  "dataSourceName": "kddcup-training",
+  "targetColumn": "type",
+  "predictionDomain": "classification"
 }
  ```
  <br>
@@ -344,8 +354,195 @@ Now that the training data has been submitted to the Nexosis API, experimentatio
 <img src="/assets/img/tutorials/kddcup-postman7.png" alt="Set the JSON Body" style="padding: 5px;" class="img-responsive">
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
  <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive"><br>
- When you scroll to the bottom of the body, you will see your unique session ID and the response `status` should say `requested` or `started`. 
-
-TODO - INSERT PIC HERE
+ When you inspect to the response body, note the unique session ID and in the `statusHistory`, the response `status` should say `requested` or `started` along with the corresponding timestamp.
+<pre class="language-json" style="max-height:30em;">
+<code class="language-json code-toolbar">
+{
+    // ... column metadata elided
+    "sessionId": "0161de6c-d28c-4e0f-84da-a07ed56aa750",
+    "type": "model",
+    "status": "requested",
+    "predictionDomain": "classification",
+    "availablePredictionIntervals": [],
+    "requestedDate": "2018-02-28T21:58:48.209273+00:00",
+    "statusHistory": [
+        {
+            "date": "2018-02-28T21:58:48.209273+00:00",
+            "status": "requested"
+        }
+    ],
+    "extraParameters": {
+        "balance": true
+    },
+    "messages": [],
+    "name": "predictAttackType",
+    "dataSourceName": "kddcup-training",
+    "dataSetName": "kddcup-training",
+    "targetColumn": "type",
+    "isEstimate": false,
+    "links": [
+        {
+            "rel": "results",
+            "href": "https://ml.nexosis.com/v1/sessions/0161de6c-d28c-4e0f-84da-a07ed56aa750/results"
+        },
+        {
+            "rel": "data",
+            "href": "https://ml.nexosis.com/v1/data/kddcup-training"
+        },
+        {
+            "rel": "vocabularies",
+            "href": "https://ml.nexosis.com/v1/vocabulary?createdFromSessionid=0161de6c-d28c-4e0f-84da-a07ed56aa750"
+        }
+    ]
+}
+</code>
+</pre>
 
 > **Important:** Copy your `SessionID` out of the response body as you will need this in the next steps.
+
+### Check if Session is complete:
+
+When the model is finished, you will receive an email with your session ID. You can also check the status of your session with an API call. To do this, you will need the session ID you copied from the previous step. 
+
+1. Open the Sessions folder and click `GET /sessions/:sessionId`
+   <img src="/assets/img/tutorials/kddcup-postman8.png" alt="Session Response" style="padding: 10px;" class="img-responsive"><br>
+  
+2. Click `Params` and paste the unique session ID for `sessionId` Value.
+ > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
+  <img src="/assets/img/tutorials/kddcup-postman9.png" alt="Session Response" style="padding: 10px;" class="img-responsive"><br>
+3. Click the blue `Send` button to the Right of the URL in Postman.<br>
+ <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+ 4. **TODO** Scroll to the bottom to check if the status has completed. If the status has completed, your model ID will be provided.
+ <img src="/assets/img/tutorials/titanic-postman11.png" alt="Session Status" style="padding: 10px;" class="img-responsive">
+ > **Important:** Copy your unique model Id. For this example the `modelID` is `f57a19be-a464-4c46-a1aa-0911452e6e57`
+ 
+ 
+ <h3 id="results" class="jumptarget">Results</h3>
+ Now that the model has been created, is it any good? The Session results will contain metrics and the results of an internal test set. 
+
+ 1. Open the Sessions folder and click `GET Retrieve Results (by sessionId)`
+ <img src="/assets/img/tutorials/kddcup-postman10.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+2. Click Params and paste the unique session ID for `sessionId` Value.
+> **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
+ <img src="/assets/img/tutorials/kddcup-postman11.png" alt="Session Results Params" style="padding: 10px;" class="img-responsive">
+3. Click the blue `Send` button to the Right of the URL in Postman.<br>
+ <img src="/assets/img/tutorials/postman-send.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+4. **TODO** The Session Result response body contains both metrics of how accurate the model's predictive capabilities, as well as the test data used to calculate the model's accuracy.
+ <img src="/assets/img/tutorials/titanic-postman14.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive">
+
+<h4 id="understanding-results" class="jumptarget">Understanding the Results</h4>
+
+The metrics returned in the session results as follows:
+
+<pre class="language-json" style="max-height:30em;">
+<code class="language-json code-toolbar">
+{
+    "metrics": {
+        "macroAverageF1Score": 0.74561794648010693,
+        "accuracy": 0.99694338171292074,
+        "macroAveragePrecision": 0.78827408937950227,
+        "macroAverageRecall": 0.73744363166311788,
+        "matthewsCorrelationCoefficient": 0.99483826023820643
+    },
+    "data": [ ... data elided ...]
+    "pageNumber": 0,
+    "totalPages": 1977,
+    "pageSize": 50,
+    "totalCount": 98802,
+    "sessionId": "0161de6c-d28c-4e0f-84da-a07ed56aa750",
+    "type": "model",
+    "status": "completed",
+    "predictionDomain": "classification",
+    "availablePredictionIntervals": [],
+    "modelId": "d0f17138-eb6f-4b38-a41d-cc1c1d672436",
+    "requestedDate": "2018-02-12T21:51:27.731942+00:00",
+    "statusHistory": [
+        {
+            "date": "2018-02-12T21:51:27.731942+00:00",
+            "status": "requested"
+        },
+        {
+            "date": "2018-02-12T21:51:28.1771348+00:00",
+            "status": "started"
+        },
+        {
+            "date": "2018-02-12T22:40:16.3590024+00:00",
+            "status": "completed"
+        }
+    ],
+    "extraParameters": {
+        "balance": true
+    },
+    "messages": [
+        {
+            "severity": "warning",
+            "message": "Target class 'phf' is only specified on 4 record(s) in the dataset. Nexosis requires a minimum of 5 records per class for the class to be included in a model. Therefore, the model we generate will not consider this class."
+        },
+        {
+            "severity": "warning",
+            "message": "Target class 'spy' is only specified on 2 record(s) in the dataset. Nexosis requires a minimum of 5 records per class for the class to be included in a model. Therefore, the model we generate will not consider this class."
+        },
+        {
+            "severity": "warning",
+            "message": "Target class 'perl' is only specified on 3 record(s) in the dataset. Nexosis requires a minimum of 5 records per class for the class to be included in a model. Therefore, the model we generate will not consider this class."
+        },
+        {
+            "severity": "informational",
+            "message": "494011 observations were found in the dataset."
+        }
+    ],
+    "name": "predictAttackType",
+    "dataSourceName": "kddcup-training",
+    "dataSetName": "kddcup-training",
+    "targetColumn": "type",
+    "algorithm": {
+        "name": "Random Forest",
+        "description": "Random Forest",
+        "key": ""
+    },
+    "isEstimate": false,
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://ml.nexosis.com/v1/sessions/0161de6c-d28c-4e0f-84da-a07ed56aa750/results"
+        },
+        {
+            "rel": "model",
+            "href": "https://ml.nexosis.com/v1/models/d0f17138-eb6f-4b38-a41d-cc1c1d672436"
+        },
+        {
+            "rel": "confusionMatrix",
+            "href": "https://ml.nexosis.com/v1/sessions/0161de6c-d28c-4e0f-84da-a07ed56aa750/results/confusionmatrix"
+        },
+        {
+            "rel": "featureImportance",
+            "href": "https://ml.nexosis.com/v1/sessions/0161de6c-d28c-4e0f-84da-a07ed56aa750/results/featureimportance"
+        },
+        {
+            "rel": "classScores",
+            "href": "https://ml.nexosis.com/v1/sessions/0161de6c-d28c-4e0f-84da-a07ed56aa750/results/classScores"
+        },
+        {
+            "rel": "contest",
+            "href": "https://ml.nexosis.com/v1/sessions/0161de6c-d28c-4e0f-84da-a07ed56aa750/contest"
+        },
+        {
+            "rel": "first",
+            "href": "https://ml.nexosis.com/v1/sessions/0161de6c-d28c-4e0f-84da-a07ed56aa750/results?page=0"
+        },
+        {
+            "rel": "next",
+            "href": "https://ml.nexosis.com/v1/sessions/0161de6c-d28c-4e0f-84da-a07ed56aa750/results?page=1"
+        },
+        {
+            "rel": "last",
+            "href": "https://ml.nexosis.com/v1/sessions/0161de6c-d28c-4e0f-84da-a07ed56aa750/results?page=1976"
+        },
+        {
+            "rel": "vocabularies",
+            "href": "https://ml.nexosis.com/v1/vocabulary?createdFromSessionid=0161de6c-d28c-4e0f-84da-a07ed56aa750"
+        }
+    ]
+}
+</code>
+</pre>
