@@ -1,8 +1,8 @@
 ---
 title: Detecting Hackers Like It's 1999
 description: Using network data to classify network attacks 
-category: Classification
-tags: [classification, security, reference]
+category: 
+tags: []
 use_codestyles: true
 order: 4
 ---
@@ -32,24 +32,30 @@ td{
 }
 </style>
 
-This tutorial will  using the Nexosis API to classify malicious network traffic using prepared network data captured from a Defense Department Network while it was under attack. Given this data, we'll show how Machine Learning can be used to build a model that will classify network data as malicious or normal based on it's characteristics.
+This tutorial will use the Nexosis API to classify malicious network traffic using prepared network data captured from a Defense Department Network while it was under attack. Given this data, we'll show how Machine Learning can be used to build a model that will classify network data as malicious or normal based on it's characteristics.
 
+### Details
+**Scope:** This tutorial will teach more detailed concepts on formatting datasets as well as understanding Classification metrics and understanding the Confusion Matrix.
 **Time:** 20 minutes<br/>
 **Level:** Intermediate / 200-level
 
-#### **Prerequisites:**
+**Prerequisites:**
 * [Nexosis Postman Collection](http://docs.nexosis.com/clients/postman){:target="_blank"}
 * [Nexosis API key](https://developers.nexosis.com/developer){:target="_blank"}
+
+> ##### Before starting
+It's important that you understand the following concepts to successfully complete this tutorial.
+* [Concept 1](#)
+* [Concept 2](#)
+* [Concept 3](#)
+* [Concept 4](#)
 
 ------
 ![hackers-movie-poster.jpeg](/assets/img/tutorials/hackers-movie-poster.jpeg){:.img-responsive}
 
 Obligatory `Hackers` movie poster - &copy;1995 United Artists
 
-## Outline
-
-Understanding the problem:
-1. [Initial understanding](#initial-understanding)
+1. [Understanding the Problem](#understanding-problem)
 2. [Data Sets](#datasets)
    * [Training Data](#training-data)
    * [Test Data](#test-data)
@@ -57,13 +63,11 @@ Understanding the problem:
 4. [Building the Model](#building-the-model)
 5. [Results](#results)
     * [Understanding the Result](#understanding-results)
-    * [How to use the results](#how-to-use-results)
-    * [Batch Predictions](#batch-predictions)
+    * [Conclusions](#conclusions)
 6. [Next Steps](#next-steps)
 
-## Problem Definition
 
-<h3 id="initial-understanding" class="jumptarget">Initial Understanding</h3>
+<h2 id="understanding-problem" class="jumptarget">Understanding the Problem</h2>
 
 This tutorial will walk through a Data Science competition called the [KDD Cup](http://www.kdd.org/kdd-cup){:target="_blank"} from [1999](http://www.kdd.org/kdd-cup/view/kdd-cup-1999){:target="_blank"}.
 
@@ -83,6 +87,14 @@ The data gathered fell into three different categories:
 1. Basic features of individual TCP connections 
 2. Content features within a connection suggested by domain knowledge.
 3. Traffic features computed using a two-second time window.
+
+> ##### Download Datasets
+There are quite a few files made available for the KDD Cup 1999 competition. Here are a list of the ones used for this exercise. All of them won't be needed in this tutorial, but if you don't want to use our prepared dataset these allow you to construct your own.<br/>
+<a class="btn btn-default" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup.data.gz</a> - The full data set, with labels (18M; 743M Uncompressed)<br/>
+<a class="btn btn-default" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup-data_10_percent.gz</a> -  A 10% subset, with labels. (2.1M; 75M Uncompressed)<br/>
+<a class="btn btn-default" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names" target="_blank"><i class="fa fa-download mr5"></i>kddcup.names</a> - A file containing the names of the features, or column headers.<br/>
+<a class="btn btn-default" href="http://kdd.ics.uci.edu/databases/kddcup99/corrected.gz" target="_blank"><i class="fa fa-download mr5"></i>corrected.gz</a> -  Corrected Test data, with labels. Can be used to validate the model once it's built. (1.4M Compressed, 46M Uncompressed)<br/>
+<a class="btn btn-default" href="https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv" target="_blank"><i class="fa fa-download mr5"></i>kddcup-training.csv</a> -  Training DataSet prepped and formatted for the Nexosis API using the files above.<br/>
 
 Here is the data dictionary of each type of features in the dataset:
 
@@ -183,45 +195,31 @@ There are many files provided by the competition which can lead to some confusio
 
 Since we're building a Classification model, we'll want to use a labeled dataset so we can eliminate any dataset with unlabeled data. Additionaly, we can ignore any test data since that will be used to check the model after it's built. This leaves the following two files to choose from:
 
-* [kddcup.data.gz](http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz){:target="_blank"}. - The full data set, with labels (18M; 743M Uncompressed)
-* [kddcup-data_10_percent.gz](http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz){:target="_blank"}. - A 10% subset, with labels. (2.1M; 75M Uncompressed)
-
-> The Nexosis API will automatically split the training data into internal train and test datasets (80% to train, and 20% test cases) when building and tuning its models. Additionally, the Nexosis API will perform [cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)){:target="_blank"} to make sure the model will perform more accurately in practice.  It's not a bad idea to hold back even more test data to validate that the model works with other data it's never seen before.
+One last catch. The file does not have a CSV header. A CSV header should be added to the top of the csv file. The names of the features, or column headers, are provided in `kddcup.names` above.
 
 The full dataset is 743MB which is rather large. It's better to start with a smaller set of data considering more data is more computationally expensive and the accuracy gains deminish after a certain point. We'll choose the 10% dataset to start out and see how well it performs. 75MB is still potentially larger than it needs to be but we'll start there, knowing we can futher reduce it later if desired.
 
 > To read more about finding the ideal training dataset size, read [Data Education: The Value of Data Experimentation](https://content.nexosis.com/blog/the-value-of-data-experimentation){:target="_blank"} blog post.
-
-One last catch. The file does not have a CSV header. A CSV header should be added to the top of the csv file. The names of the features, or column headers, are provided in [kddcup.names](http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names){:target="_blank"} file.
 
 #### Prepare Training Data File
 
 Here are the specific steps used to prepare the file to send to the Nexosis API to train a model:
 
 <ol>
-    <li> Download the 10% training file <a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz" target="_blank">kddcup-data_10_percent.gz</a>. </li>
-
-    <li> Decompress the file using a decompression tool, such as <a href="http://www.7-zip.org/" target="_blank">7-ZIP</a> on windows or `gzip` on linux. The extracted file will be named <code>kddcup.data_10_percent_corrected</code>.</li>  
-
+    <li> Download the 10% training file named <code>kddcup-data_10_percent.gz</code> linked above.</li>
+    <li> Decompress the file using a decompression tool, such as <a href="http://www.7-zip.org/" target="_blank">7-ZIP</a> on windows or `gzip` on linux or OS X. The extracted file will be named <code>kddcup.data_10_percent_corrected</code>.</li>  
     <li> Create a new file called <code>kddheader.csv</code> and paste the following in it and save it in the same folder with the uncompressed kddcup data file:
-
-    <pre class="language-txt"><code class="language-txt code-toolbar">duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,hot,num_failed_logins,logged_in,num_compromised,root_shell,su_attempted,num_root,num_file_creations,num_shells,num_access_files,num_outbound_cmds,is_host_login,is_guest_login,count,srv_count,serror_rate,srv_serror_rate,rerror_rate,srv_rerror_rate,same_srv_rate,diff_srv_rate,srv_diff_host_rate,dst_host_count,dst_host_srv_count,dst_host_same_srv_rate,dst_host_diff_srv_rate,dst_host_same_src_port_rate,dst_host_srv_diff_host_rate,dst_host_serror_rate,dst_host_srv_serror_rate,dst_host_rerror_rate,dst_host_srv_rerror_rate,type
-    </code></pre>
+    <pre class="language-txt"><code class="language-txt code-toolbar">duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,hot,num_failed_logins,logged_in,num_compromised,root_shell,su_attempted,num_root,num_file_creations,num_shells,num_access_files,num_outbound_cmds,is_host_login,is_guest_login,count,srv_count,serror_rate,srv_serror_rate,rerror_rate,srv_rerror_rate,same_srv_rate,diff_srv_rate,srv_diff_host_rate,dst_host_count,dst_host_srv_count,dst_host_same_srv_rate,dst_host_diff_srv_rate,dst_host_same_src_port_rate,dst_host_srv_diff_host_rate,dst_host_serror_rate,dst_host_srv_serror_rate,dst_host_rerror_rate,dst_host_srv_rerror_rate,type</code></pre>
     </li>
-
     <blockquote><b>WARNING:</b> Make sure there is exactly ONE empty line in the <code>kddheader.csv</code> file after the header row or you will end up with the first row on the same line as the headers or some blank rows between the header and the data when the files are combined in the next step.</blockquote>
-
     <li>Merge the <code>kddheader.csv</code> with the <code>kddcup.data_10_percent</code> file.<br/>
-    <br/>
     On Windows, from a command prompt, use the <code>copy</code> command to merge the files: 
     <pre class="language-batch"><code class="language-batch code-toolbar">copy kddheader.csv+kddcup.data_10_percent_corrected kddcup-training.csv</code></pre>
     On Linux or Mac you can use the <code>cat</code> command to merge the files:
     <pre class="language-bash"><code class="language-bash code-toolbar">cat kddheader.csv kddcup.data_10_percent_corrected >  kddcup-training.csv</code></pre>
     </li>
-
     <li>You should now have a file named <code>kddcup-training.csv</code>. Here's a small random selection of data from the file including the csv header:
-<pre class="language-batch"><code class="language-batch code-toolbar">
-duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,hot,num_failed_logins,logged_in,num_compromised,root_shell,su_attempted,num_root,num_file_creations,num_shells,num_access_files,num_outbound_cmds,is_host_login,is_guest_login,count,srv_count,serror_rate,srv_serror_rate,rerror_rate,srv_rerror_rate,same_srv_rate,diff_srv_rate,srv_diff_host_rate,dst_host_count,dst_host_srv_count,dst_host_same_srv_rate,dst_host_diff_srv_rate,dst_host_same_src_port_rate,dst_host_srv_diff_host_rate,dst_host_serror_rate,dst_host_srv_serror_rate,dst_host_rerror_rate,dst_host_srv_rerror_rate,type
+    <pre class="language-batch"><code class="language-batch code-toolbar">duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,hot,num_failed_logins,logged_in,num_compromised,root_shell,su_attempted,num_root,num_file_creations,num_shells,num_access_files,num_outbound_cmds,is_host_login,is_guest_login,count,srv_count,serror_rate,srv_serror_rate,rerror_rate,srv_rerror_rate,same_srv_rate,diff_srv_rate,srv_diff_host_rate,dst_host_count,dst_host_srv_count,dst_host_same_srv_rate,dst_host_diff_srv_rate,dst_host_same_src_port_rate,dst_host_srv_diff_host_rate,dst_host_serror_rate,dst_host_srv_serror_rate,dst_host_rerror_rate,dst_host_srv_rerror_rate,type
 0,tcp,http,SF,215,45076,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0.00,0.00,0.00,0.00,1.00,0.00,0.00,0,0,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,normal
 0,tcp,http,SF,162,4528,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,2,2,0.00,0.00,0.00,0.00,1.00,0.00,0.00,1,1,1.00,0.00,1.00,0.00,0.00,0.00,0.00,0.00,normal
 0,tcp,http,SF,236,1228,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0.00,0.00,0.00,0.00,1.00,0.00,0.00,2,2,1.00,0.00,0.50,0.00,0.00,0.00,0.00,0.00,normal
@@ -239,36 +237,30 @@ duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urge
 0,tcp,other,REJ,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,510,1,0.22,0.00,0.78,1.00,0.00,1.00,0.00,255,1,0.00,1.00,0.00,0.00,0.25,0.00,0.75,1.00,satan
 0,tcp,other,REJ,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,510,1,0.22,0.00,0.78,1.00,0.00,1.00,0.00,255,1,0.00,1.00,0.00,0.00,0.25,0.00,0.75,1.00,satan</code></pre>
     </li>
-    <li> <b>(Optional)</b> - In the Original CSV, every line in the CSV is terminated with a period. Because of that, all the items in the <code>type</code> column will contain a period (e.g. <code>noraml.</code>, <code>satan.</code>, <code>buffer_overflow.</code>, etc.) If you are on linux or mac, or if you have unix tools installed on windows (i.e. gitbash, cygwin, etc.) you can quickly clean this up using the <code>sed</code> command with a regular expression, like so:
+    <li><b>(Optional)</b> - In the Original CSV, every line in the CSV is terminated with a period. Because of that, all the items in the <code>type</code> column will contain a period (e.g. <code>noraml.</code>, <code>satan.</code>, <code>buffer_overflow.</code>, etc.) If you are on linux or mac, or if you have unix tools installed on windows (i.e. gitbash, cygwin, etc.) you can quickly clean this up using the <code>sed</code> command with a regular expression, like so:
      <pre class="language-bash"><code class="language-bash code-toolbar">sed -i -e 's/\.$//' kddcup-training.csv</code></pre>
     </li>
     <li><b>IMPORTANT CRITICAL FINAL STEP BEFORE SUBMITTING TO NEXOSIS API: Validate the CSV file.</b><br/>
-      Notice the odd square on line <code>494023</code> below. 
-<img src="/assets/img/tutorials/kddcup-csv-bad-char.png" alt="Bad character in CSV file." class="img-responsive">
-This will need removed or the import will fail. An easy way to fix this in bash is with the <code>head</code> command, which removes the last line:
-<pre class="language-batch"><code class="language-batch code-toolbar">
-head -n -1  kddcup-training.csv > kddcup-training.tmp ; mv kddcup-training.tmp kddcup-training.csv
-</code></pre>
-
+      Notice the odd square on line <code>494023</code> below?
+      <br/> 
+      <img src="/assets/img/tutorials/kddcup-csv-bad-char.png" alt="Bad character in CSV file." class="img-responsive">
+    This needs removed or the import will encounter an error due to an illegal character in the file. An easy way to fix this in bash is with the <code>head</code> command, which removes the last line:
+    <pre class="language-batch"><code class="language-batch code-toolbar">head -n -1  kddcup-training.csv > kddcup-training.tmp ; mv kddcup-training.tmp kddcup-training.csv</code></pre>
+    <br/>
     If there are any illeagal characters, jagged rows, unpaired quotations around strings, extra commas, etc. the Import will fail. The Nexosis API will attempt to provide details in Response body as to where the error was encountered. In this case, the file we downloaded has an illegal byte at the end of the file. By opening reviewing the file in Visual Studio Code, Notepad++, or another text editor, it can help identify issues. Excel can help validate there are no jagged rows, but it can also mask other issues as well.
-
+    <br/>
     <blockquote>Avoid using <code>notepad.exe</code> to review CSV files unless the file is very small - small in both number of rows as well as the length of each line. Notepad has proven time and again to be increadibly unreliable in many ways.</blockquote>
-
     Alternativly, if the file is not too large you can use Notepad++, Visual Studio Code, Atom, etc. to review and make manual tweaks to the file.
-
-    <blockquote>For more information on data munging, read <a href="https://content.nexosis.com/blog/5-text-transforming-techniques-for-total-techies" target="_blank">5 Text Transforming Techniques for Total Techies</a>.</blockquote>
-</li>
+    <br/>
+    <blockquote>For some common tools used for data munging, read <a href="https://content.nexosis.com/blog/5-text-transforming-techniques-for-total-techies" target="_blank">5 Text Transforming Techniques for Total Techies</a>.</blockquote>
+    </li>
 </ol>
 
 <h4 id="test-data" class="jumptarget">Test Data</h4>
 
-Now that the training dataset has been prepared, an additional test dataset can used to further validate if the model is working as it should. A test dataset must also be labeled so the predicted value and the actual value can be compared. For the competition, teams are given an unlabeled test dataset to perform predictions on and the judges would then compare those predictions to the actuals they kept hidden (just like Kaggle competitions work). This prevents teams from cheating by having the answer by biasing the model towards the the test set used for judging. Since the competition is over, a labeled test set was released so anyone can validate their test set against the answer key. 
+Now that the training dataset has been prepared, an additional test dataset can used to further validate if the model is working as it should. A test dataset must also be labeled so the predicted value and the actual value can be compared. For the competition, teams are given an unlabeled test dataset to perform predictions on and the judges would then compare those predictions to the actuals they kept hidden (just like Kaggle competitions work). This prevents teams from cheating by having the answer key. by biasing the model towards the the test set used for judging. Since the competition is over, a labeled test set was released so anyone can validate their test set against the answer key. 
 
-This labeled test dataset can be used to measure how our model performs:
-
-* [corrected.gz](http://kdd.ics.uci.edu/databases/kddcup99/corrected.gz){:target="_blank"}. - Corrected Test data, with labels. (1.4M Compressed, 46M Uncompressed)
-
-After the model is built, we can use this dataset to measure our model performance against data it's never seen before. So for now, there's nothing to do with this file other than save it for later. It will be used later to calculate metrics to get a more realistic sense of the accuracy.
+The [`corrected.gz` file listed above](#datasets) contains labeled test dataset. After the model is built, we can use this dataset to measure our model performance against data it's never seen before - so you can proove there's no tricks up our sleeves. For now, there's nothing to do with this file other than save it later to calculate metrics to get a more realistic sense of the model's accuracy.
 
 <h3 id="submitting-the-data" class="jumptarget">Submitting the Data to Nexosis</h3>
 
@@ -398,6 +390,8 @@ Now that the training data has been submitted to the Nexosis API, experimentatio
 </code>
 </pre>
 
+> During a session run, the Nexosis API will automatically split the training data into internal train and test datasets (80% to train, and 20% test cases) when building and tuning its models. Additionally, the Nexosis API will perform [cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)){:target="_blank"} to make sure the model will perform more accurately in practice.  It's not a bad idea to hold back even more test data to validate that the model works with other data it's never seen before.
+
 > **Important:** Copy your `SessionID` out of the response body as you will need this in the next steps.
 
 ### Check if Session is complete:
@@ -409,26 +403,25 @@ When the model is finished, you will receive an email with your session ID. You 
   
 2. Click `Params` and paste the unique session ID for `sessionId` Value.
  > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
-  <img src="/assets/img/tutorials/kddcup-postman9.png" alt="Session Response" style="padding: 10px;" class="img-responsive"><br>
+  <img src="/assets/img/tutorials/kddcup-postman9.png" alt="Session Results" style="padding: 10px;" class="img-responsive"><br>
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
  <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
- 4. **TODO** Scroll to the bottom to check if the status has completed. If the status has completed, your model ID will be provided.
- <img src="/assets/img/tutorials/titanic-postman11.png" alt="Session Status" style="padding: 10px;" class="img-responsive">
- > **Important:** Copy your unique model Id. For this example the `modelID` is `f57a19be-a464-4c46-a1aa-0911452e6e57`
- 
- 
+ 4. Scroll to the bottom to check if the status has completed. If the status has completed, your model ID will be provided.
+ <img src="/assets/img/tutorials/kddcup-postman10.png" alt="Get ModelID" style="padding: 10px;" class="img-responsive">
+ > **Important:** Copy your unique model Id. For this example the `modelID` is `4e1c1c3a-79de-4cae-bc56-0d2f4e240668`
+
  <h3 id="results" class="jumptarget">Results</h3>
- Now that the model has been created, is it any good? The Session results will contain metrics and the results of an internal test set. 
+ Now that the model has been created, is it any good? The Session results will contain metrics and the results of the internal test set for review, if desired. 
 
  1. Open the Sessions folder and click `GET Retrieve Results (by sessionId)`
- <img src="/assets/img/tutorials/kddcup-postman10.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup-postman11.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
 2. Click Params and paste the unique session ID for `sessionId` Value.
 > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
- <img src="/assets/img/tutorials/kddcup-postman11.png" alt="Session Results Params" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup-postman12.png" alt="Session Results Params" style="padding: 10px;" class="img-responsive">
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
- <img src="/assets/img/tutorials/postman-send.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
-4. **TODO** The Session Result response body contains both metrics of how accurate the model's predictive capabilities, as well as the test data used to calculate the model's accuracy.
- <img src="/assets/img/tutorials/titanic-postman14.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive">
+  <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+4. The Session Result response body contains both metrics of how accurate the model's predictive capabilities, as well as the test data used to calculate the model's accuracy.
+ <img src="/assets/img/tutorials/kddcup-postman13.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive">
 
 <h4 id="understanding-results" class="jumptarget">Understanding the Results</h4>
 
@@ -546,3 +539,102 @@ The metrics returned in the session results as follows:
 }
 </code>
 </pre>
+
+* `macroAverageF1Score` - A measure of a tests accuracy considering both precision and recall of the tests.
+* `accuracy` - The statistical measure of the proportion of true results (true positives and true negaties) over the total number of items.
+* `precision` - true positives per predicted positive
+* `recall` - true positives per real positive
+
+**Accuracy**
+
+The `accuracy` metric reads 0.99694338171292074 - which can be converted to a percent by multiplying by 100 and rounding. The accuracy of this model is ~99.7%, meaning that when Nexosis analyzed the test set against the model, 99%.7% of the predictions made by the model were correct. 
+
+Now before we go and conclude this seemingly almost perfect model, it's important to explore other information about the model's performance since this one accuracy metric does not tell the entire story.
+
+**Macro Average F-Score**
+
+The `macroAverageF1Score` metric is another very important metric to look at in a multi-class classification model. It demonstraites how well the model performs overall across all the classes in the dataset. A macro-average computes the accuracy independently for each specifc class type and then take the [harmonic mean](https://en.wikipedia.org/wiki/Harmonic_mean){:target="_blank"} - the important take-away of this metric is that it treats all classes equally, where-as the overall accuracy metric does not and thus may give you a false sense of the models ability to predict well for each and every class.  The F1 score will be between 0 and 1 - closer to one is better.
+
+> In computer science, specifically information retrieval and machine learning, the harmonic mean of the precision (true positives per predicted positive) and the recall (true positives per real positive) is often used as an aggregated performance score for the evaluation of algorithms and systems: the F-score (or F-measure).<br/>
+**Source:** [Wikipedia](https://en.wikipedia.org/wiki/Harmonic_mean#In_other_sciences)
+
+For our model, the `macroAverageF1Score` reads 0.74561794648010693, we can round to ~0.75. A score of 1 would be perfect, and ~0.75 is decent, but not stellar.
+
+<h5 id="confusion-matrix" class="jumptarget">Confusion Matrix</h5>
+A way to visualize understand how well a model is working is to get the `confusion matrix` - this, along with the metrics described above can give us a more complete picture of how the model is performing.
+
+1. From the Nexosis API Collection, open the Sessions folder and click `GET Retrieve Confusion Matrix (by SessionId)`
+<img src="/assets/img/tutorials/kddcup-postman14.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+If you don’t have the Nexosis API collections, you can simply select GET from the dropdown and type https://ml.nexosis.com/v1/sessions/:sessionId/results/confusionmatrix in the text bar.
+<img src="/assets/img/tutorials/kddcup-postman15.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+2. Click Params and paste the unique session ID for sessionId Value.
+> **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
+3. Click the blue `Send` button to the Right of the URL in Postman.<br>
+ <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+4. The list of classes and then the confusion matrix results.
+ <img src="/assets/img/tutorials/kddcup-postman16.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+5. Taking the JSON response, it's trivial to draw the confusion matrix to make it more readable like so:
+<img src="/assets/img/tutorials/kddcup-confusionMatrix20class.png" alt="Click Send" style="padding: 10px;" class="img-responsive" data-toggle="modal" data-target="#matrix">
+
+This confusion matrix shows the following:
+* Actual class values are shown down the left side.
+* Predicted class values are shown across the bottom.
+* If prediction matches the actual, they will tally along the diagnal where the actual values intersect with the correct predictions.
+* A good model should have most of the values tallied up along the diagnal.
+* Any predictions that did not match the actual are tallied where the actual and the prediction intersect, off diagnal.
+
+<h5 id="conclusions" class="jumptarget">Conclusions</h5>
+* Data labeled `normal` is heavily represented in the dataset.
+* Data labeled `normal` is rarely incorrectly classified as attack traffic.
+* When building the model, since we did not specify the `extraParameters` and set the `balance`, it will default to `true`. This will then weight the under-represented classes so they are better represented by the model.
+* These classes did not predict well, potentially due to being unrepresented in the training set:
+    - `loadmodule`
+    - `multihop`
+    - `rootkit`
+    - `buffer_overflow`
+    - `ftp_write`
+    - `imap`
+* These classes performed well, though many of these classes did not have very many rows to train:
+    - `back`
+    - `guess_passwd`
+    - `ipsweep`
+    - `land`
+    - `neptune`
+    - `normal`
+    - `pod`
+    - `portsweep`
+    - `satan`
+    - `smurf`
+    - `teardrop`
+    - `warezclient`
+    - `warezmaster`
+
+Given the grid above, we can conclude our model is likely really good at predicting some types of network attacks and mediocre to terrible on other classes.
+<!-- Modal -->
+<div class="modal fade" id="matrix" tabindex="-1" role="dialog" aria-labelledby="matrixLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="matrixLabel">Confusion Matrix</h4>
+            </div>
+            <div class="modal-body">
+                <img src="/assets/img/tutorials/kddcup-confusionMatrix20class.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+> Read More About Confusion Matrix on our Blog by Reading [What is a Confusion Matrix](https://content.nexosis.com/blog/what-is-a-confusion-matrix){:target="_blank"} for more details.
+
+<h4 id="next-steps" class="jumptarget">Next Steps</h4>
+
+Overall, this first experiment attempting to classifying attack traffic went decently well. With some basic data wrangling we built a model that had a high overall accuracy, but learned that's only part of the story. We concluded from the Confusion Matrix and F-score that our model is really good at predicting some classes and not so great at others. Depending on our needs, this model might be useful as-is, but we intentionally skipped one important step. The KDD Cup challenge wanted only 5 categories of network attacks classified, not 20!
+
+In the next part of this tutorial, we'll start with the existing `kddcup-training.csv` CSV and add a new column called `attack_class`. It will compute a new column using the mapping defined by the KDD Cup 99 show in **Table 3** above to include five general attack categories. Additionally, we'll add one more column while we're at it that just has two categories called `is_attack` - this model can be used to identify normal traffic vs attack traffic. 
+
+Finally, we'll explore the full large dataset to see if there is more data of the under-represented attack classes to include in training to further improve the model. 
+
+The goal of the experimentation is to see if it's possible to increase the F-score.
