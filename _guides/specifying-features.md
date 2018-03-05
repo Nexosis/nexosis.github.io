@@ -2,7 +2,7 @@
 title: Specifying Features
 description: This tutorial shows more advanced specification of features and column metadata
 category: Nexosis Concepts
-subcategory: Run a session
+subcategory: Build a model
 tags: [forecasting, impact analysis]
 use_codestyles: true
 order: 9

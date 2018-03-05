@@ -34,7 +34,7 @@ The *iris* field is our target value.  The other columns will be treated as feat
 
 ------
 
-## Step 2: Start a Session
+## Step 2: Start a model building session
 
 #### Now that we have some data, let's upload it and get a model which we can use to classify irises from previously unseen values.  
 
@@ -66,7 +66,7 @@ curl -v -X PUT "https://ml.nexosis.com/v1/data/iris" \
  --data-binary "@/path/to/file/iris.csv"
  ```
 
-### Start a Session
+### Start a session
 
 ``` bash
 curl -v -X POST "https://ml.nexosis.com/v1/sessions/model" \
@@ -117,7 +117,7 @@ Once this request comes back with a `status` of `completed`, the model will be a
 
 ------
 
-## Step 3: Predict Class
+## Step 3: Predict class
 
 #### Classification predictions can be made by issuing a POST to the model/predict endpoint. When you request a prediction you send in a JSON body which contains the feature values on which the prediction should be made.
 

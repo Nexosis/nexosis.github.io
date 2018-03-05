@@ -53,7 +53,7 @@ There are 3 types of columns here. All of the *X.#* columns are the measurements
 
 ------
 
-## Step 2: Start a Session
+## Step 2: Start a model building session
 
 #### Now that we have some data, let's upload it and get a model which we can use to find anomalies.  
 
@@ -70,7 +70,7 @@ curl -s -X POST "https://ml.nexosis.com/v1/imports/url" \
 			-d '{"dataSetName":"cardio","url":"https://raw.githubusercontent.com/Nexosis/sampledata/master/cardio.json"}'
 ```
 
-### Start a Session
+### Start a session
 
 ``` bash
 curl -s -X POST "https://ml.nexosis.com/v1/sessions/model" \

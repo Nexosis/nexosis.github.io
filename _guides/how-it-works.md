@@ -14,9 +14,9 @@ use_codestyles: true
 
 We've worked hard to keep the high-level process simple. Here's the basic process:
 
-1. [Submit a _Dataset_](#dataset)
-2. [Initiate a _Session_](#session)
-3. [Get Results](#results)
+1. [Submit a _dataset_](#dataset)
+2. [Start a _model building session_](#session)
+3. [Retrieve results](#results)
 
 Then optionally:
 
@@ -25,7 +25,7 @@ Then optionally:
 
 <img src="../assets/img/how-it-works-developer-flow.png" alt="[How It Works]" width="75%" class="img-responsive"/>
 
-<h3 id="dataset" class="jumptarget">Submit a Dataset</h3>
+<h3 id="dataset" class="jumptarget">Submit a dataset</h3>
 
 All Machine Learning processes must start with data and a question you are trying to gain insight into. This question could range from "How many robots will I sell next Tuesday?" to "What was the impact of our new marketing strategy on our Facebook likes for the month following our new marketing campaign?"
 
@@ -35,7 +35,7 @@ The data submitted is very important, as it is used to discover relationships wi
 
 _Read [Sending Data](sending-data) for more of the technical details on submitting data._
 
-<h3 id="session" class="jumptarget">Initiate a Session</h3>
+<h3 id="session" class="jumptarget">Start a model building session</h3>
 
 A _Session_ is simply the discovery process using the supplied Dataset.
 
@@ -51,7 +51,7 @@ This is where the data science happens at scale. Behind the scenes a host of alg
 
 _Read about [Sessions](sessions) for more technical details on building sessions._
 
-<h3 id="results" class="jumptarget">Evaluate the Results and Make Predictions</h3>
+<h3 id="results" class="jumptarget">Evaluate the results and make predictions</h3>
 
 Once the session has completed successfully, the Nexosis API builds a custom mathematical _Model_, based the data that was used to build, or _train_ that model.  You can think of a _model_ as a custom algorithm built based on the relationships found between the different data contained in the _dataset_. Depending on the type of session, the results will vary somewhat but generally will solve for a variable you want to predict, also called the _target_. Once the model is built, it can be evaluated and then used for predictions, forecasts, and to evaluate impact.
 

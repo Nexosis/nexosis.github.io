@@ -14,9 +14,9 @@ The Nexosis API allows you to upload a dataset and it will model these relations
 
 We've worked hard to keep the high-level process simple. Here's the basic process:
 
-1. [Submit a _Dataset_](#dataset)
-2. [Initiate a _Session_](#session)
-3. [Get Results](#results)
+1. [Submit a _dataset_](#dataset)
+2. [Start a _model building session_](#session)
+3. [Retrieve results](#results)
 
 Then optionally:
 
@@ -26,7 +26,7 @@ Then optionally:
 
 |<img src="../assets/img/regression-classification-anomaly.png" alt="[How It Works - Regression and Classification]" width="75%"/>
 
-<h3 id="dataset" class="jumptarget">Submit a Dataset</h3>
+<h3 id="dataset" class="jumptarget">Submit a dataset</h3>
 
 <h5>Classification</h5>
 Classification is a process by which the Nexosis API, through the analysis of a particular dataset, will attempt to understand the categories by which you might group the rows of data together.
@@ -38,7 +38,7 @@ Once the _dataset_ has been submitted, a _regression_ or _classification_ sessio
 
 Read [Sending Data](sending-data) for the technical details.
 
-<h3 id="session" class="jumptarget">Initiate A Session</h3>
+<h3 id="session" class="jumptarget">Start a model building session</h3>
 
 A _Session_ is simply the process of building the model using the supplied Dataset. This exploration of the data is computationally expensive and can be time consuming depending on the amount of data in the _dataset_.
 
@@ -46,7 +46,7 @@ This is where the data science happens at scale. Behind the scenes a host of alg
 
 _Read [Sessions](sessions) for the technical details._
 
-<h3 id="results" class="jumptarget">Retrieve the Results</h3>
+<h3 id="results" class="jumptarget">Retrieve the results</h3>
 
 Once the all the results are analyzed and the relationships present are discovered, a model is built and deployed. The _SessionResult_ will contain a _modelId_ used to identify the production model endpoint where predictions get made. Additionally, the session result will also returns metrics to illuminate the strength of the relationships that were found between the features and the target value in the form of an accuracy metric in the dataset.
 

@@ -2,7 +2,7 @@
 title: Algorithms Employed
 description: A list of algorithms the Nexosis Machine Learning API employs 
 category: Nexosis Concepts
-subcategory: Run a session
+subcategory: Build a model
 tags: [forecasting, regression]
 use_codestyles: true
 order: 11

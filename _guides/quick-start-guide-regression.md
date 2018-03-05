@@ -38,7 +38,7 @@ The MPG field is our target value.  The other columns are values which the Nexos
 
 ------
 
-## Step 2: Start a Session
+## Step 2: Start a model building session
 
 #### Now that we have some data, let's upload it and get a model which we can use to predict MPG from previously unseen values.  
 
@@ -57,7 +57,7 @@ curl -s -X PUT "https://ml.nexosis.com/v1/data/auto-mpg" \
  --data-binary "@/path/to/file/auto-mpg.data.json"
 ```
 
-### Start a Session
+### Start a session
 
 ``` bash
 curl -s -X POST "https://ml.nexosis.com/v1/sessions/model" \

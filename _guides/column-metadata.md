@@ -9,7 +9,7 @@ use_codestyles: true
 order: 7
 ---
 
-When [uploading data](sending-data), [importing data](importing-data), or [starting a session](sessions), you can specify metadata about the columns in your dataset.  This allows the Nexosis API to better understand how your data should be used and interpreted when running machine learning algorithms.
+When [uploading data](sending-data), [importing data](importing-data), or [starting a model building session](sessions), you can specify metadata about the columns in your dataset.  This allows the Nexosis API to better understand how your data should be used and interpreted when running machine learning algorithms.
 
 > Note: Setting column metadata is totally optional. For simple datasets with a couple of columns, the contents of the columns are inferred, and providing metadata may not make a difference in how the algorithms execute.
 
@@ -38,7 +38,7 @@ Our handling of Imputation and Aggregation are discussed in more detail in the s
 
 #### Whenever you request a [Forecast session](forecasting-walkthrough) or an [Impact Analysis session](impact-analysis) from the Nexosis API, you ask for that forecast to come back in a certain `resultInterval`.  That interval is something like `hour`, `day`, `week`, etc.
 
-When you request a one of these sessions, the Nexosis API goes through the following process against your data to prepare it for the Session:
+When you request one of these sessions, the Nexosis API goes through the following process against your data to prepare it for the Session:
 
 - Loads your data from its source DataSet
 - Orders the data according to the column with the role `timestamp`

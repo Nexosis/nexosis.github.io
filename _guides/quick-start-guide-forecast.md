@@ -29,7 +29,7 @@ Since we are working with time series data, each row must have a timestamp of wh
 
 ------
 
-## Step 2: Start a Session
+## Step 2: Start a model building session
 
 #### Now that we have some data, let's upload it and get a forecast of how these values will change over time.  
 
@@ -48,7 +48,7 @@ curl -v -X PUT "https://ml.nexosis.com/v1/data/location-a" \
              --data-binary "@/path/to/file/Location A.csv"
 ```
 
-### Start a Session
+### Start a session
 
 ``` bash
 curl -v -X POST "https://ml.nexosis.com/v1/sessions/forecast?dataSetName=location-a&targetColumn=sales&startDate=2017-01-01&endDate=2017-03-31" \

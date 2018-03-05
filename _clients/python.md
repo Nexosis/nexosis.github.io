@@ -79,7 +79,7 @@ Or you can delete a dataset when it is no longer needed.
 [client.datasets.remove(d.name) for d in datasets]
 ```
 
-### Sessions
+### Model building sessions
 
 A session is used to run an analysis in the Nexosis API. You will need to have previously saved data
 in a dataset to create a session. Conceptually, a session is the handle that is used to reference
