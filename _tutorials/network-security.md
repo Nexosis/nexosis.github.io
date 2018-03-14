@@ -15,7 +15,7 @@ tbody tr:nth-of-type(2n) {background-color: #f9f9f9;}
 .max30 {max-height:30em;}
 </style>
 
-This tutorial will use the Nexosis API to classify malicious network traffic using prepared network data captured from a Defense Department Network while it was under attack. Given this data, we'll show how Machine Learning can be used to build a model that will classify network data as malicious or normal based on it's characteristics.
+This tutorial will use the Nexosis API to classify malicious network traffic using prepared network data captured from a Defense Department Network while it was under attack. Given this data, we'll show how Machine Learning can be used to build a model that will classify network data as malicious or normal based on its characteristics.
 
 ### Details
 **Scope:** This tutorial will teach more detailed concepts on formatting datasets as well as understanding Classification metrics and understanding the Confusion Matrix.
@@ -62,7 +62,7 @@ The abstract describes the goal of the competition as follows:
 
 *See [KDD Cup 1999 Data](http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html){:target="_blank"} and [Intrustion Detection Learning](http://kdd.ics.uci.edu/databases/kddcup99/task.html){:target="_blank"} for more details, including downloads of the prepared data, task description and data dictionary.*
 
-The initial program used to create the data for this competition was prepared and managed by MIT Lincoln Labs. They setup an environment that captured raw network traffic (TCP dump data) for a network simulating a typical U.S. Air Force LAN for 9 weeks. While capturing data, they hit it with multiple attacks. They collected about 4 GB of the network data, compressed and then transformed it into almost 5 million connection records and did some post processing to make sure the records contained some information that would be useful to detecting attackers.
+The initial program used to create the data for this competition was prepared and managed by MIT Lincoln Labs. They set up an environment that captured raw network traffic (TCP dump data) for a network simulating a typical U.S. Air Force LAN for 9 weeks. While capturing data, they hit it with multiple attacks. They collected about 4 GB of the network data, compressed and then transformed it into almost 5 million connection records and did some post processing to make sure the records contained some information that would be useful to detecting attackers.
 
 <h3 id="datasets" class="jumptarget">Datasets</h3>
 
