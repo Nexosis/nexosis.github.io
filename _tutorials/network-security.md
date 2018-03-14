@@ -8,28 +8,11 @@ order: 4
 ---
 
 <style>
-table{
-    border-collapse: collapse;
-    border-spacing: 0px;
-    border:2px solid #000000;
-}
-
-th{
-    border:2px solid #000000;
-    padding: 4px;
-}
-
-td{
-    border:1px solid #000000;
-    padding: 4px;
-}
-.pad {
-    padding: 10px;
-}
-
-.max30 {
-    max-height:30em;
-}
+table {border-collapse: collapse; border-spacing: 0px; border:2px solid #332c33;}
+th {border:2px solid #332c33; padding: 5px 10px; background-color: #f0f0f0;}
+td {border:1px solid #332c33; padding: 5px 10px;}
+tbody tr:nth-of-type(2n) {background-color: #f9f9f9;}
+.max30 {max-height:30em;}
 </style>
 
 This tutorial will use the Nexosis API to classify malicious network traffic using prepared network data captured from a Defense Department Network while it was under attack. Given this data, we'll show how Machine Learning can be used to build a model that will classify network data as malicious or normal based on it's characteristics.
@@ -89,15 +72,15 @@ The data gathered fell into three different categories:
 3. Traffic features computed using a two-second time window.
 
 > ##### Download Datasets
-There are quite a few files made available for the KDD Cup 1999 competition. Here are a list of the ones used for this exercise. All of them won't be needed in this tutorial, but if you don't want to use our prepared dataset these allow you to construct your own.<br/>
-<a class="btn btn-danger" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup.data.gz</a> - The full data set, with labels (18M; 743M Uncompressed)<br/>
-<a class="btn btn-danger" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup-data_10_percent.gz</a> -  A 10% subset, with labels. (2.1M; 75M Uncompressed)<br/>
-<a class="btn btn-danger" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names" target="_blank"><i class="fa fa-download mr5"></i>kddcup.names</a> - A file containing the names of the features, or column headers.<br/>
-<a class="btn btn-danger" href="http://kdd.ics.uci.edu/databases/kddcup99/corrected.gz" target="_blank"><i class="fa fa-download mr5"></i>corrected.gz</a> -  Corrected Test data, with labels. Can be used to validate the model once it's built. (1.4M Compressed, 46M Uncompressed)<br/>
-<a class="btn btn-danger" href="https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv" target="_blank"><i class="fa fa-download mr5"></i>kddcup-training.csv</a> -  Training DataSet prepped and formatted for the Nexosis API using the files above.<br/>
-<a class="btn btn-danger" href="https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training-small-balanced.csv" target="_blank"><i class="fa fa-download mr5"></i>kddcup-training-small-balanced.csv</a> -  Training DataSet prepped from the full dataset, reduced and balanced for the Nexosis API using the files above (5.4MB).<br/>
+There are quite a few files made available for the KDD Cup 1999 competition. Here are a list of the ones used for this exercise. All of them won't be needed in this tutorial, but if you don't want to use our prepared dataset these allow you to construct your own.<br/><br/>
+<a class="btn btn-danger btn-sm m0" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup.data.gz</a> - The full data set, with labels (18M; 743M Uncompressed)<br/><br/>
+<a class="btn btn-danger btn-sm m0" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup-data_10_percent.gz</a> -  A 10% subset, with labels. (2.1M; 75M Uncompressed)<br/><br/>
+<a class="btn btn-danger btn-sm m0" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names" target="_blank"><i class="fa fa-download mr5"></i>kddcup.names</a> - A file containing the names of the features, or column headers.<br/><br/>
+<a class="btn btn-danger btn-sm m0" href="http://kdd.ics.uci.edu/databases/kddcup99/corrected.gz" target="_blank"><i class="fa fa-download mr5"></i>corrected.gz</a> -  Corrected Test data, with labels. Can be used to validate the model once it's built. (1.4M Compressed, 46M Uncompressed)<br/><br/>
+<a class="btn btn-danger btn-sm m0" href="https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv" target="_blank"><i class="fa fa-download mr5"></i>kddcup-training.csv</a> -  Training DataSet prepped and formatted for the Nexosis API using the files above.<br/><br/>
+<a class="btn btn-danger btn-sm m0" href="https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training-small-balanced.csv" target="_blank"><i class="fa fa-download mr5"></i>kddcup-training-small-balanced.csv</a> -  Training DataSet prepped from the full dataset, reduced and balanced for the Nexosis API using the files above (5.4MB).<br/>
 
-Here is the data dictionary of each type of features in the dataset:
+**Here is the data dictionary of each type of features in the dataset:**
 
 **feature name** | **description** | **type**
 --- | --- | ---
@@ -292,7 +275,7 @@ Now that the the large training dataset is in a place where it can be retrieved,
 ```
 Here are the steps to accomplish this using the JSON above:
 1. Open Postman, in the Nexosis Postman Collection, expand the Imports and select `Import from URL`.
-![Nexosis Postman Collection: Imports](/assets/img/tutorials/kddcup/kddcup-postman4.png){:.pad}{:.img-responsive}<br>
+![Nexosis Postman Collection: Imports](/assets/img/tutorials/kddcup/kddcup-postman4.png){:.p10}{:.img-responsive}<br>
 The HTTP Verb is set to `POST`, and the URL to `https://ml.nexosis.com/v1/imports/Url`. The `Accept`, `Content-Type`, and `api-key` headers should be set as follows:
 ![Postman: Set Headers](/assets/img/tutorials/kddcup/kddcup-import-headers.png){:.img-responsive}
 > For information on finding your API key, read [this support article](https://support.nexosis.com/hc/en-us/articles/115002132274-Where-do-I-find-my-API-Key){:target="_blank"}.
@@ -328,7 +311,7 @@ Now that the training data has been submitted to the Nexosis API, experimentatio
 <h3 id="building-the-model" class="jumptarget">Building the model</h3>
 
 1. From the Nexosis API Collections, open the Sessions folder and click `POST /sessions/model`. 
- ![Nexosis Postman Collection: Model Session](/assets/img/tutorials/kddcup/kddcup-postman5.png){:.pad}{:.img-responsive}<br>
+ ![Nexosis Postman Collection: Model Session](/assets/img/tutorials/kddcup/kddcup-postman5.png){:.p10}{:.img-responsive}<br>
  If you don’t have the Nexosis API collections, you can simply select `POST` from the dropdown and type `https://ml.nexosis.com/v1/sessions/model` in the text bar.
  <img src="/assets/img/tutorials/kddcup/kddcup-postman6.png" alt="Choose the Session Endpoint" style="padding: 10px;" class="img-responsive">
 2. Click `Body` and paste the following code. - **Note:** `type` was the column in our dataset that had the network attack type in it (e.g. `nmap`, `neptune`, `warezclient`, `teardrop`, etc). By setting `type` as the target column, we are telling the Nexosis API to build a model that can predict the attack type based on all the other columns in the dataset, which by default will be used as features.
