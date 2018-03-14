@@ -2,7 +2,7 @@
 title: Detecting Hackers Like It's 1999
 description: Using network data to classify network attacks 
 category: 
-tags: []
+tags: 
 use_codestyles: true
 order: 4
 ---
@@ -40,34 +40,34 @@ This tutorial will use the Nexosis API to classify malicious network traffic usi
 **Level:** Intermediate / 200-level
 
 **Prerequisites:**
-* [Nexosis Postman Collection](http://docs.nexosis.com/clients/postman){:target="_blank"}
+* [Nexosis Postman Collection](/clients/postman){:target="_blank"}
 * [Nexosis API key](https://developers.nexosis.com/developer){:target="_blank"}
 
 > ##### Before starting
 It's important that you understand the following concepts to successfully complete this tutorial.
-* [Concept 1](#)
-* [Concept 2](#)
-* [Concept 3](#)
-* [Concept 4](#)
+* [How the Nexosis API Works](https://www.nexosis.com/product/how-it-works){:target="_blank"}
+* [How to use Postman with the Nexosis API](https://support.nexosis.com/hc/en-us/articles/115004559894-How-to-Install-Postman-and-the-Nexosis-API-Collection){:target="_blank"}
+* [Retrieving Your API Key](https://support.nexosis.com/hc/en-us/articles/115002132274-Where-do-I-find-my-API-Key-){:target="_blank"}
 
 ------
-![hackers-movie-poster.jpeg](/assets/img/tutorials/hackers-movie-poster.jpeg){:.img-responsive}
+![hackers-movie-poster.jpeg](/assets/img/tutorials/kddcup/hackers-movie-poster.jpeg){:.img-responsive}
 
 Obligatory `Hackers` movie poster - &copy;1995 United Artists
 
-1. [Understanding the Problem](#understanding-problem)
-2. [Data Sets](#datasets)
-   * [Training Data](#training-data)
-   * [Test Data](#test-data)
-3. [Submitting the Data to Nexosis](#submitting-the-data)
-4. [Building the Model](#building-the-model)
+1. [Understanding the problem](#understanding-problem)
+2. [Datasets](#datasets)
+   * [Training data](#training-data)
+   * [Test data](#test-data)
+3. [Submitting the data to Nexosis](#submitting-the-data)
+4. [Building the model](#building-the-model)
+    * [Check if session is complete](#check-if-session-complete)
 5. [Results](#results)
-    * [Understanding the Result](#understanding-results)
+    * [Understanding the results](#understanding-results)
     * [Conclusions](#conclusions)
-6. [Next Steps](#next-steps)
+6. [Next steps](#next-steps)
 
 
-<h2 id="understanding-problem" class="jumptarget">Understanding the Problem</h2>
+<h2 id="understanding-problem" class="jumptarget">Understanding the problem</h2>
 
 This tutorial will walk through a Data Science competition called the [KDD Cup](http://www.kdd.org/kdd-cup){:target="_blank"} from [1999](http://www.kdd.org/kdd-cup/view/kdd-cup-1999){:target="_blank"}.
 
@@ -81,7 +81,7 @@ The abstract describes the goal of the competition as follows:
 
 The initial program used to create the data for this competition was prepared and managed by MIT Lincoln Labs. They setup an environment that captured raw network traffic (TCP dump data) for a network simulating a typical U.S. Air Force LAN for 9 weeks. While capturing data, they hit it with multiple attacks. They collected about 4 GB of the network data, compressed and then transformed it into almost 5 million connection records and did some post processing to make sure the records contained some information that would be useful to detecting attackers.
 
-<h3 id="datasets" class="jumptarget">DataSets</h3>
+<h3 id="datasets" class="jumptarget">Datasets</h3>
 
 The data gathered fell into three different categories:
 1. Basic features of individual TCP connections 
@@ -90,11 +90,12 @@ The data gathered fell into three different categories:
 
 > ##### Download Datasets
 There are quite a few files made available for the KDD Cup 1999 competition. Here are a list of the ones used for this exercise. All of them won't be needed in this tutorial, but if you don't want to use our prepared dataset these allow you to construct your own.<br/>
-<a class="btn btn-default" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup.data.gz</a> - The full data set, with labels (18M; 743M Uncompressed)<br/>
-<a class="btn btn-default" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup-data_10_percent.gz</a> -  A 10% subset, with labels. (2.1M; 75M Uncompressed)<br/>
-<a class="btn btn-default" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names" target="_blank"><i class="fa fa-download mr5"></i>kddcup.names</a> - A file containing the names of the features, or column headers.<br/>
-<a class="btn btn-default" href="http://kdd.ics.uci.edu/databases/kddcup99/corrected.gz" target="_blank"><i class="fa fa-download mr5"></i>corrected.gz</a> -  Corrected Test data, with labels. Can be used to validate the model once it's built. (1.4M Compressed, 46M Uncompressed)<br/>
-<a class="btn btn-default" href="https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv" target="_blank"><i class="fa fa-download mr5"></i>kddcup-training.csv</a> -  Training DataSet prepped and formatted for the Nexosis API using the files above.<br/>
+<a class="btn btn-danger" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup.data.gz</a> - The full data set, with labels (18M; 743M Uncompressed)<br/>
+<a class="btn btn-danger" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz" target="_blank"><i class="fa fa-download mr5"></i>kddcup-data_10_percent.gz</a> -  A 10% subset, with labels. (2.1M; 75M Uncompressed)<br/>
+<a class="btn btn-danger" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names" target="_blank"><i class="fa fa-download mr5"></i>kddcup.names</a> - A file containing the names of the features, or column headers.<br/>
+<a class="btn btn-danger" href="http://kdd.ics.uci.edu/databases/kddcup99/corrected.gz" target="_blank"><i class="fa fa-download mr5"></i>corrected.gz</a> -  Corrected Test data, with labels. Can be used to validate the model once it's built. (1.4M Compressed, 46M Uncompressed)<br/>
+<a class="btn btn-danger" href="https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv" target="_blank"><i class="fa fa-download mr5"></i>kddcup-training.csv</a> -  Training DataSet prepped and formatted for the Nexosis API using the files above.<br/>
+<a class="btn btn-danger" href="https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training-small-balanced.csv" target="_blank"><i class="fa fa-download mr5"></i>kddcup-training-small-balanced.csv</a> -  Training DataSet prepped from the full dataset, reduced and balanced for the Nexosis API using the files above (5.4MB).<br/>
 
 Here is the data dictionary of each type of features in the dataset:
 
@@ -189,7 +190,7 @@ normal | normal (normal traffic, no attack)
 
 The labeled dataset provided has each row labeled with the specific attack type, but not the General attack cateogry meaning we'll need to append that column to each row.
 
-<h4 id="training-data" class="jumptarget">Training Data</h4>
+<h4 id="training-data" class="jumptarget">Training data</h4>
 
 There are many files provided by the competition which can lead to some confusion about which ones to use. There are full datasets with and without labels, 10% dataset with and without labels, as well as test data. Additionally there were some mistakes in the dataset which were subsequently fixed in the original files, which are also available.
 
@@ -243,7 +244,7 @@ Here are the specific steps used to prepare the file to send to the Nexosis API 
     <li><b>IMPORTANT CRITICAL FINAL STEP BEFORE SUBMITTING TO NEXOSIS API: Validate the CSV file.</b><br/>
       Notice the odd square on line <code>494023</code> below?
       <br/> 
-      <img src="/assets/img/tutorials/kddcup-csv-bad-char.png" alt="Bad character in CSV file." class="img-responsive">
+      <img src="/assets/img/tutorials/kddcup/kddcup-csv-bad-char.png" alt="Bad character in CSV file." class="img-responsive">
     This needs removed or the import will encounter an error due to an illegal character in the file. An easy way to fix this in bash is with the <code>head</code> command, which removes the last line:
     <pre class="language-batch"><code class="language-batch code-toolbar">head -n -1  kddcup-training.csv > kddcup-training.tmp ; mv kddcup-training.tmp kddcup-training.csv</code></pre>
     <br/>
@@ -256,13 +257,13 @@ Here are the specific steps used to prepare the file to send to the Nexosis API 
     </li>
 </ol>
 
-<h4 id="test-data" class="jumptarget">Test Data</h4>
+<h4 id="test-data" class="jumptarget">Test data</h4>
 
 Now that the training dataset has been prepared, an additional test dataset can used to further validate if the model is working as it should. A test dataset must also be labeled so the predicted value and the actual value can be compared. For the competition, teams are given an unlabeled test dataset to perform predictions on and the judges would then compare those predictions to the actuals they kept hidden (just like Kaggle competitions work). This prevents teams from cheating by having the answer key. by biasing the model towards the the test set used for judging. Since the competition is over, a labeled test set was released so anyone can validate their test set against the answer key. 
 
 The [`corrected.gz` file listed above](#datasets) contains labeled test dataset. After the model is built, we can use this dataset to measure our model performance against data it's never seen before - so you can proove there's no tricks up our sleeves. For now, there's nothing to do with this file other than save it later to calculate metrics to get a more realistic sense of the model's accuracy.
 
-<h3 id="submitting-the-data" class="jumptarget">Submitting the Data to Nexosis</h3>
+<h3 id="submitting-the-data" class="jumptarget">Submitting the data to Nexosis</h3>
 
 Since the dataset is larger than the maximum POST size allowed by the API, the file will need to be uploaded in batches (1MB at a time), or hosted at a URL.
 
@@ -291,17 +292,17 @@ Now that the the large training dataset is in a place where it can be retrieved,
 ```
 Here are the steps to accomplish this using the JSON above:
 1. Open Postman, in the Nexosis Postman Collection, expand the Imports and select `Import from URL`.
-![Nexosis Postman Collection: Imports](/assets/img/tutorials/kddcup-postman4.png){:.pad}{:.img-responsive}<br>
+![Nexosis Postman Collection: Imports](/assets/img/tutorials/kddcup/kddcup-postman4.png){:.pad}{:.img-responsive}<br>
 The HTTP Verb is set to `POST`, and the URL to `https://ml.nexosis.com/v1/imports/Url`. The `Accept`, `Content-Type`, and `api-key` headers should be set as follows:
-![Postman: Set Headers](/assets/img/tutorials/kddcup-import-headers.png){:.img-responsive}
+![Postman: Set Headers](/assets/img/tutorials/kddcup/kddcup-import-headers.png){:.img-responsive}
 > For information on finding your API key, read [this support article](https://support.nexosis.com/hc/en-us/articles/115002132274-Where-do-I-find-my-API-Key){:target="_blank"}.
-2. Click on the request `Body` tab in Postmane and include the `JSON` from above: 
-![Postman: Set POST Body](/assets/img/tutorials/kddcup-import-post.png){:.img-responsive}
+2. Click on the request `Body` tab in Postman and include the `JSON` from above: 
+![Postman: Set POST Body](/assets/img/tutorials/kddcup/kddcup-import-post.png){:.img-responsive}
 3. Click `Send` in Postman and receive something similar to the following HTTP response from the API:
-![Postman: Response from POST](/assets/img/tutorials/kddcup-import-response.png){:.img-responsive}
+![Postman: Response from POST](/assets/img/tutorials/kddcup/kddcup-import-response.png){:.img-responsive}
 > **Important:** Copy the `importId` out of the response body as you will need this in the next step to check on the Import progress.
 4. In a new Postman request, send a `GET` request to `https://ml.nexosis.com/v1/imports/{importId}` and replace `{importid}` with the ID  saved from the previous step. 
-![Postman: Import GET Request](/assets/img/tutorials/kddcup-get-import.png){:.img-responsive}
+![Postman: Import GET Request](/assets/img/tutorials/kddcup/kddcup-get-import.png){:.img-responsive}
 5. Keep checking back every few minutes until `"status": "completed"` is reported in the `statusHistory` array in the JSON response.
 ```JSON
 ...data elided...
@@ -324,12 +325,12 @@ The HTTP Verb is set to `POST`, and the URL to `https://ml.nexosis.com/v1/import
 
 Now that the training data has been submitted to the Nexosis API, experimentation with building a model can commence.
 
-<h3 id="building-the-model" class="jumptarget">Building the Model</h3>
+<h3 id="building-the-model" class="jumptarget">Building the model</h3>
 
 1. From the Nexosis API Collections, open the Sessions folder and click `POST /sessions/model`. 
- ![Nexosis Postman Collection: Model Session](/assets/img/tutorials/kddcup-postman5.png){:.pad}{:.img-responsive}<br>
+ ![Nexosis Postman Collection: Model Session](/assets/img/tutorials/kddcup/kddcup-postman5.png){:.pad}{:.img-responsive}<br>
  If you don’t have the Nexosis API collections, you can simply select `POST` from the dropdown and type `https://ml.nexosis.com/v1/sessions/model` in the text bar.
- <img src="/assets/img/tutorials/kddcup-postman6.png" alt="Choose the Session Endpoint" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman6.png" alt="Choose the Session Endpoint" style="padding: 10px;" class="img-responsive">
 2. Click `Body` and paste the following code. - **Note:** `type` was the column in our dataset that had the network attack type in it (e.g. `nmap`, `neptune`, `warezclient`, `teardrop`, etc). By setting `type` as the target column, we are telling the Nexosis API to build a model that can predict the attack type based on all the other columns in the dataset, which by default will be used as features.
  <br>
  ```json
@@ -343,7 +344,7 @@ Now that the training data has been submitted to the Nexosis API, experimentatio
  <br>
  You should have a POST request that looks like this (don't forget to set the `api-key` header): 
  <br>
-<img src="/assets/img/tutorials/kddcup-postman7.png" alt="Set the JSON Body" style="padding: 5px;" class="img-responsive">
+<img src="/assets/img/tutorials/kddcup/kddcup-postman7.png" alt="Set the JSON Body" style="padding: 5px;" class="img-responsive">
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
  <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive"><br>
  When you inspect to the response body, note the unique session ID and in the `statusHistory`, the response `status` should say `requested` or `started` along with the corresponding timestamp.
@@ -394,34 +395,33 @@ Now that the training data has been submitted to the Nexosis API, experimentatio
 
 > **Important:** Copy your `SessionID` out of the response body as you will need this in the next steps.
 
-### Check if Session is complete:
-
+<h4 id="check-if-session-complete" class="jumptarget">Check if session is complete</h4>
 When the model is finished, you will receive an email with your session ID. You can also check the status of your session with an API call. To do this, you will need the session ID you copied from the previous step. 
 
 1. Open the Sessions folder and click `GET /sessions/:sessionId`
-   <img src="/assets/img/tutorials/kddcup-postman8.png" alt="Session Response" style="padding: 10px;" class="img-responsive"><br>
+   <img src="/assets/img/tutorials/kddcup/kddcup-postman8.png" alt="Session Response" style="padding: 10px;" class="img-responsive"><br>
   
 2. Click `Params` and paste the unique session ID for `sessionId` Value.
  > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
-  <img src="/assets/img/tutorials/kddcup-postman9.png" alt="Session Results" style="padding: 10px;" class="img-responsive"><br>
+  <img src="/assets/img/tutorials/kddcup/kddcup-postman9.png" alt="Session Results" style="padding: 10px;" class="img-responsive"><br>
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
  <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
  4. Scroll to the bottom to check if the status has completed. If the status has completed, your model ID will be provided.
- <img src="/assets/img/tutorials/kddcup-postman10.png" alt="Get ModelID" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman10.png" alt="Get ModelID" style="padding: 10px;" class="img-responsive">
  > **Important:** Copy your unique model Id. For this example the `modelID` is `4e1c1c3a-79de-4cae-bc56-0d2f4e240668`
 
  <h3 id="results" class="jumptarget">Results</h3>
  Now that the model has been created, is it any good? The Session results will contain metrics and the results of the internal test set for review, if desired. 
 
  1. Open the Sessions folder and click `GET Retrieve Results (by sessionId)`
- <img src="/assets/img/tutorials/kddcup-postman11.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman11.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
 2. Click Params and paste the unique session ID for `sessionId` Value.
 > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
- <img src="/assets/img/tutorials/kddcup-postman12.png" alt="Session Results Params" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman12.png" alt="Session Results Params" style="padding: 10px;" class="img-responsive">
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
   <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
 4. The Session Result response body contains both metrics of how accurate the model's predictive capabilities, as well as the test data used to calculate the model's accuracy.
- <img src="/assets/img/tutorials/kddcup-postman13.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman13.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive">
 
 <h4 id="understanding-results" class="jumptarget">Understanding the Results</h4>
 
@@ -564,17 +564,17 @@ For our model, the `macroAverageF1Score` reads 0.74561794648010693, we can round
 A way to visualize understand how well a model is working is to get the `confusion matrix` - this, along with the metrics described above can give us a more complete picture of how the model is performing.
 
 1. From the Nexosis API Collection, open the Sessions folder and click `GET Retrieve Confusion Matrix (by SessionId)`
-<img src="/assets/img/tutorials/kddcup-postman14.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+<img src="/assets/img/tutorials/kddcup/kddcup-postman14.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
 If you don’t have the Nexosis API collections, you can simply select GET from the dropdown and type https://ml.nexosis.com/v1/sessions/:sessionId/results/confusionmatrix in the text bar.
-<img src="/assets/img/tutorials/kddcup-postman15.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+<img src="/assets/img/tutorials/kddcup/kddcup-postman15.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
 2. Click Params and paste the unique session ID for sessionId Value.
 > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
  <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
 4. The list of classes and then the confusion matrix results.
- <img src="/assets/img/tutorials/kddcup-postman16.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman16.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
 5. Taking the JSON response, it's trivial to draw the confusion matrix to make it more readable like so:
-<img src="/assets/img/tutorials/kddcup-confusionMatrix20class.png" alt="Click Send" style="padding: 10px;" class="img-responsive" data-toggle="modal" data-target="#matrix">
+<img src="/assets/img/tutorials/kddcup/kddcup-confusionMatrix20class.png" alt="Click Send" style="padding: 10px;" class="img-responsive" data-toggle="modal" data-target="#matrix">
 
 This confusion matrix shows the following:
 * Actual class values are shown down the left side.
@@ -618,7 +618,7 @@ Given the grid above, we can conclude our model is likely really good at predict
                 <h4 class="modal-title" id="matrixLabel">Confusion Matrix</h4>
             </div>
             <div class="modal-body">
-                <img src="/assets/img/tutorials/kddcup-confusionMatrix20class.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+                <img src="/assets/img/tutorials/kddcup/kddcup-confusionMatrix20class.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -629,11 +629,11 @@ Given the grid above, we can conclude our model is likely really good at predict
 
 > Read More About Confusion Matrix on our Blog by Reading [What is a Confusion Matrix](https://content.nexosis.com/blog/what-is-a-confusion-matrix){:target="_blank"} for more details.
 
-<h4 id="next-steps" class="jumptarget">Next Steps</h4>
+<h4 id="next-steps" class="jumptarget">Next steps</h4>
 
 Overall, this first experiment attempting to classifying attack traffic went decently well. With some basic data wrangling we built a model that had a high overall accuracy, but learned that's only part of the story. We concluded from the Confusion Matrix and F-score that our model is really good at predicting some classes and not so great at others. Depending on our needs, this model might be useful as-is, but we intentionally skipped one important step. The KDD Cup challenge wanted only 5 categories of network attacks classified, not 20!
 
-In the next part of this tutorial, we'll start with the existing `kddcup-training.csv` CSV and add a new column called `attack_class`. It will compute a new column using the mapping defined by the KDD Cup 99 show in **Table 3** above to include five general attack categories. Additionally, we'll add one more column while we're at it that just has two categories called `is_attack` - this model can be used to identify normal traffic vs attack traffic. 
+In the next part of this tutorial, we'll start with the existing `kddcup-training.csv` CSV and add a new column called `attack_class`. It will compute a new column using the mapping defined by the KDD Cup 99 shown in **Table 3** above to include five general attack categories. Additionally, we'll add one more column while we're at it that just has two categories called `is_attack` - this model can be used to identify normal traffic vs attack traffic. 
 
 Finally, we'll explore the full large dataset to see if there is more data of the under-represented attack classes to include in training to further improve the model. 
 
