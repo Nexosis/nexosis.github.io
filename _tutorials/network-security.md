@@ -12,7 +12,6 @@ table {border-collapse: collapse; border-spacing: 0px; border:2px solid #332c33;
 th {border:2px solid #332c33; padding: 5px 10px; background-color: #f0f0f0;}
 td {border:1px solid #332c33; padding: 5px 10px;}
 tbody tr:nth-of-type(2n) {background-color: #f9f9f9;}
-.max30 {max-height:30em;}
 </style>
 
 This tutorial will use the Nexosis API to classify malicious network traffic using prepared network data captured from a Defense Department Network while it was under attack. Given this data, we'll show how Machine Learning can be used to build a model that will classify network data as malicious or normal based on its characteristics.
