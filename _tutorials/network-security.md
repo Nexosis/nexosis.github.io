@@ -90,7 +90,7 @@ src_bytes | number of data bytes from source to destination | continuous
 dst_bytes | number of data bytes from destination to source | continuous
 flag | normal or error status of the connection | discrete 
 land | 1 if connection is from/to the same host/port; 0 otherwise | discrete
-wrong_fragment | number of ``wrong'' fragments | continuous
+wrong_fragment | number of 'wrong' fragments | continuous
 urgent | number of urgent packets | continuous
 
 ***Table 1:** Basic features of individual TCP connections.*
@@ -108,8 +108,8 @@ num_file_creations | number of file creation operations | continuous
 num_shells | number of shell prompts | continuous
 num_access_files | number of operations on access control files | continuous
 num_outbound_cmds | number of outbound commands in an ftp session | continuous
-is_hot_login | 1 if the login belongs to the ``hot'' list; 0 otherwise | discrete
-is_guest_login | 1 if the login is a ``guest''login; 0 otherwise | discrete
+is_hot_login | 1 if the login belongs to the 'hot' list; 0 otherwise | discrete
+is_guest_login | 1 if the login is a 'guest'login; 0 otherwise | discrete
 
 ***Table 2:** Content features within a connection suggested by domain knowledge.* 
 
@@ -117,14 +117,14 @@ is_guest_login | 1 if the login is a ``guest''login; 0 otherwise | discrete
 --- | --- | ---
 count | number of connections to the same host as the current connection in the past two seconds | continuous
  | **Note:** The following  features refer to these same-host connections.	| 
-serror_rate | % of connections that have ``SYN'' errors | continuous
-rerror_rate | % of connections that have ``REJ'' errors | continuous
+serror_rate | % of connections that have 'SYN' errors | continuous
+rerror_rate | % of connections that have 'REJ' errors | continuous
 same_srv_rate | % of connections to the same service | continuous
 diff_srv_rate | % of connections to different services | continuous
 srv_count | number of connections to the same service as the current connection in the past two seconds | continuous
  | **Note:** The following features refer to these same-service connections. | 
-srv_serror_rate | % of connections that have ``SYN'' errors | continuous
-srv_rerror_rate | % of connections that have ``REJ'' errors | continuous
+srv_serror_rate | % of connections that have 'SYN' errors | continuous
+srv_rerror_rate | % of connections that have 'REJ' errors | continuous
 srv_diff_host_rate | % of connections to different hosts | continuous 
 
 ***Table 3:** Traffic features computed using a two-second time window.*
@@ -190,11 +190,10 @@ Here are the specific steps used to prepare the file to send to the Nexosis API 
 
 <ol>
     <li> Download the 10% training file named <code>kddcup-data_10_percent.gz</code> linked above.</li>
-    <li> Decompress the file using a decompression tool, such as <a href="http://www.7-zip.org/" target="_blank">7-ZIP</a> on windows or `gzip` on linux or OS X. The extracted file will be named <code>kddcup.data_10_percent_corrected</code>.</li>  
+    <li> Decompress the file using a decompression tool, such as <a href="http://www.7-zip.org/" target="_blank">7-ZIP</a> on windows or `gzip` on linux or OS X. The extracted file will be named <code>kddcup.data_10_percent_corrected</code>.</li>
     <li> Create a new file called <code>kddheader.csv</code> and paste the following in it and save it in the same folder with the uncompressed kddcup data file:
     <pre class="language-txt"><code class="language-txt code-toolbar">duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,hot,num_failed_logins,logged_in,num_compromised,root_shell,su_attempted,num_root,num_file_creations,num_shells,num_access_files,num_outbound_cmds,is_host_login,is_guest_login,count,srv_count,serror_rate,srv_serror_rate,rerror_rate,srv_rerror_rate,same_srv_rate,diff_srv_rate,srv_diff_host_rate,dst_host_count,dst_host_srv_count,dst_host_same_srv_rate,dst_host_diff_srv_rate,dst_host_same_src_port_rate,dst_host_srv_diff_host_rate,dst_host_serror_rate,dst_host_srv_serror_rate,dst_host_rerror_rate,dst_host_srv_rerror_rate,type</code></pre>
-    </li>
-    <blockquote><b>WARNING:</b> Make sure there is exactly ONE empty line in the <code>kddheader.csv</code> file after the header row or you will end up with the first row on the same line as the headers or some blank rows between the header and the data when the files are combined in the next step.</blockquote>
+    <blockquote><b>WARNING:</b> Make sure there is exactly ONE empty line in the <code>kddheader.csv</code> file after the header row or you will end up with the first row on the same line as the headers or some blank rows between the header and the data when the files are combined in the next step.</blockquote></li>
     <li>Merge the <code>kddheader.csv</code> with the <code>kddcup.data_10_percent</code> file.<br/>
     On Windows, from a command prompt, use the <code>copy</code> command to merge the files: 
     <pre class="language-batch"><code class="language-batch code-toolbar">copy kddheader.csv+kddcup.data_10_percent_corrected kddcup-training.csv</code></pre>
@@ -225,8 +224,8 @@ Here are the specific steps used to prepare the file to send to the Nexosis API 
     </li>
     <li><b>IMPORTANT CRITICAL FINAL STEP BEFORE SUBMITTING TO NEXOSIS API: Validate the CSV file.</b><br/>
       Notice the odd square on line <code>494023</code> below?
-      <br/> 
-      <img src="/assets/img/tutorials/kddcup/kddcup-csv-bad-char.png" alt="Bad character in CSV file." class="img-responsive">
+      <br/>
+      <img src="/assets/img/tutorials/kddcup/kddcup-csv-bad-char.png" alt="Bad character in CSV file." class="img-responsive p10">
     This needs removed or the import will encounter an error due to an illegal character in the file. An easy way to fix this in bash is with the <code>head</code> command, which removes the last line:
     <pre class="language-batch"><code class="language-batch code-toolbar">head -n -1  kddcup-training.csv > kddcup-training.tmp ; mv kddcup-training.tmp kddcup-training.csv</code></pre>
     <br/>
@@ -253,40 +252,40 @@ In this tutorial, [Digital Ocean Spaces](https://www.digitalocean.com/products/s
 
 > For more information on Importing JSON and CSV Files, see the documentation on [Importing Data](/guides/importing-data){:target="_blank"} in the documentation to import data from other sources.
 
-1. To create a Space in Digital Ocean, create and account and login. Click `Spaces` link in the nav bar at the top.![Digital Ocean Spaces](/assets/img/tutorials/do-spaces.png){:.img-responsive}
+1. To create a Space in Digital Ocean, create and account and login. Click `Spaces` link in the nav bar at the top.![Digital Ocean Spaces](/assets/img/tutorials/do-spaces.png){:.img-responsive}{:.p10}
 
-2. Once you are in the Spaces area, click the green `Create` button in the uppper right. Choose type a Space Name, datacenter region, and file listing permission:![DO Spaces: Create a Space](/assets/img/tutorials/do-create-a-space.png){:.img-responsive}
+2. Once you are in the Spaces area, click the green `Create` button in the uppper right. Choose type a Space Name, datacenter region, and file listing permission:![DO Spaces: Create a Space](/assets/img/tutorials/do-create-a-space.png){:.img-responsive}{:.p10}
 
-3. Once the space is created, click the blue `Upload Files` button. Upload the `kddcup-training.csv` file. Since there's nothing sensitive in this file, make sure to make it `Publically Readable`.![DO Spaces: Upload File](/assets/img/tutorials/do-spaces-uploadfile.png){:.img-responsive}
+3. Once the space is created, click the blue `Upload Files` button. Upload the `kddcup-training.csv` file. Since there's nothing sensitive in this file, make sure to make it `Publically Readable`.![DO Spaces: Upload File](/assets/img/tutorials/do-spaces-uploadfile.png){:.img-responsive}{:.p10}
 
-4. Wait for the file to finish uploading.![DO Spaces: File Uploading](/assets/img/tutorials/do-uploadfile.png){:.img-responsive}
+4. Wait for the file to finish uploading.![DO Spaces: File Uploading](/assets/img/tutorials/do-uploadfile.png){:.img-responsive}{:.p10}
 
-5. Once the upload has completed, hover over the file and wait for the pop-up. Click the `Copy URL` button to get a public link to the training file.![DO Spaces: Get File URL](/assets/img/tutorials/do-get-url.png){:.img-responsive}
+5. Once the upload has completed, hover over the file and wait for the pop-up. Click the `Copy URL` button to get a public link to the training file.![DO Spaces: Get File URL](/assets/img/tutorials/do-get-url.png){:.img-responsive}{:.p10}
 
 6. The URL should look something like this:<br/> `https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv`
 
-Now that the the large training dataset is in a place where it can be retrieved, the Nexosis API needs instructions to import it. To import a file from Digital Ocean Spaces, we need to send an HTTP `POST` request to `https://ml.nexosis.com/v1/imports/Url`. In the HTTP request body, the following JSON will tell the Nexosis API what URL to retrieve the data from and the name to give the dataset.
+Now that the the large training dataset is in a place where it can be retrieved, the Nexosis API needs instructions to import it. To import a file from Digital Ocean Spaces, we need to send an HTTP `POST` request to `https://ml.nexosis.com/v1/imports/Url`. In the HTTP request body, the following JSON will tell the Nexosis API what URL to retrieve the data from and the name to give the dataset:
 ```json
 {
-	"dataSetName": "kddcup-training",
-	"url": "https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv"
+    "dataSetName": "kddcup-training", 
+    "url": "https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv"
 }
 ```
 Here are the steps to accomplish this using the JSON above:
 1. Open Postman, in the Nexosis Postman Collection, expand the Imports and select `Import from URL`.
 ![Nexosis Postman Collection: Imports](/assets/img/tutorials/kddcup/kddcup-postman4.png){:.p10}{:.img-responsive}<br>
 The HTTP Verb is set to `POST`, and the URL to `https://ml.nexosis.com/v1/imports/Url`. The `Accept`, `Content-Type`, and `api-key` headers should be set as follows:
-![Postman: Set Headers](/assets/img/tutorials/kddcup/kddcup-import-headers.png){:.img-responsive}
+![Postman: Set Headers](/assets/img/tutorials/kddcup/kddcup-import-headers.png){:.img-responsive}{:.p10}
 > For information on finding your API key, read [this support article](https://support.nexosis.com/hc/en-us/articles/115002132274-Where-do-I-find-my-API-Key){:target="_blank"}.
 2. Click on the request `Body` tab in Postman and include the `JSON` from above: 
-![Postman: Set POST Body](/assets/img/tutorials/kddcup/kddcup-import-post.png){:.img-responsive}
+![Postman: Set POST Body](/assets/img/tutorials/kddcup/kddcup-import-post.png){:.img-responsive}{:.p10}
 3. Click `Send` in Postman and receive something similar to the following HTTP response from the API:
-![Postman: Response from POST](/assets/img/tutorials/kddcup/kddcup-import-response.png){:.img-responsive}
+![Postman: Response from POST](/assets/img/tutorials/kddcup/kddcup-import-response.png){:.img-responsive}{:.p10}
 > **Important:** Copy the `importId` out of the response body as you will need this in the next step to check on the Import progress.
 4. In a new Postman request, send a `GET` request to `https://ml.nexosis.com/v1/imports/{importId}` and replace `{importid}` with the ID  saved from the previous step. 
-![Postman: Import GET Request](/assets/img/tutorials/kddcup/kddcup-get-import.png){:.img-responsive}
+![Postman: Import GET Request](/assets/img/tutorials/kddcup/kddcup-get-import.png){:.img-responsive}{:.p10}
 5. Keep checking back every few minutes until `"status": "completed"` is reported in the `statusHistory` array in the JSON response.
-```JSON
+```json
 ...data elided...
  "statusHistory": [
         {
@@ -312,23 +311,23 @@ Now that the training data has been submitted to the Nexosis API, experimentatio
 1. From the Nexosis API Collections, open the Sessions folder and click `POST /sessions/model`. 
  ![Nexosis Postman Collection: Model Session](/assets/img/tutorials/kddcup/kddcup-postman5.png){:.p10}{:.img-responsive}<br>
  If you don’t have the Nexosis API collections, you can simply select `POST` from the dropdown and type `https://ml.nexosis.com/v1/sessions/model` in the text bar.
- <img src="/assets/img/tutorials/kddcup/kddcup-postman6.png" alt="Choose the Session Endpoint" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman6.png" alt="Choose the Session Endpoint" style="padding: 10px;" class="img-responsive p10">
 2. Click `Body` and paste the following code. - **Note:** `type` was the column in our dataset that had the network attack type in it (e.g. `nmap`, `neptune`, `warezclient`, `teardrop`, etc). By setting `type` as the target column, we are telling the Nexosis API to build a model that can predict the attack type based on all the other columns in the dataset, which by default will be used as features.
  <br>
- ```json
+ '`json
 {
   "name": "predictAttackType",
   "dataSourceName": "kddcup-training",
   "targetColumn": "type",
   "predictionDomain": "classification"
 }
- ```
+ '`
  <br>
  You should have a POST request that looks like this (don't forget to set the `api-key` header): 
  <br>
-<img src="/assets/img/tutorials/kddcup/kddcup-postman7.png" alt="Set the JSON Body" style="padding: 5px;" class="img-responsive">
+<img src="/assets/img/tutorials/kddcup/kddcup-postman7.png" alt="Set the JSON Body" style="padding: 5px;" class="img-responsive p10">
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
- <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive"><br>
+ <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive p10"><br>
  When you inspect to the response body, note the unique session ID and in the `statusHistory`, the response `status` should say `requested` or `started` along with the corresponding timestamp.
 <pre class="language-json" style="max-height:30em;">
 <code class="language-json code-toolbar">
@@ -381,29 +380,29 @@ Now that the training data has been submitted to the Nexosis API, experimentatio
 When the model is finished, you will receive an email with your session ID. You can also check the status of your session with an API call. To do this, you will need the session ID you copied from the previous step. 
 
 1. Open the Sessions folder and click `GET /sessions/:sessionId`
-   <img src="/assets/img/tutorials/kddcup/kddcup-postman8.png" alt="Session Response" style="padding: 10px;" class="img-responsive"><br>
+   <img src="/assets/img/tutorials/kddcup/kddcup-postman8.png" alt="Session Response" style="padding: 10px;" class="img-responsive p10"><br>
   
 2. Click `Params` and paste the unique session ID for `sessionId` Value.
  > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
-  <img src="/assets/img/tutorials/kddcup/kddcup-postman9.png" alt="Session Results" style="padding: 10px;" class="img-responsive"><br>
+  <img src="/assets/img/tutorials/kddcup/kddcup-postman9.png" alt="Session Results" style="padding: 10px;" class="img-responsive p10"><br>
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
- <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive p10">
  4. Scroll to the bottom to check if the status has completed. If the status has completed, your model ID will be provided.
- <img src="/assets/img/tutorials/kddcup/kddcup-postman10.png" alt="Get ModelID" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman10.png" alt="Get ModelID" style="padding: 10px;" class="img-responsive p10">
  > **Important:** Copy your unique model Id. For this example the `modelID` is `4e1c1c3a-79de-4cae-bc56-0d2f4e240668`
 
  <h3 id="results" class="jumptarget">Results</h3>
  Now that the model has been created, is it any good? The Session results will contain metrics and the results of the internal test set for review, if desired. 
 
  1. Open the Sessions folder and click `GET Retrieve Results (by sessionId)`
- <img src="/assets/img/tutorials/kddcup/kddcup-postman11.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman11.png" alt="Session Results" style="padding: 10px;" class="img-responsive p10">
 2. Click Params and paste the unique session ID for `sessionId` Value.
 > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
- <img src="/assets/img/tutorials/kddcup/kddcup-postman12.png" alt="Session Results Params" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman12.png" alt="Session Results Params" style="padding: 10px;" class="img-responsive p10">
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
-  <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+  <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive p10">
 4. The Session Result response body contains both metrics of how accurate the model's predictive capabilities, as well as the test data used to calculate the model's accuracy.
- <img src="/assets/img/tutorials/kddcup/kddcup-postman13.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman13.png" alt="Prediction Results" style="padding: 10px;" class="img-responsive p10">
 
 <h4 id="understanding-results" class="jumptarget">Understanding the Results</h4>
 
@@ -546,17 +545,17 @@ For our model, the `macroAverageF1Score` reads 0.74561794648010693, we can round
 A way to visualize understand how well a model is working is to get the `confusion matrix` - this, along with the metrics described above can give us a more complete picture of how the model is performing.
 
 1. From the Nexosis API Collection, open the Sessions folder and click `GET Retrieve Confusion Matrix (by SessionId)`
-<img src="/assets/img/tutorials/kddcup/kddcup-postman14.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+<img src="/assets/img/tutorials/kddcup/kddcup-postman14.png" alt="Session Results" style="padding: 10px;" class="img-responsive p10">
 If you don’t have the Nexosis API collections, you can simply select GET from the dropdown and type https://ml.nexosis.com/v1/sessions/:sessionId/results/confusionmatrix in the text bar.
-<img src="/assets/img/tutorials/kddcup/kddcup-postman15.png" alt="Session Results" style="padding: 10px;" class="img-responsive">
+<img src="/assets/img/tutorials/kddcup/kddcup-postman15.png" alt="Session Results" style="padding: 10px;" class="img-responsive p10">
 2. Click Params and paste the unique session ID for sessionId Value.
 > **Note:** Your session ID can be found on the previous Postman tab. For this example, the `sessionId` is `0161de6c-d28c-4e0f-84da-a07ed56aa750`.
 3. Click the blue `Send` button to the Right of the URL in Postman.<br>
- <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/postman-send-black.png" alt="Click Send" style="padding: 10px;" class="img-responsive p10">
 4. The list of classes and then the confusion matrix results.
- <img src="/assets/img/tutorials/kddcup/kddcup-postman16.png" alt="Click Send" style="padding: 10px;" class="img-responsive">
+ <img src="/assets/img/tutorials/kddcup/kddcup-postman16.png" alt="Click Send" style="padding: 10px;" class="img-responsive p10">
 5. Taking the JSON response, it's trivial to draw the confusion matrix to make it more readable like so:
-<img src="/assets/img/tutorials/kddcup/kddcup-confusionMatrix20class.png" alt="Click Send" style="padding: 10px;" class="img-responsive" data-toggle="modal" data-target="#matrix">
+<img src="/assets/img/tutorials/kddcup/kddcup-confusionMatrix20class.png" alt="Click Send" style="padding: 10px;" class="img-responsive p10" data-toggle="modal" data-target="#matrix">
 
 This confusion matrix shows the following:
 * Actual class values are shown down the left side.
