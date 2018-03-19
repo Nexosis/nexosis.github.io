@@ -1,8 +1,8 @@
 ---
 title: Detecting Hackers Like It's 1999
 description: Using network data to classify network attacks 
-category: 
-tags: 
+category: Classification
+tags: classification, 201, security
 use_codestyles: true
 order: 4
 ---
@@ -189,7 +189,10 @@ The full dataset is 743MB which is rather large. It's better to start with a sma
 Here are the specific steps used to prepare the file to send to the Nexosis API to train a model:
 
 <ol>
-    <li> Download the 10% training file named <code>kddcup-data_10_percent.gz</code> linked above.</li>
+    <li>We already have a prepared training CSV file named <code>kddcup-training-small-balanced.csv</code> linked above in the <a href="#test-data">Test data</a> section. You may find it helpful to review the rest of this section.  Continue at the <a href="#test-data">Test data</a> section.<br/>
+    <b>OR</b><br/>
+    If you're using a paid tier, you can download the much larger 10% training file named <code>kddcup-data_10_percent.gz</code> linked above from the KDDCUP archives. Proceed through the rest of the steps in this section for a quick tutorial on how to prepare the file for upload.
+    </li>
     <li> Decompress the file using a decompression tool, such as <a href="http://www.7-zip.org/" target="_blank">7-ZIP</a> on windows or `gzip` on linux or OS X. The extracted file will be named <code>kddcup.data_10_percent_corrected</code>.</li>
     <li> Create a new file called <code>kddheader.csv</code> and paste the following in it and save it in the same folder with the uncompressed kddcup data file:
     <pre class="language-txt"><code class="language-txt code-toolbar">duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,hot,num_failed_logins,logged_in,num_compromised,root_shell,su_attempted,num_root,num_file_creations,num_shells,num_access_files,num_outbound_cmds,is_host_login,is_guest_login,count,srv_count,serror_rate,srv_serror_rate,rerror_rate,srv_rerror_rate,same_srv_rate,diff_srv_rate,srv_diff_host_rate,dst_host_count,dst_host_srv_count,dst_host_same_srv_rate,dst_host_diff_srv_rate,dst_host_same_src_port_rate,dst_host_srv_diff_host_rate,dst_host_serror_rate,dst_host_srv_serror_rate,dst_host_rerror_rate,dst_host_srv_rerror_rate,type</code></pre>
@@ -251,7 +254,6 @@ Since the dataset is larger than the maximum POST size allowed by the API, the f
 In this tutorial, [Digital Ocean Spaces](https://www.digitalocean.com/products/spaces/){:target="_blank"} is used for file storage to host the training dataset file. Nexosis API also supports files stored in AWS S3, Azure Blob, or any URL that contains a path to a CSV file or properly formatted JSON file.
 
 > For more information on Importing JSON and CSV Files, see the documentation on [Importing Data](/guides/importing-data){:target="_blank"} in the documentation to import data from other sources.
-
 1. To create a Space in Digital Ocean, create and account and login. Click `Spaces` link in the nav bar at the top.![Digital Ocean Spaces](/assets/img/tutorials/do-spaces.png){:.img-responsive}{:.p10}
 
 2. Once you are in the Spaces area, click the green `Create` button in the uppper right. Choose type a Space Name, datacenter region, and file listing permission:![DO Spaces: Create a Space](/assets/img/tutorials/do-create-a-space.png){:.img-responsive}{:.p10}
@@ -262,13 +264,22 @@ In this tutorial, [Digital Ocean Spaces](https://www.digitalocean.com/products/s
 
 5. Once the upload has completed, hover over the file and wait for the pop-up. Click the `Copy URL` button to get a public link to the training file.![DO Spaces: Get File URL](/assets/img/tutorials/do-get-url.png){:.img-responsive}{:.p10}
 
-6. The URL should look something like this:<br/> `https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv`
+6. The URL should look something like this:<br/> `https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv`<br/>
+    If using the smaller prepared dataset, the URL should look like this:<br/>
+    `https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training-small-balanced.csv`
 
 Now that the the large training dataset is in a place where it can be retrieved, the Nexosis API needs instructions to import it. To import a file from Digital Ocean Spaces, we need to send an HTTP `POST` request to `https://ml.nexosis.com/v1/imports/Url`. In the HTTP request body, the following JSON will tell the Nexosis API what URL to retrieve the data from and the name to give the dataset:
 ```json
 {
     "dataSetName": "kddcup-training", 
     "url": "https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training.csv"
+}
+```
+<b>OR</b> for the smaller file:
+```json
+{
+    "dataSetName": "kddcup-training", 
+    "url": "https://jm0nty-public.nyc3.digitaloceanspaces.com/kddcup-training-small-balanced.csv"
 }
 ```
 Here are the steps to accomplish this using the JSON above:
@@ -536,7 +547,7 @@ Now before we go and conclude this seemingly almost perfect model, it's importan
 
 The `macroAverageF1Score` metric is another very important metric to look at in a multi-class classification model. It demonstraites how well the model performs overall across all the classes in the dataset. A macro-average computes the accuracy independently for each specifc class type and then take the [harmonic mean](https://en.wikipedia.org/wiki/Harmonic_mean){:target="_blank"} - the important take-away of this metric is that it treats all classes equally, where-as the overall accuracy metric does not and thus may give you a false sense of the models ability to predict well for each and every class.  The F1 score will be between 0 and 1 - closer to one is better.
 
-> In computer science, specifically information retrieval and machine learning, the harmonic mean of the precision (true positives per predicted positive) and the recall (true positives per real positive) is often used as an aggregated performance score for the evaluation of algorithms and systems: the F-score (or F-measure).<br/>
+> "In computer science, specifically information retrieval and machine learning, the harmonic mean of the precision (true positives per predicted positive) and the recall (true positives per real positive) is often used as an aggregated performance score for the evaluation of algorithms and systems: the F-score (or F-measure)."<br/>
 **Source:** [Wikipedia](https://en.wikipedia.org/wiki/Harmonic_mean#In_other_sciences)
 
 For our model, the `macroAverageF1Score` reads 0.74561794648010693, we can round to ~0.75. A score of 1 would be perfect, and ~0.75 is decent, but not stellar.
@@ -608,7 +619,7 @@ Given the grid above, we can conclude our model is likely really good at predict
     </div>
 </div>
 
-> Read More About Confusion Matrix on our Blog by Reading [What is a Confusion Matrix](https://content.nexosis.com/blog/what-is-a-confusion-matrix){:target="_blank"} for more details.
+> Read More on our Blog by reading [What is a Confusion Matrix](https://content.nexosis.com/blog/what-is-a-confusion-matrix){:target="_blank"} and [Classification Scoring Metrics](https://content.nexosis.com/blog/classification-scoring-metrics){:target="_blank"} for more details.
 
 <h4 id="next-steps" class="jumptarget">Next steps</h4>
 
