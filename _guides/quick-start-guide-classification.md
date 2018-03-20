@@ -104,9 +104,8 @@ Once the session has been started, you should see a response similar to this:
 
 ```
 
-Here we can see that we have a `sessionId`, which we will need later on.  Also, the `status` of the session is now `requested`.  The parameters that we sent up before are also echoed back to us.  Now that we have requested a session, we can check the status to see when it completes by sending a GET with the `sessionId` we just got.
+Here we can see that we have a `sessionId`, which we will need later on.  Also, the `status` of the session is now `requested`.  The parameters that we sent up before are also echoed back to us.  Now that we have requested a session, we can check the status to see when it completes by sending a GET with the `sessionId` we just got. <a href="#" name="balance"></a>
 
-<a href="#balance"></a>
 #### A note on balance
 We can also see the `balance` parameter, which is only valid on classification sessions. This can be set when submitting a new session and defaults to `true`. A balanced dataset is one with roughly equal representation of all classes. If this does not hold then the dataset is unbalanced. A classification algorithm will tend to perform better on the classes with majority representation simply because it gets many more examples to learn from. In order to mitigate this you can request that the API "balance" (in this case a verb) the classification model. Behind the scenes the model will assign more weight to the minority classes during training. This setting will often lead to improved performance on the minority classes at the expense of reduced performance on the majority classes. There is no free lunch.
 
