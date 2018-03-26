@@ -22,7 +22,27 @@
         border: none;
     }
 </style>
-
+<script>
+    var c = Cookies.noConflict();
+    if (typeof c.get('accessToken') === 'undefined'){
+        $(".cta-loggedin").toggleClass("cta");
+        $(".cta-loggedin").toggleClass("cta");
+    } else {
+        var token = c.get("accessToken");
+        var jwt = JSON.parse(decodeURIComponent(token));
+        var identity  = jwt_decode(jwt.identity);
+        $(".cta").toggleClass("cta-loggedin");
+        $(".cta").toggleClass("cta-loggedin");
+        $("#loggedInName").html(identity.given_name + ' ' + identity.family_name);
+    }
+</script>
+ <style>
+        .cta-loggedin.login, .cta-loggedin.signup {
+            display: none;
+        }
+        .cta-loggedin.user {display: list-item;}
+        li.user {display: none;}
+    </style>
 <div class="layout-row">
     <div class="zone-header layout">
         <!-- Start Header Section -->
@@ -64,13 +84,10 @@
                                     </div>
                                 </form>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Account <b class="caret"></b></a>
-                                <ul class="dropdown-menu">                    
-                                <li><a href="https://account.nexosis.com/apiaccount/accountstatus">Overview</a></li>
-                                <li><a href="https://account.nexosis.com/apiAccount/referAFriend">Refer a friend</a></li>
-                                <li><a href="https://developers.nexosis.com/developer">API Key/Profile</a></li>
-                                <li><a href="https://developers.nexosis.com/signout">Sign Out</a></li>
+                            <li class="cta user dropdown"><a href="#" id="loggedInName" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">[name]<b class="caret"></b></a>
+                                <ul class="dropdown-menu"><li><a href="https://axon.test.nexosisdev.com/apiaccount/accountstatus">Overview</a></li>
+                                    <li><a href="https://axon.test.nexosisdev.com/apiaccount/referAFriend">Refer a friend</a></li>
+                                    <li><a href="https://axon.test.nexosisdev.com/account/logout?returnUrl=https://developers.uat.nexosisdev.com/signout">Sign Out</a></li>
                                 </ul>
                             </li>
                             <li class="cta login">
