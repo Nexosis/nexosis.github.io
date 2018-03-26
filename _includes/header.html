@@ -21,28 +21,30 @@
         margin-bottom: 0px;
         border: none;
     }
+
+    .cta-loggedin.login, .cta-loggedin.signup {
+        display: none;
+    }
+    .cta-loggedin.user {display: list-item;}
+    li.user {display: none;}
 </style>
 <script>
     var c = Cookies.noConflict();
     if (typeof c.get('accessToken') === 'undefined'){
         $(".cta-loggedin").toggleClass("cta");
         $(".cta-loggedin").toggleClass("cta");
+        console.log("not logged in.");
     } else {
+        console.log("logged in.");
         var token = c.get("accessToken");
         var jwt = JSON.parse(decodeURIComponent(token));
         var identity  = jwt_decode(jwt.identity);
         $(".cta").toggleClass("cta-loggedin");
         $(".cta").toggleClass("cta-loggedin");
+        console.log(identity.given_name + ' ' + identity.family_name);
         $("#loggedInName").html(identity.given_name + ' ' + identity.family_name);
     }
 </script>
- <style>
-        .cta-loggedin.login, .cta-loggedin.signup {
-            display: none;
-        }
-        .cta-loggedin.user {display: list-item;}
-        li.user {display: none;}
-    </style>
 <div class="layout-row">
     <div class="zone-header layout">
         <!-- Start Header Section -->
