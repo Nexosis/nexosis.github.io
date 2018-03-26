@@ -27,7 +27,8 @@
         var c = Cookies.noConflict();
         if (typeof c.get('accessToken') === 'undefined'){
             $("#loggedIn").hide();
-            $("#notloggedIn").show();
+            $("#login").show();
+            $("#signUp").show();
             console.log("not logged in.");
         } else {
             console.log("logged in.");
@@ -36,7 +37,8 @@
             var identity  = jwt_decode(jwt.identity);
             $("#loggedInName").html(identity.given_name + ' ' + identity.family_name);
             $("#loggedIn").show();
-            $("#notloggedIn").hide();
+            $("#login").hide();
+            $("#signUp").hide();
             console.log(identity.given_name + ' ' + identity.family_name);
         }
     });
@@ -88,10 +90,10 @@
                                     <li><a href="https://axon.test.nexosisdev.com/account/logout?returnUrl=https://developers.uat.nexosisdev.com/signout">Sign Out</a></li>
                                 </ul>
                             </li>
-                            <li id="notLoggedIn" class="cta login">
+                            <li id="login" class="cta login">
                                 <!--HubSpot Sign In Code --><span class="hs-cta-wrapper" id="hs-cta-wrapper-8618de55-c0ae-4517-9a44-a35785806993"><span class="hs-cta-node hs-cta-8618de55-c0ae-4517-9a44-a35785806993" id="hs-cta-8618de55-c0ae-4517-9a44-a35785806993"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a href="https://cta-redirect.hubspot.com/cta/redirect/2307117/8618de55-c0ae-4517-9a44-a35785806993" ><img class="hs-cta-img" id="hs-cta-img-8618de55-c0ae-4517-9a44-a35785806993" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/2307117/8618de55-c0ae-4517-9a44-a35785806993.png"  alt="Sign In"/></a></span><script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script><script type="text/javascript"> hbspt.cta.load(2307117, '8618de55-c0ae-4517-9a44-a35785806993', {}); </script></span><!-- end HubSpot Call-to-Action Code -->
                             </li>
-                            <li id="notLoggedIn" class="cta signup mr10" style="top:2px;">
+                            <li id="signUp" class="cta signup mr10" style="top:2px;">
                                 <!--HubSpot Sign Up Code --><span class="hs-cta-wrapper" id="hs-cta-wrapper-b497fae0-7702-452a-a603-711153bf477f"><span class="hs-cta-node hs-cta-b497fae0-7702-452a-a603-711153bf477f" id="hs-cta-b497fae0-7702-452a-a603-711153bf477f"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a href="https://cta-redirect.hubspot.com/cta/redirect/2307117/b497fae0-7702-452a-a603-711153bf477f" ><img class="hs-cta-img" id="hs-cta-img-b497fae0-7702-452a-a603-711153bf477f" style="border-width:0px;" src="https://no-cache.hubspot.com/cta/default/2307117/b497fae0-7702-452a-a603-711153bf477f.png"  alt="Sign up"/></a></span><script charset="utf-8" src="https://js.hscta.net/cta/current.js"></script><script type="text/javascript"> hbspt.cta.load(2307117, 'b497fae0-7702-452a-a603-711153bf477f', {}); </script></span><!-- end HubSpot Call-to-Action Code -->
                             </li>
                         </ul>
