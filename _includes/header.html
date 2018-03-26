@@ -29,20 +29,19 @@
     li.user {display: none;}
 </style>
 <script>
+
     var c = Cookies.noConflict();
     if (typeof c.get('accessToken') === 'undefined'){
-        $(".cta-loggedin").toggleClass("cta");
-        $(".cta-loggedin").toggleClass("cta");
         console.log("not logged in.");
     } else {
         console.log("logged in.");
         var token = c.get("accessToken");
         var jwt = JSON.parse(decodeURIComponent(token));
         var identity  = jwt_decode(jwt.identity);
-        $(".cta").toggleClass("cta-loggedin");
-        $(".cta").toggleClass("cta-loggedin");
-        console.log(identity.given_name + ' ' + identity.family_name);
         $("#loggedInName").html(identity.given_name + ' ' + identity.family_name);
+        $(".cta").removeClass("cta").addClass("cta-loggedIn")
+        $(".cta").removeClass("cta").addClass("cta-loggedIn")
+        console.log(identity.given_name + ' ' + identity.family_name);
     }
 </script>
 <div class="layout-row">
