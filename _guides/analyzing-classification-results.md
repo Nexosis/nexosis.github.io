@@ -17,16 +17,16 @@ The intent of the matrix is to map class predictions from a model against the kn
 
 In the canonical Iris example below we can see a model which gets everything right. 
 
-![confuion matrix iris](../assets/img/iris_confusionmatrix.png){:width = "500px"}
+![confuion matrix iris](../assets/img/iris_confusionmatrix.png){:width="500px"}
 
 When most (or in this case all) of the values are represented in the diagonal from left to right, then our model has done well.  Here is another example based on our CS-GO datasets where the classes are simply "1" or "0" and the model was not perfect as above.
 
-![confuion matrix csgo](../assets/img/csgo_confusionmatrix.png){:width = "500px"}
+![confuion matrix csgo](../assets/img/csgo_confusionmatrix.png){:width="800px"}
 
 In this case you can see that as we read a horizontal row for the actual value of "0" that 66 were correctly predicted to be "0", but that 23 predictions incorrectly classified a result of "1". So that's a total of 89 possible zeroes where the model missed around 26% of the time. 
 
 One more example to help solidfy what you're seeing here. In the following example a number of tweets have been classified as either having "negative", "neutral", or "positive" sentiment. Here the model is decent, but again far from perfect.
 
-![confuion matrix csgo](../assets/img/airline_confusionmatrix.png){:width = "500px"}
+![confuion matrix csgo](../assets/img/airline_confusionmatrix.png){:width="800px"}
 
 In this example you can again read across the rows and identify that the model had a hard time with "neutral" being falsely classified as "negative"; getting it wrong 105 times, or 34%. One of the other thing we can see in this matrix is that test values were overwhelmingly negative and that the model does pretty well with that dominant class; getting it right around 85% of the time.
