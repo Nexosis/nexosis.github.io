@@ -11,7 +11,7 @@ use_codestyles: true
 #### Include the gem in your gemfile and use bundler to install your dependencies.
 
 ``` Ruby
-gem 'nexosis_api', '>= 2.0.0'
+gem 'nexosis_api', '~> 2.2.0'
 ```
 > <p><a href="https://rubygems.org/gems/nexosis_api" class="btn btn-primary mr10" target="_blank"><i class="fa fa-cube mr5"></i> Gem Details</a><a href="https://github.com/Nexosis/nexosisclient-rb" class="btn btn-primary" target="_blank"><i class="fa fa-github mr5"></i> View Source</a></p>
 
@@ -32,7 +32,7 @@ In most cases you'll want to load the key as a secret or from the environment so
 Once you have the client initialized you can call again without specifying the key
 
 ``` Ruby
-balance = NexosisApi.client.get_account_balance
+quotas = NexosisApi.client.get_account_quotas
 ```
 
 ### Issues
