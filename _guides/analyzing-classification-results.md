@@ -17,7 +17,7 @@ The intent of the matrix is to map class predictions from a model against the kn
 
 In the canonical Iris example below we can see a model which gets everything right. 
 
-![confuion matrix iris](../assets/img/iris_confusionmatrix.png){:width="500px"}
+![confuion matrix iris](../assets/img/iris_confusionmatrix.png){:width="800px"}
 
 When most (or in this case all) of the values are represented in the diagonal from left to right, then our model has done well.  Here is another example based on our CS-GO datasets where the classes are simply "1" or "0" and the model was not perfect as above.
 
