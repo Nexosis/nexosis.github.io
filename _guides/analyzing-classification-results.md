@@ -13,7 +13,9 @@ order: 8
 
 A confusion matrix is a very common way to analyze the results of a classification model. While you can read in-depth about them on [Wikipedia](https://en.wikipedia.org/wiki/Confusion_matrix), let's look at a few examples of how different results could be interpreted.
 
-The intent of the matrix is to map class predictions from a model against the known correct class of the training data from a hold-out set used to test model results. We map all the class names both vertically and horizontally and then place the number predicted in each cell by comparing along the lines of "when the actual (vertical) was classA, the model predicted (horizontal) classX" for every test value. The sum of each row represents how many actual values were in the training set. The sum of each column represents the total predictions for that class. An example will make it clear.
+The intent of the matrix is to map class predictions from a model against the known correct class of the training data from a hold-out set used to test model results. 
+
+We map each expected (actual) class along the vertical axis and every predicted value along the horizontal axis. This allows us to make a row-wise comparison of each class asking ourselves "when the actual (vertical) was classA, how many times did we predict (horizontal) classX". The sum of each row represents how many actual values were in the test set. The sum of each column represents the total predictions for that class during the test run. An example will make it clear.
 
 In the canonical Iris example below we can see a model which gets everything right. 
 
