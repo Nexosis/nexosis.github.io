@@ -27,8 +27,8 @@ When most (or in this case all) of the values are represented in the diagonal fr
 
 In this case you can see that as we read a horizontal row for the actual value of "0" that 66 were correctly predicted to be "0", but that 23 predictions incorrectly classified a result of "1". So that's a total of 89 possible zeroes where the model missed around 26% of the time. 
 
-One more example to help solidfy what you're seeing here. In the following example a number of tweets have been classified as either having "negative", "neutral", or "positive" sentiment. Here the model is decent, but again far from perfect.
+Let's look at one more example to help solidify the concepts. In the following example a number of tweets have been classified as either having "negative", "neutral", or "positive" sentiment. Here the model is decent, but again far from perfect.
 
 ![confuion matrix csgo](../assets/img/airline_confusionmatrix.png){:width="800px"}
 
-In this example you can again read across the rows and identify that the model had a hard time with "neutral" being falsely classified as "negative"; getting it wrong 105 times, or 34%. One of the other thing we can see in this matrix is that test values were overwhelmingly negative and that the model does pretty well with that dominant class; getting it right around 85% of the time.
+In this example you can again read across the rows and identify that the model had a hard time with "neutral" being falsely classified as "negative"; getting it wrong 105 times, or 34%. One of the other things we see in this matrix is that test values were overwhelmingly negative and that the model does pretty well with that dominant class; getting it right around 85% of the time.
