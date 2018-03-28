@@ -35,7 +35,7 @@
             var token = c.get("accessToken");
             var jwt = JSON.parse(decodeURIComponent(token));
             var identity  = jwt_decode(jwt.identity);
-            $("#loggedInName").html(identity.given_name + ' ' + identity.family_name);
+            $("#loggedInName").html(identity.given_name + ' ' + identity.family_name + '<span class="caret"></span>');
             $("#loggedIn").show();
             $("#login").hide();
             $("#signUp").hide();
